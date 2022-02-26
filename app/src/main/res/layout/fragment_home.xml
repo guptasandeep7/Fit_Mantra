@@ -22,7 +22,7 @@
             android:gravity="center"
             android:text="@string/more_fit"
             android:textColor="@color/white"
-            android:textSize="36sp"
+            android:textSize="28sp"
             android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
 

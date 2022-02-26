@@ -20,6 +20,4 @@
         <item name="colorPrimary">@color/orange</item>
         <item name="android:statusBarColor">@color/orange</item>
     </style>
-
-    <color name="orange">#F58426</color>
 </resources>
