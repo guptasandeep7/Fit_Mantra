@@ -28,6 +28,11 @@ class FrontFragment : Fragment(), View.OnClickListener {
         binding.rightArm.setOnClickListener(this)
         binding.leftBiceps.setOnClickListener(this)
         binding.leftArm.setOnClickListener(this)
+        binding.abs.setOnClickListener(this)
+        binding.rightThigh.setOnClickListener(this)
+        binding.leftThigh.setOnClickListener(this)
+        binding.leftLeg.setOnClickListener(this)
+        binding.rightLeg.setOnClickListener(this)
 
     }
 
@@ -40,6 +45,11 @@ class FrontFragment : Fragment(), View.OnClickListener {
             R.id.right_arm -> view.setBackgroundResource(R.drawable.right_arm)
             R.id.left_biceps -> view.setBackgroundResource(R.drawable.left_biceps)
             R.id.left_arm -> view.setBackgroundResource(R.drawable.left_arm)
+            R.id.abs -> view.setBackgroundResource(R.drawable.abs)
+            R.id.right_thigh -> view.setBackgroundResource(R.drawable.right_thigh)
+            R.id.left_thigh -> view.setBackgroundResource(R.drawable.left_thigh)
+            R.id.left_leg -> view.setBackgroundResource(R.drawable.left_leg)
+            R.id.right_leg -> view.setBackgroundResource(R.drawable.right_leg)
         }
         lifecycleScope.launch {
             delay(100)
