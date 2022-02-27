@@ -33,13 +33,7 @@ class ExerciseAdapter : RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
             binding.item = address
             binding.text.text = ""
             address.text_tutorials.forEachIndexed { index, textTutorial ->
-                binding.text.append("${index+1}) ${textTutorial.text}\n\n")
-            }
-        }
-
-        init {
-            itemView.setOnClickListener {
-                listener.onItemClick(adapterPosition)
+                binding.text.append("${index + 1}) ${textTutorial.text}\n\n")
             }
         }
     }
@@ -54,6 +48,10 @@ class ExerciseAdapter : RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(addressList[position])
+
+        holder.binding.imageView2.setOnClickListener{
+            mlistner?.onItemClick(position)
+        }
     }
 
     override fun getItemCount(): Int {

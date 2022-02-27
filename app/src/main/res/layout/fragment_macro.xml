@@ -67,106 +67,61 @@
 
     <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:rowCount="2"
-        android:columnCount="2"
+        android:layout_height="300dp"
         android:layout_margin="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/calculate_btn"
-        app:layout_constraintTop_toBottomOf="@+id/calorie_layout">
+        android:columnCount="2"
+        android:rowCount="2"
+        app:layout_constraintTop_toBottomOf="@+id/calorie_layout"
+        tools:layout_editor_absoluteX="16dp">
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/first"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:cardCornerRadius="10dp"
-            android:elevation="8dp"
-            android:layout_margin="16dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
-            android:layout_rowWeight="1">
+            app:cornerRadius="10dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:text="@string/_60_25_15_high_carb"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="10dp"/>
 
-            <TextView
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:textSize="18sp"
-                android:textColor="@color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/_60_25_15_high_carb" />
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/second"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:cardCornerRadius="10dp"
-            android:elevation="8dp"
-            android:layout_margin="16dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
-            android:layout_rowWeight="1">
+            app:cornerRadius="10dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:text="@string/_50_30_20_moderate"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="10dp"/>
 
-            <TextView
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:textSize="18sp"
-                android:textColor="@color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/_50_30_20_moderate" />
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/third"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:cardCornerRadius="10dp"
-            android:elevation="8dp"
-            android:layout_margin="16dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
-            android:layout_rowWeight="1">
+            app:cornerRadius="10dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:text="@string/_40_30_30_zone_diet"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="10dp"/>
 
-            <TextView
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:textSize="18sp"
-                android:textColor="@color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/_40_30_30_zone_diet" />
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/fourth"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:cardCornerRadius="10dp"
-            android:elevation="8dp"
-            android:layout_margin="16dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
-            android:layout_rowWeight="1">
-
-            <TextView
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:textSize="18sp"
-                android:textColor="@color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/_25_45_30_low_carb" />
-        </androidx.cardview.widget.CardView>
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:text="@string/_25_45_30_low_carb"
+            android:layout_margin="16dp"
+            app:cornerRadius="10dp"
+            app:cardCornerRadius="10dp"/>
 
     </GridLayout>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/calculate_btn"
-        android:layout_width="0dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/calculate"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        app:cornerRadius="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

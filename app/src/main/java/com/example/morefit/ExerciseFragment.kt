@@ -1,5 +1,7 @@
 package com.example.morefit
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -35,7 +37,10 @@ class ExerciseFragment : Fragment(), View.OnClickListener {
 
         exerciseAdapter.setOnItemClickListener(object : ExerciseAdapter.onItemClickListener {
             override fun onItemClick(position: Int) {
-
+                val url = exerciseAdapter.addressList[position].video_tutorials[0]
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.data = Uri.parse(url)
+                startActivity(intent)
             }
         })
     }
