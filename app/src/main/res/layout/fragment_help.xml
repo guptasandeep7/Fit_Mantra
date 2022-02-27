@@ -1,14 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".setting.HelpFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+        <ImageButton
+            android:id="@+id/back_btn"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start|center"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:backgroundTint="@color/orange"
+            android:src="@drawable/ic_back"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="11dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/help"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/the_app_is_easy_to_use_and_clutter_free_to_use_all_the_features_of_the_apps_here_is_a_comprehensive_list_of_feature_with_instruction_on_how_to_use_it_n_nto_use_interactive_human_muscle_2d_diagram_n_1_select_the_muscle_which_you_want_information_about_n_2_a_page_will_open_with_the_exercises_n_3_you_can_filter_the_exercises_further_on_the_basis_of_categories_n_n_to_use_bmi_calculator_n_1_enter_the_height_m2_and_weight_kg_to_get_the_bmi_n_2_the_app_will_calculate_the_bmi_n_n_to_use_macro_calculator_n_1_select_from_the_different_diet_profile_in_terms_of_carbohydrate_protein_fat_n_2_enter_the_approximate_amount_of_calories_you_will_eat_in_a_day_n_3_the_app_will_provide_the_macro_breakdown_of_your_diet_n_n_to_use_calorie_intake_calculator_n_1_enter_the_details_asked_in_the_calculator_n_2_the_app_will_provide_the_maintenance_calorie_that_one_would_need_to_maintain_his_her_weight"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.morefit.databinding.FragmentAboutBinding
 
 class AboutFragment : Fragment() {
@@ -17,6 +18,9 @@ class AboutFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentAboutBinding.inflate(inflater, container, false)
+        binding.backBtn.setOnClickListener {
+            findNavController().navigateUp()
+        }
         return binding.root
     }
 

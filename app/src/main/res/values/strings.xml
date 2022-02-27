@@ -21,6 +21,14 @@
     <string name="your_would_have_consume">Your would have consume</string>
     <string name="calorie">Calorie</string>
     <string name="your_bmi_is">Your BMI is</string>
+    <string name="the_app_is_easy_to_use_and_clutter_free_to_use_all_the_features_of_the_apps_here_is_a_comprehensive_list_of_feature_with_instruction_on_how_to_use_it_n_nto_use_interactive_human_muscle_2d_diagram_n_1_select_the_muscle_which_you_want_information_about_n_2_a_page_will_open_with_the_exercises_n_3_you_can_filter_the_exercises_further_on_the_basis_of_categories_n_n_to_use_bmi_calculator_n_1_enter_the_height_m2_and_weight_kg_to_get_the_bmi_n_2_the_app_will_calculate_the_bmi_n_n_to_use_macro_calculator_n_1_select_from_the_different_diet_profile_in_terms_of_carbohydrate_protein_fat_n_2_enter_the_approximate_amount_of_calories_you_will_eat_in_a_day_n_3_the_app_will_provide_the_macro_breakdown_of_your_diet_n_n_to_use_calorie_intake_calculator_n_1_enter_the_details_asked_in_the_calculator_n_2_the_app_will_provide_the_maintenance_calorie_that_one_would_need_to_maintain_his_her_weight">The app is easy-to-use and clutter free. To use all the features of the apps. Here is a comprehensive list of feature with instruction on how to use it. \n\n<b>To use Interactive Human Muscle 2D Diagram:</b>\n 1. Select the muscle which you want information about.\n 2. A page will open with the exercises.\n 3. You can filter the exercises further on the basis of categories.\n\n <b>To use BMI Calculator:</b>\n 1. Enter the height (m2) and weight (kg) to get the BMI.\n 2. The app will calculate the BMI\n\n <b>To use Macro Calculator:</b>\n 1. Select from the different diet profile in terms of (Carbohydrate, Protein, Fat).\n 2. Enter the approximate amount of Calories you will eat in a day.\n 3. The app will provide the Macro breakdown of your diet.\n\n <b>To use Calorie Intake Calculator:</b>\n 1. Enter the details asked in the Calculator.\n 2. The app will provide the maintenance calorie that one would need to maintain his/her weight.</string>
+    <string name="about_text">MoreFit is a app made by Sandeep Gupta and Suyash Singh to help people in their fitness journey. The app provides a Interactive <b>Human Muscle 2D Diagram </b>where the user can click a muscle to get the exercises and stretches.
+The app also includes BMI Calculator, Macro Calculator and Calorie Intake Calculator for the person. In the future we would like to implement AI to check the exercise’s form of the user.</string>
+    <string name="enter_calorie">Enter Calorie</string>
+    <string name="_60_25_15_high_carb">60/25/15\n(High Carb)</string>
+    <string name="_50_30_20_moderate">50/30/20\n(Moderate)</string>
+    <string name="_40_30_30_zone_diet">40/30/30\n(Zone Diet)</string>
+    <string name="_25_45_30_low_carb">25/45/30\n(Low Carb)</string>
     <string-array name="category_array">
         <item>Little or no exercise</item>
         <item>Little exercise/sports 1\-3 days/week</item>

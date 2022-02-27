@@ -8,10 +8,16 @@ import androidx.fragment.app.Fragment
 import com.example.morefit.databinding.FragmentCalorieBinding
 import com.example.morefit.databinding.FragmentMacroBinding
 
-class MacroFragment : Fragment() {
+class MacroFragment : Fragment(),View.OnClickListener{
 
     private var _binding: FragmentMacroBinding? = null
     private val binding get() = _binding!!
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,5 +30,9 @@ class MacroFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onClick(view: View?) {
+        TODO("Not yet implemented")
     }
 }
