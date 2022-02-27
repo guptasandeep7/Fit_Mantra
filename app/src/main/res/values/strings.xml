@@ -11,4 +11,7 @@
     <string name="help">Help</string>
     <string name="about">About</string>
     <string name="exit">Exit</string>
+    <string name="calculate">Calculate</string>
+    <string name="enter_weight_in_kg">Enter weight (in kg)</string>
+    <string name="enter_height_in_m">Enter height (in m)</string>
 </resources>

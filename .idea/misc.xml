@@ -4,16 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/drawable/ic_back.xml" value="0.2385" />
+        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/drawable/ic_back_black.xml" value="0.2385" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/drawable/ic_splash_screen.xml" value="0.2385" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/drawable/splash_background.xml" value="0.2385" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/cal_option.xml" value="0.4438860971524288" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_about.xml" value="0.23229166666666667" />
-        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_back.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_back.xml" value="0.264" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_bmi.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_calorie.xml" value="0.23229166666666667" />
-        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_exercise.xml" value="0.5494736842105263" />
-        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_front.xml" value="0.2761609907120743" />
+        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_exercise.xml" value="0.463743676222597" />
+        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_front.xml" value="0.8675078864353313" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_help.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_home.xml" value="0.16" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_macro.xml" value="0.23229166666666667" />
@@ -31,7 +32,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.1" />
+        <option name="scale" value="1.0" />
       </ProjectState>
     </option>
   </component>
