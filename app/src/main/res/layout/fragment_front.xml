@@ -172,7 +172,6 @@
         android:id="@+id/right_leg"
         android:layout_width="48dp"
         android:layout_height="131dp"
-        android:background="@drawable/right_leg"
         android:clickable="true"
         android:focusable="true"
         app:layout_constraintBottom_toBottomOf="@id/imageView"
