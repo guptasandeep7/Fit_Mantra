@@ -22,7 +22,7 @@ class BmiFragment : Fragment() {
             helper()
             if (isValid()) {
                 val weight = binding.weight.text.toString().toDouble()
-                val height = binding.height.text.toString().toDouble()
+                val height = binding.height.text.toString().toDouble()/100
                 val bmi = weight / height.pow(2.0)
                 binding.bmi.text = "Your BMI is \n${floor(bmi)}"
             }

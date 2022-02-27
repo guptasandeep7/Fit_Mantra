@@ -14,4 +14,16 @@
     <string name="calculate">Calculate</string>
     <string name="enter_weight_in_kg">Enter weight (in kg)</string>
     <string name="enter_height_in_m">Enter height (in m)</string>
+    <string name="enter_height_in_cm">Enter height ( in cm )</string>
+    <string name="enter_age">Enter age</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string-array name="category_array">
+        <item>Little or no exercise</item>
+        <item>Little exercise/sports 1\-3 days/week</item>
+        <item>Medium exercise/sport 3\-5 days/week</item>
+        <item>High exercise/sport 6\-7 days/week</item>
+        <item>Intense exercise/sports, physical job or twice/day training</item>
+    </string-array>
+
 </resources>
