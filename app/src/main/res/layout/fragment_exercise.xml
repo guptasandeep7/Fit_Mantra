@@ -19,14 +19,15 @@
             android:id="@+id/back_btn"
             android:layout_width="56dp"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_back"
-            android:background="?attr/selectableItemBackgroundBorderless"
             android:layout_gravity="start|center"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:backgroundTint="@color/orange"
+            android:src="@drawable/ic_back"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="11dp" />
 
         <TextView
+            android:id="@+id/toolbar_text"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -37,6 +38,61 @@
             android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
 
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            app:singleLine="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/stretches"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/stretches" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/bodyweight"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bodyweight" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/barbell"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/barbell" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/dumbbells"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dumbbells" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/kettlebells"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/kettlebells" />
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/products_recyclerView"
         android:layout_width="0dp"
@@ -46,7 +102,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
         app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/exercise_item" />
 

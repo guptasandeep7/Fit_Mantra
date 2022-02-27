@@ -29,6 +29,11 @@ The app also includes BMI Calculator, Macro Calculator and Calorie Intake Calcul
     <string name="_50_30_20_moderate">50/30/20\n(Moderate)</string>
     <string name="_40_30_30_zone_diet">40/30/30\n(Zone Diet)</string>
     <string name="_25_45_30_low_carb">25/45/30\n(Low Carb)</string>
+    <string name="stretches">Stretches</string>
+    <string name="bodyweight">Bodyweight</string>
+    <string name="barbell">Barbell</string>
+    <string name="dumbbells">Dumbbells</string>
+    <string name="kettlebells">Kettlebells</string>
     <string-array name="category_array">
         <item>Little or no exercise</item>
         <item>Little exercise/sports 1\-3 days/week</item>

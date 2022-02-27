@@ -12,6 +12,7 @@ class ExerciseAdapter : RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
 
     var addressList = mutableListOf<Data>()
     fun updateAddressList(category: List<Data>) {
+        addressList.clear()
         this.addressList = category.toMutableList()
         notifyDataSetChanged()
     }
