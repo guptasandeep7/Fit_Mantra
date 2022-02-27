@@ -18,6 +18,9 @@
     <string name="enter_age">Enter age</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
+    <string name="your_would_have_consume">Your would have consume</string>
+    <string name="calorie">Calorie</string>
+    <string name="your_bmi_is">Your BMI is</string>
     <string-array name="category_array">
         <item>Little or no exercise</item>
         <item>Little exercise/sports 1\-3 days/week</item>

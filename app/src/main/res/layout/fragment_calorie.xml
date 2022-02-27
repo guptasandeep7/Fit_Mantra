@@ -154,9 +154,9 @@
         android:id="@+id/category"
         android:layout_width="0dp"
         android:layout_height="56dp"
-        android:layout_marginStart="22dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="22dp"
+        android:layout_marginEnd="16dp"
         android:dropDownWidth="wrap_content"
         android:paddingHorizontal="28dp"
         android:spinnerMode="dropdown"
@@ -188,10 +188,9 @@
         android:layout_marginTop="36dp"
         android:textSize="24sp"
         android:gravity="center_horizontal"
-        android:textColor="@color/black"
+        android:textColor="#494646"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calculate_btn" />
-    
 
 </androidx.constraintlayout.widget.ConstraintLayout>

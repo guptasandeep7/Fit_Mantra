@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
 import com.example.morefit.databinding.FragmentFrontBinding
+import com.example.morefit.home.HomeFragment.Companion.muscleName
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -37,19 +38,56 @@ class FrontFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(view: View?) {
-        when (view?.id) {
-            R.id.chest -> view.setBackgroundResource(R.drawable.chest_red)
-            R.id.right_shoulder -> view.setBackgroundResource(R.drawable.right_shoulder)
-            R.id.left_shoulder -> view.setBackgroundResource(R.drawable.left_shoulder)
-            R.id.right_biceps -> view.setBackgroundResource(R.drawable.right_biceps)
-            R.id.right_arm -> view.setBackgroundResource(R.drawable.right_arm)
-            R.id.left_biceps -> view.setBackgroundResource(R.drawable.left_biceps)
-            R.id.left_arm -> view.setBackgroundResource(R.drawable.left_arm)
-            R.id.abs -> view.setBackgroundResource(R.drawable.abs)
-            R.id.right_thigh -> view.setBackgroundResource(R.drawable.right_thigh)
-            R.id.left_thigh -> view.setBackgroundResource(R.drawable.left_thigh)
-            R.id.left_leg -> view.setBackgroundResource(R.drawable.left_leg)
-            R.id.right_leg -> view.setBackgroundResource(R.drawable.right_leg)
+        muscleName = when (view?.id) {
+            R.id.chest -> {
+                view.setBackgroundResource(R.drawable.chest_red)
+                "Chest"
+            }
+            R.id.right_shoulder -> {
+                view.setBackgroundResource(R.drawable.right_shoulder)
+                "Shoulders"
+            }
+            R.id.left_shoulder -> {
+                view.setBackgroundResource(R.drawable.left_shoulder)
+                "Shoulders"
+            }
+            R.id.right_biceps -> {
+                view.setBackgroundResource(R.drawable.right_biceps)
+                "Biceps"
+            }
+            R.id.right_arm -> {
+                view.setBackgroundResource(R.drawable.right_arm)
+                "Forearms"
+            }
+            R.id.left_biceps -> {
+                view.setBackgroundResource(R.drawable.left_biceps)
+                "Biceps"
+            }
+            R.id.left_arm -> {
+                view.setBackgroundResource(R.drawable.left_arm)
+                "Forearms"
+            }
+            R.id.abs -> {
+                view.setBackgroundResource(R.drawable.abs)
+                "Abdominals"
+            }
+            R.id.right_thigh -> {
+                view.setBackgroundResource(R.drawable.right_thigh)
+                "Quads"
+            }
+            R.id.left_thigh -> {
+                view.setBackgroundResource(R.drawable.left_thigh)
+                "Quads"
+            }
+            R.id.left_leg -> {
+                view.setBackgroundResource(R.drawable.left_leg)
+                "Calves"
+            }
+            R.id.right_leg -> {
+                view.setBackgroundResource(R.drawable.right_leg)
+                "Calves"
+            }
+            else -> {"Chest"}
         }
         lifecycleScope.launch {
             delay(100)

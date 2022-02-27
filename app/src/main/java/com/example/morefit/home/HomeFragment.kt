@@ -17,6 +17,9 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    companion object{
+        lateinit var muscleName:String
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -1,11 +1,14 @@
 package com.example.morefit.cal
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.morefit.R
 import com.example.morefit.databinding.FragmentBmiBinding
 import kotlin.math.floor
 import kotlin.math.pow
@@ -24,11 +27,21 @@ class BmiFragment : Fragment() {
                 val weight = binding.weight.text.toString().toDouble()
                 val height = binding.height.text.toString().toDouble()/100
                 val bmi = weight / height.pow(2.0)
-                binding.bmi.text = "Your BMI is \n${floor(bmi)}"
+                bmiDialog(bmi.toInt())
             }
         }
 
         binding.backBtn.setOnClickListener { findNavController().navigateUp() }
+    }
+
+    private fun bmiDialog(cal:Int){
+        val dialog = Dialog(requireContext())
+        val layout = layoutInflater.inflate(R.layout.dialog_bmi, null)
+        dialog.setContentView(layout)
+        dialog.setCancelable(true)
+        val calorie = layout.findViewById<TextView>(R.id.bmi)
+        calorie.text = cal.toString()
+        dialog.show()
     }
 
     private fun helper() {

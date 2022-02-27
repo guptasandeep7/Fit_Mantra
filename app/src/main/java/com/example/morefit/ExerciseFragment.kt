@@ -4,19 +4,49 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.morefit.adapter.ExerciseAdapter
 import com.example.morefit.databinding.FragmentExerciseBinding
+import com.example.morefit.home.HomeFragment.Companion.muscleName
+import com.example.morefit.model.AllData
+import com.example.morefit.model.Data
+import com.google.gson.Gson
 
-class ExerciseFragment : Fragment(),View.OnClickListener{
+class ExerciseFragment : Fragment(), View.OnClickListener {
 
     private var _binding: FragmentExerciseBinding? = null
     private val binding get() = _binding!!
+    private val exerciseAdapter = ExerciseAdapter()
+    lateinit var data:List<Data>
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.backBtn.setOnClickListener(this)
+
+        loadData()
+
+        exerciseAdapter.setOnItemClickListener(object : ExerciseAdapter.onItemClickListener {
+            override fun onItemClick(position: Int) {
+
+            }
+        })
+    }
+
+    private fun loadData() {
+        val text = requireContext().assets.open("data.json").bufferedReader().use { it.readText() }
+        val allData = Gson().fromJson(text,AllData::class.java)
+        data = allData.data.filter{
+            it.muscle == muscleName
+        }
+        binding.progressBar.visibility = View.GONE
+        binding.productsRecyclerView.adapter = exerciseAdapter
+        data.let { exerciseAdapter.updateAddressList(it) }
     }
 
     override fun onCreateView(
@@ -33,7 +63,7 @@ class ExerciseFragment : Fragment(),View.OnClickListener{
     }
 
     override fun onClick(v: View?) {
-        when(v?.id){
+        when (v?.id) {
             R.id.back_btn -> findNavController().navigateUp()
         }
     }

@@ -1,11 +1,13 @@
 package com.example.morefit.cal
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
@@ -62,13 +64,23 @@ class CalorieFragment : Fragment() {
         when (binding.radioGroup.checkedRadioButtonId) {
             R.id.male -> {
                 val bmr = ((10 * weight) + (6.25 * height) - (5 * age) + 5)*cal
-                binding.bmi.text = "Your would have consume \n${floor(bmr)}"
+                calorieDialog(bmr.toInt())
             }
             R.id.female -> {
                 val bmr = ((10 * weight) + (6.25 * height) - (5 * age) - 16)*cal
-                binding.bmi.text = "Your would have consume \n${floor(bmr)}"
+                calorieDialog(bmr.toInt())
             }
         }
+    }
+
+    private fun calorieDialog(cal:Int){
+        val dialog = Dialog(requireContext())
+        val layout = layoutInflater.inflate(R.layout.dialog_calorie, null)
+        dialog.setContentView(layout)
+        dialog.setCancelable(true)
+        val calorie = layout.findViewById<TextView>(R.id.calorie)
+        calorie.text = cal.toString()
+        dialog.show()
     }
 
     private fun helper() {
