@@ -12,11 +12,51 @@
         <action
             android:id="@+id/action_homefragment_to_exerciseFragment"
             app:destination="@id/exerciseFragment" />
+        <action
+            android:id="@+id/action_homefragment_to_macroFragment"
+            app:destination="@id/macroFragment" />
+        <action
+            android:id="@+id/action_homefragment_to_calorieFragment"
+            app:destination="@id/calorieFragment" />
+        <action
+            android:id="@+id/action_homefragment_to_bmiFragment"
+            app:destination="@id/bmiFragment" />
+        <action
+            android:id="@+id/action_homefragment_to_helpFragment"
+            app:destination="@id/helpFragment" />
+        <action
+            android:id="@+id/action_homefragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
     </fragment>
     <fragment
         android:id="@+id/exerciseFragment"
         android:name="com.example.morefit.ExerciseFragment"
         android:label="fragment_exercise"
         tools:layout="@layout/fragment_exercise" />
+    <fragment
+        android:id="@+id/macroFragment"
+        android:name="com.example.morefit.cal.MacroFragment"
+        android:label="MacroFragment"
+        tools:layout="@layout/fragment_macro"/>
+    <fragment
+        android:id="@+id/calorieFragment"
+        android:name="com.example.morefit.cal.CalorieFragment"
+        android:label="fragment_calorie"
+        tools:layout="@layout/fragment_calorie" />
+    <fragment
+        android:id="@+id/bmiFragment"
+        android:name="com.example.morefit.cal.BmiFragment"
+        android:label="fragment_bmi"
+        tools:layout="@layout/fragment_bmi" />
+    <fragment
+        android:id="@+id/helpFragment"
+        android:name="com.example.morefit.setting.HelpFragment"
+        android:label="fragment_help"
+        tools:layout="@layout/fragment_help" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.morefit.setting.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
 
 </navigation>

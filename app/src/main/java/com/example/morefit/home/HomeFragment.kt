@@ -1,15 +1,19 @@
 package com.example.morefit.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.morefit.R
 import com.example.morefit.adapter.PageAdapter
 import com.example.morefit.databinding.FragmentHomeBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.tabs.TabLayoutMediator
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), View.OnClickListener {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -35,11 +39,74 @@ class HomeFragment : Fragment() {
             }
         }.attach()
         super.onViewCreated(view, savedInstanceState)
+
+        binding.calBtn.setOnClickListener(this)
+        binding.settingBtn.setOnClickListener(this)
     }
+
+    override fun onClick(view: View?) {
+        when (view?.id) {
+            R.id.cal_btn -> bottomCal()
+            R.id.setting_btn -> bottomSetting()
+        }
+    }
+
+    private fun bottomSetting() {
+        val dialog = BottomSheetDialog(requireContext())
+        val view = layoutInflater.inflate(R.layout.setting_option, null)
+        dialog.setContentView(view)
+        dialog.setCancelable(true)
+        dialog.show()
+
+        val exitBtn = view.findViewById<MaterialButton>(R.id.exit_btn)
+        val aboutBtn = view.findViewById<MaterialButton>(R.id.about_btn)
+        val helpBtn = view.findViewById<MaterialButton>(R.id.help_btn)
+
+        helpBtn.setOnClickListener {
+            dialog.dismiss()
+            findNavController().navigate(R.id.action_homefragment_to_helpFragment)
+        }
+
+        aboutBtn.setOnClickListener {
+            dialog.dismiss()
+            findNavController().navigate(R.id.action_homefragment_to_aboutFragment)
+        }
+
+        exitBtn.setOnClickListener {
+            dialog.dismiss()
+            activity?.finish()
+        }
+
+    }
+
+    private fun bottomCal() {
+        val dialog = BottomSheetDialog(requireContext())
+        val view = layoutInflater.inflate(R.layout.cal_option, null)
+        dialog.setContentView(view)
+        dialog.setCancelable(true)
+        dialog.show()
+
+        val calorieBtn = view.findViewById<MaterialButton>(R.id.calorie_meter_btn)
+        val macroBtn = view.findViewById<MaterialButton>(R.id.macro_cal_btn)
+        val bmiCal = view.findViewById<MaterialButton>(R.id.bmi_cal_btn)
+
+        calorieBtn.setOnClickListener {
+            dialog.dismiss()
+            findNavController().navigate(R.id.action_homefragment_to_calorieFragment)
+        }
+        macroBtn.setOnClickListener {
+            dialog.dismiss()
+            findNavController().navigate(R.id.action_homefragment_to_macroFragment)
+        }
+        bmiCal.setOnClickListener {
+            dialog.dismiss()
+            findNavController().navigate(R.id.action_homefragment_to_bmiFragment)
+        }
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
 }

@@ -24,10 +24,12 @@
         android:layout_height="56dp"
         app:cornerRadius="5dp"
         android:text="@string/macro_calculator"
+        android:clickable="true"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calorie_meter_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/calorie_meter_btn"
+        android:focusable="true" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/bmi_cal_btn"

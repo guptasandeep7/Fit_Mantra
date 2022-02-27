@@ -6,7 +6,7 @@
     android:padding="16dp">
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/calorie_meter_btn"
+        android:id="@+id/help_btn"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="0dp"
         android:layout_height="56dp"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/macro_cal_btn"
+        android:id="@+id/about_btn"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="0dp"
         android:layout_height="56dp"
@@ -27,10 +27,10 @@
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calorie_meter_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/help_btn" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/bmi_cal_btn"
+        android:id="@+id/exit_btn"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="0dp"
         android:layout_height="56dp"
@@ -39,5 +39,5 @@
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/macro_cal_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/about_btn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
