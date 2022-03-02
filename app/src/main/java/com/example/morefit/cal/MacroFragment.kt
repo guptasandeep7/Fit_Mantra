@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
 import com.example.morefit.databinding.FragmentMacroBinding
 
@@ -23,6 +24,10 @@ class MacroFragment : Fragment(), View.OnClickListener {
         binding.second.setOnClickListener(this)
         binding.third.setOnClickListener(this)
         binding.fourth.setOnClickListener(this)
+
+        binding.backBtn.setOnClickListener{
+            findNavController().navigateUp()
+        }
     }
 
     override fun onCreateView(
@@ -69,24 +74,24 @@ class MacroFragment : Fragment(), View.OnClickListener {
 
         when(choice){
             1 ->{
-                carb.text = ((calorie*0.60)/4).toString()+"g"
-                protein.text = ((calorie*0.25)/4).toString()+"g"
-                fat.text = ((calorie*0.15)/4).toString()+"g"
+                carb.text = ((calorie*0.60)/4).toInt().toString()+"g"
+                protein.text = ((calorie*0.25)/4).toInt().toString()+"g"
+                fat.text = ((calorie*0.15)/4).toInt().toString()+"g"
             }
             2 ->{
-                carb.text = ((calorie*0.50)/4).toString()+"g"
-                protein.text = ((calorie*0.30)/4).toString()+"g"
-                fat.text = ((calorie*0.20)/4).toString()+"g"
+                carb.text = ((calorie*0.50)/4).toInt().toString()+"g"
+                protein.text = ((calorie*0.30)/4).toInt().toString()+"g"
+                fat.text = ((calorie*0.20)/4).toInt().toString()+"g"
             }
             3 ->{
-                carb.text = ((calorie*0.40)/4).toString()+"g"
-                protein.text = ((calorie*0.30)/4).toString()+"g"
-                fat.text = ((calorie*0.30)/4).toString()+"g"
+                carb.text = ((calorie*0.40)/4).toInt().toString()+"g"
+                protein.text = ((calorie*0.30)/4).toInt().toString()+"g"
+                fat.text = ((calorie*0.30)/4).toInt().toString()+"g"
             }
             4 ->{
-                carb.text = ((calorie*0.25)/4).toString()+"g"
-                protein.text = ((calorie*0.45)/4).toString()+"g"
-                fat.text = ((calorie*0.30)/4).toString()+"g"
+                carb.text = ((calorie*0.25)/4).toInt().toString()+"g"
+                protein.text = ((calorie*0.45)/4).toInt().toString()+"g"
+                fat.text = ((calorie*0.30)/4).toInt().toString()+"g"
             }
         }
 
