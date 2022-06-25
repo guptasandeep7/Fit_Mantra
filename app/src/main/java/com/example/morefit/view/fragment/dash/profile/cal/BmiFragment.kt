@@ -1,4 +1,4 @@
-package com.example.morefit.cal
+package com.example.morefit.view.fragment.dash.profile.cal
 
 import android.app.Dialog
 import android.os.Bundle
@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
 import com.example.morefit.databinding.FragmentBmiBinding
-import kotlin.math.floor
 import kotlin.math.pow
 
 class BmiFragment : Fragment() {

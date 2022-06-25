@@ -6,9 +6,9 @@
     app:startDestination="@id/homefragment">
     <fragment
         android:id="@+id/homefragment"
-        android:name="com.example.morefit.home.HomeFragment"
+        android:name="com.example.morefit.view.fragment.dash.gym.GymFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_gym" >
         <action
             android:id="@+id/action_homefragment_to_exerciseFragment"
             app:destination="@id/exerciseFragment" />
@@ -30,32 +30,32 @@
     </fragment>
     <fragment
         android:id="@+id/exerciseFragment"
-        android:name="com.example.morefit.ExerciseFragment"
+        android:name="com.example.morefit.view.fragment.dash.gym.ExerciseFragment"
         android:label="fragment_exercise"
         tools:layout="@layout/fragment_exercise" />
     <fragment
         android:id="@+id/macroFragment"
-        android:name="com.example.morefit.cal.MacroFragment"
+        android:name="com.example.morefit.view.fragment.dash.profile.cal.MacroFragment"
         android:label="MacroFragment"
         tools:layout="@layout/fragment_macro"/>
     <fragment
         android:id="@+id/calorieFragment"
-        android:name="com.example.morefit.cal.CalorieFragment"
+        android:name="com.example.morefit.view.fragment.dash.profile.cal.CalorieFragment"
         android:label="fragment_calorie"
         tools:layout="@layout/fragment_calorie" />
     <fragment
         android:id="@+id/bmiFragment"
-        android:name="com.example.morefit.cal.BmiFragment"
+        android:name="com.example.morefit.view.fragment.dash.profile.cal.BmiFragment"
         android:label="fragment_bmi"
         tools:layout="@layout/fragment_bmi" />
     <fragment
         android:id="@+id/helpFragment"
-        android:name="com.example.morefit.setting.HelpFragment"
+        android:name="com.example.morefit.view.fragment.dash.profile.setting.HelpFragment"
         android:label="fragment_help"
         tools:layout="@layout/fragment_help" />
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="com.example.morefit.setting.AboutFragment"
+        android:name="com.example.morefit.view.fragment.dash.profile.setting.AboutFragment"
         android:label="fragment_about"
         tools:layout="@layout/fragment_about" />
 

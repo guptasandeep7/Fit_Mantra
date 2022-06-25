@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dash_navigation"
+    app:startDestination="@id/gymFragment">
+
+    <fragment
+        android:id="@+id/gymFragment"
+        android:name="com.example.morefit.view.fragment.dash.gym.GymFragment"
+        android:label="fragment_gym"
+        tools:layout="@layout/fragment_gym" >
+        <action
+            android:id="@+id/action_gymFragment_to_exerciseFragment2"
+            app:destination="@id/exerciseFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/yogaFragment"
+        android:name="com.example.morefit.view.fragment.dash.yoga.YogaFragment"
+        android:label="fragment_yoga"
+        tools:layout="@layout/fragment_yoga" />
+    <fragment
+        android:id="@+id/dietFragment"
+        android:name="com.example.morefit.view.fragment.dash.diet.DietFragment"
+        android:label="fragment_diet"
+        tools:layout="@layout/fragment_diet" />
+    <fragment
+        android:id="@+id/exerciseFragment2"
+        android:name="com.example.morefit.view.fragment.dash.gym.ExerciseFragment"
+        android:label="fragment_exercise"
+        tools:layout="@layout/fragment_exercise" />
+</navigation>

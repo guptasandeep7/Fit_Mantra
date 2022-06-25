@@ -1,18 +1,16 @@
-package com.example.morefit.home
+package com.example.morefit.view.fragment.dash.gym.home
 
 import android.os.Bundle
 import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
 import com.example.morefit.databinding.FragmentFrontBinding
-import com.example.morefit.home.HomeFragment.Companion.muscleName
+import com.example.morefit.view.fragment.dash.gym.GymFragment.Companion.muscleName
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -99,7 +97,7 @@ class FrontFragment : Fragment(), View.OnClickListener {
             }
             lifecycleScope.launch {
                 delay(100)
-                findNavController().navigate(R.id.action_homefragment_to_exerciseFragment)
+                findNavController().navigate(R.id.action_gymFragment_to_exerciseFragment2)
             }
         }
     }

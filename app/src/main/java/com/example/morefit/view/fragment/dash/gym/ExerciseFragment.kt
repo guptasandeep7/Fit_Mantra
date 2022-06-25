@@ -1,4 +1,4 @@
-package com.example.morefit
+package com.example.morefit.view.fragment.dash.gym
 
 import android.content.Intent
 import android.net.Uri
@@ -8,9 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.morefit.R
 import com.example.morefit.adapter.ExerciseAdapter
 import com.example.morefit.databinding.FragmentExerciseBinding
-import com.example.morefit.home.HomeFragment.Companion.muscleName
+import com.example.morefit.view.fragment.dash.gym.GymFragment.Companion.muscleName
 import com.example.morefit.model.AllData
 import com.example.morefit.model.Data
 import com.google.gson.Gson

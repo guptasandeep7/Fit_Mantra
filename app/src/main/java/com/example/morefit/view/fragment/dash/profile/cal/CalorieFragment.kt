@@ -1,4 +1,4 @@
-package com.example.morefit.cal
+package com.example.morefit.view.fragment.dash.profile.cal
 
 import android.app.Dialog
 import android.os.Bundle
@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
 import com.example.morefit.databinding.FragmentCalorieBinding
-import kotlin.math.floor
 
 class CalorieFragment : Fragment() {
 

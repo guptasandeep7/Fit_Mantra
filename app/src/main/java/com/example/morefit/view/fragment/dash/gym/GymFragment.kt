@@ -1,4 +1,4 @@
-package com.example.morefit.home
+package com.example.morefit.view.fragment.dash.gym
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,24 +8,25 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
 import com.example.morefit.adapter.PageAdapter
-import com.example.morefit.databinding.FragmentHomeBinding
+import com.example.morefit.databinding.FragmentGymBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.tabs.TabLayoutMediator
 
-class HomeFragment : Fragment(), View.OnClickListener {
+class GymFragment : Fragment(), View.OnClickListener {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentGymBinding? = null
     private val binding get() = _binding!!
-    companion object{
-        lateinit var muscleName:String
+
+    companion object {
+        lateinit var muscleName: String
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentGymBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -43,14 +44,14 @@ class HomeFragment : Fragment(), View.OnClickListener {
         }.attach()
         super.onViewCreated(view, savedInstanceState)
 
-        binding.calBtn.setOnClickListener(this)
-        binding.settingBtn.setOnClickListener(this)
+//        binding.calBtn.setOnClickListener(this)
+//        binding.settingBtn.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
         when (view?.id) {
-            R.id.cal_btn -> bottomCal()
-            R.id.setting_btn -> bottomSetting()
+//            R.id.cal_btn -> bottomCal()
+//            R.id.setting_btn -> bottomSetting()
         }
     }
 

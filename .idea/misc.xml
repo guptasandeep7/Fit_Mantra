@@ -3,11 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/drawable/goals.xml" value="0.2385" />
+        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/drawable/gradient.xml" value="0.199" />
+        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/drawable/gym.xml" value="0.2375" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/drawable/ic_back.xml" value="0.2385" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/drawable/ic_back_black.xml" value="0.2385" />
+        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/drawable/ic_down_arrow.xml" value="0.2385" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/drawable/ic_splash_screen.xml" value="0.2385" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/drawable/outline.xml" value="0.2385" />
+        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/drawable/profile.xml" value="0.2375" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/drawable/splash_background.xml" value="0.2385" />
+        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/font/poppins_semibold.xml" value="0.2625" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/cal_option.xml" value="0.4438860971524288" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/dialog_bmi.xml" value="0.23229166666666667" />
@@ -20,10 +26,13 @@
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_calorie.xml" value="0.4" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_exercise.xml" value="0.176" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_front.xml" value="0.4" />
+        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_gym.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_help.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_home.xml" value="0.16" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_macro.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_yoga.xml" value="0.21822916666666667" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/setting_option.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/menu/bottom_nav_menu.xml" value="0.23125" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.23229166666666667" />
       </map>
     </option>
