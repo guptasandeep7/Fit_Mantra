@@ -6,12 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.morefit.R
+import com.google.android.material.transition.platform.MaterialFadeThrough
 
 class DietFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        exitTransition = MaterialFadeThrough()
+        enterTransition = MaterialFadeThrough()
+        reenterTransition = MaterialFadeThrough()
+        returnTransition = MaterialFadeThrough()
     }
 
     override fun onCreateView(

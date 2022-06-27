@@ -22,10 +22,12 @@ class ProfileFragment : Fragment(R.layout.fragment_profile){
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 		binding = FragmentProfileBinding.bind(view).apply {
-//			profileProgress.show()
+			profileProgress.show()
+			profileProgressLight.show()
 			historyBtn.setOnClickListener {
 				findNavController().navigate(R.id.action_profileFragment_to_pastWorkoutsFragment)
 			}
+			icBack.setOnClickListener { activity?.onBackPressed() }
 		}
 	}
 }

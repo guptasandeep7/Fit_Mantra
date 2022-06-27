@@ -23,6 +23,7 @@ class PastWorkoutsFragment : Fragment(R.layout.fragment_past_workouts), PastWork
 		super.onViewCreated(view, savedInstanceState)
 		binding = FragmentPastWorkoutsBinding.bind(view).apply {
 			workoutsRecyclerView.adapter = adapter
+			icBack.setOnClickListener { activity?.onBackPressed() }
 		}
 	}
 }

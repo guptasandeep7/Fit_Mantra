@@ -2,10 +2,12 @@ package com.example.morefit.ui.fragment.dash.gym
 
 import android.app.ActivityOptions
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
@@ -18,6 +20,7 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.transition.platform.Hold
 import com.google.android.material.transition.platform.MaterialContainerTransform
+import com.google.android.material.transition.platform.MaterialFadeThrough
 
 class GymFragment : Fragment(), View.OnClickListener {
 
@@ -26,6 +29,14 @@ class GymFragment : Fragment(), View.OnClickListener {
 
     companion object {
         lateinit var muscleName: String
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        exitTransition = MaterialFadeThrough()
+        enterTransition = MaterialFadeThrough()
+        reenterTransition = MaterialFadeThrough()
+        returnTransition = MaterialFadeThrough()
     }
 
     override fun onCreateView(
@@ -60,8 +71,9 @@ class GymFragment : Fragment(), View.OnClickListener {
 //            R.id.cal_btn -> bottomCal()
 //            R.id.setting_btn -> bottomSetting()
             R.id.user_image -> {
-//                val bundle = ActivityOptions.makeSceneTransitionAnimation(activity).toBundle()
-                startActivity(Intent(requireContext(), ProfileActivity::class.java))
+                val options = ActivityOptions.makeSceneTransitionAnimation(
+                    requireActivity(), binding.userImage, "shared_element")
+                startActivity(Intent(requireContext(), ProfileActivity::class.java), options.toBundle())
             }
         }
     }
