@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/icBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="Back Btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_back_black" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/profileProgress"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="24dp"
+        android:progress="60"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/profileImage"
+        app:layout_constraintStart_toEndOf="@+id/profileImage"
+        app:showAnimationBehavior="inward"
+        app:showDelay="600" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profileImage"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="32dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toEndOf="@+id/icBack"
+        app:layout_constraintTop_toBottomOf="@id/icBack"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.App.CircleImageView"
+        app:srcCompat="@drawable/avataar" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="Streak 🔥\n6 Days"
+        app:layout_constraintBottom_toBottomOf="@+id/profileImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.74"
+        app:layout_constraintStart_toEndOf="@+id/profileImage"
+        app:layout_constraintTop_toTopOf="@+id/profileImage" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/firstName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="David"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="@+id/icBack"
+        app:layout_constraintTop_toBottomOf="@+id/profileImage" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-28dp"
+        android:fontFamily="@font/poppins"
+        android:text="Beckham"
+        android:textColor="#C0C0C0"
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="@+id/firstName"
+        app:layout_constraintTop_toBottomOf="@+id/firstName" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/calculateTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/avenir"
+        android:text="@string/calculate"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.33"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lastName" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/calculateBtn"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="24dp"
+        app:cardBackgroundColor="#F5F5F5"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/calculateTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/calculateTxt">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingHorizontal="8dp"
+            app:srcCompat="@drawable/ic_forward" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/historyTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/avenir"
+        android:text="History"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="@+id/calculateTxt"
+        app:layout_constraintTop_toBottomOf="@+id/calculateTxt" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/historyBtn"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="24dp"
+        app:cardBackgroundColor="#F5F5F5"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/historyTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/historyTxt">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingHorizontal="8dp"
+            app:srcCompat="@drawable/ic_forward" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/extraFeaturesTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/avenir"
+        android:text="Extra Features"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="@+id/historyTxt"
+        app:layout_constraintTop_toBottomOf="@+id/historyTxt" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/extraFeaturesBtn"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="24dp"
+        app:cardBackgroundColor="#F5F5F5"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/extraFeaturesTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/extraFeaturesTxt">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingHorizontal="8dp"
+            app:srcCompat="@drawable/ic_forward" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:letterSpacing="0"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="14dp"
+        android:stateListAnimator="@null"
+        android:text="Sign Out"
+        android:textColor="@color/black"
+        app:backgroundTint="#F5F5F5"
+        app:cornerRadius="12dp"
+        app:elevation="0dp"
+        app:icon="@drawable/ic_sign_out"
+        app:iconPadding="6dp"
+        app:iconSize="24dp"
+        app:iconTint="#DC143C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/firstName" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

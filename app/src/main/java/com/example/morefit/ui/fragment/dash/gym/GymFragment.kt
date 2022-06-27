@@ -1,17 +1,23 @@
-package com.example.morefit.view.fragment.dash.gym
+package com.example.morefit.ui.fragment.dash.gym
 
+import android.app.ActivityOptions
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
 import com.example.morefit.adapter.PageAdapter
 import com.example.morefit.databinding.FragmentGymBinding
+import com.example.morefit.ui.activity.ProfileActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.android.material.transition.platform.Hold
+import com.google.android.material.transition.platform.MaterialContainerTransform
 
 class GymFragment : Fragment(), View.OnClickListener {
 
@@ -44,6 +50,7 @@ class GymFragment : Fragment(), View.OnClickListener {
         }.attach()
         super.onViewCreated(view, savedInstanceState)
 
+        binding.userImage.setOnClickListener(this)
 //        binding.calBtn.setOnClickListener(this)
 //        binding.settingBtn.setOnClickListener(this)
     }
@@ -52,6 +59,10 @@ class GymFragment : Fragment(), View.OnClickListener {
         when (view?.id) {
 //            R.id.cal_btn -> bottomCal()
 //            R.id.setting_btn -> bottomSetting()
+            R.id.user_image -> {
+//                val bundle = ActivityOptions.makeSceneTransitionAnimation(activity).toBundle()
+                startActivity(Intent(requireContext(), ProfileActivity::class.java))
+            }
         }
     }
 

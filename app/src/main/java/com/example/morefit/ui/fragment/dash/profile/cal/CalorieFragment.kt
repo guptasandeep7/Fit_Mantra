@@ -1,4 +1,4 @@
-package com.example.morefit.view.fragment.dash.profile.cal
+package com.example.morefit.ui.fragment.dash.profile.cal
 
 import android.app.Dialog
 import android.os.Bundle
