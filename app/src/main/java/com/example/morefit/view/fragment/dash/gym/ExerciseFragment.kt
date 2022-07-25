@@ -14,6 +14,7 @@ import com.example.morefit.databinding.FragmentExerciseBinding
 import com.example.morefit.view.fragment.dash.gym.GymFragment.Companion.muscleName
 import com.example.morefit.model.AllData
 import com.example.morefit.model.Data
+import com.example.morefit.view.activity.MlActivity
 import com.google.gson.Gson
 
 class ExerciseFragment : Fragment(), View.OnClickListener {
@@ -35,15 +36,24 @@ class ExerciseFragment : Fragment(), View.OnClickListener {
         binding.toolbarText.text = muscleName
 
         loadData()
-
         exerciseAdapter.setOnItemClickListener(object : ExerciseAdapter.onItemClickListener {
             override fun onItemClick(position: Int) {
-                val url = exerciseAdapter.addressList[position].video_tutorials[0]
-                val intent = Intent(Intent.ACTION_VIEW)
-                intent.data = Uri.parse(url)
+
+            }
+
+            override fun onActivityCLick(position: Int) {
+                val intent = Intent(activity,MlActivity::class.java)
                 startActivity(intent)
             }
         })
+//        exerciseAdapter.setOnItemClickListener(object : ExerciseAdapter.onItemClickListener {
+//            override fun onItemClick(position: Int) {
+//                val url = exerciseAdapter.addressList[position].video_tutorials[0]
+//                val intent = Intent(activity,PoseDetectionActivity::class.java)
+//                intent.data = Uri.parse(url)
+//                startActivity(intent)
+//            }
+//        })
     }
 
     private fun filterData(category: String) {
