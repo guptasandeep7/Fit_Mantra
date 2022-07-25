@@ -14,10 +14,12 @@ import android.view.WindowManager
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.SwitchCompat
+import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
 import com.example.morefit.R
+import com.google.android.material.card.MaterialCardView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.tensorflow.lite.examples.poseestimation.camera.CameraSource
@@ -52,6 +54,7 @@ class MlActivity : AppCompatActivity() {
     private lateinit var tvClassificationValue2: TextView
     private lateinit var tvClassificationValue3: TextView
     private lateinit var swClassification: SwitchCompat
+    private lateinit var cardview:MaterialCardView
     private lateinit var vClassificationOption: View
     private var cameraSource: CameraSource? = null
     private var isClassifyPose = false
@@ -118,6 +121,7 @@ class MlActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ml)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        cardview=findViewById(R.id.materialCardView)
         tvScore = findViewById(R.id.tvScore)
         tvFPS = findViewById(R.id.tvFps)
         spnModel = findViewById(R.id.spnModel)
@@ -182,13 +186,13 @@ class MlActivity : AppCompatActivity() {
                                 if(it[0].second<0.7)
                                 {
                                     runOnUiThread {
-                                        surfaceView.setBackgroundColor(Color.RED)
+                                        cardview.strokeColor=Color.parseColor("#FF0000")
                                     }
                                 }
                                 else
                                 {
                                     runOnUiThread {
-                                        surfaceView.setBackgroundColor(Color.TRANSPARENT)
+                                        cardview.strokeColor=Color.parseColor("#00FF00")
                                     }
                                 }
                                 tvClassificationValue1.text = getString(
