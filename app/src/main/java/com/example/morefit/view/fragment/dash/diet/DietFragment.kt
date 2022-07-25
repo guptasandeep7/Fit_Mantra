@@ -1,28 +1,37 @@
 package com.example.morefit.view.fragment.dash.diet
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
+import android.util.Log
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.example.morefit.R
 import com.example.morefit.databinding.FragmentDietBinding
+import com.example.morefit.model.WeekPlan
+import com.example.morefit.utils.Datastore
+import com.example.morefit.utils.Datastore.Companion.DIET_PLAN_KEY
+import com.example.morefit.utils.Response
+import com.example.morefit.view_models.GenerateMealPlanViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import java.util.*
+import kotlinx.coroutines.launch
 
 class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
     private lateinit var binding: FragmentDietBinding
     private val bottomSheetDialog by lazy { BottomSheetDialog(requireContext()) }
-
+    private val datastore by lazy { Datastore(requireContext()) }
+    private val generateMealPlanViewModel by lazy {
+        ViewModelProvider(this)[GenerateMealPlanViewModel::class.java]
+    }
+    companion object{
+        lateinit var Mealdata:WeekPlan
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -49,21 +58,58 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
         val autoComplete=timeFrame.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView)
         val caloryBtn=items.findViewById<MaterialButton>(R.id.enter_btn)
         val selectBtn=timeFrame.findViewById<MaterialButton>(R.id.select_btn)
+        val timeLayout=timeFrame.findViewById<TextInputLayout>(R.id.timeFrame_layout)
         val frameItems= listOf("Day","Week")
 
         caloryBtn.setOnClickListener {
+
             val cal=calory.text.toString()
             if (cal == ""){
                 calLay.helperText="Minimum calories should be 500"
             }
             else if (cal.toInt() >= 500){
+                lifecycleScope.launch {
+                    datastore.saveUserDetails("CALORIES_KEY",calory.text.toString())
+                }
                 bottomSheetDialog.setContentView(timeFrame)
-                bottomSheetDialog.show()
+//                bottomSheetDialog.show()
                 val adapter= context?.let { ArrayAdapter(it,R.layout.list_items,frameItems) }
                 autoComplete.setAdapter(adapter)
                 selectBtn.setOnClickListener{
-                    Toast.makeText(context,
-                        autoComplete.text.toString().lowercase(), Toast.LENGTH_SHORT).show()
+                    if (autoComplete.text.toString()=="")
+                    {
+                        timeLayout.helperText="Choose a Time Frame"
+                    }
+                    else{
+                        lifecycleScope.launch {
+                            datastore.saveUserDetails("TIME_FRAME_KEY",autoComplete.text.toString().lowercase())
+                            Toast.makeText(context, autoComplete.text.toString().lowercase()+ datastore.apiKey(), Toast.LENGTH_SHORT).show()
+                            Log.e("TAG", "showBottomSheet: "+autoComplete.text.toString())
+                            datastore.getUserDetails("TIME_FRAME_KEY")?.let { it1 ->
+                                generateMealPlanViewModel.submitResult(
+                                    datastore.getUserDetails("DIET_PLAN_KEY")!!,
+                                    datastore.getUserDetails("CALORIES_KEY")!!,
+                                    it1,"65bdc10ec0a435a72cb0a380dfa29c42e06eb228",datastore.apiKey())
+                            }
+                            Log.e("success", "showBottomSheet: "+"Succdesssss")
+                            generateMealPlanViewModel._mealPlanResult.observe(viewLifecycleOwner) {
+                                Log.e("success", "showBottomSheet: "+it.data)
+                                if (it is Response.Success) {
+                                    Log.e("success", "showBottomSheet: "+it.data)
+                                    Mealdata= it.data!!
+                                    Toast.makeText(context, it.data.toString(), Toast.LENGTH_SHORT).show()
+//                                    val fragmentManager = activity?.supportFragmentManager
+//                                    val fragmentTransaction = fragmentManager?.beginTransaction()
+//                                    fragmentTransaction?.replace(R.id.home, DietPlan())
+//                                    fragmentTransaction?.addToBackStack(null)
+//                                    fragmentTransaction?.commit()
+                                } else it.errorMessage?.let {
+                                    Log.e("success", "showBottomSheet: "+it)
+                                }
+                            }
+                        }
+                    }
+
                 }
             }
             else{
@@ -75,12 +121,42 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
     override fun onClick(v: View?) {
         if (v != null) {
             when(v.id){
-                R.id.GlutenFree->showBottomSheet()
-                R.id.ketogenic->showBottomSheet()
-                R.id.Vegan->showBottomSheet()
-                R.id.LactoVegetarian->showBottomSheet()
-                R.id.OvoVegetarian->showBottomSheet()
-                R.id.Whole30->showBottomSheet()
+                R.id.GlutenFree->{
+                    showBottomSheet()
+                    lifecycleScope.launch{
+                        datastore.saveUserDetails("DIET_PLAN_KEY","glutenfree")
+                    }
+                }
+                R.id.ketogenic->{
+                    showBottomSheet()
+                    lifecycleScope.launch{
+                        datastore.saveUserDetails("DIET_PLAN_KEY","ketogenic")
+                    }
+                }
+                R.id.Vegan->{
+                    showBottomSheet()
+                    lifecycleScope.launch{
+                        datastore.saveUserDetails("DIET_PLAN_KEY","vegan")
+                    }
+                }
+                R.id.LactoVegetarian->{
+                    showBottomSheet()
+                    lifecycleScope.launch{
+                        datastore.saveUserDetails("DIET_PLAN_KEY","Lacto-Vegetarian")
+                    }
+                }
+                R.id.OvoVegetarian->{
+                    showBottomSheet()
+                    lifecycleScope.launch{
+                        datastore.saveUserDetails("DIET_PLAN_KEY","Ovo-Vegetarian")
+                    }
+                }
+                R.id.Whole30->{
+                    showBottomSheet()
+                    lifecycleScope.launch{
+                        datastore.saveUserDetails("DIET_PLAN_KEY","Whole30")
+                    }
+                }
 
             }
         }
