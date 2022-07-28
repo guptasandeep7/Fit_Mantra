@@ -23,10 +23,18 @@
         android:id="@+id/dietFragment"
         android:name="com.example.morefit.view.fragment.dash.diet.DietFragment"
         android:label="fragment_diet"
-        tools:layout="@layout/fragment_diet" />
+        tools:layout="@layout/fragment_diet" >
+        <action
+            android:id="@+id/action_dietFragment_to_dietPlan"
+            app:destination="@id/dietPlan" />
+    </fragment>
     <fragment
         android:id="@+id/exerciseFragment2"
         android:name="com.example.morefit.view.fragment.dash.gym.ExerciseFragment"
         android:label="fragment_exercise"
         tools:layout="@layout/fragment_exercise" />
+    <fragment
+        android:id="@+id/dietPlan"
+        android:name="com.example.morefit.view.fragment.dash.diet.DietPlan"
+        android:label="DietPlan" />
 </navigation>

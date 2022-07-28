@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
 import com.example.morefit.databinding.FragmentDietBinding
 import com.example.morefit.model.WeekPlan
@@ -83,8 +84,6 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
                     else{
                         lifecycleScope.launch {
                             datastore.saveUserDetails("TIME_FRAME_KEY",autoComplete.text.toString().lowercase())
-                            Toast.makeText(context, autoComplete.text.toString().lowercase()+ datastore.apiKey(), Toast.LENGTH_SHORT).show()
-                            Log.e("TAG", "showBottomSheet: "+autoComplete.text.toString())
                             datastore.getUserDetails("TIME_FRAME_KEY")?.let { it1 ->
                                 generateMealPlanViewModel.submitResult(
                                     datastore.getUserDetails("DIET_PLAN_KEY")!!,
@@ -97,12 +96,9 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
                                 if (it is Response.Success) {
                                     Log.e("success", "showBottomSheet: "+it.data)
                                     Mealdata= it.data!!
+                                    bottomSheetDialog.dismiss()
                                     Toast.makeText(context, it.data.toString(), Toast.LENGTH_SHORT).show()
-//                                    val fragmentManager = activity?.supportFragmentManager
-//                                    val fragmentTransaction = fragmentManager?.beginTransaction()
-//                                    fragmentTransaction?.replace(R.id.home, DietPlan())
-//                                    fragmentTransaction?.addToBackStack(null)
-//                                    fragmentTransaction?.commit()
+                                    findNavController().navigate(R.id.action_dietFragment_to_dietPlan)
                                 } else it.errorMessage?.let {
                                     Log.e("success", "showBottomSheet: "+it)
                                 }

@@ -6,6 +6,12 @@
         <entry key="..\:/Users/HP/AndroidStudioProjects/More_Fit/app/src/main/res/drawable-v24/black_gradient.xml" value="0.184" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/More_Fit/app/src/main/res/drawable-v24/ic_horizontal_bar.xml" value="0.184" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/More_Fit/app/src/main/res/drawable-v24/rounded_dialog.xml" value="0.184" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/More_Fit/app/src/main/res/drawable/checkbox.xml" value="0.1765" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/More_Fit/app/src/main/res/drawable/gradient.xml" value="0.1765" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/More_Fit/app/src/main/res/drawable/ic_baseline_arrow_forward_ios_24.xml" value="0.1765" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/More_Fit/app/src/main/res/drawable/ic_baseline_check_circle_24.xml" value="0.1765" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/More_Fit/app/src/main/res/drawable/ic_baseline_radio_button_unchecked_24.xml" value="0.1765" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/More_Fit/app/src/main/res/drawable/orange.xml" value="0.1765" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/More_Fit/app/src/main/res/layout/cal_option.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/More_Fit/app/src/main/res/layout/dialog_bmi.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/More_Fit/app/src/main/res/layout/dialog_calorie.xml" value="0.17552083333333332" />
@@ -15,10 +21,11 @@
         <entry key="..\:/Users/HP/AndroidStudioProjects/More_Fit/app/src/main/res/layout/fragmengt_day_meal.xml" value="0.17447916666666666" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/More_Fit/app/src/main/res/layout/fragment_calorie.xml" value="0.1743659420289855" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/More_Fit/app/src/main/res/layout/fragment_diet.xml" value="0.1743659420289855" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/More_Fit/app/src/main/res/layout/fragment_diet_plan.xml" value="0.17447916666666666" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/More_Fit/app/src/main/res/layout/fragment_diet_plan.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/More_Fit/app/src/main/res/layout/fragment_exercise.xml" value="0.1" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/More_Fit/app/src/main/res/layout/fragment_gym.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/More_Fit/app/src/main/res/layout/list_items.xml" value="0.17447916666666666" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/More_Fit/app/src/main/res/menu/bottom_nav_menu.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/drawable/goals.xml" value="0.2385" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/drawable/gradient.xml" value="0.199" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/drawable/gym.xml" value="0.2375" />
