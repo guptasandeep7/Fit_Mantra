@@ -1,5 +1,6 @@
 package com.example.morefit.adapter
 
+import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -11,13 +12,18 @@ import com.example.morefit.model.Pose
 class YogaPoseRecyclerAdapter(
 	private val listener: YogaPoseInterface,
 	private val data: List<Pose>
-) : RecyclerView
-.Adapter<YogaPoseRecyclerAdapter
-.ViewHolder>() {
+) : RecyclerView.Adapter<YogaPoseRecyclerAdapter.ViewHolder>() {
+
+	private var lastClickTime = 0L
+
 	inner class ViewHolder(val binding: ItemYogaPoseBinding) :
 		RecyclerView.ViewHolder(binding.root) {
 		init {
 			binding.poseCardView.setOnClickListener {
+				if (SystemClock.elapsedRealtime() - lastClickTime < 1000) {
+					return@setOnClickListener
+				}
+				lastClickTime = SystemClock.elapsedRealtime()
 				listener.onPoseClickListener(data[adapterPosition])
 			}
 		}
@@ -34,6 +40,7 @@ class YogaPoseRecyclerAdapter(
 			poseImg.load(data[position].image_url) {
 				crossfade(true)
 				placeholder(R.drawable.ic_yoga)
+				error(R.drawable.ic_yoga)
 			}
 		}
 	}

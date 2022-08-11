@@ -24,10 +24,10 @@ class YogaFragment : Fragment(R.layout.fragment_yoga), YogaPoseInterface {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        exitTransition = MaterialFadeThrough()
-        enterTransition = MaterialFadeThrough()
-        reenterTransition = MaterialFadeThrough()
-        returnTransition = MaterialFadeThrough()
+//        exitTransition = MaterialFadeThrough()
+//        enterTransition = MaterialFadeThrough()
+//        reenterTransition = MaterialFadeThrough()
+//        returnTransition = MaterialFadeThrough()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -67,7 +67,9 @@ class ModalBottomSheet(private val yogaPoseDetail: Pose): BottomSheetDialogFragm
             yogaDescription.text = yogaPoseDetail.yoga_description
             poseImg.load(yogaPoseDetail.image_url) {
                 crossfade(true)
-                placeholder(R.drawable.yoga)
+                crossfade(300)
+                placeholder(R.drawable.ic_yoga)
+                error(R.drawable.ic_yoga)
             }
 
             var txt = ""
