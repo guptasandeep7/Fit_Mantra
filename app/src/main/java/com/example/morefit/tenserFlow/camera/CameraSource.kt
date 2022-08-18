@@ -110,7 +110,7 @@ class CameraSource(
                 yuvConverter.yuvToRgb(image, imageBitmap)
                 // Create rotated version for portrait display
                 val rotateMatrix = Matrix()
-                rotateMatrix.postRotate(90.0f)
+                rotateMatrix.postRotate(270f)
 
                 val rotatedBitmap = Bitmap.createBitmap(
                     imageBitmap, 0, 0, PREVIEW_WIDTH, PREVIEW_HEIGHT,
@@ -169,7 +169,7 @@ class CameraSource(
             // We don't use a front facing camera in this sample.
             val cameraDirection = characteristics.get(CameraCharacteristics.LENS_FACING)
             if (cameraDirection != null &&
-                cameraDirection == CameraCharacteristics.LENS_FACING_FRONT
+                cameraDirection == CameraCharacteristics.LENS_FACING_BACK
             ) {
                 continue
             }
@@ -299,7 +299,6 @@ class CameraSource(
             }
             val right: Int = left + screenWidth
             val bottom: Int = top + screenHeight
-
             canvas.drawBitmap(
                 outputBitmap, Rect(0, 0, outputBitmap.width, outputBitmap.height),
                 Rect(left, top, right, bottom), null

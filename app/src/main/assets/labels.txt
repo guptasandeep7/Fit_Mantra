@@ -1,5 +1,3 @@
-chair
-cobra
-dog
-tree
-warrior
+pushupholdcorrect
+stationary
+wrongpushuphold

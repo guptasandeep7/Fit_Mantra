@@ -15,6 +15,7 @@ import com.example.morefit.view.fragment.dash.gym.GymFragment.Companion.muscleNa
 import com.example.morefit.model.AllData
 import com.example.morefit.model.Data
 import com.example.morefit.view.activity.MlActivity
+import com.example.morefit.view.activity.RepCounterActivity
 import com.google.gson.Gson
 
 class ExerciseFragment : Fragment(), View.OnClickListener {
@@ -24,6 +25,11 @@ class ExerciseFragment : Fragment(), View.OnClickListener {
     private val exerciseAdapter = ExerciseAdapter()
     private lateinit var data: List<Data>
 
+    companion object
+    {
+        var file_Name="pushup.tflite"
+        var name =""
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.backBtn.setOnClickListener(this)
@@ -42,8 +48,19 @@ class ExerciseFragment : Fragment(), View.OnClickListener {
             }
 
             override fun onActivityCLick(position: Int) {
-                val intent = Intent(activity,MlActivity::class.java)
-                startActivity(intent)
+                //File Name here
+                name=data[position].title
+//                file_Name=data[position].file_name
+                if(true)
+                {
+                    val intent = Intent(activity,RepCounterActivity::class.java)
+                    startActivity(intent)
+                }
+               else
+                {
+                    val intent = Intent(activity,MlActivity::class.java)
+                    startActivity(intent)
+                }
             }
         })
 //        exerciseAdapter.setOnItemClickListener(object : ExerciseAdapter.onItemClickListener {

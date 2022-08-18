@@ -17,19 +17,23 @@ limitations under the License.
 package org.tensorflow.lite.examples.poseestimation.ml
 
 import android.content.Context
+import com.example.morefit.view.fragment.dash.gym.ExerciseFragment
+import com.example.morefit.view.fragment.dash.gym.ExerciseFragment.Companion.file_Name
+import com.example.morefit.view.fragment.dash.gym.GymFragment
 import org.tensorflow.lite.Interpreter
 import org.tensorflow.lite.examples.poseestimation.data.Person
 import org.tensorflow.lite.support.common.FileUtil
 
 class PoseClassifier(
     private val interpreter: Interpreter,
-    private val labels: List<String>
+    private val labels: List<String>,
+
 ) {
     private val input = interpreter.getInputTensor(0).shape()
     private val output = interpreter.getOutputTensor(0).shape()
 
     companion object {
-        private const val MODEL_FILENAME = "classifier.tflite"
+        private  var MODEL_FILENAME = file_Name
         private const val LABELS_FILENAME = "labels.txt"
         private const val CPU_NUM_THREADS = 4
 
