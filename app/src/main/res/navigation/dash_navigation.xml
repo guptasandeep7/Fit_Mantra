@@ -18,7 +18,11 @@
         android:id="@+id/yogaFragment"
         android:name="com.example.morefit.ui.fragment.dash.yoga.YogaFragment"
         android:label="fragment_yoga"
-        tools:layout="@layout/fragment_yoga" />
+        tools:layout="@layout/fragment_yoga" >
+        <action
+            android:id="@+id/action_yogaFragment_to_yogaPoseDetailsFragment"
+            app:destination="@id/yogaPoseDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/dietFragment"
         android:name="com.example.morefit.ui.fragment.dash.diet.DietFragment"
@@ -37,4 +41,12 @@
         android:id="@+id/dietPlan"
         android:name="com.example.morefit.ui.fragment.dash.diet.DietPlan"
         android:label="DietPlan" />
+    <fragment
+        android:id="@+id/yogaPoseDetailsFragment"
+        android:name="com.example.morefit.ui.fragment.dash.yoga.YogaPoseDetailsFragment"
+        android:label="YogaPoseDetailsFragment" >
+        <argument
+            android:name="yogaPose"
+            app:argType="com.example.morefit.model.Pose" />
+    </fragment>
 </navigation>

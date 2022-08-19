@@ -30,8 +30,7 @@
         android:layout_height="wrap_content"
         android:nestedScrollingEnabled="false"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:layoutAnimation="@anim/layout_animation"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="80dp"
         android:layout_marginBottom="8dp"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

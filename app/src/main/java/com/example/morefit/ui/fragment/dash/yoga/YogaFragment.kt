@@ -2,24 +2,34 @@ package com.example.morefit.ui.fragment.dash.yoga
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
+import com.example.morefit.adapter.YogaPoseInterface
+import com.example.morefit.adapter.YogaPoseRecyclerAdapter
+import com.example.morefit.databinding.FragmentYogaBinding
+import com.example.morefit.model.Pose
+import com.example.morefit.model.YogaPoses
+import com.google.gson.Gson
 
-class YogaFragment : Fragment() {
+class YogaFragment : Fragment(R.layout.fragment_yoga), YogaPoseInterface {
+    private lateinit var binding: FragmentYogaBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentYogaBinding.bind(view).apply {
+            val file = requireContext().assets.open("yoga_data.json").bufferedReader()
+                .use { it.readText() }
+            val data = Gson().fromJson(file, YogaPoses::class.java)
+            yogaRecyclerView.adapter = YogaPoseRecyclerAdapter(this@YogaFragment, data.poses)
 
+            icBack.setOnClickListener { findNavController().navigateUp() }
+        }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_yoga, container, false)
+    override fun onPoseClickListener(yogaPoseDetail: Pose) {
+        YogaFragmentDirections.actionYogaFragmentToYogaPoseDetailsFragment(yogaPoseDetail).also {
+            findNavController().navigate(it)
+        }
     }
-
 }
