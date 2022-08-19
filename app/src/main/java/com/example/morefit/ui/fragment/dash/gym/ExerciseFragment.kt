@@ -1,7 +1,6 @@
-package com.example.morefit.view.fragment.dash.gym
+package com.example.morefit.ui.fragment.dash.gym
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,11 +10,11 @@ import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
 import com.example.morefit.adapter.ExerciseAdapter
 import com.example.morefit.databinding.FragmentExerciseBinding
-import com.example.morefit.view.fragment.dash.gym.GymFragment.Companion.muscleName
+import com.example.morefit.ui.fragment.dash.gym.GymFragment.Companion.muscleName
 import com.example.morefit.model.AllData
 import com.example.morefit.model.Data
-import com.example.morefit.view.activity.MlActivity
-import com.example.morefit.view.activity.RepCounterActivity
+import com.example.morefit.ui.activity.MlActivity
+import com.example.morefit.ui.activity.RepCounterActivity
 import com.google.gson.Gson
 
 class ExerciseFragment : Fragment(), View.OnClickListener {

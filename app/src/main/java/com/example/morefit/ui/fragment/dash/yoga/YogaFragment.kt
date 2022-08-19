@@ -1,4 +1,4 @@
-package com.example.morefit.view.fragment.dash.yoga
+package com.example.morefit.ui.fragment.dash.yoga
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

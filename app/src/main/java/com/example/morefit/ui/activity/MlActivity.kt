@@ -1,4 +1,4 @@
-package com.example.morefit.view.activity
+package com.example.morefit.ui.activity
 
 import android.Manifest
 import android.app.AlertDialog
@@ -19,7 +19,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
 import com.example.morefit.R
-import com.example.morefit.view.fragment.dash.gym.ExerciseFragment
+import com.example.morefit.ui.fragment.dash.gym.ExerciseFragment
 import com.google.android.material.card.MaterialCardView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

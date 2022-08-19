@@ -1,4 +1,4 @@
-package com.example.morefit.view.fragment.dash.diet
+package com.example.morefit.ui.fragment.dash.diet
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

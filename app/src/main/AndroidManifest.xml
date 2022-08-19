@@ -15,17 +15,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MoreFit">
         <activity
-            android:name=".view.activity.RepCounterActivity"
+            android:name=".ui.activity.RepCounterActivity"
             android:exported="false" />
         <activity
-            android:name=".view.activity.MlActivity"
+            android:name=".ui.activity.MlActivity"
             android:exported="false" />
         <activity
-            android:name=".view.activity.MainActivity"
+            android:name=".ui.activity.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.activity.SplashScreen"
+            android:name=".ui.activity.SplashScreen"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">

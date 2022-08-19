@@ -1,4 +1,4 @@
-package com.example.morefit.view.fragment.dash.gym
+package com.example.morefit.ui.fragment.dash.gym
 
 import android.os.Bundle
 import android.view.LayoutInflater
