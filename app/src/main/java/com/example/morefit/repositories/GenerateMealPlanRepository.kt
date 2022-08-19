@@ -22,44 +22,6 @@ class GenerateMealPlanRepository() {
 				when {
 					response.isSuccessful ->{
 						liveData.postValue(Response.Success(response.body()!!))
-//						if (response.body()!!.week==null)
-//						WhokeMealPlan(
-//							day = response.body()!!.week.toString(),
-//							breakfastTitle = response.body().,
-//							breakfastqnty = ,
-//							breakfastCal = ,
-//							breakfastSite = ,
-//							lunchTitle = ,
-//							lunchCal = ,
-//							lunchqnty = ,
-//							lunchSite = ,
-//							dinnerTitle = ,
-//							dinnerCal = ,
-//							dinnerqnty = ,
-//							dinnerSite =
-//						)
-//						else
-//							WhokeMealPlan(
-//								day = response.body()!!.week.toString(),
-//								breakfastTitle = response.body().,
-//								breakfastqnty = ,
-//								breakfastCal = ,
-//								breakfastSite = ,
-//								lunchTitle = ,
-//								lunchCal = ,
-//								lunchqnty = ,
-//								lunchSite = ,
-//								dinnerTitle = ,
-//								dinnerCal = ,
-//								dinnerqnty = ,
-//								dinnerSite =
-//							)
-
-//						GlobalScope.launch {
-//							mealDatabase.mealDao().addMeal(WhokeMealPlan(0, listOf(Hobbies("hello"),
-//								Hobbies("sjuhd"),Hobbies
-//									("uhdh"))))
-//						}
 					}
 
 					else -> {
