@@ -47,16 +47,20 @@ class YogaFragment : Fragment(R.layout.fragment_yoga), YogaPoseInterface {
     }
 }
 
-class ModalBottomSheet(private val yogaPoseDetail: Pose): BottomSheetDialogFragment() {
+class ModalBottomSheet(private val yogaPoseDetail: Pose) : BottomSheetDialogFragment() {
     companion object {
         const val TAG = "Modal_Sheet_Dialog"
     }
-    private lateinit var bottomSheetBinding : ItemYogaPoseDetailsBinding
 
-    override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? = inflater.inflate(
-        R.layout.item_yoga_pose_details, container, false)
+    private lateinit var bottomSheetBinding: ItemYogaPoseDetailsBinding
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? = inflater.inflate(
+        R.layout.item_yoga_pose_details, container, false
+    )
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -74,7 +78,7 @@ class ModalBottomSheet(private val yogaPoseDetail: Pose): BottomSheetDialogFragm
 
             var txt = ""
             for (i in yogaPoseDetail.yoga_instruction.indices) {
-                txt += "${i+1}. ${yogaPoseDetail.yoga_instruction[i]}\n\n"
+                txt += "${i + 1}. ${yogaPoseDetail.yoga_instruction[i]}\n\n"
             }
             yogaInstruction.text = txt
         }

@@ -1,4 +1,4 @@
-package com.example.morefit.view.activity
+package com.example.morefit.ui.activity
 
 import android.Manifest
 import android.app.AlertDialog
@@ -19,7 +19,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
 import com.example.morefit.R
-import com.example.morefit.view.fragment.dash.gym.ExerciseFragment
+import com.example.morefit.ui.fragment.dash.gym.ExerciseFragment
 import com.google.android.material.card.MaterialCardView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -33,6 +33,7 @@ class MlActivity : AppCompatActivity() {
     companion object {
         private const val FRAGMENT_DIALOG = "dialog"
     }
+
     /** A [SurfaceView] for camera preview.   */
     private lateinit var surfaceView: SurfaceView
 
@@ -56,7 +57,6 @@ class MlActivity : AppCompatActivity() {
     private var wasRunning = false
 
 
-
     private lateinit var tvScore: TextView
     private lateinit var tvFPS: TextView
     private lateinit var spnDevice: Spinner
@@ -67,9 +67,10 @@ class MlActivity : AppCompatActivity() {
     private lateinit var tvClassificationValue2: TextView
     private lateinit var tvClassificationValue3: TextView
     private lateinit var swClassification: SwitchCompat
-    private lateinit var cardview:MaterialCardView
+    private lateinit var cardview: MaterialCardView
     private lateinit var vClassificationOption: View
-//    private lateinit var repcountText:TextView
+
+    //    private lateinit var repcountText:TextView
 //    lateinit var repcount : TextView
 //    var counter=0;
     private var cameraSource: CameraSource? = null
@@ -133,12 +134,13 @@ class MlActivity : AppCompatActivity() {
             isClassifyPose = isChecked
             isPoseClassifier()
         }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ml)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
-        cardview=findViewById(R.id.materialCardView1)
+        cardview = findViewById(R.id.materialCardView1)
         tvScore = findViewById(R.id.tvScore)
         tvFPS = findViewById(R.id.tvFps)
         spnModel = findViewById(R.id.spnModel)
@@ -151,8 +153,8 @@ class MlActivity : AppCompatActivity() {
         tvClassificationValue3 = findViewById(R.id.tvClassificationValue3)
         swClassification = findViewById(R.id.swPoseClassification)
         vClassificationOption = findViewById(R.id.vClassificationOption)
-        var title=findViewById<TextView>(R.id.Title1)
-        title.text=ExerciseFragment.name
+        var title = findViewById<TextView>(R.id.Title1)
+        title.text = ExerciseFragment.name
         initSpinner()
         spnModel.setSelection(modelPos)
         swClassification.setOnCheckedChangeListener(setClassificationListener)
@@ -173,7 +175,7 @@ class MlActivity : AppCompatActivity() {
         if (!isCameraPermissionGranted()) {
             requestPermission()
         }
-        cameraSource?.setClassifier( PoseClassifier.create(this))
+        cameraSource?.setClassifier(PoseClassifier.create(this))
     }
 
     private fun runTimer() {
@@ -274,24 +276,21 @@ class MlActivity : AppCompatActivity() {
                             poseLabels?.sortedByDescending { it.second }?.let {
 
 //                                Toast.makeText(this@MlActivity, it.toString(), Toast.LENGTH_SHORT).show()
-                            for(i in it) {
-                                if ("pushupholdcorrect" == i.first) {
-                                    if(i.second>=0.75)
-                                    {
-                                        running=true
-                                        runOnUiThread {
-                                            cardview.strokeColor = Color.parseColor("#00FF00")
-                                        }
-                                    }
-                                 else
-                                     {
-                                         runOnUiThread {
-                                             running=false
+                                for (i in it) {
+                                    if ("pushupholdcorrect" == i.first) {
+                                        if (i.second >= 0.75) {
+                                            running = true
+                                            runOnUiThread {
+                                                cardview.strokeColor = Color.parseColor("#00FF00")
+                                            }
+                                        } else {
+                                            runOnUiThread {
+                                                running = false
                                                 cardview.strokeColor = Color.parseColor("#FF0000")
                                             }
+                                        }
                                     }
                                 }
-                            }
                                 tvClassificationValue1.text = getString(
                                     R.string.tfe_pe_tv_classification_value,
                                     convertPoseLabels(if (it.isNotEmpty()) it[0] else null)
@@ -326,7 +325,7 @@ class MlActivity : AppCompatActivity() {
     }
 
     private fun isPoseClassifier() {
-        cameraSource?.setClassifier( PoseClassifier.create(this))
+        cameraSource?.setClassifier(PoseClassifier.create(this))
     }
 
     // Initialize spinners to let user select model/accelerator/tracker.
@@ -500,13 +499,13 @@ class MlActivity : AppCompatActivity() {
     // stop the stopwatch.
 
 
-
     // If the activity is resumed,
     // start the stopwatch
     // again if it was running previously.
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
+
     override fun onSaveInstanceState(
         savedInstanceState: Bundle
     ) {
@@ -518,6 +517,7 @@ class MlActivity : AppCompatActivity() {
         savedInstanceState
             .putBoolean("wasRunning", wasRunning)
     }
+
     fun onClickStart(view: View?) {
         running = true
     }

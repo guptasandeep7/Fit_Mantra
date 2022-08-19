@@ -17,9 +17,9 @@ limitations under the License.
 package org.tensorflow.lite.examples.poseestimation.ml
 
 import android.content.Context
-import com.example.morefit.view.fragment.dash.gym.ExerciseFragment
-import com.example.morefit.view.fragment.dash.gym.ExerciseFragment.Companion.file_Name
-import com.example.morefit.view.fragment.dash.gym.GymFragment
+import com.example.morefit.ui.fragment.dash.gym.ExerciseFragment
+import com.example.morefit.ui.fragment.dash.gym.ExerciseFragment.Companion.file_Name
+import com.example.morefit.ui.fragment.dash.gym.GymFragment
 import org.tensorflow.lite.Interpreter
 import org.tensorflow.lite.examples.poseestimation.data.Person
 import org.tensorflow.lite.support.common.FileUtil
