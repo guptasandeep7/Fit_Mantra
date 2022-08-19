@@ -42,7 +42,8 @@ class RepCounterActivity : AppCompatActivity() {
      * 3 == PoseNet model
      **/
     private var modelPos = 1
-
+    var first=0;
+    var time:Long =0
     /** Default device is CPU */
     private var device = Device.CPU
 
@@ -291,8 +292,7 @@ class RepCounterActivity : AppCompatActivity() {
                             personScore: Float?,
                             poseLabels: List<Pair<String, Float>>?
                         ) {
-                            var first=0;
-                            var time:Long =0
+
                             tvScore.text = getString(R.string.tfe_pe_tv_score, personScore ?: 0f)
                             poseLabels?.sortedByDescending { it.second }?.let {
                                 for(i in it) {
