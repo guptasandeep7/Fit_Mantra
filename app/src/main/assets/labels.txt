@@ -1,0 +1,4 @@
+correctsquat
+sitting
+stationary
+wrongsquat
