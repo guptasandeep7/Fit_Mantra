@@ -20,63 +20,69 @@ import com.google.android.material.transition.platform.MaterialFadeThrough
 import com.google.gson.Gson
 
 class YogaFragment : Fragment(R.layout.fragment_yoga), YogaPoseInterface {
-    private lateinit var binding: FragmentYogaBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+	private lateinit var binding: FragmentYogaBinding
+	
+	override fun onCreate(savedInstanceState: Bundle?) {
+		super.onCreate(savedInstanceState)
 //        exitTransition = MaterialFadeThrough()
 //        enterTransition = MaterialFadeThrough()
 //        reenterTransition = MaterialFadeThrough()
 //        returnTransition = MaterialFadeThrough()
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding = FragmentYogaBinding.bind(view).apply {
-            val file = requireContext().assets.open("yoga_data.json").bufferedReader()
-                .use { it.readText() }
-            val data = Gson().fromJson(file, YogaPoses::class.java)
-            yogaRecyclerView.adapter = YogaPoseRecyclerAdapter(this@YogaFragment, data.poses)
-
-            icBack.setOnClickListener { findNavController().navigateUp() }
-        }
-    }
-
-    override fun onPoseClickListener(yogaPoseDetail: Pose) {
-        ModalBottomSheet(yogaPoseDetail).show(parentFragmentManager, ModalBottomSheet.TAG)
-    }
+	}
+	
+	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+		super.onViewCreated(view, savedInstanceState)
+		binding = FragmentYogaBinding.bind(view).apply {
+			val file = requireContext().assets.open("yoga_data.json").bufferedReader()
+				.use { it.readText() }
+			val data = Gson().fromJson(file, YogaPoses::class.java)
+			yogaRecyclerView.adapter = YogaPoseRecyclerAdapter(this@YogaFragment, data.poses)
+			
+			icBack.setOnClickListener { findNavController().navigateUp() }
+		}
+	}
+	
+	override fun onPoseClickListener(yogaPoseDetail: Pose) {
+		YogaFragmentDirections.actionYogaFragmentToYogaPoseDetailsFragment(yogaPoseDetail).also {
+			findNavController().navigate(it)
+		}
+	}
 }
 
-class ModalBottomSheet(private val yogaPoseDetail: Pose): BottomSheetDialogFragment() {
-    companion object {
-        const val TAG = "Modal_Sheet_Dialog"
-    }
-    private lateinit var bottomSheetBinding : ItemYogaPoseDetailsBinding
-
-    override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? = inflater.inflate(
-        R.layout.item_yoga_pose_details, container, false)
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        bottomSheetBinding = ItemYogaPoseDetailsBinding.bind(view).apply {
-            icClose.setOnClickListener { dismiss() }
-            englishName.text = yogaPoseDetail.english_name + " Pose"
-            sanskritName.text = yogaPoseDetail.sanskrit_name
-            yogaDescription.text = yogaPoseDetail.yoga_description
-            poseImg.load(yogaPoseDetail.image_url) {
-                crossfade(true)
-                crossfade(300)
-                placeholder(R.drawable.ic_yoga)
-                error(R.drawable.ic_yoga)
-            }
-
-            var txt = ""
-            for (i in yogaPoseDetail.yoga_instruction.indices) {
-                txt += "${i+1}. ${yogaPoseDetail.yoga_instruction[i]}\n\n"
-            }
-            yogaInstruction.text = txt
-        }
-    }
-}
+//class ModalBottomSheet(private val yogaPoseDetail: Pose) : BottomSheetDialogFragment() {
+//	companion object {
+//		const val TAG = "Modal_Sheet_Dialog"
+//	}
+//
+//	private lateinit var bottomSheetBinding: ItemYogaPoseDetailsBinding
+//
+//	override fun onCreateView(
+//			inflater: LayoutInflater,
+//			container: ViewGroup?,
+//			savedInstanceState: Bundle?
+//	): View? = inflater.inflate(
+//		R.layout.item_yoga_pose_details, container, false
+//	)
+//
+//	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//		super.onViewCreated(view, savedInstanceState)
+//		bottomSheetBinding = ItemYogaPoseDetailsBinding.bind(view).apply {
+//			icClose.setOnClickListener { dismiss() }
+//			englishName.text = yogaPoseDetail.english_name + " Pose"
+//			sanskritName.text = yogaPoseDetail.sanskrit_name
+//			yogaDescription.text = yogaPoseDetail.yoga_description
+//			poseImg.load(yogaPoseDetail.image_url) {
+//				crossfade(true)
+//				crossfade(300)
+//				placeholder(R.drawable.ic_yoga)
+//				error(R.drawable.ic_yoga)
+//			}
+//
+//			var txt = ""
+//			for (i in yogaPoseDetail.yoga_instruction.indices) {
+//				txt += "${i + 1}. ${yogaPoseDetail.yoga_instruction[i]}\n\n"
+//			}
+//			yogaInstruction.text = txt
+//		}
+//	}
+//}

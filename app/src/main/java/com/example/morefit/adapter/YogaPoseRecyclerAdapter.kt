@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.morefit.R
+import com.example.morefit.databinding.ItemYogaPose2Binding
 import com.example.morefit.databinding.ItemYogaPoseBinding
 import com.example.morefit.model.Pose
 
@@ -16,10 +17,10 @@ class YogaPoseRecyclerAdapter(
 
 	private var lastClickTime = 0L
 
-	inner class ViewHolder(val binding: ItemYogaPoseBinding) :
+	inner class ViewHolder(val binding: ItemYogaPose2Binding) :
 		RecyclerView.ViewHolder(binding.root) {
 		init {
-			binding.poseCardView.setOnClickListener {
+			binding.exploreBtn.setOnClickListener {
 				if (SystemClock.elapsedRealtime() - lastClickTime < 1000) {
 					return@setOnClickListener
 				}
@@ -30,13 +31,13 @@ class YogaPoseRecyclerAdapter(
 	}
 
 	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
-		ViewHolder(ItemYogaPoseBinding.inflate(
+		ViewHolder(ItemYogaPose2Binding.inflate(
 			LayoutInflater.from(parent.context), parent, false))
 
 	override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 		holder.binding.apply {
 			pose.text = "${data[position].english_name} Pose"
-			description.text = data[position].yoga_description
+			sanskritPose.text = "Sanskrit \"${data[position].sanskrit_name}\""
 			poseImg.load(data[position].image_url) {
 				crossfade(true)
 				placeholder(R.drawable.ic_yoga)

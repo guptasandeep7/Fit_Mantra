@@ -12,4 +12,7 @@
     <color name="purple_tint">#30BB86FC</color>
     <color name="light_blue_tint">#30ADD8E6</color>
     <color name="grey">#4D4D4D</color>
+    <color name="txtColor">#090714</color>
+    <color name="greyTxtColor">#B1B2BA</color>
+    <color name="colorTransparent">#00000000</color>
 </resources>
