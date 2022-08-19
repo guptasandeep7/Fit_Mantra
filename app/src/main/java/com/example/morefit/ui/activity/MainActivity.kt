@@ -1,4 +1,4 @@
-package com.example.morefit.view.activity
+package com.example.morefit.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

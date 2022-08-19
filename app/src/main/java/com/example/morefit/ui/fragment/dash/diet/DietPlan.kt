@@ -1,4 +1,4 @@
-package com.example.morefit.view.fragment.dash.diet
+package com.example.morefit.ui.fragment.dash.diet
 
 import android.content.Intent
 import android.net.Uri
@@ -14,17 +14,17 @@ import com.example.morefit.R
 import com.example.morefit.databinding.FragmentDietPlanBinding
 import com.example.morefit.model.WeekMeal
 import com.example.morefit.utils.Response
-import com.example.morefit.view.fragment.dash.diet.DietFragment.Companion.breakRice
-import com.example.morefit.view.fragment.dash.diet.DietFragment.Companion.breakRoti
-import com.example.morefit.view.fragment.dash.diet.DietFragment.Companion.calorie
-import com.example.morefit.view.fragment.dash.diet.DietFragment.Companion.dinnerRice
-import com.example.morefit.view.fragment.dash.diet.DietFragment.Companion.dinnerRoti
-import com.example.morefit.view.fragment.dash.diet.DietFragment.Companion.health
-import com.example.morefit.view.fragment.dash.diet.DietFragment.Companion.lunchRice
-import com.example.morefit.view.fragment.dash.diet.DietFragment.Companion.lunchRoti
-import com.example.morefit.view.fragment.dash.diet.DietFragment.Companion.qBreak
-import com.example.morefit.view.fragment.dash.diet.DietFragment.Companion.qDinner
-import com.example.morefit.view.fragment.dash.diet.DietFragment.Companion.qLunch
+import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.breakRice
+import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.breakRoti
+import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.calorie
+import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.dinnerRice
+import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.dinnerRoti
+import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.health
+import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.lunchRice
+import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.lunchRoti
+import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.qBreak
+import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.qDinner
+import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.qLunch
 import com.example.morefit.view_models.GenerateMealPlanViewModel
 import kotlin.math.roundToInt
 

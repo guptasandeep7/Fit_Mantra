@@ -1,4 +1,4 @@
-package com.example.morefit.view.fragment.dash.gym
+package com.example.morefit.ui.fragment.dash.gym
 
 import android.content.Intent
 import android.net.Uri
@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
 import com.example.morefit.adapter.ExerciseAdapter
 import com.example.morefit.databinding.FragmentExerciseBinding
-import com.example.morefit.view.fragment.dash.gym.GymFragment.Companion.muscleName
+import com.example.morefit.ui.fragment.dash.gym.GymFragment.Companion.muscleName
 import com.example.morefit.model.AllData
 import com.example.morefit.model.Data
 import com.google.gson.Gson

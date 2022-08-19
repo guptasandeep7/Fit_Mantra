@@ -1,4 +1,4 @@
-package com.example.morefit.view.fragment.dash.gym.home
+package com.example.morefit.ui.fragment.dash.gym.home
 
 import android.os.Bundle
 import android.os.SystemClock
@@ -10,7 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
 import com.example.morefit.databinding.FragmentFrontBinding
-import com.example.morefit.view.fragment.dash.gym.GymFragment.Companion.muscleName
+import com.example.morefit.ui.fragment.dash.gym.GymFragment.Companion.muscleName
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
