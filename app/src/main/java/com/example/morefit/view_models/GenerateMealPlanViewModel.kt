@@ -5,19 +5,18 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.morefit.model.Week
-import com.example.morefit.model.WeekPlan
+import com.example.morefit.model.WeekMeal
 import com.example.morefit.repositories.GenerateMealPlanRepository
 import com.example.morefit.utils.Response
 import kotlinx.coroutines.launch
 
-class GenerateMealPlanViewModel : ViewModel() {
-	private var mealPlanResult: MutableLiveData<Response<WeekPlan>> = MutableLiveData()
-	val _mealPlanResult: LiveData<Response<WeekPlan>>
+class GenerateMealPlanViewModel() : ViewModel() {
+	private var mealPlanResult: MutableLiveData<Response<WeekMeal>> = MutableLiveData()
+	val _mealPlanResult: LiveData<Response<WeekMeal>>
 		get() = mealPlanResult
 
-	fun submitResult(diet: String, calory: String,timeFrame:String,hash:String,api:String) = viewModelScope.launch {
-		mealPlanResult = GenerateMealPlanRepository().genrateMealPlan(diet,calory,timeFrame,hash,api)
-		Log.e("data", "submitResult: "+ diet+calory+timeFrame+hash+api)
+	fun submitResult(type:String,q:String,hash:String,api:String,health:String,cuisineType:String,mealType:String,calorie:String) = viewModelScope.launch {
+		mealPlanResult = GenerateMealPlanRepository().generateMealPlan(type,q,hash,api,health,cuisineType,mealType,calorie)
+		Log.e("data", "submitResult: $type$q$hash$api$health$cuisineType$mealType$calorie")
 	}
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home"
@@ -21,140 +21,506 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_row="0" />
 
-    <androidx.gridlayout.widget.GridLayout
-        android:id="@+id/gridLayout"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:columnCount="2"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4">
 
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/GlutenFree"
-            android:layout_width="0dp"
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/gridLayout"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_margin="16dp"
-            android:minWidth="150dp"
-            android:minHeight="200dp"
-            app:cardBackgroundColor="?attr/colorPrimary"
-            app:cardCornerRadius="8dp"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1">
+            app:columnCount="2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4">
 
-            <ImageView
-                android:id="@+id/GlutenFreeImg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/gluton_free" />
 
-        </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/GlutenFree"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_margin="16dp"
+                android:minWidth="150dp"
+                android:minHeight="200dp"
+                app:cardBackgroundColor="?attr/colorPrimary"
+                app:cardCornerRadius="8dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/ketogenic"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="16dp"
-            android:minWidth="150dp"
-            android:minHeight="200dp"
-            app:cardBackgroundColor="?attr/colorPrimary"
-            app:cardCornerRadius="8dp"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1" >
-            <ImageView
-                android:id="@+id/ketogenicImg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/keto_diet" />
-        </androidx.cardview.widget.CardView>
+                <ImageView
+                    android:id="@+id/GlutenFreeImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/gluton_free" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/black_gradient2"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text="Gluten Free"
+                    android:textColor="@color/white" />
+            </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/Vegan"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="16dp"
-            android:minWidth="150dp"
-            android:minHeight="200dp"
-            app:cardBackgroundColor="?attr/colorPrimary"
-            app:cardCornerRadius="8dp"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1" >
-            <ImageView
-                android:id="@+id/VeganImg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/vegan2" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/ketogenic"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_margin="16dp"
+                android:minWidth="150dp"
+                android:minHeight="200dp"
+                app:cardBackgroundColor="?attr/colorPrimary"
+                app:cardCornerRadius="8dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1">
 
-        </androidx.cardview.widget.CardView>
+                <ImageView
+                    android:id="@+id/ketogenicImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/keto_diet" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/black_gradient2"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text="Keto-Friendly"
+                    android:textColor="@color/white" />
+            </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/LactoVegetarian"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="16dp"
-            android:minWidth="150dp"
-            android:minHeight="200dp"
-            app:cardBackgroundColor="?attr/colorPrimary"
-            app:cardCornerRadius="8dp"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1" >
-            <ImageView
-                android:id="@+id/LactoVegetarianImg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/lacto" />
-        </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Vegan"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_margin="16dp"
+                android:minWidth="150dp"
+                android:minHeight="200dp"
+                app:cardBackgroundColor="?attr/colorPrimary"
+                app:cardCornerRadius="8dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/OvoVegetarian"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="16dp"
-            android:minWidth="150dp"
-            android:minHeight="200dp"
-            app:cardBackgroundColor="?attr/colorPrimary"
-            app:cardCornerRadius="8dp"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1" >
-            <ImageView
-                android:id="@+id/OvoVegetarianImg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/ovo_veg" />
+                <ImageView
+                    android:id="@+id/VeganImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/vegan2" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/black_gradient2"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text="Vegan"
+                    android:textColor="@color/white" />
+            </androidx.cardview.widget.CardView>
 
-        </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Vegetarian"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_margin="16dp"
+                android:minWidth="150dp"
+                android:minHeight="200dp"
+                app:cardBackgroundColor="?attr/colorPrimary"
+                app:cardCornerRadius="8dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/Whole30"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="16dp"
-            android:minWidth="150dp"
-            android:minHeight="200dp"
-            app:cardBackgroundColor="?attr/colorPrimary"
-            app:cardCornerRadius="8dp"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1" >
-            <ImageView
-                android:id="@+id/Whole30Img"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/whole30_diet" />
-        </androidx.cardview.widget.CardView>
-    </androidx.gridlayout.widget.GridLayout>
+                <ImageView
+                    android:id="@+id/VegetarianImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/veg"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/black_gradient2"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text="Vegetarian"
+                    android:textColor="@color/white" />
+            </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/PeanutFree"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_margin="16dp"
+                android:minWidth="150dp"
+                android:minHeight="200dp"
+                app:cardBackgroundColor="?attr/colorPrimary"
+                app:cardCornerRadius="8dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1">
+
+                <ImageView
+                    android:id="@+id/PeanutFreeImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/peanut_free"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/black_gradient2"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text="Peanut Free"
+                    android:textColor="@color/white" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/FishFree"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_margin="16dp"
+                android:minWidth="150dp"
+                android:minHeight="200dp"
+                app:cardBackgroundColor="?attr/colorPrimary"
+                app:cardCornerRadius="8dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1">
+
+                <ImageView
+                    android:id="@+id/FishFreeImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/fish"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/black_gradient2"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text="Fish Free"
+                    android:textColor="@color/white" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/SugarFree"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_margin="16dp"
+                android:minWidth="150dp"
+                android:minHeight="200dp"
+                app:cardBackgroundColor="?attr/colorPrimary"
+                app:cardCornerRadius="8dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1">
+
+                <ImageView
+                    android:id="@+id/SugarFreeImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/sugar_free"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/black_gradient2"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text="Sugar Free"
+                    android:textColor="@color/white" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/DairyFree"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_margin="16dp"
+                android:minWidth="150dp"
+                android:minHeight="200dp"
+                app:cardBackgroundColor="?attr/colorPrimary"
+                app:cardCornerRadius="8dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1">
+
+                <ImageView
+                    android:id="@+id/DairyFreeImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/dairy_free"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/black_gradient2"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text="Dairy Free"
+                    android:textColor="@color/white" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/EggFree"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_margin="16dp"
+                android:minWidth="150dp"
+                android:minHeight="200dp"
+                app:cardBackgroundColor="?attr/colorPrimary"
+                app:cardCornerRadius="8dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1">
+
+                <ImageView
+                    android:id="@+id/EggFreeImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/egg_free"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/black_gradient2"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text="Egg Free"
+                    android:textColor="@color/white" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/ImmunoSupportive"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_margin="16dp"
+                android:minWidth="150dp"
+                android:minHeight="200dp"
+                app:cardBackgroundColor="?attr/colorPrimary"
+                app:cardCornerRadius="8dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1">
+
+                <ImageView
+                    android:id="@+id/ImmunoSupportiveImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/immuno"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/black_gradient2"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text="Immuno-Supportive"
+                    android:textColor="@color/white" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/KidneyFriendly"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_margin="16dp"
+                android:minWidth="150dp"
+                android:minHeight="200dp"
+                app:cardBackgroundColor="?attr/colorPrimary"
+                app:cardCornerRadius="8dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1">
+
+                <ImageView
+                    android:id="@+id/KidneyFriendlyImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/kidney"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/black_gradient2"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text="Kidney Friendly"
+                    android:textColor="@color/white" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/LowSugar"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_margin="16dp"
+                android:minWidth="150dp"
+                android:minHeight="200dp"
+                app:cardBackgroundColor="?attr/colorPrimary"
+                app:cardCornerRadius="8dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1">
+
+                <ImageView
+                    android:id="@+id/LowSugarImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/low_sugar"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/black_gradient2"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text="Low Sugar"
+                    android:textColor="@color/white" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/MustardFree"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_margin="16dp"
+                android:minWidth="150dp"
+                android:minHeight="200dp"
+                app:cardBackgroundColor="?attr/colorPrimary"
+                app:cardCornerRadius="8dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1">
+
+                <ImageView
+                    android:id="@+id/MustardFreeImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/mustard_free"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/black_gradient2"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text="Mustard Free"
+                    android:textColor="@color/white" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/NoOilAdded"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_margin="16dp"
+                android:minWidth="150dp"
+                android:minHeight="200dp"
+                app:cardBackgroundColor="?attr/colorPrimary"
+                app:cardCornerRadius="8dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1">
+
+                <ImageView
+                    android:id="@+id/NoOilAddedImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/no_oil"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/black_gradient2"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text="No Oil Added"
+                    android:textColor="@color/white" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/LowFatAbs"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_margin="16dp"
+                android:minWidth="150dp"
+                android:minHeight="200dp"
+                app:cardBackgroundColor="?attr/colorPrimary"
+                app:cardCornerRadius="8dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1">
+
+                <ImageView
+                    android:id="@+id/LowFatAbsImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/low_fat_abs"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/black_gradient2"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text="Low Fat Abs Diet"
+                    android:textColor="@color/white" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/ShellFishFree"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_margin="16dp"
+                android:minWidth="150dp"
+                android:minHeight="200dp"
+                app:cardBackgroundColor="?attr/colorPrimary"
+                app:cardCornerRadius="8dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1">
+
+                <ImageView
+                    android:id="@+id/ShellFishFreeImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/shellfish_free"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/black_gradient2"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text="Shellfish Free"
+                    android:textColor="@color/white" />
+            </androidx.cardview.widget.CardView>
+
+        </androidx.gridlayout.widget.GridLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

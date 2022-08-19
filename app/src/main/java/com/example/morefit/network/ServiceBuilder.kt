@@ -12,7 +12,7 @@ object ServiceBuilder {
     }
     fun buildService2():ApiInterface {
         return Retrofit.Builder()
-            .baseUrl("https://api.spoonacular.com/mealplanner/")
+            .baseUrl("https://api.edamam.com")
             .addConverterFactory(GsonConverterFactory.create())
             .build().create(ApiInterface::class.java)
     }

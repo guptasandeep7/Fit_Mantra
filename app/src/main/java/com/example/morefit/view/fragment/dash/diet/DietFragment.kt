@@ -1,37 +1,37 @@
 package com.example.morefit.view.fragment.dash.diet
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import android.widget.Toast
+import android.widget.Button
+import android.widget.CheckBox
+import android.widget.RadioButton
+import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
 import com.example.morefit.databinding.FragmentDietBinding
-import com.example.morefit.model.WeekPlan
-import com.example.morefit.utils.Datastore
-import com.example.morefit.utils.Datastore.Companion.DIET_PLAN_KEY
-import com.example.morefit.utils.Response
-import com.example.morefit.view_models.GenerateMealPlanViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import kotlinx.coroutines.launch
 
 class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
     private lateinit var binding: FragmentDietBinding
     private val bottomSheetDialog by lazy { BottomSheetDialog(requireContext()) }
-    private val datastore by lazy { Datastore(requireContext()) }
-    private val generateMealPlanViewModel by lazy {
-        ViewModelProvider(this)[GenerateMealPlanViewModel::class.java]
-    }
+
     companion object{
-        lateinit var Mealdata:WeekPlan
+        lateinit var qBreak:String
+        lateinit var qLunch:String
+        lateinit var qDinner:String
+        lateinit var health:String
+        lateinit var calorie:String
+        lateinit var breakRoti:String
+        lateinit var breakRice:String
+        lateinit var lunchRoti:String
+        lateinit var lunchRice:String
+        lateinit var dinnerRoti:String
+        lateinit var dinnerRice:String
+
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,73 +44,131 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
         binding.GlutenFree.setOnClickListener(this)
         binding.ketogenic.setOnClickListener(this)
         binding.Vegan.setOnClickListener(this)
-        binding.LactoVegetarian.setOnClickListener(this)
-        binding.OvoVegetarian.setOnClickListener(this)
-        binding.Whole30.setOnClickListener(this)
+        binding.Vegetarian.setOnClickListener(this)
+        binding.PeanutFree.setOnClickListener(this)
+        binding.FishFree.setOnClickListener(this)
+        binding.SugarFree.setOnClickListener(this)
+        binding.DairyFree.setOnClickListener(this)
+        binding.EggFree.setOnClickListener(this)
+        binding.ImmunoSupportive.setOnClickListener(this)
+        binding.KidneyFriendly.setOnClickListener(this)
+        binding.LowSugar.setOnClickListener(this)
+        binding.MustardFree.setOnClickListener(this)
+        binding.NoOilAdded.setOnClickListener(this)
+        binding.LowFatAbs.setOnClickListener(this)
+        binding.ShellFishFree.setOnClickListener(this)
+
+
     }
     private fun showBottomSheet(){
         val items =
             layoutInflater.inflate(R.layout.dialog_set_calories, null)
-        val timeFrame=layoutInflater.inflate(R.layout.dialog_set_time_frame, null)
         bottomSheetDialog.setContentView(items)
         bottomSheetDialog.show()
         val calory=items.findViewById<TextInputEditText>(R.id.calory)
         val calLay=items.findViewById<TextInputLayout>(R.id.calory_layout)
-        val autoComplete=timeFrame.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView)
         val caloryBtn=items.findViewById<MaterialButton>(R.id.enter_btn)
-        val selectBtn=timeFrame.findViewById<MaterialButton>(R.id.select_btn)
-        val timeLayout=timeFrame.findViewById<TextInputLayout>(R.id.timeFrame_layout)
-        val frameItems= listOf("Day","Week")
-
+        val ingredientBreak=items.findViewById<TextInputEditText>(R.id.ingredient_break)
+        val ingredientLayoutBreak=items.findViewById<TextInputLayout>(R.id.ingredient_layout_break)
+        val ingredientLunch=items.findViewById<TextInputEditText>(R.id.ingredient_lunch)
+        val ingredientLayoutLunch=items.findViewById<TextInputLayout>(R.id.ingredient_layout_lunch)
+        val ingredientDinner=items.findViewById<TextInputEditText>(R.id.ingredient_dinner)
+        val ingredientLayoutDinner=items.findViewById<TextInputLayout>(R.id.ingredient_layout_dinner)
+        val plus1=items.findViewById<Button>(R.id.plus)
+        val plus2=items.findViewById<Button>(R.id.plus2)
+        val plus3=items.findViewById<Button>(R.id.plus3)
+        val minus1=items.findViewById<Button>(R.id.minus)
+        val minus2=items.findViewById<Button>(R.id.minus2)
+        val minus3=items.findViewById<Button>(R.id.minus3)
+        val counter1=items.findViewById<TextView>(R.id.textView8)
+        val counter2=items.findViewById<TextView>(R.id.textView11)
+        val counter3=items.findViewById<TextView>(R.id.textView13)
+        val check1=items.findViewById<CheckBox>(R.id.radioBtn1)
+        val check2=items.findViewById<CheckBox>(R.id.radioBtn2)
+        val check3=items.findViewById<CheckBox>(R.id.radioBtn3)
+        var num1=0
+        var num2=0
+        var num3=0
+        plus1.setOnClickListener {
+            ++num1
+            counter1.text=num1.toString()
+        }
+        plus2.setOnClickListener {
+            ++num2
+            counter2.text=num2.toString()
+        }
+        plus3.setOnClickListener {
+            ++num3
+            counter3.text=num3.toString()
+        }
+        minus1.setOnClickListener {
+            if (num1==0){
+                num1=0
+            }else{
+                --num1
+            }
+            counter1.text=num1.toString()
+        }
+        minus2.setOnClickListener {
+            if (num2==0){
+                num2=0
+            }else{
+                --num2
+            }
+            counter2.text=num2.toString()
+        }
+        minus3.setOnClickListener {
+            if (num3==0){
+                num3=0
+            }else{
+                --num3
+            }
+            counter3.text=num3.toString()
+        }
         caloryBtn.setOnClickListener {
 
-            val cal=calory.text.toString()
-            if (cal == ""){
-                calLay.helperText="Minimum calories should be 500"
+            calorie=calory.text.toString()
+            if(calorie == ""){
+                calLay.helperText="Minimum calories should be 1000"
             }
-            else if (cal.toInt() >= 500){
-                lifecycleScope.launch {
-                    datastore.saveUserDetails("CALORIES_KEY",calory.text.toString())
-                }
-                bottomSheetDialog.setContentView(timeFrame)
-//                bottomSheetDialog.show()
-                val adapter= context?.let { ArrayAdapter(it,R.layout.list_items,frameItems) }
-                autoComplete.setAdapter(adapter)
-                selectBtn.setOnClickListener{
-                    if (autoComplete.text.toString()=="")
-                    {
-                        timeLayout.helperText="Choose a Time Frame"
-                    }
-                    else{
-                        lifecycleScope.launch {
-                            datastore.saveUserDetails("TIME_FRAME_KEY",autoComplete.text.toString().lowercase())
-                            datastore.getUserDetails("TIME_FRAME_KEY")?.let { it1 ->
-                                generateMealPlanViewModel.submitResult(
-                                    datastore.getUserDetails("DIET_PLAN_KEY")!!,
-                                    datastore.getUserDetails("CALORIES_KEY")!!,
-                                    it1,"65bdc10ec0a435a72cb0a380dfa29c42e06eb228",datastore.apiKey())
-                            }
-                            Log.e("success", "showBottomSheet: "+"Succdesssss")
-                            generateMealPlanViewModel._mealPlanResult.observe(viewLifecycleOwner) {
-                                Log.e("success", "showBottomSheet: "+it.data)
-                                if (it is Response.Success) {
-                                    Log.e("success", "showBottomSheet: "+it.data)
-                                    Mealdata= it.data!!
-                                    bottomSheetDialog.dismiss()
-                                    Toast.makeText(context, it.data.toString(), Toast.LENGTH_SHORT).show()
-                                    findNavController().navigate(R.id.action_dietFragment_to_dietPlan)
-                                } else it.errorMessage?.let {
-                                    Log.e("success", "showBottomSheet: "+it)
-                                }
-                            }
-                        }
-                    }
-
-                }
+            else if (calorie.toInt() < 1000){
+                calLay.helperText="Minimum calories should be 1000"
+            }
+            else if(ingredientBreak.text.toString() == ""){
+                ingredientLayoutBreak.helperText="Enter some ingredient for breakfast"
+            }
+            else if(ingredientLunch.text.toString() == ""){
+                ingredientLayoutLunch.helperText="Enter some ingredient for lunch"
+            }
+            else if(ingredientDinner.text.toString() == ""){
+                ingredientLayoutDinner.helperText="Enter some ingredient for dinner"
             }
             else{
-                calLay.helperText="Minimum calories should be 500"
+            var cal=(num1+num2+num3)*104
+            if (check1.isChecked){
+                cal += 136
+                breakRice="1"
             }
+                else breakRice="0"
+            if (check2.isChecked){
+                    cal += 136
+                lunchRice="1"
+            }else lunchRice="0"
+            if (check3.isChecked){
+                    cal += 13
+                dinnerRice="1"
+            }else dinnerRice="0"
+                breakRoti=num1.toString()
+                lunchRoti=num2.toString()
+                dinnerRoti=num3.toString()
+                qBreak=ingredientBreak.text.toString()
+            qLunch=ingredientLunch.text.toString()
+            qDinner=ingredientDinner.text.toString()
+            calorie=(calory.text.toString().toInt()-cal).toString()
+            bottomSheetDialog.dismiss()
+            findNavController().navigate(R.id.action_dietFragment_to_dietPlan)
+        }
+
         }
     }
 
@@ -118,40 +176,84 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
         if (v != null) {
             when(v.id){
                 R.id.GlutenFree->{
+                    health="gluten-free"
                     showBottomSheet()
-                    lifecycleScope.launch{
-                        datastore.saveUserDetails("DIET_PLAN_KEY","glutenfree")
-                    }
+
                 }
                 R.id.ketogenic->{
+                    health="keto-friendly"
                     showBottomSheet()
-                    lifecycleScope.launch{
-                        datastore.saveUserDetails("DIET_PLAN_KEY","ketogenic")
-                    }
+
                 }
                 R.id.Vegan->{
+                    health="vegan"
                     showBottomSheet()
-                    lifecycleScope.launch{
-                        datastore.saveUserDetails("DIET_PLAN_KEY","vegan")
-                    }
+
                 }
-                R.id.LactoVegetarian->{
+                R.id.Vegetarian->{
+                    health="vegetarian"
                     showBottomSheet()
-                    lifecycleScope.launch{
-                        datastore.saveUserDetails("DIET_PLAN_KEY","Lacto-Vegetarian")
-                    }
+
                 }
-                R.id.OvoVegetarian->{
+                R.id.PeanutFree->{
+                    health="peanut-free"
                     showBottomSheet()
-                    lifecycleScope.launch{
-                        datastore.saveUserDetails("DIET_PLAN_KEY","Ovo-Vegetarian")
-                    }
+
                 }
-                R.id.Whole30->{
+                R.id.FishFree->{
+                    health="fish-free"
                     showBottomSheet()
-                    lifecycleScope.launch{
-                        datastore.saveUserDetails("DIET_PLAN_KEY","Whole30")
-                    }
+
+                }
+                R.id.NoOilAdded->{
+                    health="wheat-free"
+                    showBottomSheet()
+
+                }
+                R.id.SugarFree->{
+                    health="sugar-free"
+                    showBottomSheet()
+
+                }
+                R.id.DairyFree->{
+                    health="dairy-free"
+                    showBottomSheet()
+
+                }
+                R.id.EggFree->{
+                    health="egg-free"
+                    showBottomSheet()
+
+                }
+                R.id.ImmunoSupportive->{
+                    health="immuno-supportive"
+                    showBottomSheet()
+
+                }
+                R.id.KidneyFriendly->{
+                    health="kidney-friendly"
+                    showBottomSheet()
+
+                }
+                R.id.LowSugar->{
+                    health="low-sugar"
+                    showBottomSheet()
+
+                }
+                R.id.MustardFree->{
+                    health="mustard-free"
+                    showBottomSheet()
+
+                }
+                R.id.ShellFishFree->{
+                    health="shellfish-free"
+                    showBottomSheet()
+
+                }
+                R.id.LowFatAbs->{
+                    health="low-fat-abs"
+                    showBottomSheet()
+
                 }
 
             }
