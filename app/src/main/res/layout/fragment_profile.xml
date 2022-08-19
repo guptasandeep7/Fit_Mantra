@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/icBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:contentDescription="@string/back_btn"
+        android:padding="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_back_black" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profileImage"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/black"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toEndOf="@+id/icBack"
+        app:layout_constraintStart_toStartOf="@+id/icBack"
+        app:layout_constraintTop_toBottomOf="@id/icBack"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.App.CircleImageView"
+        app:srcCompat="@drawable/avataar" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/profileProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:progress="66"
+        android:visibility="invisible"
+        app:indicatorSize="117dp"
+        app:layout_constraintBottom_toBottomOf="@+id/profileImage"
+        app:layout_constraintEnd_toEndOf="@+id/profileImage"
+        app:layout_constraintStart_toEndOf="@+id/profileImage"
+        app:layout_constraintStart_toStartOf="@+id/profileImage"
+        app:layout_constraintTop_toTopOf="@+id/profileImage"
+        app:showAnimationBehavior="inward"
+        app:showDelay="600"
+        app:trackThickness="4dp" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/profileProgressLight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:progress="66"
+        android:visibility="invisible"
+        app:indicatorColor="#E8FAEBDD"
+        app:indicatorSize="110dp"
+        app:layout_constraintBottom_toBottomOf="@+id/profileImage"
+        app:layout_constraintEnd_toEndOf="@+id/profileImage"
+        app:layout_constraintStart_toEndOf="@+id/profileImage"
+        app:layout_constraintStart_toStartOf="@+id/profileImage"
+        app:layout_constraintTop_toTopOf="@+id/profileImage"
+        app:showAnimationBehavior="inward"
+        app:showDelay="600"
+        app:trackThickness="10dp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="@string/streak_n6_days"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/profileImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.74"
+        app:layout_constraintStart_toEndOf="@+id/profileImage"
+        app:layout_constraintTop_toTopOf="@+id/profileImage" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/firstName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="David"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="@+id/icBack"
+        app:layout_constraintTop_toBottomOf="@+id/profileImage" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-28dp"
+        android:fontFamily="@font/poppins"
+        android:text="Beckham"
+        android:textColor="#C0C0C0"
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="@+id/firstName"
+        app:layout_constraintTop_toBottomOf="@+id/firstName" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/shapeableImageView"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="@color/orange_tint"
+        android:contentDescription="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/calculateTxt"
+        app:layout_constraintStart_toStartOf="@+id/lastName"
+        app:layout_constraintTop_toTopOf="@+id/calculateTxt"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.App.CircleImageView"
+        app:srcCompat="@drawable/ic_calculate" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/calculateTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/avenir"
+        android:text="@string/calculate"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.33"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lastName" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/calculateBtn"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="24dp"
+        app:cardBackgroundColor="#F5F5F5"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/calculateTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/calculateTxt">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:layout_gravity="center"
+            android:paddingHorizontal="8dp"
+            app:srcCompat="@drawable/ic_forward" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/shapeableImageView2"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:backgroundTint="@color/purple_tint"
+        android:contentDescription="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/historyTxt"
+        app:layout_constraintStart_toStartOf="@+id/shapeableImageView"
+        app:layout_constraintTop_toTopOf="@+id/historyTxt"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.App.CircleImageView"
+        app:srcCompat="@drawable/ic_history" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/historyTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/avenir"
+        android:text="@string/history"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/calculateTxt"
+        app:layout_constraintTop_toBottomOf="@+id/calculateTxt" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/historyBtn"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="24dp"
+        app:cardBackgroundColor="#F5F5F5"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/historyTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/historyTxt">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingHorizontal="8dp"
+            android:contentDescription="@null"
+            app:srcCompat="@drawable/ic_forward" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="@color/light_blue_tint"
+        android:contentDescription="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/extraFeaturesTxt"
+        app:layout_constraintStart_toStartOf="@+id/shapeableImageView2"
+        app:layout_constraintTop_toTopOf="@+id/extraFeaturesTxt"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.App.CircleImageView"
+        app:srcCompat="@drawable/ic_extra_features" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/extraFeaturesTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/avenir"
+        android:text="@string/body_stats"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/historyTxt"
+        app:layout_constraintTop_toBottomOf="@+id/historyTxt" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/extraFeaturesBtn"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="24dp"
+        app:cardBackgroundColor="#F5F5F5"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/extraFeaturesTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/extraFeaturesTxt">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingHorizontal="8dp"
+            app:srcCompat="@drawable/ic_forward"
+            android:contentDescription="@null" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:letterSpacing="0"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="14dp"
+        android:stateListAnimator="@null"
+        android:text="@string/sign_out"
+        android:textColor="@color/black"
+        app:backgroundTint="#F5F5F5"
+        app:cornerRadius="12dp"
+        app:elevation="0dp"
+        app:icon="@drawable/ic_sign_out"
+        app:iconPadding="6dp"
+        app:iconSize="24dp"
+        app:iconTint="#DC143C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/firstName" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
