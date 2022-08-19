@@ -2,6 +2,7 @@ package com.example.morefit.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.morefit.R
@@ -21,6 +22,7 @@ class ExerciseAdapter : RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
 
     interface onItemClickListener {
         fun onItemClick(position: Int)
+        fun onActivityCLick(position: Int)
     }
 
     fun setOnItemClickListener(listener: onItemClickListener) {
@@ -48,7 +50,9 @@ class ExerciseAdapter : RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(addressList[position])
-
+        holder.binding.button.setOnClickListener {
+             mlistner?.onActivityCLick(position)
+        }
         holder.binding.imageView2.setOnClickListener{
             mlistner?.onItemClick(position)
         }

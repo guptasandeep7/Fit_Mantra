@@ -14,6 +14,8 @@ import com.example.morefit.databinding.FragmentExerciseBinding
 import com.example.morefit.ui.fragment.dash.gym.GymFragment.Companion.muscleName
 import com.example.morefit.model.AllData
 import com.example.morefit.model.Data
+import com.example.morefit.view.activity.MlActivity
+import com.example.morefit.view.activity.RepCounterActivity
 import com.google.gson.Gson
 
 class ExerciseFragment : Fragment(), View.OnClickListener {
@@ -23,6 +25,11 @@ class ExerciseFragment : Fragment(), View.OnClickListener {
     private val exerciseAdapter = ExerciseAdapter()
     private lateinit var data: List<Data>
 
+    companion object
+    {
+        var file_Name="pushup.tflite"
+        var name =""
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.backBtn.setOnClickListener(this)
@@ -35,15 +42,35 @@ class ExerciseFragment : Fragment(), View.OnClickListener {
         binding.toolbarText.text = muscleName
 
         loadData()
-
         exerciseAdapter.setOnItemClickListener(object : ExerciseAdapter.onItemClickListener {
             override fun onItemClick(position: Int) {
-                val url = exerciseAdapter.addressList[position].video_tutorials[0]
-                val intent = Intent(Intent.ACTION_VIEW)
-                intent.data = Uri.parse(url)
-                startActivity(intent)
+
+            }
+
+            override fun onActivityCLick(position: Int) {
+                //File Name here
+                name=data[position].title
+//                file_Name=data[position].file_name
+                if(true)
+                {
+                    val intent = Intent(activity,RepCounterActivity::class.java)
+                    startActivity(intent)
+                }
+               else
+                {
+                    val intent = Intent(activity,MlActivity::class.java)
+                    startActivity(intent)
+                }
             }
         })
+//        exerciseAdapter.setOnItemClickListener(object : ExerciseAdapter.onItemClickListener {
+//            override fun onItemClick(position: Int) {
+//                val url = exerciseAdapter.addressList[position].video_tutorials[0]
+//                val intent = Intent(activity,PoseDetectionActivity::class.java)
+//                intent.data = Uri.parse(url)
+//                startActivity(intent)
+//            }
+//        })
     }
 
     private fun filterData(category: String) {
