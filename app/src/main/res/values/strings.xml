@@ -39,6 +39,7 @@ The app also includes BMI Calculator, Macro Calculator and Calorie Intake Calcul
     <string name="gym">Gym</string>
     <string name="yoga">Yoga</string>
     <string name="diet">Diet</string>
+    <string name="gluten_free"><b>Gluten Free</b>\nMeans avoiding wheat, barley, rye, and other gluten-containing grains and foods made from them </string>
     <string name="back_btn">Back btn</string>
     <string name="streak_n6_days">Streak 🔥\n6 Days</string>
     <string name="body_stats">Body Stats</string>
