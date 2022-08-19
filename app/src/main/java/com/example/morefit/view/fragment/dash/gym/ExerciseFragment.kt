@@ -27,7 +27,7 @@ class ExerciseFragment : Fragment(), View.OnClickListener {
 
     companion object
     {
-        var file_Name="pushup.tflite"
+        var file_Name="squat.tflite"
         var name =""
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -53,6 +53,7 @@ class ExerciseFragment : Fragment(), View.OnClickListener {
 //                file_Name=data[position].file_name
                 if(true)
                 {
+
                     val intent = Intent(activity,RepCounterActivity::class.java)
                     startActivity(intent)
                 }

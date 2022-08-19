@@ -1,3 +1,4 @@
-pushupholdcorrect
+correctsquat
+sitting
 stationary
-wrongpushuphold
+wrongsquat

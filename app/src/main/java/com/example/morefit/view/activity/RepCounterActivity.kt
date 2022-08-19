@@ -144,6 +144,7 @@ class RepCounterActivity : AppCompatActivity() {
         spnDevice = findViewById(R.id.spnDevice)
         spnTracker = findViewById(R.id.spnTracker)
         startTimer=findViewById(R.id.startTimer)
+        repcountText=findViewById(R.id.RepCount01)
         resetTimer=findViewById(R.id.ressetTimer)
         vTrackerOption = findViewById(R.id.vTrackerOption)
         surfaceView = findViewById(R.id.surfaceView1)
@@ -187,6 +188,7 @@ class RepCounterActivity : AppCompatActivity() {
         }
         resetTimer.setOnClickListener {
             running = false
+            counter=0
             seconds = 0
             resetTimer.visibility=View.INVISIBLE
         }
@@ -289,21 +291,37 @@ class RepCounterActivity : AppCompatActivity() {
                             personScore: Float?,
                             poseLabels: List<Pair<String, Float>>?
                         ) {
+                            var first=0;
+                            var time:Long =0
                             tvScore.text = getString(R.string.tfe_pe_tv_score, personScore ?: 0f)
                             poseLabels?.sortedByDescending { it.second }?.let {
                                 for(i in it) {
-                                    if ("pushupholdcorrect" == i.first) {
-                                        if(i.second>=0.85)
+//                                runOnUiThread{
+//                                    repcountText.text=it.toString()
+//                                }
+                                    if ("correctsquat" == i.first) {
+                                        if(i.second>=0.80)
                                         {
-                                            counter++
+                                            if(first==0)
+                                            {
+                                                time=System.currentTimeMillis()
+                                            }
+                                            first++;
                                             runOnUiThread {
-//                                                    repcountText.text=counter.toString()
+//                                                Toast.makeText(this@RepCounterActivity, it.toString(), Toast.LENGTH_SHORT).show()
                                                     cardview.strokeColor = Color.parseColor("#00FF00")
                                             }
                                         }
                                         else
                                         {
+                                            first=0
+                                            if(((System.currentTimeMillis()-time)>1500) && (time!=0L))
+                                            {
+                                                counter++
+                                            }
+                                            time=0
                                             runOnUiThread {
+                                                repcountText.text=counter.toString()
                                                 cardview.strokeColor = Color.parseColor("#FF0000")
                                             }
                                         }
