@@ -39,6 +39,7 @@ The app also includes BMI Calculator, Macro Calculator and Calorie Intake Calcul
     <string name="gym">Gym</string>
     <string name="yoga">Yoga</string>
     <string name="diet">Diet</string>
+    <string name="gluten_free"><b>Gluten Free</b>\nMeans avoiding wheat, barley, rye, and other gluten-containing grains and foods made from them </string>
     <string name="back_btn">Back btn</string>
     <string name="streak_n6_days">Streak 🔥\n6 Days</string>
     <string name="body_stats">Body Stats</string>
@@ -50,6 +51,34 @@ The app also includes BMI Calculator, Macro Calculator and Calorie Intake Calcul
         <item>Medium exercise/sport 3\-5 days/week</item>
         <item>High exercise/sport 6\-7 days/week</item>
         <item>Intense exercise/sports, physical job or twice/day training</item>
+    </string-array>
+    <string name="tfe_pe_app_name">TFL Pose Estimation</string>
+    <string name="tfe_pe_request_permission">This app needs camera permission.</string>
+    <string name="tfe_pe_tv_score">Score: %.2f</string>
+    <string name="tfe_pe_tv_model">Model: </string>
+    <string name="tfe_pe_tv_fps">Fps: %d</string>
+    <string name="tfe_pe_tv_device">Device: </string>
+    <string name="tfe_pe_tv_classification_value">- %s</string>
+    <string name="tfe_pe_tv_pose_classification">Pose Classification</string>
+    <string name="tfe_pe_tv_tracking">Tracker: </string>
+    <string name="tfe_pe_gpu_error">Movenet MultiPose does not support GPU. Fallback to CPU.</string>
+    <string-array name="tfe_pe_models_array">
+        <item>Movenet Lightning</item>
+        <item>Movenet Thunder</item>
+        <item>Movenet MultiPose</item>
+        <item>Posenet</item>
+    </string-array>
+
+    <string-array name="tfe_pe_device_name">
+        <item>CPU</item>
+        <item>GPU</item>
+        <item>NNAPI</item>
+    </string-array>
+
+    <string-array name="tfe_pe_tracker_array">
+        <item>Off</item>
+        <item>BoundingBox</item>
+        <item>Keypoint</item>
     </string-array>
 
 </resources>
