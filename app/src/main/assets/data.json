@@ -3,7 +3,7 @@
     {
       "category": "Stretches",
       "muscle": "Calves",
-      "title": "Pull Ups",
+      "title": "Squats",
       "difficulty": "Difficulty: Beginner",
       "gender": "Male",
       "video_tutorials": [
@@ -12,22 +12,28 @@
       ],
       "text_tutorials": [
         {
-          "text": "Exhale while pulling yourself up so your chin is level with the bar. Pause at the top."
+          "text": "Stand with feet a little wider than hip width, toes facing front."
         },
         {
-          "text": "Lower yourself (inhaling as you go down) until your elbows are straight."
+          "text": "Drive your hips back—bending at the knees and ankles and pressing your knees slightly open."
         },
         {
-          "text": "Repeat the movement without touching the floor."
+          "text": "Sit into a squat position while still keeping your heels and toes on the ground, chest up and shoulders back."
         },
         {
-          "text": "Complete the number of repetitions your workout requires."
+          "text": "Strive to eventually reach parallel, meaning knees are bent to a 90-degree angle."
+        },
+        {
+          "text": "Press into your heels and straighten legs to return to a standing upright position."
         }
       ],
       "counter": true,
-      "file_name": "Pullups.tflite",
-      "labels": [],
-      "correct_label": ""
+      "file_name": "squat.tflite",
+      "labels": ["sitting",
+        "stationary",
+        "squatcorrect",
+        "stationary"],
+      "correct_label": "squatcorrect"
     },
     {
       "category": "Stretches",
@@ -36,8 +42,8 @@
       "difficulty": "Difficulty: Beginner",
       "gender": "Male",
       "video_tutorials": [
-        "https://youtu.be/k3-yr6Mx3Rs",
-        "https://youtu.be/wwK_SIPTPqk"
+        "https://youtu.be/YaXPRqUwItQ",
+        "https://youtu.be/YaXPRqUwItQ"
       ],
       "text_tutorials": [
         {
@@ -804,35 +810,6 @@
     {
       "category": "Stretches",
       "muscle": "Abdominals",
-      "title": "Pull Ups",
-      "difficulty": "Difficulty: Beginner",
-      "gender": "Male",
-      "video_tutorials": [
-        "https://youtu.be/eGo4IYlbE5g",
-        "https://youtu.be/eGo4IYlbE5g"
-      ],
-      "text_tutorials": [
-        {
-          "text": "Exhale while pulling yourself up so your chin is level with the bar. Pause at the top."
-        },
-        {
-          "text": "Lower yourself (inhaling as you go down) until your elbows are straight."
-        },
-        {
-          "text": "Repeat the movement without touching the floor."
-        },
-        {
-          "text": "Complete the number of repetitions your workout requires."
-        }
-      ],
-      "counter": true,
-      "file_name": "Pullups.tflite",
-      "labels": [],
-      "correct_label": ""
-    },
-    {
-      "category": "Stretches",
-      "muscle": "Abdominals",
       "title": "Abdominals Stretch Variation One",
       "difficulty": "Difficulty: Beginner",
       "gender": "Male",
@@ -934,6 +911,35 @@
       ],
       "counter": false,
       "file_name": "",
+      "labels": [],
+      "correct_label": ""
+    },
+    {
+      "category": "Stretches",
+      "muscle": "Forearms",
+      "title": "Pull Ups",
+      "difficulty": "Difficulty: Beginner",
+      "gender": "Male",
+      "video_tutorials": [
+        "https://youtu.be/eGo4IYlbE5g",
+        "https://youtu.be/eGo4IYlbE5g"
+      ],
+      "text_tutorials": [
+        {
+          "text": "Exhale while pulling yourself up so your chin is level with the bar. Pause at the top."
+        },
+        {
+          "text": "Lower yourself (inhaling as you go down) until your elbows are straight."
+        },
+        {
+          "text": "Repeat the movement without touching the floor."
+        },
+        {
+          "text": "Complete the number of repetitions your workout requires."
+        }
+      ],
+      "counter": true,
+      "file_name": "Pullups.tflite",
       "labels": [],
       "correct_label": ""
     },
@@ -1198,6 +1204,35 @@
     {
       "category": "Stretches",
       "muscle": "Lats",
+      "title": "Pull Ups",
+      "difficulty": "Difficulty: Beginner",
+      "gender": "Male",
+      "video_tutorials": [
+        "https://youtu.be/eGo4IYlbE5g",
+        "https://youtu.be/eGo4IYlbE5g"
+      ],
+      "text_tutorials": [
+        {
+          "text": "Exhale while pulling yourself up so your chin is level with the bar. Pause at the top."
+        },
+        {
+          "text": "Lower yourself (inhaling as you go down) until your elbows are straight."
+        },
+        {
+          "text": "Repeat the movement without touching the floor."
+        },
+        {
+          "text": "Complete the number of repetitions your workout requires."
+        }
+      ],
+      "counter": true,
+      "file_name": "Pullups.tflite",
+      "labels": [],
+      "correct_label": ""
+    },
+    {
+      "category": "Stretches",
+      "muscle": "Lats",
       "title": "Lats Stretch Variation One",
       "difficulty": "Difficulty: Beginner",
       "gender": "Male",
@@ -1383,31 +1418,37 @@
     {
       "category": "Stretches",
       "muscle": "Hamstrings",
-      "title": "Pull Ups",
+      "title": "Squats",
       "difficulty": "Difficulty: Beginner",
       "gender": "Male",
       "video_tutorials": [
-        "https://youtu.be/eGo4IYlbE5g",
-        "https://youtu.be/eGo4IYlbE5g"
+        "https://youtu.be/YaXPRqUwItQ",
+        "https://youtu.be/YaXPRqUwItQ"
       ],
       "text_tutorials": [
         {
-          "text": "Exhale while pulling yourself up so your chin is level with the bar. Pause at the top."
+          "text": "Stand with feet a little wider than hip width, toes facing front."
         },
         {
-          "text": "Lower yourself (inhaling as you go down) until your elbows are straight."
+          "text": "Drive your hips back—bending at the knees and ankles and pressing your knees slightly open."
         },
         {
-          "text": "Repeat the movement without touching the floor."
+          "text": "Sit into a squat position while still keeping your heels and toes on the ground, chest up and shoulders back."
         },
         {
-          "text": "Complete the number of repetitions your workout requires."
+          "text": "Strive to eventually reach parallel, meaning knees are bent to a 90-degree angle."
+        },
+        {
+          "text": "Press into your heels and straighten legs to return to a standing upright position."
         }
       ],
       "counter": true,
-      "file_name": "Pullups.tflite",
-      "labels": [],
-      "correct_label": ""
+      "file_name": "squat.tflite",
+      "labels": ["sitting",
+        "stationary",
+        "squatcorrect",
+        "stationary"],
+      "correct_label": "squatcorrect"
     },
     {
       "category": "Stretches",
