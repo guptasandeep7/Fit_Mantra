@@ -5,8 +5,6 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.content.pm.PackageManager
 import android.graphics.Color
-import android.graphics.ImageDecoder
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Process
@@ -16,6 +14,7 @@ import android.view.WindowManager
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
@@ -26,8 +25,10 @@ import com.example.energybar.database.ContentApplication
 import com.example.morefit.R
 import com.example.morefit.model.database.Content
 import com.example.morefit.ui.fragment.dash.gym.ExerciseFragment
+import com.example.morefit.utils.Datastore
 import com.google.android.material.card.MaterialCardView
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.tensorflow.lite.examples.poseestimation.camera.CameraSource
 import org.tensorflow.lite.examples.poseestimation.data.Device
@@ -37,14 +38,17 @@ import java.util.*
 class RepCounterActivity : AppCompatActivity() {
     companion object {
         private const val FRAGMENT_DIALOG = "dialog"
-        var correct_label=""
+        var correct_label = ""
     }
+
     private val contentViewModel: ContentViewModel by viewModels() {
         WordViewModelFactory((application as ContentApplication).repository)
     }
+
     /** A [SurfaceView] for camera preview.   */
     private lateinit var surfaceView: SurfaceView
     var counterStart = false
+
     /** Default pose estimation model is 1 (MoveNet Thunder)
      * 0 == MoveNet Lightning model
      * 1 == MoveNet Thunder model
@@ -53,8 +57,9 @@ class RepCounterActivity : AppCompatActivity() {
      **/
 
     private var modelPos = 1
-    var first=0;
-    var time:Long =0
+    var first = 0;
+    var time: Long = 0
+
     /** Default device is CPU */
     private var device = Device.CPU
 
@@ -68,7 +73,7 @@ class RepCounterActivity : AppCompatActivity() {
 
 
     var counter = 0
-    lateinit var completeRep:ImageButton
+    lateinit var completeRep: ImageButton
     private lateinit var tvScore: TextView
     private lateinit var tvFPS: TextView
     private lateinit var spnDevice: Spinner
@@ -81,9 +86,10 @@ class RepCounterActivity : AppCompatActivity() {
     private lateinit var swClassification: SwitchCompat
     private lateinit var cardview: MaterialCardView
     private lateinit var vClassificationOption: View
-    private lateinit var startTimer:ImageButton
-    private lateinit var resetTimer:ImageButton
-    private lateinit var repcountText:TextView
+    private lateinit var startTimer: ImageButton
+    private lateinit var resetTimer: ImageButton
+    private lateinit var repcountText: TextView
+    private lateinit var datastore: Datastore
     private var cameraSource: CameraSource? = null
     private var isClassifyPose = false
     private val requestPermissionLauncher =
@@ -100,7 +106,7 @@ class RepCounterActivity : AppCompatActivity() {
                 // same time, respect the user's decision. Don't link to system
                 // settings in an effort to convince the user to change their
                 // decision.
-               ErrorDialog.newInstance(getString(R.string.tfe_pe_request_permission))
+                ErrorDialog.newInstance(getString(R.string.tfe_pe_request_permission))
                     .show(supportFragmentManager, FRAGMENT_DIALOG)
             }
         }
@@ -150,15 +156,15 @@ class RepCounterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rep_counter)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-        cardview=findViewById(R.id.materialCardView1)
+        cardview = findViewById(R.id.materialCardView1)
         tvScore = findViewById(R.id.tvScore)
         tvFPS = findViewById(R.id.tvFps)
         spnModel = findViewById(R.id.spnModel)
         spnDevice = findViewById(R.id.spnDevice)
         spnTracker = findViewById(R.id.spnTracker)
-        startTimer=findViewById(R.id.startTimer)
-        repcountText=findViewById(R.id.RepCount01)
-        resetTimer=findViewById(R.id.ressetTimer)
+        startTimer = findViewById(R.id.startTimer)
+        repcountText = findViewById(R.id.RepCount01)
+        resetTimer = findViewById(R.id.ressetTimer)
         vTrackerOption = findViewById(R.id.vTrackerOption)
         surfaceView = findViewById(R.id.surfaceView1)
         tvClassificationValue1 = findViewById(R.id.tvClassificationValue1)
@@ -166,9 +172,9 @@ class RepCounterActivity : AppCompatActivity() {
         tvClassificationValue3 = findViewById(R.id.tvClassificationValue3)
         swClassification = findViewById(R.id.swPoseClassification)
         vClassificationOption = findViewById(R.id.vClassificationOption)
-        completeRep=findViewById(R.id.completerep)
-        var title=findViewById<TextView>(R.id.Title1)
-        title.text= ExerciseFragment.name
+        completeRep = findViewById(R.id.completerep)
+        var title = findViewById<TextView>(R.id.Title1)
+        title.text = ExerciseFragment.name
         initSpinner()
         spnModel.setSelection(modelPos)
         swClassification.setOnCheckedChangeListener(setClassificationListener)
@@ -186,39 +192,59 @@ class RepCounterActivity : AppCompatActivity() {
         }
         runTimer()
         completeRep.setOnClickListener {
-            var content= arrayListOf<Content>(
-                Content(System.currentTimeMillis(),ExerciseFragment.name,
-                seconds.toLong(),counter
-            )
+            var content = arrayListOf<Content>(
+                Content(
+                    System.currentTimeMillis(), ExerciseFragment.name,
+                    seconds.toLong(), counter
+                )
             )
             contentViewModel.insert(content)
+
+            datastore = Datastore(this)
+
+            // Streak
+            GlobalScope.launch {
+                if ((System.currentTimeMillis() - datastore.getLastWorkoutDate()) > 86400000
+                    && (System.currentTimeMillis() - datastore.getLastWorkoutDate()) < 172800000
+                ) {
+                    datastore.setStreakCount(datastore.getStreakCount() + 1)
+                    datastore.setLastWorkoutDate(System.currentTimeMillis())
+                }
+                else if ((System.currentTimeMillis() - datastore.getLastWorkoutDate()) > 172800000) {
+                    datastore.setStreakCount(1)
+                    datastore.setLastWorkoutDate(System.currentTimeMillis())
+                }
+                else if((System.currentTimeMillis() - datastore.getLastWorkoutDate()) < 86400000){
+                    datastore.setLastWorkoutDate(System.currentTimeMillis())
+                }
+            }
+
         }
         startTimer.setOnClickListener {
 
-            if(counterStart)
-            {
-                running=false
+            if (counterStart) {
+                running = false
                 startTimer.setImageResource(R.drawable.ic_baseline_play_arrow_24)
-                counterStart=false
-            }
-            else {
+                counterStart = false
+            } else {
                 startTimer.setImageResource(R.drawable.ic_baseline_pause_24)
                 resetTimer.visibility = View.VISIBLE
                 running = true
-                counterStart=true
+                counterStart = true
             }
         }
         resetTimer.setOnClickListener {
             running = false
-            counter=0
+            counter = 0
             seconds = 0
-            resetTimer.visibility=View.INVISIBLE
+            resetTimer.visibility = View.INVISIBLE
         }
         if (!isCameraPermissionGranted()) {
             requestPermission()
         }
-        cameraSource?.setClassifier( PoseClassifier.create(this))
+        cameraSource?.setClassifier(PoseClassifier.create(this))
     }
+
     private fun runTimer() {
         // Get the text view.
         // Get the text view.
@@ -316,33 +342,28 @@ class RepCounterActivity : AppCompatActivity() {
 
                             tvScore.text = getString(R.string.tfe_pe_tv_score, personScore ?: 0f)
                             poseLabels?.sortedByDescending { it.second }?.let {
-                                for(i in it) {
+                                for (i in it) {
 //                                runOnUiThread{
 //                                    repcountText.text=it.toString()
 //                                }
                                     if (correct_label == i.first) {
-                                        if(i.second>=0.80)
-                                        {
-                                            if(first==0)
-                                            {
-                                                time=System.currentTimeMillis()
+                                        if (i.second >= 0.80) {
+                                            if (first == 0) {
+                                                time = System.currentTimeMillis()
                                             }
                                             first++;
                                             runOnUiThread {
 //                                                Toast.makeText(this@RepCounterActivity, it.toString(), Toast.LENGTH_SHORT).show()
-                                                    cardview.strokeColor = Color.parseColor("#00FF00")
+                                                cardview.strokeColor = Color.parseColor("#00FF00")
                                             }
-                                        }
-                                        else
-                                        {
-                                            first=0
-                                            if(((System.currentTimeMillis()-time)>1500) && (time!=0L))
-                                            {
+                                        } else {
+                                            first = 0
+                                            if (((System.currentTimeMillis() - time) > 1500) && (time != 0L)) {
                                                 counter++
                                             }
-                                            time=0
+                                            time = 0
                                             runOnUiThread {
-                                                repcountText.text=counter.toString()
+                                                repcountText.text = counter.toString()
                                                 cardview.strokeColor = Color.parseColor("#FF0000")
                                             }
                                         }
@@ -382,7 +403,7 @@ class RepCounterActivity : AppCompatActivity() {
     }
 
     private fun isPoseClassifier() {
-        cameraSource?.setClassifier( PoseClassifier.create(this))
+        cameraSource?.setClassifier(PoseClassifier.create(this))
     }
 
     // Initialize spinners to let user select model/accelerator/tracker.
@@ -556,13 +577,13 @@ class RepCounterActivity : AppCompatActivity() {
     // stop the stopwatch.
 
 
-
     // If the activity is resumed,
     // start the stopwatch
     // again if it was running previously.
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
+
     override fun onSaveInstanceState(
         savedInstanceState: Bundle
     ) {
@@ -574,6 +595,7 @@ class RepCounterActivity : AppCompatActivity() {
         savedInstanceState
             .putBoolean("wasRunning", wasRunning)
     }
+
     fun onClickStart() {
         running = true
     }

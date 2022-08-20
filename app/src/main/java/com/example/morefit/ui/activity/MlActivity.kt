@@ -8,6 +8,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Process
+import android.provider.Settings
 import android.view.SurfaceView
 import android.view.View
 import android.view.WindowManager
@@ -18,6 +19,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.lifecycle.lifecycleScope
 import com.example.energybar.ContentViewModel
 import com.example.energybar.WordViewModelFactory
@@ -25,8 +28,10 @@ import com.example.energybar.database.ContentApplication
 import com.example.morefit.R
 import com.example.morefit.model.database.Content
 import com.example.morefit.ui.fragment.dash.gym.ExerciseFragment
+import com.example.morefit.utils.Datastore
 import com.google.android.material.card.MaterialCardView
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.tensorflow.lite.examples.poseestimation.camera.CameraSource
 import org.tensorflow.lite.examples.poseestimation.data.Device
@@ -80,6 +85,7 @@ class MlActivity : AppCompatActivity() {
     private lateinit var swClassification: SwitchCompat
     private lateinit var cardview:MaterialCardView
     private lateinit var vClassificationOption: View
+    private lateinit var datastore: Datastore
 //    private lateinit var repcountText:TextView
 //    lateinit var repcount : TextView
 //    var counter=0;
@@ -186,7 +192,28 @@ class MlActivity : AppCompatActivity() {
                 seconds.toLong(),0
             ))
             contentViewModel.insert(content)
+
+            datastore = Datastore(this)
+
+            // Streak
+            GlobalScope.launch {
+                if ((System.currentTimeMillis() - datastore.getLastWorkoutDate()) > 86400000
+                    && (System.currentTimeMillis() - datastore.getLastWorkoutDate()) < 172800000
+                ) {
+                    datastore.setStreakCount(datastore.getStreakCount() + 1)
+                    datastore.setLastWorkoutDate(System.currentTimeMillis())
+                }
+                else if ((System.currentTimeMillis() - datastore.getLastWorkoutDate()) > 172800000) {
+                    datastore.setStreakCount(1)
+                    datastore.setLastWorkoutDate(System.currentTimeMillis())
+                }
+                else if((System.currentTimeMillis() - datastore.getLastWorkoutDate()) < 86400000){
+                    datastore.setLastWorkoutDate(System.currentTimeMillis())
+                }
+            }
+
         }
+
         if (!isCameraPermissionGranted()) {
             requestPermission()
         }

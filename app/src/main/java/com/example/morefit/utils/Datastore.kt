@@ -18,19 +18,44 @@ class Datastore(val context: Context) {
         val CALORIES_KEY = stringPreferencesKey("calories_key")
         val TIME_FRAME_KEY = stringPreferencesKey("time_frame_key")
         val API_KEY = stringPreferencesKey("api_key")
+        val STREAK_COUNT = intPreferencesKey("streak_count")
+        val LAST_WORKOUT_DATE = longPreferencesKey("last_workout_date")
     }
 
-    suspend fun apiKey() = context.datastore.data.first()[API_KEY] ?: "6111f3a8729647caabdb02652bb81c29"
+    suspend fun apiKey() =
+        context.datastore.data.first()[API_KEY] ?: "6111f3a8729647caabdb02652bb81c29"
 
-    suspend fun saveUserDetails(key:String,value: String) {
+    suspend fun saveUserDetails(key: String, value: String) {
         val key1 = stringPreferencesKey(key)
         context.datastore.edit {
             it[key1] = value
         }
     }
+
     suspend fun getUserDetails(key: String): String? {
         val key1 = stringPreferencesKey(key)
         return context.datastore.data.first()[key1]
     }
+
+    suspend fun getLastWorkoutDate(): Long{
+        return context.datastore.data.first()[LAST_WORKOUT_DATE]?:0
+    }
+
+    suspend fun setLastWorkoutDate(date:Long){
+        context.datastore.edit {
+            it[LAST_WORKOUT_DATE] = date
+        }
+    }
+
+    suspend fun getStreakCount(): Int {
+        return context.datastore.data.first()[STREAK_COUNT] ?: 0
+    }
+
+    suspend fun setStreakCount(count:Int) {
+        context.datastore.edit {
+            it[STREAK_COUNT] = count
+        }
+    }
+
 
 }
