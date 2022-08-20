@@ -3,6 +3,35 @@
     {
       "category": "Stretches",
       "muscle": "Calves",
+      "title": "Pull Ups",
+      "difficulty": "Difficulty: Beginner",
+      "gender": "Male",
+      "video_tutorials": [
+        "https://youtu.be/eGo4IYlbE5g",
+        "https://youtu.be/eGo4IYlbE5g"
+      ],
+      "text_tutorials": [
+        {
+          "text": "Exhale while pulling yourself up so your chin is level with the bar. Pause at the top."
+        },
+        {
+          "text": "Lower yourself (inhaling as you go down) until your elbows are straight."
+        },
+        {
+          "text": "Repeat the movement without touching the floor."
+        },
+        {
+          "text": "Complete the number of repetitions your workout requires."
+        }
+      ],
+      "counter": true,
+      "file_name": "Pullups.tflite",
+      "labels": [],
+      "correct_label": ""
+    },
+    {
+      "category": "Stretches",
+      "muscle": "Calves",
       "title": "Calves Stretch Variation One",
       "difficulty": "Difficulty: Beginner",
       "gender": "Male",
@@ -367,6 +396,38 @@
     {
       "category": "Stretches",
       "muscle": "Shoulders",
+      "title": "Push Ups",
+      "difficulty": "Difficulty: Beginner",
+      "gender": "Male",
+      "video_tutorials": [
+        "https://youtu.be/t0s5FHbdBmA",
+        "https://youtu.be/t0s5FHbdBmA"
+      ],
+      "text_tutorials": [
+        {
+          "text": "Get down on all floor, placing your hands slightly wider than your shoulders."
+        },
+        {
+          "text": "Straighten your arms and legs."
+        },
+        {
+          "text": "Lower your body until your chest nearly touches the floor."
+        },
+        {
+          "text": "Pause, then push yourself back up."
+        },
+        {
+          "text": "Repeat."
+        }
+      ],
+      "counter": false,
+      "file_name": "",
+      "labels": [],
+      "correct_label": ""
+    },
+    {
+      "category": "Stretches",
+      "muscle": "Shoulders",
       "title": "Shoulders Stretch Variation One",
       "difficulty": "Difficulty: Beginner",
       "gender": "Male",
@@ -461,6 +522,38 @@
         },
         {
           "text": "Repeat with your other arm."
+        }
+      ],
+      "counter": false,
+      "file_name": "",
+      "labels": [],
+      "correct_label": ""
+    },
+    {
+      "category": "Stretches",
+      "muscle": "Chest",
+      "title": "Push Ups",
+      "difficulty": "Difficulty: Beginner",
+      "gender": "Male",
+      "video_tutorials": [
+        "https://youtu.be/t0s5FHbdBmA",
+        "https://youtu.be/t0s5FHbdBmA"
+      ],
+      "text_tutorials": [
+        {
+          "text": "Get down on all floor, placing your hands slightly wider than your shoulders."
+        },
+        {
+          "text": "Straighten your arms and legs."
+        },
+        {
+          "text": "Lower your body until your chest nearly touches the floor."
+        },
+        {
+          "text": "Pause, then push yourself back up."
+        },
+        {
+          "text": "Repeat."
         }
       ],
       "counter": false,
@@ -575,6 +668,38 @@
     {
       "category": "Stretches",
       "muscle": "Biceps",
+      "title": "Push Ups",
+      "difficulty": "Difficulty: Beginner",
+      "gender": "Male",
+      "video_tutorials": [
+        "https://youtu.be/t0s5FHbdBmA",
+        "https://youtu.be/t0s5FHbdBmA"
+      ],
+      "text_tutorials": [
+        {
+          "text": "Get down on all floor, placing your hands slightly wider than your shoulders."
+        },
+        {
+          "text": "Straighten your arms and legs."
+        },
+        {
+          "text": "Lower your body until your chest nearly touches the floor."
+        },
+        {
+          "text": "Pause, then push yourself back up."
+        },
+        {
+          "text": "Repeat."
+        }
+      ],
+      "counter": false,
+      "file_name": "",
+      "labels": [],
+      "correct_label": ""
+    },
+    {
+      "category": "Stretches",
+      "muscle": "Biceps",
       "title": "Biceps Stretch Variation One",
       "difficulty": "Difficulty: Beginner",
       "gender": "Male",
@@ -673,6 +798,35 @@
       ],
       "counter": false,
       "file_name": "",
+      "labels": [],
+      "correct_label": ""
+    },
+    {
+      "category": "Stretches",
+      "muscle": "Abdominals",
+      "title": "Pull Ups",
+      "difficulty": "Difficulty: Beginner",
+      "gender": "Male",
+      "video_tutorials": [
+        "https://youtu.be/eGo4IYlbE5g",
+        "https://youtu.be/eGo4IYlbE5g"
+      ],
+      "text_tutorials": [
+        {
+          "text": "Exhale while pulling yourself up so your chin is level with the bar. Pause at the top."
+        },
+        {
+          "text": "Lower yourself (inhaling as you go down) until your elbows are straight."
+        },
+        {
+          "text": "Repeat the movement without touching the floor."
+        },
+        {
+          "text": "Complete the number of repetitions your workout requires."
+        }
+      ],
+      "counter": true,
+      "file_name": "Pullups.tflite",
       "labels": [],
       "correct_label": ""
     },
@@ -1223,6 +1377,35 @@
       ],
       "counter": false,
       "file_name": "",
+      "labels": [],
+      "correct_label": ""
+    },
+    {
+      "category": "Stretches",
+      "muscle": "Hamstrings",
+      "title": "Pull Ups",
+      "difficulty": "Difficulty: Beginner",
+      "gender": "Male",
+      "video_tutorials": [
+        "https://youtu.be/eGo4IYlbE5g",
+        "https://youtu.be/eGo4IYlbE5g"
+      ],
+      "text_tutorials": [
+        {
+          "text": "Exhale while pulling yourself up so your chin is level with the bar. Pause at the top."
+        },
+        {
+          "text": "Lower yourself (inhaling as you go down) until your elbows are straight."
+        },
+        {
+          "text": "Repeat the movement without touching the floor."
+        },
+        {
+          "text": "Complete the number of repetitions your workout requires."
+        }
+      ],
+      "counter": true,
+      "file_name": "Pullups.tflite",
       "labels": [],
       "correct_label": ""
     },

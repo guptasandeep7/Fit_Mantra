@@ -1,13 +1,28 @@
 package com.example.morefit.adapter
 
-import android.widget.TextView
+import android.util.Log
+import android.widget.ImageView
 import androidx.databinding.BindingAdapter
-import com.example.morefit.model.TextTutorial
+import coil.load
+import com.example.morefit.R
 
-//@BindingAdapter("textTutorial")
-//private fun TextView.textTutorial(text: List<TextTutorial>) {
-//    text.forEachIndexed { index, textTutorial ->
-//        this.append("$index) ${textTutorial.text}")
-//        this.append("\n")
-//    }
-//}
+@BindingAdapter("imageFromUrl")
+fun ImageView.imageFromUrl(s: String) {
+    val thumbnailBaseUrl = "http://img.youtube.com/vi/"
+
+    var url = ""
+    url = if (s.contains('=')) {
+        s.substring(s.indexOf('='), s.length)
+    } else {
+        s.substring(17, s.length)
+    }
+
+    val imageUrl = "$thumbnailBaseUrl$url/0.jpg"
+    Log.w("URL ", imageUrl)
+
+    this.load(imageUrl) {
+        placeholder(resources.getDrawable(R.drawable.more_fit_logo))
+        crossfade(true)
+        error(R.drawable.more_fit_logo)
+    }
+}
