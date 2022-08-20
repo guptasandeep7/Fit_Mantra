@@ -32,14 +32,14 @@ class ExerciseFragment : Fragment(), View.OnClickListener {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.backBtn.setOnClickListener(this)
+        binding.icBack.setOnClickListener(this)
         binding.stretches.setOnClickListener(this)
         binding.barbell.setOnClickListener(this)
         binding.bodyweight.setOnClickListener(this)
         binding.dumbbells.setOnClickListener(this)
         binding.kettlebells.setOnClickListener(this)
 
-        binding.toolbarText.text = muscleName
+        binding.heading2.text = muscleName
 
         loadData()
         exerciseAdapter.setOnItemClickListener(object : ExerciseAdapter.onItemClickListener {
@@ -93,7 +93,7 @@ class ExerciseFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.back_btn -> findNavController().navigateUp()
+            R.id.icBack -> findNavController().navigateUp()
             R.id.stretches -> filterData("Stretches")
             R.id.bodyweight -> filterData("Bodyweight")
             R.id.barbell -> filterData("Barbell")
