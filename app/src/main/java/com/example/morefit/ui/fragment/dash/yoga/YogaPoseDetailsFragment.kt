@@ -64,6 +64,7 @@ class YogaPoseDetailsFragment : Fragment(R.layout.fragment_yoga_pose_details) {
 			PerformAsana.setOnClickListener {
 				PoseClassifier.MODEL_FILENAME=yogaPose.file_name
 				MlActivity.correct_label=yogaPose.correct_label
+				PoseClassifier.labels=yogaPose.labels
 //				val filename="labels.txt"
 //				val file: FileOutputStream = FileOutputStream(filename)
 //				var string=""

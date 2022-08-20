@@ -13,6 +13,7 @@ import com.example.morefit.databinding.FragmentExerciseBinding
 import com.example.morefit.ui.fragment.dash.gym.GymFragment.Companion.muscleName
 import com.example.morefit.model.AllData
 import com.example.morefit.model.Data
+import com.example.morefit.model.Pose
 import com.example.morefit.ui.activity.MlActivity
 import com.example.morefit.ui.activity.RepCounterActivity
 import com.google.gson.Gson
@@ -27,7 +28,6 @@ class ExerciseFragment : Fragment(), View.OnClickListener {
 
     companion object
     {
-        var file_Name="squat.tflite"
         var name =""
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -50,14 +50,17 @@ class ExerciseFragment : Fragment(), View.OnClickListener {
             override fun onActivityCLick(position: Int) {
                 //File Name here
                 name=data[position].title
-//                file_Name=data[position].file_name
-                if(true)
+                PoseClassifier.MODEL_FILENAME=data[position].file_name
+                PoseClassifier.labels=data[position].labels
+                if(data[position].counter)
                 {
+                    RepCounterActivity.correct_label=data[position].correct_label
                     val intent = Intent(activity,RepCounterActivity::class.java)
                     startActivity(intent)
                 }
                else
                 {
+                   MlActivity.correct_label=data[position].correct_label
                     val intent = Intent(activity,MlActivity::class.java)
                     startActivity(intent)
                 }

@@ -2035,10 +2035,13 @@
           "text": "Return to starting position."
         }
       ],
-      "counter": false,
-      "file_name": "",
-      "labels": [],
-      "correct_label": ""
+      "counter": true,
+      "file_name": "squat.tflite",
+      "labels": ["sitting",
+        "stationary",
+        "squatcorrect",
+        "stationary"],
+      "correct_label": "squatcorrect"
     },
     {
       "category": "Bodyweight",

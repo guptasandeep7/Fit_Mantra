@@ -3,6 +3,7 @@ package com.example.morefit.adapter
 import android.graphics.drawable.Drawable
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -56,6 +57,9 @@ class ExerciseAdapter : RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
         holder.binding.button.setOnClickListener {
              mlistner?.onActivityCLick(position)
         }
+        if(addressList[position].file_name.isNullOrEmpty())
+        { holder.binding.button.visibility= View.GONE}
+
         holder.binding.imageView2.setOnClickListener{
             mlistner?.onItemClick(position)
         }
