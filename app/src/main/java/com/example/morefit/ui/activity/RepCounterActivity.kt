@@ -5,6 +5,7 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.content.pm.PackageManager
 import android.graphics.Color
+import android.graphics.ImageDecoder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -14,11 +15,16 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
+import com.example.energybar.ContentViewModel
+import com.example.energybar.WordViewModelFactory
+import com.example.energybar.database.ContentApplication
 import com.example.morefit.R
+import com.example.morefit.model.database.Content
 import com.example.morefit.ui.fragment.dash.gym.ExerciseFragment
 import com.google.android.material.card.MaterialCardView
 import kotlinx.coroutines.Dispatchers
@@ -31,6 +37,10 @@ import java.util.*
 class RepCounterActivity : AppCompatActivity() {
     companion object {
         private const val FRAGMENT_DIALOG = "dialog"
+        var correct_label=""
+    }
+    private val contentViewModel: ContentViewModel by viewModels() {
+        WordViewModelFactory((application as ContentApplication).repository)
     }
     /** A [SurfaceView] for camera preview.   */
     private lateinit var surfaceView: SurfaceView
@@ -41,6 +51,7 @@ class RepCounterActivity : AppCompatActivity() {
      * 2 == MoveNet MultiPose model
      * 3 == PoseNet model
      **/
+
     private var modelPos = 1
     var first=0;
     var time:Long =0
@@ -57,6 +68,7 @@ class RepCounterActivity : AppCompatActivity() {
 
 
     var counter = 0
+    lateinit var completeRep:ImageButton
     private lateinit var tvScore: TextView
     private lateinit var tvFPS: TextView
     private lateinit var spnDevice: Spinner
@@ -69,8 +81,8 @@ class RepCounterActivity : AppCompatActivity() {
     private lateinit var swClassification: SwitchCompat
     private lateinit var cardview: MaterialCardView
     private lateinit var vClassificationOption: View
-    private lateinit var startTimer:ImageView
-    private lateinit var resetTimer:ImageView
+    private lateinit var startTimer:ImageButton
+    private lateinit var resetTimer:ImageButton
     private lateinit var repcountText:TextView
     private var cameraSource: CameraSource? = null
     private var isClassifyPose = false
@@ -154,6 +166,7 @@ class RepCounterActivity : AppCompatActivity() {
         tvClassificationValue3 = findViewById(R.id.tvClassificationValue3)
         swClassification = findViewById(R.id.swPoseClassification)
         vClassificationOption = findViewById(R.id.vClassificationOption)
+        completeRep=findViewById(R.id.completerep)
         var title=findViewById<TextView>(R.id.Title1)
         title.text= ExerciseFragment.name
         initSpinner()
@@ -172,16 +185,24 @@ class RepCounterActivity : AppCompatActivity() {
                 .getBoolean("wasRunning")
         }
         runTimer()
+        completeRep.setOnClickListener {
+            var content= arrayListOf<Content>(
+                Content(System.currentTimeMillis(),ExerciseFragment.name,
+                seconds.toLong(),counter
+            )
+            )
+            contentViewModel.insert(content)
+        }
         startTimer.setOnClickListener {
 
             if(counterStart)
             {
                 running=false
-                startTimer.setBackgroundResource(R.drawable.ic_baseline_play_arrow_24)
+                startTimer.setImageResource(R.drawable.ic_baseline_play_arrow_24)
                 counterStart=false
             }
             else {
-                startTimer.setBackgroundResource(R.drawable.ic_baseline_pause_24)
+                startTimer.setImageResource(R.drawable.ic_baseline_pause_24)
                 resetTimer.visibility = View.VISIBLE
                 running = true
                 counterStart=true
@@ -299,7 +320,7 @@ class RepCounterActivity : AppCompatActivity() {
 //                                runOnUiThread{
 //                                    repcountText.text=it.toString()
 //                                }
-                                    if ("correctsquat" == i.first) {
+                                    if (correct_label == i.first) {
                                         if(i.second>=0.80)
                                         {
                                             if(first==0)

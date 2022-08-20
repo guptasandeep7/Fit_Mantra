@@ -18,6 +18,7 @@ package org.tensorflow.lite.examples.poseestimation.camera
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.ImageFormat
 import android.graphics.Matrix
@@ -29,9 +30,11 @@ import android.hardware.camera2.CameraManager
 import android.media.ImageReader
 import android.os.Handler
 import android.os.HandlerThread
+import android.util.DisplayMetrics
 import android.util.Log
 import android.view.Surface
 import android.view.SurfaceView
+import android.view.WindowManager
 import com.example.morefit.tenserFlow.VisualizationUtils
 import com.example.morefit.tenserFlow.YuvToRgbConverter
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -43,6 +46,7 @@ import org.tensorflow.lite.examples.poseestimation.ml.TrackerType
 import java.util.*
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
+
 
 class CameraSource(
     private val surfaceView: SurfaceView,
@@ -299,9 +303,12 @@ class CameraSource(
             }
             val right: Int = left + screenWidth
             val bottom: Int = top + screenHeight
+            val displayMetrics = DisplayMetrics()
+            var width=Resources.getSystem().getDisplayMetrics().widthPixels.toInt()
+            var height=Resources.getSystem().getDisplayMetrics().heightPixels.toInt()
             canvas.drawBitmap(
                 outputBitmap, Rect(0, 0, outputBitmap.width, outputBitmap.height),
-                Rect(left, top, right, bottom), null
+                Rect(0, 0,width,height), null
             )
             surfaceView.holder.unlockCanvasAndPost(canvas)
         }
