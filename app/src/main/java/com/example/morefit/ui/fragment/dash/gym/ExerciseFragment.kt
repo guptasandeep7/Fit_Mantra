@@ -16,6 +16,7 @@ import com.example.morefit.model.Data
 import com.example.morefit.ui.activity.MlActivity
 import com.example.morefit.ui.activity.RepCounterActivity
 import com.google.gson.Gson
+import org.tensorflow.lite.examples.poseestimation.ml.PoseClassifier
 
 class ExerciseFragment : Fragment(), View.OnClickListener {
 
@@ -52,7 +53,6 @@ class ExerciseFragment : Fragment(), View.OnClickListener {
 //                file_Name=data[position].file_name
                 if(true)
                 {
-
                     val intent = Intent(activity,RepCounterActivity::class.java)
                     startActivity(intent)
                 }

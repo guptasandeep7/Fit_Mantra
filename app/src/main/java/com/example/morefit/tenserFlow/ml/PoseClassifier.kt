@@ -31,7 +31,7 @@ class PoseClassifier(
     private val output = interpreter.getOutputTensor(0).shape()
 
     companion object {
-        private  var MODEL_FILENAME = file_Name
+          var MODEL_FILENAME = "pushup.tflite"
         private const val LABELS_FILENAME = "labels.txt"
         private const val CPU_NUM_THREADS = 4
 

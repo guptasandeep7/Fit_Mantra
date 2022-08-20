@@ -1,3 +1,5 @@
-correctsquat
-stationary
-wrongsquat
+chair
+cobra
+dog
+tree
+warrior

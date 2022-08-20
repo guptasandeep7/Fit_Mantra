@@ -177,11 +177,11 @@ class RepCounterActivity : AppCompatActivity() {
             if(counterStart)
             {
                 running=false
-                startTimer.setBackgroundResource(R.drawable.ic_baseline_play_arrow_24)
+                startTimer.setImageResource(R.drawable.ic_baseline_play_arrow_24)
                 counterStart=false
             }
             else {
-                startTimer.setBackgroundResource(R.drawable.ic_baseline_pause_24)
+                startTimer.setImageResource(R.drawable.ic_baseline_pause_24)
                 resetTimer.visibility = View.VISIBLE
                 running = true
                 counterStart=true

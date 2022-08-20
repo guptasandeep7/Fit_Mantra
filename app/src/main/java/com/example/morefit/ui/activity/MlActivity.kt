@@ -32,6 +32,7 @@ import java.util.*
 class MlActivity : AppCompatActivity() {
     companion object {
         private const val FRAGMENT_DIALOG = "dialog"
+        var correct_label=""
     }
     /** A [SurfaceView] for camera preview.   */
     private lateinit var surfaceView: SurfaceView
@@ -42,6 +43,7 @@ class MlActivity : AppCompatActivity() {
      * 2 == MoveNet MultiPose model
      * 3 == PoseNet model
      **/
+
     private var modelPos = 1
 
     /** Default device is CPU */
@@ -275,9 +277,10 @@ class MlActivity : AppCompatActivity() {
 
 //                                Toast.makeText(this@MlActivity, it.toString(), Toast.LENGTH_SHORT).show()
                             for(i in it) {
-                                if ("pushupholdcorrect" == i.first) {
-                                    if(i.second>=0.75)
+                                if (correct_label == i.first) {
+                                    if(i.second>=0.85)
                                     {
+//                                        Toast.makeText(this@MlActivity, it.toString(), Toast.LENGTH_SHORT).show()
                                         running=true
                                         runOnUiThread {
                                             cardview.strokeColor = Color.parseColor("#00FF00")
