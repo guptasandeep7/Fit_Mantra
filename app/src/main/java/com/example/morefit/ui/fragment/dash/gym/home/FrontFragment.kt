@@ -85,11 +85,11 @@ class FrontFragment : Fragment(), View.OnClickListener {
                 }
                 R.id.left_leg -> {
                     view.setBackgroundResource(R.drawable.left_leg)
-                    "Hamstrings"
+                    "Calves"
                 }
                 R.id.right_leg -> {
                     view.setBackgroundResource(R.drawable.right_leg)
-                    "Hamstrings"
+                    "Calves"
                 }
                 else -> {
                     "Chest"

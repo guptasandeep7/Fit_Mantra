@@ -3,34 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/diet.xml" value="0.2425" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/gradient.xml" value="0.2425" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/gym.xml" value="0.2425" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/ic_back.xml" value="0.2425" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/ic_back_black.xml" value="0.2425" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/ic_baseline_layers_24.xml" value="0.2425" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.2425" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/ic_diet.xml" value="0.2425" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/ic_extra_features.xml" value="0.108" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/ic_history.xml" value="0.108" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/ic_home.xml" value="0.2425" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/outline.xml" value="0.2425" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/profile_btn_background.xml" value="0.2415" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/splash_background.xml" value="0.2425" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/yoga.xml" value="0.2425" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/font/poppins.xml" value="0.26666666666666666" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/font/poppins_black.xml" value="0.26666666666666666" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/font/poppins_bold.xml" value="0.26666666666666666" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/layout/activity_main.xml" value="0.23645833333333333" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/layout/activity_profile.xml" value="0.264" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/layout/cal_option.xml" value="0.23645833333333333" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/layout/fragment_front.xml" value="0.23645833333333333" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/layout/fragment_gym.xml" value="0.23645833333333333" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/layout/fragment_past_workouts.xml" value="0.23541666666666666" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/layout/fragment_yoga.xml" value="0.23645833333333333" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/layout/item_past_workout.xml" value="0.4" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/menu/bottom_nav_menu.xml" value="0.23645833333333333" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/drawable/goals.xml" value="0.2385" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/drawable/gradient.xml" value="0.199" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/drawable/gym.xml" value="0.2375" />
@@ -62,29 +34,10 @@
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/setting_option.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/menu/bottom_nav_menu.xml" value="0.23125" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.23229166666666667" />
-        <entry key="app/src/main/res/drawable/curved_border.xml" value="0.301" />
-        <entry key="app/src/main/res/drawable/default_tab.xml" value="0.331" />
-        <entry key="app/src/main/res/drawable/selected_tab.xml" value="0.331" />
-        <entry key="app/src/main/res/drawable/tab_selector.xml" value="0.331" />
-        <entry key="app/src/main/res/drawable/yoga.xml" value="0.301" />
-        <entry key="app/src/main/res/drawable/yoga_card_view_gradient.xml" value="0.301" />
-        <entry key="app/src/main/res/drawable/yoga_instruction_curved_border.xml" value="0.301" />
-        <entry key="app/src/main/res/font/poppins.xml" value="0.29884566053869177" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2672082086361693" />
-        <entry key="app/src/main/res/layout/fragment_front.xml" value="0.2672082086361693" />
-        <entry key="app/src/main/res/layout/fragment_yoga.xml" value="0.2672082086361693" />
-        <entry key="app/src/main/res/layout/fragment_yoga_instruction.xml" value="0.536" />
-        <entry key="app/src/main/res/layout/fragment_yoga_pose_details.xml" value="0.33958333333333335" />
-        <entry key="app/src/main/res/layout/item_past_workout.xml" value="0.2672082086361693" />
-        <entry key="app/src/main/res/layout/item_yoga_pose.xml" value="0.2672082086361693" />
-        <entry key="app/src/main/res/layout/item_yoga_pose2.xml" value="0.4028776978417266" />
-        <entry key="app/src/main/res/layout/item_yoga_pose_details.xml" value="0.2672082086361693" />
-        <entry key="app/src/main/res/layout/item_yoga_pose_details2.xml" value="0.4984051036682616" />
-        <entry key="app/src/main/res/layout/setting_option.xml" value="0.2672082086361693" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
