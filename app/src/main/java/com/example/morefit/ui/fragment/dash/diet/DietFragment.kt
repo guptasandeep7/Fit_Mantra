@@ -31,13 +31,10 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
         lateinit var lunchRice:String
         lateinit var dinnerRoti:String
         lateinit var dinnerRice:String
-
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        exitTransition = MaterialFadeThrough()
         enterTransition = MaterialFadeThrough()
-        reenterTransition = MaterialFadeThrough()
         returnTransition = MaterialFadeThrough()
     }
 
@@ -60,9 +57,8 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
         binding.NoOilAdded.setOnClickListener(this)
         binding.LowFatAbs.setOnClickListener(this)
         binding.ShellFishFree.setOnClickListener(this)
-
-
     }
+
     private fun showBottomSheet(){
         val items =
             layoutInflater.inflate(R.layout.dialog_set_calories, null)

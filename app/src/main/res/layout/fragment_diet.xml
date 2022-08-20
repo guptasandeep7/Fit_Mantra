@@ -33,8 +33,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:fillViewport="true"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,12 +54,9 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/GlutenFree"
+                style="@style/CustomCardViewStyle"
                 android:layout_width="150dp"
-                android:layout_height="200dp"
-                android:layout_margin="14dp"
-                app:cardCornerRadius="8dp"
-                app:layout_columnWeight="1"
-                app:layout_rowWeight="1">
+                android:layout_height="200dp">
 
                 <ImageView
                     android:id="@+id/GlutenFreeImg"
@@ -77,12 +75,9 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/ketogenic"
+                style="@style/CustomCardViewStyle"
                 android:layout_width="150dp"
-                android:layout_height="200dp"
-                android:layout_margin="14dp"
-                app:cardCornerRadius="8dp"
-                app:layout_columnWeight="1"
-                app:layout_rowWeight="1">
+                android:layout_height="200dp">
 
                 <ImageView
                     android:id="@+id/ketogenicImg"
@@ -101,12 +96,9 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/Vegan"
+                style="@style/CustomCardViewStyle"
                 android:layout_width="150dp"
-                android:layout_height="200dp"
-                android:layout_margin="14dp"
-                app:cardCornerRadius="8dp"
-                app:layout_columnWeight="1"
-                app:layout_rowWeight="1">
+                android:layout_height="200dp">
 
                 <ImageView
                     android:id="@+id/VeganImg"
@@ -125,12 +117,9 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/Vegetarian"
+                style="@style/CustomCardViewStyle"
                 android:layout_width="150dp"
-                android:layout_height="200dp"
-                android:layout_margin="14dp"
-                app:cardCornerRadius="8dp"
-                app:layout_columnWeight="1"
-                app:layout_rowWeight="1">
+                android:layout_height="200dp">
 
                 <ImageView
                     android:id="@+id/VegetarianImg"
@@ -149,12 +138,9 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/PeanutFree"
+                style="@style/CustomCardViewStyle"
                 android:layout_width="150dp"
-                android:layout_height="200dp"
-                android:layout_margin="14dp"
-                app:cardCornerRadius="8dp"
-                app:layout_columnWeight="1"
-                app:layout_rowWeight="1">
+                android:layout_height="200dp">
 
                 <ImageView
                     android:id="@+id/PeanutFreeImg"
@@ -173,12 +159,9 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/FishFree"
+                style="@style/CustomCardViewStyle"
                 android:layout_width="150dp"
-                android:layout_height="200dp"
-                android:layout_margin="14dp"
-                app:cardCornerRadius="8dp"
-                app:layout_columnWeight="1"
-                app:layout_rowWeight="1">
+                android:layout_height="200dp">
 
                 <ImageView
                     android:id="@+id/FishFreeImg"
@@ -197,12 +180,9 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/SugarFree"
+                style="@style/CustomCardViewStyle"
                 android:layout_width="150dp"
-                android:layout_height="200dp"
-                android:layout_margin="14dp"
-                app:cardCornerRadius="8dp"
-                app:layout_columnWeight="1"
-                app:layout_rowWeight="1">
+                android:layout_height="200dp">
 
                 <ImageView
                     android:id="@+id/SugarFreeImg"
@@ -221,12 +201,9 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/DairyFree"
+                style="@style/CustomCardViewStyle"
                 android:layout_width="150dp"
-                android:layout_height="200dp"
-                android:layout_margin="14dp"
-                app:cardCornerRadius="8dp"
-                app:layout_columnWeight="1"
-                app:layout_rowWeight="1">
+                android:layout_height="200dp">
 
                 <ImageView
                     android:id="@+id/DairyFreeImg"
@@ -245,12 +222,9 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/EggFree"
+                style="@style/CustomCardViewStyle"
                 android:layout_width="150dp"
-                android:layout_height="200dp"
-                android:layout_margin="14dp"
-                app:cardCornerRadius="8dp"
-                app:layout_columnWeight="1"
-                app:layout_rowWeight="1">
+                android:layout_height="200dp">
 
                 <ImageView
                     android:id="@+id/EggFreeImg"
@@ -269,12 +243,9 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/ImmunoSupportive"
+                style="@style/CustomCardViewStyle"
                 android:layout_width="150dp"
-                android:layout_height="200dp"
-                android:layout_margin="14dp"
-                app:cardCornerRadius="8dp"
-                app:layout_columnWeight="1"
-                app:layout_rowWeight="1">
+                android:layout_height="200dp">
 
                 <ImageView
                     android:id="@+id/ImmunoSupportiveImg"
@@ -294,12 +265,9 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/KidneyFriendly"
+                style="@style/CustomCardViewStyle"
                 android:layout_width="150dp"
-                android:layout_height="200dp"
-                android:layout_margin="14dp"
-                app:cardCornerRadius="8dp"
-                app:layout_columnWeight="1"
-                app:layout_rowWeight="1">
+                android:layout_height="200dp">
 
                 <ImageView
                     android:id="@+id/KidneyFriendlyImg"
@@ -318,12 +286,9 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/LowSugar"
+                style="@style/CustomCardViewStyle"
                 android:layout_width="150dp"
-                android:layout_height="200dp"
-                android:layout_margin="14dp"
-                app:cardCornerRadius="8dp"
-                app:layout_columnWeight="1"
-                app:layout_rowWeight="1">
+                android:layout_height="200dp">
 
                 <ImageView
                     android:id="@+id/LowSugarImg"
@@ -342,12 +307,9 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/MustardFree"
+                style="@style/CustomCardViewStyle"
                 android:layout_width="150dp"
-                android:layout_height="200dp"
-                android:layout_margin="14dp"
-                app:cardCornerRadius="8dp"
-                app:layout_columnWeight="1"
-                app:layout_rowWeight="1">
+                android:layout_height="200dp">
 
                 <ImageView
                     android:id="@+id/MustardFreeImg"
@@ -366,12 +328,9 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/NoOilAdded"
+                style="@style/CustomCardViewStyle"
                 android:layout_width="150dp"
-                android:layout_height="200dp"
-                android:layout_margin="14dp"
-                app:cardCornerRadius="8dp"
-                app:layout_columnWeight="1"
-                app:layout_rowWeight="1">
+                android:layout_height="200dp">
 
                 <ImageView
                     android:id="@+id/NoOilAddedImg"
@@ -390,12 +349,9 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/LowFatAbs"
+                style="@style/CustomCardViewStyle"
                 android:layout_width="150dp"
-                android:layout_height="200dp"
-                android:layout_margin="14dp"
-                app:cardCornerRadius="8dp"
-                app:layout_columnWeight="1"
-                app:layout_rowWeight="1">
+                android:layout_height="200dp">
 
                 <ImageView
                     android:id="@+id/LowFatAbsImg"
@@ -414,12 +370,9 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/ShellFishFree"
+                style="@style/CustomCardViewStyle"
                 android:layout_width="150dp"
-                android:layout_height="200dp"
-                android:layout_margin="14dp"
-                app:cardCornerRadius="8dp"
-                app:layout_columnWeight="1"
-                app:layout_rowWeight="1">
+                android:layout_height="200dp">
 
                 <ImageView
                     android:id="@+id/ShellFishFreeImg"

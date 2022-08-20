@@ -61,4 +61,12 @@
         <item name="android:textSize">18sp</item>
         <item name="android:background">@drawable/black_gradient2</item>
     </style>
+
+    <style name="CustomCardViewStyle" parent="CardView">
+        <item name="cardCornerRadius">8dp</item>
+        <item name="cardElevation">8dp</item>
+        <item name="android:layout_margin">14dp</item>
+        <item name="layout_columnWeight">1</item>
+        <item name="layout_rowWeight">1</item>
+    </style>
 </resources>

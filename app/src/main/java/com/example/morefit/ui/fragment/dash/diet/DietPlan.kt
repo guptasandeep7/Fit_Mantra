@@ -25,6 +25,8 @@ import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.lunchRot
 import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.qBreak
 import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.qDinner
 import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.qLunch
+import com.example.morefit.utils.hideBottomNavigationView
+import com.example.morefit.utils.showBottomNavigationView
 import com.example.morefit.view_models.GenerateMealPlanViewModel
 import kotlin.math.roundToInt
 
@@ -287,5 +289,15 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                 }
             }
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        activity?.hideBottomNavigationView()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        activity?.showBottomNavigationView()
     }
 }
