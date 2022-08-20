@@ -11,7 +11,8 @@ import coil.load
 import coil.size.Scale
 import com.example.morefit.R
 import com.example.morefit.databinding.FragmentYogaPoseDetailsBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.example.morefit.utils.hideBottomNavigationView
+import com.example.morefit.utils.showBottomNavigationView
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.transition.platform.MaterialSharedAxis
 
@@ -20,14 +21,12 @@ class YogaPoseDetailsFragment : Fragment(R.layout.fragment_yoga_pose_details) {
 	
 	override fun onStart() {
 		super.onStart()
-		val bottomNavigationView = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-		bottomNavigationView.visibility = View.GONE
+		activity?.hideBottomNavigationView()
 	}
 	
 	override fun onStop() {
 		super.onStop()
-		val bottomNavigationView = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-		bottomNavigationView.visibility = View.VISIBLE
+		activity?.showBottomNavigationView()
 	}
 	
 	override fun onCreate(savedInstanceState: Bundle?) {

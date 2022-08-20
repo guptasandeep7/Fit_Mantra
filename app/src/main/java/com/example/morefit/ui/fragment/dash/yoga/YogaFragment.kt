@@ -10,10 +10,17 @@ import com.example.morefit.adapter.YogaPoseRecyclerAdapter
 import com.example.morefit.databinding.FragmentYogaBinding
 import com.example.morefit.model.Pose
 import com.example.morefit.model.YogaPoses
+import com.google.android.material.transition.platform.MaterialFadeThrough
 import com.google.gson.Gson
 
 class YogaFragment : Fragment(R.layout.fragment_yoga), YogaPoseInterface {
     private lateinit var binding: FragmentYogaBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enterTransition = MaterialFadeThrough()
+        returnTransition = MaterialFadeThrough()
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -22,8 +29,6 @@ class YogaFragment : Fragment(R.layout.fragment_yoga), YogaPoseInterface {
                 .use { it.readText() }
             val data = Gson().fromJson(file, YogaPoses::class.java)
             yogaRecyclerView.adapter = YogaPoseRecyclerAdapter(this@YogaFragment, data.poses)
-
-            icBack.setOnClickListener { findNavController().navigateUp() }
         }
     }
 
