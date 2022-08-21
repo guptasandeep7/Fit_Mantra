@@ -1,5 +1,7 @@
 package com.example.morefit.ui.fragment.dash.gym
 
+import android.app.ActivityOptions
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +11,12 @@ import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
 import com.example.morefit.adapter.PageAdapter
 import com.example.morefit.databinding.FragmentGymBinding
+import com.example.morefit.ui.activity.ProfileActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.android.material.transition.platform.Hold
+import com.google.android.material.transition.platform.MaterialFadeThrough
 
 class GymFragment : Fragment(), View.OnClickListener {
 
@@ -20,6 +25,14 @@ class GymFragment : Fragment(), View.OnClickListener {
 
     companion object {
         lateinit var muscleName: String
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        exitTransition = Hold()
+        enterTransition = MaterialFadeThrough()
+        reenterTransition = MaterialFadeThrough()
+        returnTransition = MaterialFadeThrough()
     }
 
     override fun onCreateView(
@@ -44,6 +57,7 @@ class GymFragment : Fragment(), View.OnClickListener {
         }.attach()
         super.onViewCreated(view, savedInstanceState)
 
+        binding.userImage.setOnClickListener(this)
 //        binding.calBtn.setOnClickListener(this)
 //        binding.settingBtn.setOnClickListener(this)
     }
@@ -52,6 +66,15 @@ class GymFragment : Fragment(), View.OnClickListener {
         when (view?.id) {
 //            R.id.cal_btn -> bottomCal()
 //            R.id.setting_btn -> bottomSetting()
+            R.id.user_image -> {
+                val options = ActivityOptions.makeSceneTransitionAnimation(
+                    requireActivity(), binding.userImage, "shared_element"
+                )
+                startActivity(
+                    Intent(requireContext(), ProfileActivity::class.java),
+                    options.toBundle()
+                )
+            }
         }
     }
 

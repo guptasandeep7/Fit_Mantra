@@ -13,9 +13,11 @@ import com.example.morefit.databinding.FragmentExerciseBinding
 import com.example.morefit.ui.fragment.dash.gym.GymFragment.Companion.muscleName
 import com.example.morefit.model.AllData
 import com.example.morefit.model.Data
+import com.example.morefit.model.Pose
 import com.example.morefit.ui.activity.MlActivity
 import com.example.morefit.ui.activity.RepCounterActivity
 import com.google.gson.Gson
+import org.tensorflow.lite.examples.poseestimation.ml.PoseClassifier
 
 class ExerciseFragment : Fragment(), View.OnClickListener {
 
@@ -26,19 +28,18 @@ class ExerciseFragment : Fragment(), View.OnClickListener {
 
     companion object
     {
-        var file_Name="squat.tflite"
         var name =""
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.backBtn.setOnClickListener(this)
+        binding.icBack.setOnClickListener(this)
         binding.stretches.setOnClickListener(this)
         binding.barbell.setOnClickListener(this)
         binding.bodyweight.setOnClickListener(this)
         binding.dumbbells.setOnClickListener(this)
         binding.kettlebells.setOnClickListener(this)
 
-        binding.toolbarText.text = muscleName
+        binding.heading2.text = muscleName
 
         loadData()
         exerciseAdapter.setOnItemClickListener(object : ExerciseAdapter.onItemClickListener {
@@ -49,15 +50,17 @@ class ExerciseFragment : Fragment(), View.OnClickListener {
             override fun onActivityCLick(position: Int) {
                 //File Name here
                 name=data[position].title
-//                file_Name=data[position].file_name
-                if(true)
+                PoseClassifier.MODEL_FILENAME=data[position].file_name
+                PoseClassifier.labels=data[position].labels
+                if(data[position].counter)
                 {
-
+                    RepCounterActivity.correct_label=data[position].correct_label
                     val intent = Intent(activity,RepCounterActivity::class.java)
                     startActivity(intent)
                 }
                else
                 {
+                   MlActivity.correct_label=data[position].correct_label
                     val intent = Intent(activity,MlActivity::class.java)
                     startActivity(intent)
                 }
@@ -93,7 +96,7 @@ class ExerciseFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.back_btn -> findNavController().navigateUp()
+            R.id.icBack -> findNavController().navigateUp()
             R.id.stretches -> filterData("Stretches")
             R.id.bodyweight -> filterData("Bodyweight")
             R.id.barbell -> filterData("Barbell")

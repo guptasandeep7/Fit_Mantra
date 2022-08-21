@@ -8,30 +8,45 @@ import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Process
+import android.provider.Settings
 import android.view.SurfaceView
 import android.view.View
 import android.view.WindowManager
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.lifecycle.lifecycleScope
+import com.example.energybar.ContentViewModel
+import com.example.energybar.WordViewModelFactory
+import com.example.energybar.database.ContentApplication
 import com.example.morefit.R
+import com.example.morefit.model.database.Content
 import com.example.morefit.ui.fragment.dash.gym.ExerciseFragment
+import com.example.morefit.utils.Datastore
 import com.google.android.material.card.MaterialCardView
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.tensorflow.lite.examples.poseestimation.camera.CameraSource
 import org.tensorflow.lite.examples.poseestimation.data.Device
 import org.tensorflow.lite.examples.poseestimation.ml.*
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class MlActivity : AppCompatActivity() {
     companion object {
         private const val FRAGMENT_DIALOG = "dialog"
+        var correct_label=""
+    }
+    private val contentViewModel: ContentViewModel by viewModels() {
+        WordViewModelFactory((application as ContentApplication).repository)
     }
     /** A [SurfaceView] for camera preview.   */
     private lateinit var surfaceView: SurfaceView
@@ -42,6 +57,7 @@ class MlActivity : AppCompatActivity() {
      * 2 == MoveNet MultiPose model
      * 3 == PoseNet model
      **/
+
     private var modelPos = 1
 
     /** Default device is CPU */
@@ -56,7 +72,7 @@ class MlActivity : AppCompatActivity() {
     private var wasRunning = false
 
 
-
+    private lateinit var completeml:ImageButton
     private lateinit var tvScore: TextView
     private lateinit var tvFPS: TextView
     private lateinit var spnDevice: Spinner
@@ -69,6 +85,7 @@ class MlActivity : AppCompatActivity() {
     private lateinit var swClassification: SwitchCompat
     private lateinit var cardview:MaterialCardView
     private lateinit var vClassificationOption: View
+    private lateinit var datastore: Datastore
 //    private lateinit var repcountText:TextView
 //    lateinit var repcount : TextView
 //    var counter=0;
@@ -142,6 +159,7 @@ class MlActivity : AppCompatActivity() {
         tvScore = findViewById(R.id.tvScore)
         tvFPS = findViewById(R.id.tvFps)
         spnModel = findViewById(R.id.spnModel)
+        completeml=findViewById(R.id.completeml)
         spnDevice = findViewById(R.id.spnDevice)
         spnTracker = findViewById(R.id.spnTracker)
         vTrackerOption = findViewById(R.id.vTrackerOption)
@@ -169,6 +187,32 @@ class MlActivity : AppCompatActivity() {
                 .getBoolean("wasRunning")
         }
         runTimer()
+        completeml.setOnClickListener {
+            var content= arrayListOf<Content>(Content(System.currentTimeMillis(),ExerciseFragment.name,
+                seconds.toLong(),0
+            ))
+            contentViewModel.insert(content)
+
+            datastore = Datastore(this)
+
+            // Streak
+            GlobalScope.launch {
+                if ((System.currentTimeMillis() - datastore.getLastWorkoutDate()) > 86400000
+                    && (System.currentTimeMillis() - datastore.getLastWorkoutDate()) < 172800000
+                ) {
+                    datastore.setStreakCount(datastore.getStreakCount() + 1)
+                    datastore.setLastWorkoutDate(System.currentTimeMillis())
+                }
+                else if ((System.currentTimeMillis() - datastore.getLastWorkoutDate()) > 172800000) {
+                    datastore.setStreakCount(1)
+                    datastore.setLastWorkoutDate(System.currentTimeMillis())
+                }
+                else if((System.currentTimeMillis() - datastore.getLastWorkoutDate()) < 86400000){
+                    datastore.setLastWorkoutDate(System.currentTimeMillis())
+                }
+            }
+
+        }
 
         if (!isCameraPermissionGranted()) {
             requestPermission()
@@ -275,9 +319,10 @@ class MlActivity : AppCompatActivity() {
 
 //                                Toast.makeText(this@MlActivity, it.toString(), Toast.LENGTH_SHORT).show()
                             for(i in it) {
-                                if ("pushupholdcorrect" == i.first) {
-                                    if(i.second>=0.75)
+                                if (correct_label == i.first) {
+                                    if(i.second>=0.85)
                                     {
+//                                        Toast.makeText(this@MlActivity, it.toString(), Toast.LENGTH_SHORT).show()
                                         running=true
                                         runOnUiThread {
                                             cardview.strokeColor = Color.parseColor("#00FF00")

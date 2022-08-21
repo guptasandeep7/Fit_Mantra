@@ -1,13 +1,17 @@
 package com.example.morefit.adapter
 
+import android.graphics.drawable.Drawable
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.morefit.R
 import com.example.morefit.databinding.ExerciseItemBinding
 import com.example.morefit.model.Data
+import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.io.Resources
 
 class ExerciseAdapter : RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
 
@@ -31,10 +35,10 @@ class ExerciseAdapter : RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
 
     class ViewHolder(val binding: ExerciseItemBinding, listener: onItemClickListener) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(address: Data) {
-            binding.item = address
+        fun bind(data: Data) {
+            binding.item = data
             binding.text.text = ""
-            address.text_tutorials.forEachIndexed { index, textTutorial ->
+            data.text_tutorials.forEachIndexed { index, textTutorial ->
                 binding.text.append("${index + 1}) ${textTutorial.text}\n\n")
             }
         }
@@ -53,6 +57,9 @@ class ExerciseAdapter : RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
         holder.binding.button.setOnClickListener {
              mlistner?.onActivityCLick(position)
         }
+        if(addressList[position].file_name.isNullOrEmpty())
+        { holder.binding.button.visibility= View.GONE}
+
         holder.binding.imageView2.setOnClickListener{
             mlistner?.onItemClick(position)
         }

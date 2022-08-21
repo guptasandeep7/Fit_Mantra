@@ -3,12 +3,47 @@
     {
       "category": "Stretches",
       "muscle": "Calves",
+      "title": "Squats",
+      "difficulty": "Difficulty: Beginner",
+      "gender": "Male",
+      "video_tutorials": [
+        "https://youtu.be/YaXPRqUwItQ",
+        "https://youtu.be/YaXPRqUwItQ"
+      ],
+      "text_tutorials": [
+        {
+          "text": "Stand with feet a little wider than hip width, toes facing front."
+        },
+        {
+          "text": "Drive your hips back—bending at the knees and ankles and pressing your knees slightly open."
+        },
+        {
+          "text": "Sit into a squat position while still keeping your heels and toes on the ground, chest up and shoulders back."
+        },
+        {
+          "text": "Strive to eventually reach parallel, meaning knees are bent to a 90-degree angle."
+        },
+        {
+          "text": "Press into your heels and straighten legs to return to a standing upright position."
+        }
+      ],
+      "counter": true,
+      "file_name": "squat.tflite",
+      "labels": ["sitting",
+        "stationary",
+        "squatcorrect",
+        "stationary"],
+      "correct_label": "squatcorrect"
+    },
+    {
+      "category": "Stretches",
+      "muscle": "Calves",
       "title": "Calves Stretch Variation One",
       "difficulty": "Difficulty: Beginner",
       "gender": "Male",
       "video_tutorials": [
-        "https://youtu.be/k3-yr6Mx3Rs",
-        "https://youtu.be/wwK_SIPTPqk"
+        "https://youtu.be/YaXPRqUwItQ",
+        "https://youtu.be/YaXPRqUwItQ"
       ],
       "text_tutorials": [
         {
@@ -367,6 +402,38 @@
     {
       "category": "Stretches",
       "muscle": "Shoulders",
+      "title": "Push Ups",
+      "difficulty": "Difficulty: Beginner",
+      "gender": "Male",
+      "video_tutorials": [
+        "https://youtu.be/t0s5FHbdBmA",
+        "https://youtu.be/t0s5FHbdBmA"
+      ],
+      "text_tutorials": [
+        {
+          "text": "Get down on all floor, placing your hands slightly wider than your shoulders."
+        },
+        {
+          "text": "Straighten your arms and legs."
+        },
+        {
+          "text": "Lower your body until your chest nearly touches the floor."
+        },
+        {
+          "text": "Pause, then push yourself back up."
+        },
+        {
+          "text": "Repeat."
+        }
+      ],
+      "counter": false,
+      "file_name": "",
+      "labels": [],
+      "correct_label": ""
+    },
+    {
+      "category": "Stretches",
+      "muscle": "Shoulders",
       "title": "Shoulders Stretch Variation One",
       "difficulty": "Difficulty: Beginner",
       "gender": "Male",
@@ -471,6 +538,38 @@
     {
       "category": "Stretches",
       "muscle": "Chest",
+      "title": "Push Ups",
+      "difficulty": "Difficulty: Beginner",
+      "gender": "Male",
+      "video_tutorials": [
+        "https://youtu.be/t0s5FHbdBmA",
+        "https://youtu.be/t0s5FHbdBmA"
+      ],
+      "text_tutorials": [
+        {
+          "text": "Get down on all floor, placing your hands slightly wider than your shoulders."
+        },
+        {
+          "text": "Straighten your arms and legs."
+        },
+        {
+          "text": "Lower your body until your chest nearly touches the floor."
+        },
+        {
+          "text": "Pause, then push yourself back up."
+        },
+        {
+          "text": "Repeat."
+        }
+      ],
+      "counter": false,
+      "file_name": "",
+      "labels": [],
+      "correct_label": ""
+    },
+    {
+      "category": "Stretches",
+      "muscle": "Chest",
       "title": "Chest Stretch Variation One",
       "difficulty": "Difficulty: Beginner",
       "gender": "Male",
@@ -565,6 +664,38 @@
         },
         {
           "text": "Pause for a few seconds and then return to starting position."
+        }
+      ],
+      "counter": false,
+      "file_name": "",
+      "labels": [],
+      "correct_label": ""
+    },
+    {
+      "category": "Stretches",
+      "muscle": "Biceps",
+      "title": "Push Ups",
+      "difficulty": "Difficulty: Beginner",
+      "gender": "Male",
+      "video_tutorials": [
+        "https://youtu.be/t0s5FHbdBmA",
+        "https://youtu.be/t0s5FHbdBmA"
+      ],
+      "text_tutorials": [
+        {
+          "text": "Get down on all floor, placing your hands slightly wider than your shoulders."
+        },
+        {
+          "text": "Straighten your arms and legs."
+        },
+        {
+          "text": "Lower your body until your chest nearly touches the floor."
+        },
+        {
+          "text": "Pause, then push yourself back up."
+        },
+        {
+          "text": "Repeat."
         }
       ],
       "counter": false,
@@ -780,6 +911,35 @@
       ],
       "counter": false,
       "file_name": "",
+      "labels": [],
+      "correct_label": ""
+    },
+    {
+      "category": "Stretches",
+      "muscle": "Forearms",
+      "title": "Pull Ups",
+      "difficulty": "Difficulty: Beginner",
+      "gender": "Male",
+      "video_tutorials": [
+        "https://youtu.be/eGo4IYlbE5g",
+        "https://youtu.be/eGo4IYlbE5g"
+      ],
+      "text_tutorials": [
+        {
+          "text": "Exhale while pulling yourself up so your chin is level with the bar. Pause at the top."
+        },
+        {
+          "text": "Lower yourself (inhaling as you go down) until your elbows are straight."
+        },
+        {
+          "text": "Repeat the movement without touching the floor."
+        },
+        {
+          "text": "Complete the number of repetitions your workout requires."
+        }
+      ],
+      "counter": true,
+      "file_name": "Pullups.tflite",
       "labels": [],
       "correct_label": ""
     },
@@ -1044,6 +1204,35 @@
     {
       "category": "Stretches",
       "muscle": "Lats",
+      "title": "Pull Ups",
+      "difficulty": "Difficulty: Beginner",
+      "gender": "Male",
+      "video_tutorials": [
+        "https://youtu.be/eGo4IYlbE5g",
+        "https://youtu.be/eGo4IYlbE5g"
+      ],
+      "text_tutorials": [
+        {
+          "text": "Exhale while pulling yourself up so your chin is level with the bar. Pause at the top."
+        },
+        {
+          "text": "Lower yourself (inhaling as you go down) until your elbows are straight."
+        },
+        {
+          "text": "Repeat the movement without touching the floor."
+        },
+        {
+          "text": "Complete the number of repetitions your workout requires."
+        }
+      ],
+      "counter": true,
+      "file_name": "Pullups.tflite",
+      "labels": [],
+      "correct_label": ""
+    },
+    {
+      "category": "Stretches",
+      "muscle": "Lats",
       "title": "Lats Stretch Variation One",
       "difficulty": "Difficulty: Beginner",
       "gender": "Male",
@@ -1225,6 +1414,41 @@
       "file_name": "",
       "labels": [],
       "correct_label": ""
+    },
+    {
+      "category": "Stretches",
+      "muscle": "Hamstrings",
+      "title": "Squats",
+      "difficulty": "Difficulty: Beginner",
+      "gender": "Male",
+      "video_tutorials": [
+        "https://youtu.be/YaXPRqUwItQ",
+        "https://youtu.be/YaXPRqUwItQ"
+      ],
+      "text_tutorials": [
+        {
+          "text": "Stand with feet a little wider than hip width, toes facing front."
+        },
+        {
+          "text": "Drive your hips back—bending at the knees and ankles and pressing your knees slightly open."
+        },
+        {
+          "text": "Sit into a squat position while still keeping your heels and toes on the ground, chest up and shoulders back."
+        },
+        {
+          "text": "Strive to eventually reach parallel, meaning knees are bent to a 90-degree angle."
+        },
+        {
+          "text": "Press into your heels and straighten legs to return to a standing upright position."
+        }
+      ],
+      "counter": true,
+      "file_name": "squat.tflite",
+      "labels": ["sitting",
+        "stationary",
+        "squatcorrect",
+        "stationary"],
+      "correct_label": "squatcorrect"
     },
     {
       "category": "Stretches",
@@ -1852,10 +2076,13 @@
           "text": "Return to starting position."
         }
       ],
-      "counter": false,
-      "file_name": "",
-      "labels": [],
-      "correct_label": ""
+      "counter": true,
+      "file_name": "squat.tflite",
+      "labels": ["sitting",
+        "stationary",
+        "squatcorrect",
+        "stationary"],
+      "correct_label": "squatcorrect"
     },
     {
       "category": "Bodyweight",
