@@ -6,14 +6,15 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import coil.load
 import com.example.morefit.R
+import com.example.morefit.adapter.MealBreakAdapter
+import com.example.morefit.adapter.MealDinnerAdapter
+import com.example.morefit.adapter.MealLunchAdapter
 import com.example.morefit.databinding.FragmentDietPlanBinding
 import com.example.morefit.model.WeekMeal
-import com.example.morefit.utils.Response
+import com.example.morefit.model.item_model
 import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.breakRice
 import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.breakRoti
 import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.calorie
@@ -25,6 +26,7 @@ import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.lunchRot
 import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.qBreak
 import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.qDinner
 import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.qLunch
+import com.example.morefit.utils.Response
 import com.example.morefit.view_models.GenerateMealPlanViewModel
 import kotlin.math.roundToInt
 
@@ -34,9 +36,16 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
     lateinit var Mealdata:MutableList<WeekMeal>
     lateinit var Mealdatalunch:MutableList<WeekMeal>
     lateinit var MealdataDinner:MutableList<WeekMeal>
-    var breakfast=""
-    var lunch=""
-    var dinner= ""
+    lateinit var meal:MutableList<item_model>
+    lateinit var meal1:MutableList<item_model>
+    lateinit var meal2:MutableList<item_model>
+    private val mealBreakAdapter = MealBreakAdapter()
+    private val mealLunchAdapter = MealLunchAdapter()
+    private val mealDinnerAdapter = MealDinnerAdapter()
+
+    var breakCalTot=0.0
+    var lunchCalTot=0.0
+    var dinnerCalTot=0.0
     private val generateMealPlanViewModel by lazy { ViewModelProvider(this)[GenerateMealPlanViewModel::class.java]    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -51,6 +60,10 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
         Mealdata= mutableListOf()
         Mealdatalunch= mutableListOf()
         MealdataDinner= mutableListOf()
+        meal= mutableListOf()
+        meal1= mutableListOf()
+        meal2= mutableListOf()
+
         val calorieBreak:String = (calorie.toInt()*0.25).toString()+"-"+(calorie.toInt()*0.3).toString()
         val calorieLunch:String = (calorie.toInt()*0.35).toString()+"-"+(calorie.toInt()*0.4).toString()
         val calorieDinner:String = (calorie.toInt()*0.25).toString()+"-"+(calorie.toInt()*0.3).toString()
@@ -63,8 +76,34 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
         generateMealPlanViewModel.submitResult("public",qBreak,"16a70afb","96079c81218f8debd87360747fd41368",health,"Indian","Breakfast",calorieBreak)
         generateMealPlanViewModel._mealPlanResult.observe(viewLifecycleOwner) {
             if (it is Response.Success) {
+                binding.recyclerview1.adapter=mealBreakAdapter
                     Mealdata.add(it.data!!)
-                    count++
+                if (it.data.count!=0) {
+                    breakCalTot =
+                        ((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0
+                    meal.add(
+                        item_model(
+                            it.data.hits[0].recipe.image,
+                            it.data.hits[0].recipe.label,
+                            "100 gram",
+                            breakCalTot.toString() + " cal"
+                        )
+                    )
+                    if (breakRoti != "0") {
+                        meal.add(
+                            item_model(
+                                getUrl(R.drawable.roti),
+                                "Roti",
+                                breakRoti + " serving",
+                                (104 * breakRoti.toInt()).toString() + " cal"
+                            )
+                        )
+                    }
+                    if (breakRice != "0") {
+                        meal.add(item_model(getUrl(R.drawable.rice), "Rice", "1 bowl", "136 cal"))
+                    }
+                }
+                count++
                     call(count)
             } else it.errorMessage?.let {
                 Log.e("mssg", "showBottomSheet: error" )
@@ -74,7 +113,33 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
         generateMealPlanViewModel.submitResult("public",qLunch,"16a70afb","96079c81218f8debd87360747fd41368",health,"Indian","Lunch",calorieLunch)
         generateMealPlanViewModel._mealPlanResult.observe(viewLifecycleOwner) {
             if (it is Response.Success) {
+                binding.recyclerview2.adapter=mealLunchAdapter
                     Mealdatalunch.add(it.data!!)
+                if (it.data.count!=0) {
+                    lunchCalTot =
+                        ((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0
+                    meal1.add(
+                        item_model(
+                            it.data.hits[0].recipe.image,
+                            it.data.hits[0].recipe.label,
+                            "100 gram",
+                            lunchCalTot.toString() + " cal"
+                        )
+                    )
+                    if (lunchRoti != "0") {
+                        meal1.add(
+                            item_model(
+                                getUrl(R.drawable.roti),
+                                "Roti",
+                                lunchRoti + " serving",
+                                (104 * lunchRoti.toInt()).toString() + " cal"
+                            )
+                        )
+                    }
+                    if (lunchRice != "0") {
+                        meal1.add(item_model(getUrl(R.drawable.rice), "Rice", "1 bowl", "136 cal"))
+                    }
+                }
                     count++
                     call(count)
             } else it.errorMessage?.let {
@@ -85,7 +150,33 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
         generateMealPlanViewModel.submitResult("public",qDinner,"16a70afb","96079c81218f8debd87360747fd41368",health,"Indian","Dinner",calorieDinner)
         generateMealPlanViewModel._mealPlanResult.observe(viewLifecycleOwner) {
             if (it is Response.Success) {
+                binding.recyclerview3.adapter=mealDinnerAdapter
                     MealdataDinner.add(it.data!!)
+                if (it.data.count!=0) {
+                    dinnerCalTot =
+                        ((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0
+                    meal2.add(
+                        item_model(
+                            it.data.hits[0].recipe.image,
+                            it.data.hits[0].recipe.label,
+                            "100 gram",
+                            dinnerCalTot.toString() + " cal"
+                        )
+                    )
+                    if (dinnerRoti != "0") {
+                        meal2.add(
+                            item_model(
+                                getUrl(R.drawable.roti),
+                                "Roti",
+                                dinnerRoti + " serving",
+                                (104 * dinnerRoti.toInt()).toString() + " cal"
+                            )
+                        )
+                    }
+                    if (dinnerRice != "0") {
+                        meal2.add(item_model(getUrl(R.drawable.rice), "Rice", "1 bowl", "136 cal"))
+                    }
+                }
                     count++
                     call(count)
             } else it.errorMessage?.let {
@@ -170,96 +261,55 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
             binding.dinner.visibility=View.VISIBLE
             if (Mealdata[0].count == 0){
                 breakfst=0
-                breakfast="No results for breakfast"
-                binding.breakfast.visibility=View.GONE
-                binding.errorTextBreak.visibility=View.VISIBLE
-                binding.errorTextBreak.text=breakfast+"\n"+lunch+"\n"+dinner
-                ( binding.lunch.layoutParams as ConstraintLayout.LayoutParams).apply {
-                    marginStart = 24
-                    topMargin = 50
-                    marginEnd = 24
-                    bottomMargin = 0
-                }
-                ( binding.dinner.layoutParams as ConstraintLayout.LayoutParams).apply {
-                    marginStart = 24
-                    topMargin = 639
-                    marginEnd = 24
-                    bottomMargin = 0
-                }
+                binding.recyclerview1.visibility=View.GONE
+                binding.breakfastSite.visibility=View.GONE
+                binding.textView17.visibility=View.VISIBLE
             }
             if (Mealdatalunch[0].count == 0) {
                 lun=0
-                lunch="No results for lunch"
-                binding.lunch.visibility=View.GONE
-                binding.errorTextBreak.visibility=View.VISIBLE
-                binding.errorTextBreak.text = breakfast+"\n"+lunch+"\n"+dinner
+                binding.recyclerview2.visibility=View.GONE
+                binding.lunchSite.visibility=View.GONE
+                binding.textView18.visibility=View.VISIBLE
 
-                ( binding.dinner.layoutParams as ConstraintLayout.LayoutParams).apply {
-                    marginStart=24
-                    topMargin=639
-                    marginEnd=24
-                    bottomMargin=0
-                }
             }
             if(Mealdata[0].count == 0 && Mealdatalunch[0].count == 0){
-                ( binding.dinner.layoutParams as ConstraintLayout.LayoutParams).apply {
-                    marginStart = 24
-                    topMargin = 50
-                    marginEnd = 24
-                    bottomMargin = 0
-                }
+
             }
             if (MealdataDinner[0].count == 0){
                 din=0
-                dinner="No resluts for dinner"
-                binding.dinner.visibility=View.GONE
-                binding.errorTextBreak.visibility=View.VISIBLE
-                binding.errorTextBreak.text=breakfast+"\n"+lunch+"\n"+dinner
+                binding.recyclerview3.visibility=View.GONE
+                binding.dinnerSite.visibility=View.GONE
+                binding.textView19.visibility=View.VISIBLE
 
             }
 
 
             if(breakfst==1){
-                binding.breakfastTitle.text = Mealdata[0].hits[0].recipe.label
-                val cal=(Mealdata[0].hits[0].recipe.calories/Mealdata[0].hits[0].recipe.totalWeight)*100+breakRoti.toInt()*104+breakRice.toInt()*136
-                binding.brekRoti.text= "Chapatti: "+breakRoti
-                if (breakRice!="0")
-                binding.brekRice.text= "Rice: "+breakRice+" bowl"
-                binding.breakfastQuantity.text = 100.toString() + " gram"
-                binding.breakfastCal.text = (cal.roundToInt()* 100.0 / 100.0).toString() + " cal"
-                binding.imageView3.load(Mealdata[0].hits[0].recipe.image)
                 binding.breakfastSite.setOnClickListener {
                     golink(Mealdata[0].hits[0].recipe.url)
                 }
+                binding.textView12.text= (breakRoti.toInt()*104+ breakRice.toInt()*136+breakCalTot).toString()+" cal"
+                mealBreakAdapter.updateMealList(meal)
             }
             if(lun==1){
-                binding.lunchTitle.text = Mealdatalunch[0].hits[0].recipe.label
-                val cal2=(Mealdatalunch[0].hits[0].recipe.calories/Mealdatalunch[0].hits[0].recipe.totalWeight)*100+lunchRoti.toInt()*104+lunchRice.toInt()*136
-                binding.lunchRoti.text= "Chapatti: "+ lunchRoti
-                if (lunchRice!="0")
-                    binding.lunchRice.text= "Rice: "+lunchRice+" bowl"
-                binding.lunchQuantity.text = 100.toString() + " gram"
-                binding.lunchCal.text =
-                    (cal2.roundToInt()* 100.0 / 100.0).toString() + " cal"
-                binding.imageView5.load(Mealdatalunch[0].hits[0].recipe.image)
                 binding.lunchSite.setOnClickListener {
                     golink(Mealdatalunch[0].hits[0].recipe.url)
                 }
+                binding.textView13.text=(lunchRoti.toInt()*104+ lunchRice.toInt()*136+lunchCalTot).toString()+" cal"
+                mealLunchAdapter.updateMealList(meal1)
             }
             if(din==1){
-                binding.dinnerTitle.text = MealdataDinner[0].hits[0].recipe.label
-                val cal3=(MealdataDinner[0].hits[0].recipe.calories/MealdataDinner[0].hits[0].recipe.totalWeight)*100+dinnerRoti.toInt()*104+dinnerRice.toInt()*136
-                binding.dinnerRoti.text= "Chapatti: "+ dinnerRoti
-                if (dinnerRice!="0")
-                    binding.dinnerRice.text= "Rice: "+dinnerRice+" bowl"
-                binding.dinnerQuantity.text = 100.toString() + " gram"
-                binding.dinnerCal.text =
-                    (cal3.roundToInt()* 100.0 / 100.0).toString() + " cal"
-                binding.imageView7.load(MealdataDinner[0].hits[0].recipe.image)
                 binding.dinnerSite.setOnClickListener {
                     golink(MealdataDinner[0].hits[0].recipe.url)
                 }
+                binding.textView14.text=(dinnerRoti.toInt()*104+ dinnerRice.toInt()*136+dinnerCalTot).toString()+" cal"
+                mealDinnerAdapter.updateMealList(meal2)
             }
         }
+    }
+    private fun getUrl(resourceId:Int):String{
+        return Uri.parse(
+            "android.resource://" + R::class.java.getPackage().getName() + "/" + resourceId
+        ).toString()
     }
 }
