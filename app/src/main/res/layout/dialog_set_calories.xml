@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <View
+
+    <ImageView
         android:id="@+id/horizontalBar"
-        android:layout_width="match_parent"
-        android:layout_height="4dp"
-        android:layout_marginHorizontal="148dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/ic_horizontal_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_horizontal_pill"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -67,7 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:hint="Ingred. for breakfast"
+            android:hint="Breakfast ingredients"
             android:inputType="text"
             android:paddingStart="30dp"
             android:paddingEnd="30dp"
@@ -80,7 +78,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
-        android:layout_marginEnd="200dp"        android:layout_marginTop="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="200dp"
         android:layout_marginBottom="60dp"
         app:boxCornerRadiusBottomEnd="30dp"
         app:boxCornerRadiusBottomStart="30dp"
@@ -96,19 +95,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:hint="Ingred. for lunch"
+            android:hint="Lunch ingredients"
             android:inputType="text"
             android:paddingStart="30dp"
             android:paddingEnd="30dp"
             android:textColorHint="#4D000000" />
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ingredient_layout_dinner"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
-        android:layout_marginEnd="200dp"        android:layout_marginTop="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="200dp"
         android:layout_marginBottom="60dp"
         app:boxCornerRadiusBottomEnd="30dp"
         app:boxCornerRadiusBottomStart="30dp"
@@ -124,7 +125,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:hint="Ingred. for dinner"
+            android:hint="Dinner ingredients"
             android:inputType="textAutoComplete"
             android:paddingStart="30dp"
             android:paddingEnd="30dp"
@@ -138,36 +139,34 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="24dp"
+        android:letterSpacing="0"
         android:text="Enter"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:cornerRadius="30dp"
+        android:textSize="18sp"
+        app:cornerRadius="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.312"
-        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ingredient_layout_dinner"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/ingredient_layout_dinner" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
         android:text="0"
-        android:layout_marginStart="16dp"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/ingredient_layout_break"
+        app:layout_constraintEnd_toStartOf="@id/plus"
         app:layout_constraintStart_toEndOf="@+id/minus"
         app:layout_constraintTop_toTopOf="@+id/ingredient_layout_break" />
 
     <Button
         android:id="@+id/minus"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="26dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="24dp"
         android:background="@drawable/button_bg"
+        android:gravity="center"
         android:padding="0dp"
         android:text="-"
         app:layout_constraintBottom_toBottomOf="@+id/ingredient_layout_break"
@@ -176,14 +175,14 @@
 
     <Button
         android:id="@+id/plus"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
         android:background="@drawable/button_bg"
         android:padding="0dp"
-        android:layout_marginStart="16dp"
         android:text="+"
         app:layout_constraintBottom_toBottomOf="@+id/ingredient_layout_break"
-        app:layout_constraintStart_toEndOf="@+id/textView8"
+        app:layout_constraintStart_toEndOf="@+id/minus"
         app:layout_constraintTop_toTopOf="@+id/ingredient_layout_break" />
 
     <TextView
@@ -192,6 +191,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="Chapatis"
+        android:fontFamily="@font/poppins"
         app:layout_constraintEnd_toEndOf="@+id/plus"
         app:layout_constraintStart_toStartOf="@+id/minus"
         app:layout_constraintTop_toBottomOf="@+id/calory_layout" />
@@ -200,34 +200,36 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:fontFamily="@font/poppins"
         android:text="0"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/ingredient_layout_lunch"
+        app:layout_constraintEnd_toStartOf="@id/plus2"
         app:layout_constraintStart_toEndOf="@+id/minus2"
-        app:layout_constraintTop_toTopOf="@+id/ingredient_layout_lunch"/>
+        app:layout_constraintTop_toTopOf="@+id/ingredient_layout_lunch" />
 
     <Button
         android:id="@+id/minus2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="26dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="24dp"
+        android:background="@drawable/button_bg"
         android:padding="0dp"
         android:text="-"
-        android:background="@drawable/button_bg"
         app:layout_constraintBottom_toBottomOf="@+id/ingredient_layout_lunch"
         app:layout_constraintStart_toEndOf="@+id/ingredient_layout_lunch"
         app:layout_constraintTop_toTopOf="@+id/ingredient_layout_lunch" />
+
     <Button
         android:id="@+id/plus2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="16dp"
-        android:padding="0dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
         android:background="@drawable/button_bg"
+        android:padding="0dp"
         android:text="+"
         app:layout_constraintBottom_toBottomOf="@+id/ingredient_layout_lunch"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintStart_toEndOf="@+id/minus2"
         app:layout_constraintTop_toTopOf="@+id/ingredient_layout_lunch" />
 
 
@@ -235,36 +237,37 @@
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
         android:text="0"
-        android:layout_marginStart="16dp"
         android:textColor="@color/black"
-        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/ingredient_layout_dinner"
+        app:layout_constraintEnd_toStartOf="@id/plus3"
         app:layout_constraintStart_toEndOf="@+id/minus3"
         app:layout_constraintTop_toTopOf="@+id/ingredient_layout_dinner" />
 
     <Button
         android:id="@+id/minus3"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="26dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="24dp"
+        android:background="@drawable/button_bg"
         android:padding="0dp"
         android:text="-"
-        android:background="@drawable/button_bg"
         app:layout_constraintBottom_toBottomOf="@+id/ingredient_layout_dinner"
         app:layout_constraintStart_toEndOf="@+id/ingredient_layout_dinner"
-        app:layout_constraintTop_toTopOf="@+id/ingredient_layout_dinner"/>
+        app:layout_constraintTop_toTopOf="@+id/ingredient_layout_dinner" />
+
     <Button
         android:id="@+id/plus3"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:background="@drawable/button_bg"
         android:padding="0dp"
         android:text="+"
-        android:background="@drawable/button_bg"
         app:layout_constraintBottom_toBottomOf="@+id/ingredient_layout_dinner"
-        app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toTopOf="@+id/ingredient_layout_dinner"/>
+        app:layout_constraintStart_toEndOf="@+id/minus3"
+        app:layout_constraintTop_toTopOf="@+id/ingredient_layout_dinner" />
 
     <TextView
         android:id="@+id/textView10"
@@ -272,6 +275,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="Rice"
+        android:fontFamily="@font/poppins"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/plus"
         app:layout_constraintTop_toBottomOf="@+id/calory_layout" />

@@ -38,7 +38,7 @@ android {
     buildFeatures {
         viewBinding = true
     }
-    buildToolsVersion '30.0.2'
+    buildToolsVersion '30.0.3'
 }
 
 dependencies {
@@ -64,7 +64,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.2'
     // gson
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-   //temserflow
+   //tensorFlow
     implementation 'org.tensorflow:tensorflow-lite:2.9.0'
     implementation 'org.tensorflow:tensorflow-lite-gpu:2.9.0'
     implementation 'org.tensorflow:tensorflow-lite-support:0.4.2'

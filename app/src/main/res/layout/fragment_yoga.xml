@@ -4,33 +4,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/icBack"
+    <TextView
+        android:id="@+id/heading1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:padding="16dp"
-        android:layout_marginTop="8dp"
-        app:srcCompat="@drawable/ic_back_black"
-        android:contentDescription="Go back" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Yoga"
-        android:fontFamily="@font/poppins_bold"
-        android:textSize="24sp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Find your"
         android:textColor="@color/black"
-        android:layout_marginStart="60dp"/>
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/heading2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Favourite Pose"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
+        android:textColor="@color/black"
+        android:textSize="32sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/yogaRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:nestedScrollingEnabled="false"
+        android:layoutAnimation="@anim/layout_animation"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="112dp"
         android:layout_marginBottom="8dp"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

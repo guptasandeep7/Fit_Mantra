@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.example.morefit.database.ContentDAO
 import com.example.morefit.model.database.Content
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch

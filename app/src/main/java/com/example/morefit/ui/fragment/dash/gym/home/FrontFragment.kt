@@ -38,67 +38,64 @@ class FrontFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(view: View?) {
-        if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
+        if (SystemClock.elapsedRealtime() - mLastClickTime < 1000)
             return
-        } else {
-            mLastClickTime = SystemClock.elapsedRealtime()
-            muscleName = when (view?.id) {
-                R.id.chest -> {
-                    view.setBackgroundResource(R.drawable.chest_red)
-                    "Chest"
-                }
-                R.id.right_shoulder -> {
-                    view.setBackgroundResource(R.drawable.right_shoulder)
-                    "Shoulders"
-                }
-                R.id.left_shoulder -> {
-                    view.setBackgroundResource(R.drawable.left_shoulder)
-                    "Shoulders"
-                }
-                R.id.right_biceps -> {
-                    view.setBackgroundResource(R.drawable.right_biceps)
-                    "Biceps"
-                }
-                R.id.right_arm -> {
-                    view.setBackgroundResource(R.drawable.right_arm)
-                    "Forearms"
-                }
-                R.id.left_biceps -> {
-                    view.setBackgroundResource(R.drawable.left_biceps)
-                    "Biceps"
-                }
-                R.id.left_arm -> {
-                    view.setBackgroundResource(R.drawable.left_arm)
-                    "Forearms"
-                }
-                R.id.abs -> {
-                    view.setBackgroundResource(R.drawable.abs)
-                    "Abdominals"
-                }
-                R.id.right_thigh -> {
-                    view.setBackgroundResource(R.drawable.right_thigh)
-                    "Hamstrings"
-                }
-                R.id.left_thigh -> {
-                    view.setBackgroundResource(R.drawable.left_thigh)
-                    "Hamstrings"
-                }
-                R.id.left_leg -> {
-                    view.setBackgroundResource(R.drawable.left_leg)
-                    "Calves"
-                }
-                R.id.right_leg -> {
-                    view.setBackgroundResource(R.drawable.right_leg)
-                    "Calves"
-                }
-                else -> {
-                    "Chest"
-                }
+
+        mLastClickTime = SystemClock.elapsedRealtime()
+        muscleName = when (view?.id) {
+            R.id.chest -> {
+                view.setBackgroundResource(R.drawable.chest_red)
+                "Chest"
             }
-            lifecycleScope.launch {
-                delay(100)
-                findNavController().navigate(R.id.action_gymFragment_to_exerciseFragment2)
+            R.id.right_shoulder -> {
+                view.setBackgroundResource(R.drawable.right_shoulder)
+                "Shoulders"
             }
+            R.id.left_shoulder -> {
+                view.setBackgroundResource(R.drawable.left_shoulder)
+                "Shoulders"
+            }
+            R.id.right_biceps -> {
+                view.setBackgroundResource(R.drawable.right_biceps)
+                "Biceps"
+            }
+            R.id.right_arm -> {
+                view.setBackgroundResource(R.drawable.right_arm)
+                "Forearms"
+            }
+            R.id.left_biceps -> {
+                view.setBackgroundResource(R.drawable.left_biceps)
+                "Biceps"
+            }
+            R.id.left_arm -> {
+                view.setBackgroundResource(R.drawable.left_arm)
+                "Forearms"
+            }
+            R.id.abs -> {
+                view.setBackgroundResource(R.drawable.abs)
+                "Abdominals"
+            }
+            R.id.right_thigh -> {
+                view.setBackgroundResource(R.drawable.right_thigh)
+                "Hamstrings"
+            }
+            R.id.left_thigh -> {
+                view.setBackgroundResource(R.drawable.left_thigh)
+                "Hamstrings"
+            }
+            R.id.left_leg -> {
+                view.setBackgroundResource(R.drawable.left_leg)
+                "Calves"
+            }
+            R.id.right_leg -> {
+                view.setBackgroundResource(R.drawable.right_leg)
+                "Calves"
+            }
+            else -> "Chest"
+        }
+        lifecycleScope.launch {
+            delay(100)
+            findNavController().navigate(R.id.action_gymFragment_to_exerciseFragment2)
         }
     }
 

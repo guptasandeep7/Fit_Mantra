@@ -7,7 +7,7 @@
     <uses-feature android:name="android.hardware.camera.any" />
 
     <application
-        android:name="com.example.energybar.database.ContentApplication"
+        android:name=".database.ContentApplication"
         android:allowBackup="true"
         android:usesCleartextTraffic="true"
         android:icon="@drawable/splash_background"
