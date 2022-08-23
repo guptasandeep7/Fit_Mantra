@@ -19,9 +19,9 @@ import androidx.appcompat.widget.SwitchCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
-import com.example.energybar.ContentViewModel
-import com.example.energybar.WordViewModelFactory
-import com.example.energybar.database.ContentApplication
+import com.example.morefit.view_models.ContentViewModel
+import com.example.morefit.view_models.WordViewModelFactory
+import com.example.morefit.database.ContentApplication
 import com.example.morefit.R
 import com.example.morefit.model.database.Content
 import com.example.morefit.ui.fragment.dash.gym.ExerciseFragment

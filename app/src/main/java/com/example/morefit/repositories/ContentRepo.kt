@@ -1,7 +1,7 @@
 package com.example.morefit.repositories
 
 import androidx.annotation.WorkerThread
-import com.example.energybar.database.ContentDAO
+import com.example.morefit.database.ContentDAO
 import com.example.morefit.model.database.Content
 
 class ContentRepo(private val wordDao: ContentDAO) {

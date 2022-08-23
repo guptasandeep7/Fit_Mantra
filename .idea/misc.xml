@@ -3,7 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/curved_botttom_sheet.xml" value="0.238" />
         <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/diet.xml" value="0.2425" />
         <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/gradient.xml" value="0.2425" />
         <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/gym.xml" value="0.2425" />
@@ -12,11 +11,9 @@
         <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/ic_baseline_layers_24.xml" value="0.2425" />
         <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.2425" />
         <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/ic_diet.xml" value="0.2425" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/ic_down_arrow.xml" value="0.238" />
         <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/ic_extra_features.xml" value="0.108" />
         <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/ic_history.xml" value="0.108" />
         <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/ic_home.xml" value="0.2425" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/ic_yoga.xml" value="0.238" />
         <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/outline.xml" value="0.2425" />
         <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/profile_btn_background.xml" value="0.2415" />
         <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/splash_background.xml" value="0.2425" />
@@ -31,12 +28,8 @@
         <entry key="..\:/Android/More_Fit/app/src/main/res/layout/fragment_gym.xml" value="0.23645833333333333" />
         <entry key="..\:/Android/More_Fit/app/src/main/res/layout/fragment_past_workouts.xml" value="0.23541666666666666" />
         <entry key="..\:/Android/More_Fit/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/layout/fragment_yoga.xml" value="0.29930795847750863" />
+        <entry key="..\:/Android/More_Fit/app/src/main/res/layout/fragment_yoga.xml" value="0.23645833333333333" />
         <entry key="..\:/Android/More_Fit/app/src/main/res/layout/item_past_workout.xml" value="0.4" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/layout/item_yoga_pose.xml" value="0.35450819672131145" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/layout/item_yoga_pose_details.xml" value="0.23945147679324894" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/layout/yoga_pose_details_item.xml" value="0.4" />
-        <entry key="..\:/Android/More_Fit/app/src/main/res/layout/yoga_pose_item.xml" value="0.536" />
         <entry key="..\:/Android/More_Fit/app/src/main/res/menu/bottom_nav_menu.xml" value="0.23645833333333333" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/drawable/goals.xml" value="0.2385" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/drawable/gradient.xml" value="0.199" />
@@ -49,11 +42,7 @@
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/drawable/profile.xml" value="0.2375" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/drawable/splash_background.xml" value="0.2385" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/font/poppins_semibold.xml" value="0.2625" />
-        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/activity_analysis.xml" value="0.264" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/activity_profile.xml" value="0.2359375" />
-        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/activity_rep_counter.xml" value="0.25" />
-        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/bottom_sheet_layout.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/cal_option.xml" value="0.4438860971524288" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/dialog_bmi.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/dialog_calorie.xml" value="0.4" />
@@ -69,13 +58,17 @@
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_help.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_home.xml" value="0.16" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_macro.xml" value="0.23229166666666667" />
-        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_past_workouts.xml" value="0.25" />
-        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_yoga.xml" value="0.21822916666666667" />
-        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/item_past_workout.xml" value="0.264" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/setting_option.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/menu/bottom_nav_menu.xml" value="0.23125" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.23229166666666667" />
+        <entry key="app/src/main/res/layout/bottom_sheet_layout.xml" value="0.2672082086361693" />
+        <entry key="app/src/main/res/layout/dialog_set_calories.xml" value="0.26293647454774927" />
+        <entry key="app/src/main/res/layout/fragment_diet.xml" value="0.264" />
+        <entry key="app/src/main/res/layout/fragment_diet_plan.xml" value="0.2672082086361693" />
+        <entry key="app/src/main/res/layout/fragment_past_workouts.xml" value="0.536" />
+        <entry key="app/src/main/res/layout/fragment_yoga.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/item_past_workout.xml" value="0.513136288998358" />
       </map>
     </option>
   </component>
