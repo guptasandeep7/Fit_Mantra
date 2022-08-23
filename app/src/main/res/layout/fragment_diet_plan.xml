@@ -5,342 +5,342 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#F1F0F0"
-    android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:text="Diet Plan"
-        android:textColor="@color/black"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:textSize="24sp"
-        android:textStyle="bold"/>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/breakfast"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="24dp"
-        app:cardBackgroundColor="#EDEDED"
-        app:cardCornerRadius="24dp"
-        app:cardElevation="4dp">
+        android:background="#F1F0F0"
+        android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/container1"
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Diet Plan"
+            android:textColor="@color/black"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/breakfast"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/orange">
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="24dp"
+            app:cardBackgroundColor="#EDEDED"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="4dp">
 
-            <CheckBox
-                android:id="@+id/radioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:checked="false"
-                android:button="@drawable/checkbox"
-                android:buttonTint="?attr/colorPrimary"
-                app:layout_constraintBottom_toBottomOf="@+id/textView6"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView6" />
-
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="BREAKFAST"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/radioButton"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="24dp"
-                android:layout_marginTop="4dp"
-                android:gravity="center"
-                android:textSize="16sp"
-                android:text="There's nothing like starting the day with a healthy, filling breakfast"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerview1"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/container1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:nestedScrollingEnabled="false"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:layout_marginHorizontal="24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                android:background="@drawable/orange">
 
-            <ImageView
-                android:id="@+id/breakfastSite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView6"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView6"
-                app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+                <CheckBox
+                    android:id="@+id/radioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:checked="false"
+                    android:button="@drawable/checkbox"
+                    android:buttonTint="?attr/colorPrimary"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView6"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView6" />
 
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0 cal"
-                android:textColor="@color/black"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView6"
-                app:layout_constraintEnd_toStartOf="@+id/breakfastSite"
-                app:layout_constraintTop_toTopOf="@+id/textView6" />
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="BREAKFAST"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/radioButton"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textView17"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="No results for breakfast"
-                android:textColor="@color/black"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:text="There's nothing like starting the day with a healthy, filling breakfast"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerview1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_marginHorizontal="24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+                <ImageView
+                    android:id="@+id/breakfastSite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView6"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView6"
+                    app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 cal"
+                    android:textColor="@color/black"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView6"
+                    app:layout_constraintEnd_toStartOf="@+id/breakfastSite"
+                    app:layout_constraintTop_toTopOf="@+id/textView6" />
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="No results for breakfast"
+                    android:textColor="@color/black"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/lunch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-       android:layout_marginTop="24dp"
-        android:layout_marginHorizontal="24dp"
-        app:cardBackgroundColor="#EDEDED"
-        app:cardCornerRadius="24dp"
-        app:cardElevation="4dp">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/container2"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/lunch"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/orange">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginHorizontal="24dp"
+            app:cardBackgroundColor="#EDEDED"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="4dp">
 
-            <CheckBox
-                android:id="@+id/radioButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:layout_marginStart="8dp"
-                android:button="@drawable/checkbox"
-                android:buttonTint="?attr/colorPrimary"
-                app:layout_constraintBottom_toBottomOf="@+id/lun"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/lun" />
-
-            <TextView
-                android:id="@+id/lun"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="LUNCH"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/radioButton2"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="24dp"
-                android:layout_marginTop="4dp"
-                android:gravity="center"
-                android:textSize="16sp"
-                android:text="Lunch hour is the best hour of the day"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lun" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerview2"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/container2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="24dp"
-                android:layout_marginTop="16dp"
-                android:nestedScrollingEnabled="false"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+                android:layout_height="match_parent"
+                android:background="@drawable/orange">
 
-            <ImageView
-                android:id="@+id/lunchSite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/lun"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/lun"
-                app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+                <CheckBox
+                    android:id="@+id/radioButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:layout_marginStart="8dp"
+                    android:button="@drawable/checkbox"
+                    android:buttonTint="?attr/colorPrimary"
+                    app:layout_constraintBottom_toBottomOf="@+id/lun"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/lun" />
 
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0 cal"
-                android:textColor="@color/black"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/lun"
-                app:layout_constraintEnd_toStartOf="@+id/lunchSite"
-                app:layout_constraintTop_toTopOf="@+id/lun" />
+                <TextView
+                    android:id="@+id/lun"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="LUNCH"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/radioButton2"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textView18"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="No results for lunch"
-                android:textColor="@color/black"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:text="Lunch hour is the best hour of the day"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lun" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerview2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="16dp"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+                <ImageView
+                    android:id="@+id/lunchSite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/lun"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/lun"
+                    app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 cal"
+                    android:textColor="@color/black"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/lun"
+                    app:layout_constraintEnd_toStartOf="@+id/lunchSite"
+                    app:layout_constraintTop_toTopOf="@+id/lun" />
+
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="No results for lunch"
+                    android:textColor="@color/black"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/dinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
-        android:layout_marginHorizontal="24dp"
-        app:cardBackgroundColor="#EDEDED"
-        app:cardCornerRadius="24dp"
-        app:cardElevation="4dp">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/container3"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/dinner"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/orange">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginHorizontal="24dp"
+            app:cardBackgroundColor="#EDEDED"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="4dp">
 
-            <CheckBox
-                android:id="@+id/radioButton3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:button="@drawable/checkbox"
-                android:layout_marginStart="8dp"
-                android:buttonTint="?attr/colorPrimary"
-                app:layout_constraintBottom_toBottomOf="@+id/textView15"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView15" />
-
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="DINNER"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/radioButton3"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView16"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="24dp"
-                android:layout_marginTop="4dp"
-                android:gravity="center"
-                android:textSize="16sp"
-                android:text="The best memories are made around the dinner table"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView15" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerview3"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/container3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="24dp"
-                android:layout_marginTop="16dp"
-                android:nestedScrollingEnabled="false"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+                android:layout_height="match_parent"
+                android:background="@drawable/orange">
 
-            <ImageView
-                android:id="@+id/dinnerSite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView15"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView15"
-                app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+                <CheckBox
+                    android:id="@+id/radioButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:button="@drawable/checkbox"
+                    android:layout_marginStart="8dp"
+                    android:buttonTint="?attr/colorPrimary"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView15"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView15" />
 
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0 cal"
-                android:textColor="@color/black"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView15"
-                app:layout_constraintEnd_toStartOf="@+id/dinnerSite"
-                app:layout_constraintTop_toTopOf="@+id/textView15" />
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="DINNER"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/radioButton3"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textView19"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="No results for dinner"
-                android:textColor="@color/black"
-                android:layout_marginBottom="16dp"
-                android:layout_marginTop="16dp"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:text="The best memories are made around the dinner table"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerview3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="16dp"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+                <ImageView
+                    android:id="@+id/dinnerSite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView15"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView15"
+                    app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 cal"
+                    android:textColor="@color/black"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView15"
+                    app:layout_constraintEnd_toStartOf="@+id/dinnerSite"
+                    app:layout_constraintTop_toTopOf="@+id/textView15" />
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No results for dinner"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="300dp"
-        android:visibility="gone"
-        android:layout_gravity="center"/>
-</LinearLayout>
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="300dp"
+            android:visibility="gone"
+            android:layout_gravity="center"/>
+    </LinearLayout>
 </ScrollView>
