@@ -11,6 +11,7 @@ import com.example.morefit.databinding.FragmentYogaBinding
 import com.example.morefit.model.Pose
 import com.example.morefit.model.YogaPoses
 import com.google.android.material.transition.platform.MaterialFadeThrough
+import com.google.android.material.transition.platform.MaterialSharedAxis
 import com.google.gson.Gson
 
 class YogaFragment : Fragment(R.layout.fragment_yoga), YogaPoseInterface {
@@ -20,6 +21,8 @@ class YogaFragment : Fragment(R.layout.fragment_yoga), YogaPoseInterface {
         super.onCreate(savedInstanceState)
         enterTransition = MaterialFadeThrough()
         returnTransition = MaterialFadeThrough()
+        exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true)
+        reenterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

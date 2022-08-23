@@ -66,8 +66,12 @@
         <entry key="app/src/main/res/layout/dialog_set_calories.xml" value="0.26293647454774927" />
         <entry key="app/src/main/res/layout/fragment_diet.xml" value="0.264" />
         <entry key="app/src/main/res/layout/fragment_diet_plan.xml" value="0.2672082086361693" />
+        <entry key="app/src/main/res/layout/fragment_exercise.xml" value="0.2672082086361693" />
+        <entry key="app/src/main/res/layout/fragment_gym.xml" value="0.2672082086361693" />
         <entry key="app/src/main/res/layout/fragment_past_workouts.xml" value="0.536" />
         <entry key="app/src/main/res/layout/fragment_yoga.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/fragment_yoga_instruction.xml" value="0.2672082086361693" />
+        <entry key="app/src/main/res/layout/fragment_yoga_pose_details.xml" value="0.26293647454774927" />
         <entry key="app/src/main/res/layout/item_past_workout.xml" value="0.513136288998358" />
       </map>
     </option>
