@@ -6,14 +6,19 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.example.energybar.database.ContentRoomDatabase
 import com.example.morefit.R
 import com.example.morefit.adapter.MealBreakAdapter
 import com.example.morefit.adapter.MealDinnerAdapter
 import com.example.morefit.adapter.MealLunchAdapter
 import com.example.morefit.databinding.FragmentDietPlanBinding
 import com.example.morefit.model.WeekMeal
+import com.example.morefit.model.database.meal
 import com.example.morefit.model.item_model
 import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.breakRice
 import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.breakRoti
@@ -28,6 +33,9 @@ import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.qDinner
 import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.qLunch
 import com.example.morefit.utils.Response
 import com.example.morefit.view_models.GenerateMealPlanViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
 
@@ -42,7 +50,7 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
     private val mealBreakAdapter = MealBreakAdapter()
     private val mealLunchAdapter = MealLunchAdapter()
     private val mealDinnerAdapter = MealDinnerAdapter()
-
+    private val mealDb by lazy { ContentRoomDatabase.getDatabase(requireContext(), CoroutineScope(SupervisorJob())) }
     var breakCalTot=0.0
     var lunchCalTot=0.0
     var dinnerCalTot=0.0
@@ -56,135 +64,321 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
         binding.breakfastSite.setOnClickListener(this)
         binding.lunchSite.setOnClickListener(this)
         binding.dinnerSite.setOnClickListener(this)
-        Toast.makeText(context, calorie, Toast.LENGTH_SHORT).show()
         Mealdata= mutableListOf()
         Mealdatalunch= mutableListOf()
         MealdataDinner= mutableListOf()
         meal= mutableListOf()
         meal1= mutableListOf()
         meal2= mutableListOf()
-
-        val calorieBreak:String = (calorie.toInt()*0.25).toString()+"-"+(calorie.toInt()*0.3).toString()
-        val calorieLunch:String = (calorie.toInt()*0.35).toString()+"-"+(calorie.toInt()*0.4).toString()
-        val calorieDinner:String = (calorie.toInt()*0.25).toString()+"-"+(calorie.toInt()*0.3).toString()
+        binding.recyclerview1.adapter = mealBreakAdapter
+        binding.recyclerview2.adapter = mealLunchAdapter
+        binding.recyclerview3.adapter = mealDinnerAdapter
 
         binding.progressBar.visibility=View.VISIBLE
         binding.breakfast.visibility=View.GONE
         binding.lunch.visibility=View.GONE
         binding.dinner.visibility=View.GONE
-        var count =0
-        generateMealPlanViewModel.submitResult("public",qBreak,"16a70afb","96079c81218f8debd87360747fd41368",health,"Indian","Breakfast",calorieBreak)
-        generateMealPlanViewModel._mealPlanResult.observe(viewLifecycleOwner) {
-            if (it is Response.Success) {
-                binding.recyclerview1.adapter=mealBreakAdapter
-                    Mealdata.add(it.data!!)
-                if (it.data.count!=0) {
-                    breakCalTot =
-                        ((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0
-                    meal.add(
-                        item_model(
-                            it.data.hits[0].recipe.image,
-                            it.data.hits[0].recipe.label,
-                            "100 gram",
-                            breakCalTot.toString() + " cal"
-                        )
-                    )
-                    if (breakRoti != "0") {
-                        meal.add(
-                            item_model(
-                                getUrl(R.drawable.roti),
-                                "Roti",
-                                breakRoti + " serving",
-                                (104 * breakRoti.toInt()).toString() + " cal"
-                            )
-                        )
-                    }
-                    if (breakRice != "0") {
-                        meal.add(item_model(getUrl(R.drawable.rice), "Rice", "1 bowl", "136 cal"))
-                    }
-                }
-                count++
-                    call(count)
-            } else it.errorMessage?.let {
-                Log.e("mssg", "showBottomSheet: error" )
-                Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+        binding.breakfastSite.visibility=View.GONE
+        binding.textView17.visibility=View.VISIBLE
+        binding.lunchSite.visibility=View.GONE
+        binding.textView18.visibility=View.VISIBLE
+        binding.dinnerSite.visibility=View.GONE
+        binding.textView19.visibility=View.VISIBLE
+        binding.regenerate.setOnClickListener {
+            lifecycleScope.launch {
+                mealDb.mealDao().deleteMealData()
+                findNavController().navigate(R.id.action_dietPlan_to_dietFragment)
             }
         }
-        generateMealPlanViewModel.submitResult("public",qLunch,"16a70afb","96079c81218f8debd87360747fd41368",health,"Indian","Lunch",calorieLunch)
-        generateMealPlanViewModel._mealPlanResult.observe(viewLifecycleOwner) {
-            if (it is Response.Success) {
-                binding.recyclerview2.adapter=mealLunchAdapter
-                    Mealdatalunch.add(it.data!!)
-                if (it.data.count!=0) {
-                    lunchCalTot =
-                        ((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0
-                    meal1.add(
-                        item_model(
-                            it.data.hits[0].recipe.image,
-                            it.data.hits[0].recipe.label,
-                            "100 gram",
-                            lunchCalTot.toString() + " cal"
-                        )
-                    )
-                    if (lunchRoti != "0") {
-                        meal1.add(
-                            item_model(
-                                getUrl(R.drawable.roti),
-                                "Roti",
-                                lunchRoti + " serving",
-                                (104 * lunchRoti.toInt()).toString() + " cal"
-                            )
-                        )
-                    }
-                    if (lunchRice != "0") {
-                        meal1.add(item_model(getUrl(R.drawable.rice), "Rice", "1 bowl", "136 cal"))
-                    }
-                }
-                    count++
-                    call(count)
-            } else it.errorMessage?.let {
-                Log.e("mssg", "showBottomSheet: error" )
-                Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
-            }
-        }
-        generateMealPlanViewModel.submitResult("public",qDinner,"16a70afb","96079c81218f8debd87360747fd41368",health,"Indian","Dinner",calorieDinner)
-        generateMealPlanViewModel._mealPlanResult.observe(viewLifecycleOwner) {
-            if (it is Response.Success) {
-                binding.recyclerview3.adapter=mealDinnerAdapter
-                    MealdataDinner.add(it.data!!)
-                if (it.data.count!=0) {
-                    dinnerCalTot =
-                        ((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0
-                    meal2.add(
-                        item_model(
-                            it.data.hits[0].recipe.image,
-                            it.data.hits[0].recipe.label,
-                            "100 gram",
-                            dinnerCalTot.toString() + " cal"
-                        )
-                    )
-                    if (dinnerRoti != "0") {
-                        meal2.add(
-                            item_model(
-                                getUrl(R.drawable.roti),
-                                "Roti",
-                                dinnerRoti + " serving",
-                                (104 * dinnerRoti.toInt()).toString() + " cal"
-                            )
-                        )
-                    }
-                    if (dinnerRice != "0") {
-                        meal2.add(item_model(getUrl(R.drawable.rice), "Rice", "1 bowl", "136 cal"))
-                    }
-                }
-                    count++
-                    call(count)
-            } else it.errorMessage?.let {
-                Log.e("mssg", "showBottomSheet: error" )
-                Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
-            }
-        }
+        lifecycleScope.launch {
+            val cout: Int = mealDb.mealDao().getCount()
 
+            if (cout == 0) {
+                val calorieBreak:String = (calorie.toInt()*0.25).toString()+"-"+(calorie.toInt()*0.3).toString()
+                val calorieLunch:String = (calorie.toInt()*0.35).toString()+"-"+(calorie.toInt()*0.4).toString()
+                val calorieDinner:String = (calorie.toInt()*0.25).toString()+"-"+(calorie.toInt()*0.3).toString()
+                var count = 0
+                generateMealPlanViewModel.submitResult(
+                    "public",
+                    qBreak,
+                    "16a70afb",
+                    "96079c81218f8debd87360747fd41368",
+                    health,
+                    "Indian",
+                    "Breakfast",
+                    calorieBreak
+                )
+                generateMealPlanViewModel._mealPlanResult.observe(viewLifecycleOwner) {
+                    if (it is Response.Success) {
+                        Mealdata.add(it.data!!)
+                        if (it.data.count != 0) {
+                            lifecycleScope.launch{
+                                mealDb.mealDao().addMealData(meal(
+                                    "breakfast",it.data.hits[0].recipe.image,it.data.hits[0].recipe.label
+                                    ,(((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0).toString()
+                                    , breakRoti, breakRice,it.data.hits[0].recipe.url
+                                ))
+                            }
+                            breakCalTot =
+                                ((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0
+                            meal.add(
+                                item_model(
+                                    it.data.hits[0].recipe.image,
+                                    it.data.hits[0].recipe.label,
+                                    "100 gram",
+                                    breakCalTot.toString() + " cal"
+                                )
+                            )
+                            if (breakRoti != "0") {
+                                meal.add(
+                                    item_model(
+                                        getUrl(R.drawable.roti),
+                                        "Roti",
+                                        breakRoti + " serving",
+                                        (104 * breakRoti.toInt()).toString() + " cal"
+                                    )
+                                )
+                            }
+                            if (breakRice != "0") {
+                                meal.add(
+                                    item_model(
+                                        getUrl(R.drawable.rice),
+                                        "Rice",
+                                        "1 bowl",
+                                        "136 cal"
+                                    )
+                                )
+                            }
+                        }
+                        count++
+                        call(count)
+                    } else it.errorMessage?.let {
+                        Log.e("mssg", "showBottomSheet: error")
+                        Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+                    }
+                }
+                generateMealPlanViewModel.submitResult(
+                    "public",
+                    qLunch,
+                    "16a70afb",
+                    "96079c81218f8debd87360747fd41368",
+                    health,
+                    "Indian",
+                    "Lunch",
+                    calorieLunch
+                )
+                generateMealPlanViewModel._mealPlanResult.observe(viewLifecycleOwner) {
+                    if (it is Response.Success) {
+                        Mealdatalunch.add(it.data!!)
+                        if (it.data.count != 0) {
+                            lifecycleScope.launch{
+                                mealDb.mealDao().addMealData(meal(
+                                    "lunch",it.data.hits[0].recipe.image,it.data.hits[0].recipe.label
+                                    ,(((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0).toString()
+                                    , lunchRoti, lunchRice,it.data.hits[0].recipe.url
+                                ))
+                            }
+                            lunchCalTot =
+                                ((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0
+                            meal1.add(
+                                item_model(
+                                    it.data.hits[0].recipe.image,
+                                    it.data.hits[0].recipe.label,
+                                    "100 gram",
+                                    lunchCalTot.toString() + " cal"
+                                )
+                            )
+                            if (lunchRoti != "0") {
+                                meal1.add(
+                                    item_model(
+                                        getUrl(R.drawable.roti),
+                                        "Roti",
+                                        lunchRoti + " serving",
+                                        (104 * lunchRoti.toInt()).toString() + " cal"
+                                    )
+                                )
+                            }
+                            if (lunchRice != "0") {
+                                meal1.add(
+                                    item_model(
+                                        getUrl(R.drawable.rice),
+                                        "Rice",
+                                        "1 bowl",
+                                        "136 cal"
+                                    )
+                                )
+                            }
+                        }
+                        count++
+                        call(count)
+                    } else it.errorMessage?.let {
+                        Log.e("mssg", "showBottomSheet: error")
+                        Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+                    }
+                }
+                generateMealPlanViewModel.submitResult(
+                    "public",
+                    qDinner,
+                    "16a70afb",
+                    "96079c81218f8debd87360747fd41368",
+                    health,
+                    "Indian",
+                    "Dinner",
+                    calorieDinner
+                )
+                generateMealPlanViewModel._mealPlanResult.observe(viewLifecycleOwner) {
+                    if (it is Response.Success) {
+                        MealdataDinner.add(it.data!!)
+                        if (it.data.count != 0) {
+                            lifecycleScope.launch{
+                                mealDb.mealDao().addMealData(meal(
+                                    "dinner",it.data.hits[0].recipe.image,it.data.hits[0].recipe.label
+                                    ,(((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0).toString()
+                                    , dinnerRoti, dinnerRice,it.data.hits[0].recipe.url
+                                ))
+                            }
+                            dinnerCalTot =
+                                ((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0
+                            meal2.add(
+                                item_model(
+                                    it.data.hits[0].recipe.image,
+                                    it.data.hits[0].recipe.label,
+                                    "100 gram",
+                                    dinnerCalTot.toString() + " cal"
+                                )
+                            )
+                            if (dinnerRoti != "0") {
+                                meal2.add(
+                                    item_model(
+                                        getUrl(R.drawable.roti),
+                                        "Roti",
+                                        dinnerRoti + " serving",
+                                        (104 * dinnerRoti.toInt()).toString() + " cal"
+                                    )
+                                )
+                            }
+                            if (dinnerRice != "0") {
+                                meal2.add(
+                                    item_model(
+                                        getUrl(R.drawable.rice),
+                                        "Rice",
+                                        "1 bowl",
+                                        "136 cal"
+                                    )
+                                )
+                            }
+                        }
+                        count++
+                        call(count)
+                    } else it.errorMessage?.let {
+                        Log.e("mssg", "showBottomSheet: error")
+                        Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+            else
+            { val mealData=mealDb.mealDao().getMealData()
+                binding.progressBar.visibility=View.GONE
+                binding.breakfast.visibility=View.VISIBLE
+                binding.lunch.visibility=View.VISIBLE
+                binding.dinner.visibility=View.VISIBLE
+                mealData.forEach{
+                    when(it.id){
+                        "breakfast"->{
+                            binding.lunchSite.visibility=View.VISIBLE
+                            binding.textView17.visibility=View.GONE
+                            meal.add(item_model(
+                                it.image,it.title,"100 gram",it.cal+" cal"))
+                            if (it.roti!="0"){
+                                meal.add(
+                                    item_model(
+                                        getUrl(R.drawable.roti),"Roti",
+                                        it.roti + " serving",
+                                        (104 * it.roti.toInt()).toString() + " cal"
+                                    ))
+                            }
+                            if (it.rice!="0"){
+                                meal.add(
+                                    item_model(
+                                        getUrl(R.drawable.rice),
+                                        "Rice",
+                                        "1 bowl",
+                                        "136 cal"
+                                    )
+                                )
+                            }
+                            val url=it.url
+                            binding.breakfastSite.setOnClickListener {
+                                golink(url)
+                            }
+                            binding.textView12.text= (it.roti.toInt()*104+ it.rice.toInt()*136+it.cal.toFloat()).toString()+" cal"
+                            mealBreakAdapter.updateMealList(meal)
+                        }
+                        "lunch"->{
+                            binding.lunchSite.visibility=View.VISIBLE
+                            binding.textView18.visibility=View.GONE
+                            meal1.add(item_model(
+                                it.image,it.title,"100 gram",it.cal+" cal"))
+                            if (it.roti!="0"){
+                                meal1.add(
+                                    item_model(
+                                        getUrl(R.drawable.roti),"Roti",
+                                        it.roti + " serving",
+                                        (104 * it.roti.toInt()).toString() + " cal"
+                                    ))
+                            }
+                            if (it.rice!="0"){
+                                meal1.add(
+                                    item_model(
+                                        getUrl(R.drawable.rice),
+                                        "Rice",
+                                        "1 bowl",
+                                        "136 cal"
+                                    )
+                                )
+                            }
+                            val url=it.url
+                            binding.lunchSite.setOnClickListener {
+                                golink(url)
+                            }
+                            binding.textView13.text= (it.roti.toInt()*104+ it.rice.toInt()*136+it.cal.toFloat()).toString()+" cal"
+                            mealLunchAdapter.updateMealList(meal1)
+                        }
+                        "dinner"->{
+                            binding.dinnerSite.visibility=View.VISIBLE
+                            binding.textView19.visibility=View.GONE
+                            meal2.add(item_model(
+                                it.image,it.title,"100 gram",it.cal+" cal"))
+                            if (it.roti!="0"){
+                                meal2.add(
+                                    item_model(
+                                        getUrl(R.drawable.roti),"Roti",
+                                        it.roti + " serving",
+                                        (104 * it.roti.toInt()).toString() + " cal"
+                                    ))
+                            }
+                            if (it.rice!="0"){
+                                meal2.add(
+                                    item_model(
+                                        getUrl(R.drawable.rice),
+                                        "Rice",
+                                        "1 bowl",
+                                        "136 cal"
+                                    )
+                                )
+                            }
+                            val url=it.url
+                            binding.dinnerSite.setOnClickListener {
+                                golink(url)
+                            }
+                            binding.textView14.text= (it.roti.toInt()*104+ it.rice.toInt()*136+it.cal.toFloat()).toString()+" cal"
+                            mealDinnerAdapter.updateMealDinnerList(meal2)
+                        }
+                    }
+                }
+
+            }
+        }
 
 
     }
@@ -272,9 +466,6 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                 binding.textView18.visibility=View.VISIBLE
 
             }
-            if(Mealdata[0].count == 0 && Mealdatalunch[0].count == 0){
-
-            }
             if (MealdataDinner[0].count == 0){
                 din=0
                 binding.recyclerview3.visibility=View.GONE
@@ -285,6 +476,8 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
 
 
             if(breakfst==1){
+                binding.breakfastSite.visibility=View.VISIBLE
+                binding.textView17.visibility=View.GONE
                 binding.breakfastSite.setOnClickListener {
                     golink(Mealdata[0].hits[0].recipe.url)
                 }
@@ -292,6 +485,8 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                 mealBreakAdapter.updateMealList(meal)
             }
             if(lun==1){
+                binding.lunchSite.visibility=View.VISIBLE
+                binding.textView18.visibility=View.GONE
                 binding.lunchSite.setOnClickListener {
                     golink(Mealdatalunch[0].hits[0].recipe.url)
                 }
@@ -299,11 +494,13 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                 mealLunchAdapter.updateMealList(meal1)
             }
             if(din==1){
+                binding.dinnerSite.visibility=View.VISIBLE
+                binding.textView19.visibility=View.GONE
                 binding.dinnerSite.setOnClickListener {
                     golink(MealdataDinner[0].hits[0].recipe.url)
                 }
                 binding.textView14.text=(dinnerRoti.toInt()*104+ dinnerRice.toInt()*136+dinnerCalTot).toString()+" cal"
-                mealDinnerAdapter.updateMealList(meal2)
+                mealDinnerAdapter.updateMealDinnerList(meal2)
             }
         }
     }
@@ -311,5 +508,13 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
         return Uri.parse(
             "android.resource://" + R::class.java.getPackage().getName() + "/" + resourceId
         ).toString()
+    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+
+            }
+        })
     }
 }

@@ -6,12 +6,14 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.morefit.model.database.Content
+import com.example.morefit.model.database.meal
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = arrayOf(Content::class), version = 1, exportSchema = false)
+@Database(entities = [Content::class, meal::class], version = 1, exportSchema = false)
 abstract class ContentRoomDatabase : RoomDatabase() {
     abstract fun wordDao(): ContentDAO
+    abstract fun mealDao(): mealDAO
 
     private class WordDatabaseCallback(
         private val scope: CoroutineScope

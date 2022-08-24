@@ -6,18 +6,28 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.energybar.database.ContentRoomDatabase
 import com.example.morefit.R
 import com.example.morefit.databinding.FragmentDietBinding
+import com.example.morefit.ui.activity.SplashScreen.Companion.count
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.android.material.transition.platform.MaterialFadeThrough
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 
 class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
     private lateinit var binding: FragmentDietBinding
     private val bottomSheetDialog by lazy { BottomSheetDialog(requireContext()) }
+    private val mealDb by lazy { ContentRoomDatabase.getDatabase(requireContext(), CoroutineScope(
+        SupervisorJob()
+    )
+    ) }
 
     companion object{
         lateinit var qBreak:String
@@ -44,6 +54,11 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentDietBinding.bind(view)
+        calorie=""
+        if (count>0){
+            findNavController().navigate(R.id.action_dietFragment_to_dietPlan)
+
+        }
         binding.GlutenFree.setOnClickListener(this)
         binding.ketogenic.setOnClickListener(this)
         binding.Vegan.setOnClickListener(this)
@@ -158,7 +173,7 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
                     lunchRice="1"
                 }else lunchRice="0"
                 if (check3.isChecked){
-                    cal += 13
+                    cal += 136
                     dinnerRice="1"
                 }else dinnerRice="0"
                 breakRoti=num1.toString()
