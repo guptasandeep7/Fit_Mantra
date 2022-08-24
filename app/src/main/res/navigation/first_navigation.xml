@@ -9,9 +9,4 @@
         android:id="@+id/splashScreen"
         android:name="com.example.morefit.ui.activity.SplashScreen"
         android:label="SplashScreen" />
-    <fragment
-        android:id="@+id/userDetails"
-        android:name="com.example.morefit.ui.fragment.dash.profile.UserDetails"
-        android:label="fragment_user_details"
-        tools:layout="@layout/fragment_user_details" />
 </navigation>
