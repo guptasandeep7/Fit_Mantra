@@ -10,12 +10,19 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
 import com.example.morefit.databinding.FragmentBmiBinding
+import com.google.android.material.transition.platform.MaterialSharedAxis
 import kotlin.math.pow
 
 class BmiFragment : Fragment() {
 
     private var _binding: FragmentBmiBinding? = null
     private val binding get() = _binding!!
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.X, true)
+        returnTransition = MaterialSharedAxis(MaterialSharedAxis.X, false)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

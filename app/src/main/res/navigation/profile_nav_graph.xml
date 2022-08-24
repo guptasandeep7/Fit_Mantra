@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/profile_nav_graph"
     app:startDestination="@id/profileFragment">
 
@@ -11,9 +12,41 @@
         <action
             android:id="@+id/action_profileFragment_to_pastWorkoutsFragment"
             app:destination="@id/pastWorkoutsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_calculateBottomSheetFragment"
+            app:destination="@id/calculateBottomSheetFragment" />
     </fragment>
     <fragment
         android:id="@+id/pastWorkoutsFragment"
         android:name="com.example.morefit.ui.fragment.dash.profile.PastWorkoutsFragment"
         android:label="PastWorkoutsFragment" />
+    <dialog
+        android:id="@+id/calculateBottomSheetFragment"
+        android:name="com.example.morefit.ui.fragment.dash.profile.CalculateBottomSheetFragment"
+        android:label="CalculateBottomSheetFragment" >
+        <action
+            android:id="@+id/action_calculateBottomSheetFragment_to_bmiFragment2"
+            app:destination="@id/bmiFragment2" />
+        <action
+            android:id="@+id/action_calculateBottomSheetFragment_to_calorieFragment2"
+            app:destination="@id/calorieFragment2" />
+        <action
+            android:id="@+id/action_calculateBottomSheetFragment_to_macroFragment2"
+            app:destination="@id/macroFragment2" />
+    </dialog>
+    <fragment
+        android:id="@+id/bmiFragment2"
+        android:name="com.example.morefit.ui.fragment.dash.profile.cal.BmiFragment"
+        android:label="fragment_bmi"
+        tools:layout="@layout/fragment_bmi" />
+    <fragment
+        android:id="@+id/calorieFragment2"
+        android:name="com.example.morefit.ui.fragment.dash.profile.cal.CalorieFragment"
+        android:label="fragment_calorie"
+        tools:layout="@layout/fragment_calorie" />
+    <fragment
+        android:id="@+id/macroFragment2"
+        android:name="com.example.morefit.ui.fragment.dash.profile.cal.MacroFragment"
+        android:label="fragment_macro"
+        tools:layout="@layout/fragment_macro" />
 </navigation>
