@@ -37,10 +37,10 @@ class ExerciseAdapter : RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: Data) {
             binding.item = data
-            binding.text.text = ""
-            data.text_tutorials.forEachIndexed { index, textTutorial ->
-                binding.text.append("${index + 1}) ${textTutorial.text}\n\n")
-            }
+//            binding.text.text = ""
+//            data.text_tutorials.forEachIndexed { index, textTutorial ->
+//                binding.text.append("${index + 1}) ${textTutorial.text}\n\n")
+//            }
         }
     }
 
