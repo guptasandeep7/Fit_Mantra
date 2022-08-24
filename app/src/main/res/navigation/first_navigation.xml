@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/first_navigation"
+    app:startDestination="@id/splashScreen">
+
+    <activity
+        android:id="@+id/splashScreen"
+        android:name="com.example.morefit.ui.activity.SplashScreen"
+        android:label="SplashScreen" />
+    <fragment
+        android:id="@+id/userDetails"
+        android:name="com.example.morefit.ui.fragment.dash.profile.UserDetails"
+        android:label="fragment_user_details"
+        tools:layout="@layout/fragment_user_details" />
+</navigation>

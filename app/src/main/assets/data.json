@@ -29,10 +29,8 @@
       ],
       "counter": true,
       "file_name": "squat.tflite",
-      "labels": ["sitting",
-        "stationary",
-        "squatcorrect",
-        "stationary"],
+      "labels": ["squatcorrect",
+        "standing"],
       "correct_label": "squatcorrect"
     },
     {
@@ -2078,10 +2076,8 @@
       ],
       "counter": true,
       "file_name": "squat.tflite",
-      "labels": ["sitting",
-        "stationary",
-        "squatcorrect",
-        "stationary"],
+      "labels": ["squatcorrect",
+        "standing"],
       "correct_label": "squatcorrect"
     },
     {
