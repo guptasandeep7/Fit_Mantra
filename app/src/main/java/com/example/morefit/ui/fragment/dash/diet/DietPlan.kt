@@ -1,16 +1,20 @@
 package com.example.morefit.ui.fragment.dash.diet
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ListView
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.baoyachi.stepview.VerticalStepView
 import com.example.energybar.database.ContentRoomDatabase
 import com.example.morefit.R
 import com.example.morefit.adapter.MealBreakAdapter
@@ -33,6 +37,9 @@ import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.qDinner
 import com.example.morefit.ui.fragment.dash.diet.DietFragment.Companion.qLunch
 import com.example.morefit.utils.Response
 import com.example.morefit.view_models.GenerateMealPlanViewModel
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.textview.MaterialTextView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
@@ -41,20 +48,26 @@ import kotlin.math.roundToInt
 
 class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
     private lateinit var binding: FragmentDietPlanBinding
-    lateinit var Mealdata:MutableList<WeekMeal>
-    lateinit var Mealdatalunch:MutableList<WeekMeal>
-    lateinit var MealdataDinner:MutableList<WeekMeal>
-    lateinit var meal:MutableList<item_model>
-    lateinit var meal1:MutableList<item_model>
-    lateinit var meal2:MutableList<item_model>
+    lateinit var Mealdata: MutableList<WeekMeal>
+    lateinit var Mealdatalunch: MutableList<WeekMeal>
+    lateinit var MealdataDinner: MutableList<WeekMeal>
+    lateinit var meal: MutableList<item_model>
+    lateinit var meal1: MutableList<item_model>
+    lateinit var meal2: MutableList<item_model>
+    private var stepView:VerticalStepView?=null
     private val mealBreakAdapter = MealBreakAdapter()
     private val mealLunchAdapter = MealLunchAdapter()
     private val mealDinnerAdapter = MealDinnerAdapter()
-    private val mealDb by lazy { ContentRoomDatabase.getDatabase(requireContext(), CoroutineScope(SupervisorJob())) }
-    var breakCalTot=0.0
-    var lunchCalTot=0.0
-    var dinnerCalTot=0.0
-    private val generateMealPlanViewModel by lazy { ViewModelProvider(this)[GenerateMealPlanViewModel::class.java]    }
+    private val mealDb by lazy {
+        ContentRoomDatabase.getDatabase(
+            requireContext(),
+            CoroutineScope(SupervisorJob())
+        )
+    }
+    var breakCalTot = 0.0
+    var lunchCalTot = 0.0
+    var dinnerCalTot = 0.0
+    private val generateMealPlanViewModel by lazy { ViewModelProvider(this)[GenerateMealPlanViewModel::class.java] }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentDietPlanBinding.bind(view)
@@ -64,39 +77,157 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
         binding.breakfastSite.setOnClickListener(this)
         binding.lunchSite.setOnClickListener(this)
         binding.dinnerSite.setOnClickListener(this)
-        Mealdata= mutableListOf()
-        Mealdatalunch= mutableListOf()
-        MealdataDinner= mutableListOf()
-        meal= mutableListOf()
-        meal1= mutableListOf()
-        meal2= mutableListOf()
+        Mealdata = mutableListOf()
+        Mealdatalunch = mutableListOf()
+        MealdataDinner = mutableListOf()
+        meal = mutableListOf()
+        meal1 = mutableListOf()
+        meal2 = mutableListOf()
         binding.recyclerview1.adapter = mealBreakAdapter
         binding.recyclerview2.adapter = mealLunchAdapter
         binding.recyclerview3.adapter = mealDinnerAdapter
 
-        binding.progressBar.visibility=View.VISIBLE
-        binding.breakfast.visibility=View.GONE
-        binding.lunch.visibility=View.GONE
-        binding.dinner.visibility=View.GONE
-        binding.breakfastSite.visibility=View.GONE
-        binding.textView17.visibility=View.VISIBLE
-        binding.lunchSite.visibility=View.GONE
-        binding.textView18.visibility=View.VISIBLE
-        binding.dinnerSite.visibility=View.GONE
-        binding.textView19.visibility=View.VISIBLE
+        binding.progressBar.visibility = View.VISIBLE
+        binding.breakfast.visibility = View.GONE
+        binding.lunch.visibility = View.GONE
+        binding.dinner.visibility = View.GONE
+        binding.breakfastSite.visibility = View.GONE
+        binding.textView17.visibility = View.VISIBLE
+        binding.lunchSite.visibility = View.GONE
+        binding.textView18.visibility = View.VISIBLE
+        binding.dinnerSite.visibility = View.GONE
+        binding.textView19.visibility = View.VISIBLE
+        var water1=0.0
+        var water2=0.0
+        var water3=0.0
+        var water4=0.0
+        binding.imageView8.setOnClickListener {
+                water1 = water1 + 0.25
+                binding.textView21.text = (water1).toString() + " L"
+                if (water1 == 1.0) {
+                    binding.textView29.setTextColor(getResources().getColor(R.color.green))
+                }
+//                if (water1 >= 3.0) {
+//                    binding.goal1.text = "Water intake limit is over"
+//                    binding.textView21.text = "4" + " L"
+//                    binding.imageView8.isClickable = false
+//                }
+//            }
+//            else{
+//                binding.goal1.visibility = View.VISIBLE
+//                binding.goal2.visibility = View.VISIBLE
+//                binding.goal3.visibility = View.VISIBLE
+//                binding.goal4.visibility = View.VISIBLE
+//                binding.goal1.text = "Water intake limit is over"
+//                binding.goal2.text="Water intake limit is over"
+//                binding.goal3.text = "Water intake limit is over"
+//                binding.goal4.text="Water intake limit is over"
+//            }
+        }
+        binding.imageView9.setOnClickListener {
+//            if(water1+water2+water3+water4 <=4.0) {
+            water2=water2+0.25
+            binding.textView24.text=(water2).toString()+" L"
+            if (water2==1.0){
+                binding.textView30.setTextColor(getResources().getColor(R.color.green))
+            }
+//            if (water2>=4.0){
+//                binding.goal2.text="Water intake limit is over"
+//                binding.textView24.text="4"+" L"
+//                binding.imageView9.isClickable=false
+//            }
+//            }
+//            else{
+//                binding.goal1.visibility = View.VISIBLE
+//                binding.goal2.visibility = View.VISIBLE
+//                binding.goal3.visibility = View.VISIBLE
+//                binding.goal4.visibility = View.VISIBLE
+//                binding.goal1.text = "Water intake limit is over"
+//                binding.goal2.text="Water intake limit is over"
+//                binding.goal3.text = "Water intake limit is over"
+//                binding.goal4.text="Water intake limit is over"
+//            }
+        }
+        binding.imageView10.setOnClickListener {
+//            if(water1+water2+water3+water4 <=4.0) {
+                water3 = water3 + 0.25
+                binding.textView26.text = (water3).toString() + " L"
+                if (water3 == 1.0) {
+                    binding.textView31.setTextColor(getResources().getColor(R.color.green))
+                }
+//                if (water3 >= 4.0) {
+//                    binding.goal3.text = "Water intake limit is over"
+//                    binding.textView26.text = "4" + " L"
+//                    binding.imageView10.isClickable = false
+//                }
+//            }
+//            else{
+//                binding.goal1.visibility = View.VISIBLE
+//                binding.goal2.visibility = View.VISIBLE
+//                binding.goal3.visibility = View.VISIBLE
+//                binding.goal4.visibility = View.VISIBLE
+//                binding.goal1.text = "Water intake limit is over"
+//                binding.goal2.text="Water intake limit is over"
+//                binding.goal3.text = "Water intake limit is over"
+//                binding.goal4.text="Water intake limit is over"
+//            }
+        }
+        binding.imageView11.setOnClickListener {
+//            if(water1+water2+water3+water4 <=4.0) {
+                water4 = water4 + 0.25
+                binding.textView28.text = (water4).toString() + " L"
+                if (water4 == 1.0) {
+                    binding.textView32.setTextColor(getResources().getColor(R.color.green))
+                }
+//                if (water4 >= 4.0) {
+//                    binding.goal4.text = "Water intake limit is over"
+//                    binding.textView28.text = "4" + " L"
+//                    binding.imageView11.isClickable = false
+//                }
+//            }
+//            else{
+//                binding.goal1.visibility = View.VISIBLE
+//                binding.goal2.visibility = View.VISIBLE
+//                binding.goal3.visibility = View.VISIBLE
+//                binding.goal4.visibility = View.VISIBLE
+//                binding.goal1.text = "Water intake limit is over"
+//                binding.goal2.text="Water intake limit is over"
+//                binding.goal3.text = "Water intake limit is over"
+//                binding.goal4.text="Water intake limit is over"
+//            }
+        }
         binding.regenerate.setOnClickListener {
-            lifecycleScope.launch {
-                mealDb.mealDao().deleteMealData()
-                findNavController().navigate(R.id.action_dietPlan_to_dietFragment)
+            val customView = layoutInflater.inflate(R.layout.dialog_meal, null)
+            val builder = MaterialAlertDialogBuilder(requireContext()).apply {
+                setView(customView)
+                background = ColorDrawable(Color.TRANSPARENT)
+                setCancelable(false)
+            }
+            val dialog = builder.show()
+            customView.findViewById<MaterialTextView>(R.id.dialogMessage)
+            val regenerateMeal = customView.findViewById<MaterialButton>(R.id.positiveBtn)
+            val cancel = customView.findViewById<MaterialButton>(R.id.cancel)
+            regenerateMeal.setOnClickListener {
+                lifecycleScope.launch {
+                    mealDb.mealDao().deleteMealData()
+                }
+                findNavController().navigateUp()
+                dialog.dismiss()
+            }
+            cancel.setOnClickListener {
+                dialog.dismiss()
             }
         }
         lifecycleScope.launch {
             val cout: Int = mealDb.mealDao().getCount()
 
             if (cout == 0) {
-                val calorieBreak:String = (calorie.toInt()*0.25).toString()+"-"+(calorie.toInt()*0.3).toString()
-                val calorieLunch:String = (calorie.toInt()*0.35).toString()+"-"+(calorie.toInt()*0.4).toString()
-                val calorieDinner:String = (calorie.toInt()*0.25).toString()+"-"+(calorie.toInt()*0.3).toString()
+                val calorieBreak: String =
+                    (calorie.toInt() * 0.25).toString() + "-" + (calorie.toInt() * 0.3).toString()
+                val calorieLunch: String =
+                    (calorie.toInt() * 0.35).toString() + "-" + (calorie.toInt() * 0.4).toString()
+                val calorieDinner: String =
+                    (calorie.toInt() * 0.25).toString() + "-" + (calorie.toInt() * 0.3).toString()
                 var count = 0
                 generateMealPlanViewModel.submitResult(
                     "public",
@@ -112,12 +243,18 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                     if (it is Response.Success) {
                         Mealdata.add(it.data!!)
                         if (it.data.count != 0) {
-                            lifecycleScope.launch{
-                                mealDb.mealDao().addMealData(meal(
-                                    "breakfast",it.data.hits[0].recipe.image,it.data.hits[0].recipe.label
-                                    ,(((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0).toString()
-                                    , breakRoti, breakRice,it.data.hits[0].recipe.url
-                                ))
+                            lifecycleScope.launch {
+                                mealDb.mealDao().addMealData(
+                                    meal(
+                                        "breakfast",
+                                        it.data.hits[0].recipe.image,
+                                        it.data.hits[0].recipe.label,
+                                        (((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0).toString(),
+                                        breakRoti,
+                                        breakRice,
+                                        it.data.hits[0].recipe.url
+                                    )
+                                )
                             }
                             breakCalTot =
                                 ((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0
@@ -171,12 +308,18 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                     if (it is Response.Success) {
                         Mealdatalunch.add(it.data!!)
                         if (it.data.count != 0) {
-                            lifecycleScope.launch{
-                                mealDb.mealDao().addMealData(meal(
-                                    "lunch",it.data.hits[0].recipe.image,it.data.hits[0].recipe.label
-                                    ,(((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0).toString()
-                                    , lunchRoti, lunchRice,it.data.hits[0].recipe.url
-                                ))
+                            lifecycleScope.launch {
+                                mealDb.mealDao().addMealData(
+                                    meal(
+                                        "lunch",
+                                        it.data.hits[0].recipe.image,
+                                        it.data.hits[0].recipe.label,
+                                        (((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0).toString(),
+                                        lunchRoti,
+                                        lunchRice,
+                                        it.data.hits[0].recipe.url
+                                    )
+                                )
                             }
                             lunchCalTot =
                                 ((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0
@@ -230,12 +373,18 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                     if (it is Response.Success) {
                         MealdataDinner.add(it.data!!)
                         if (it.data.count != 0) {
-                            lifecycleScope.launch{
-                                mealDb.mealDao().addMealData(meal(
-                                    "dinner",it.data.hits[0].recipe.image,it.data.hits[0].recipe.label
-                                    ,(((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0).toString()
-                                    , dinnerRoti, dinnerRice,it.data.hits[0].recipe.url
-                                ))
+                            lifecycleScope.launch {
+                                mealDb.mealDao().addMealData(
+                                    meal(
+                                        "dinner",
+                                        it.data.hits[0].recipe.image,
+                                        it.data.hits[0].recipe.label,
+                                        (((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0).toString(),
+                                        dinnerRoti,
+                                        dinnerRice,
+                                        it.data.hits[0].recipe.url
+                                    )
+                                )
                             }
                             dinnerCalTot =
                                 ((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0
@@ -275,29 +424,32 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                         Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
                     }
                 }
-            }
-            else
-            { val mealData=mealDb.mealDao().getMealData()
-                binding.progressBar.visibility=View.GONE
-                binding.breakfast.visibility=View.VISIBLE
-                binding.lunch.visibility=View.VISIBLE
-                binding.dinner.visibility=View.VISIBLE
-                mealData.forEach{
-                    when(it.id){
-                        "breakfast"->{
-                            binding.lunchSite.visibility=View.VISIBLE
-                            binding.textView17.visibility=View.GONE
-                            meal.add(item_model(
-                                it.image,it.title,"100 gram",it.cal+" cal"))
-                            if (it.roti!="0"){
+            } else {
+                val mealData = mealDb.mealDao().getMealData()
+                binding.progressBar.visibility = View.GONE
+                binding.breakfast.visibility = View.VISIBLE
+                binding.lunch.visibility = View.VISIBLE
+                binding.dinner.visibility = View.VISIBLE
+                mealData.forEach {
+                    when (it.id) {
+                        "breakfast" -> {
+                            binding.breakfastSite.visibility = View.VISIBLE
+                            binding.textView17.visibility = View.GONE
+                            meal.add(
+                                item_model(
+                                    it.image, it.title, "100 gram", it.cal + " cal"
+                                )
+                            )
+                            if (it.roti != "0") {
                                 meal.add(
                                     item_model(
-                                        getUrl(R.drawable.roti),"Roti",
+                                        getUrl(R.drawable.roti), "Roti",
                                         it.roti + " serving",
                                         (104 * it.roti.toInt()).toString() + " cal"
-                                    ))
+                                    )
+                                )
                             }
-                            if (it.rice!="0"){
+                            if (it.rice != "0") {
                                 meal.add(
                                     item_model(
                                         getUrl(R.drawable.rice),
@@ -307,27 +459,32 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                                     )
                                 )
                             }
-                            val url=it.url
+                            val url = it.url
                             binding.breakfastSite.setOnClickListener {
                                 golink(url)
                             }
-                            binding.textView12.text= (it.roti.toInt()*104+ it.rice.toInt()*136+it.cal.toFloat()).toString()+" cal"
+                            binding.textView12.text =
+                                (it.roti.toInt() * 104 + it.rice.toInt() * 136 + it.cal.toFloat()).toString() + " cal"
                             mealBreakAdapter.updateMealList(meal)
                         }
-                        "lunch"->{
-                            binding.lunchSite.visibility=View.VISIBLE
-                            binding.textView18.visibility=View.GONE
-                            meal1.add(item_model(
-                                it.image,it.title,"100 gram",it.cal+" cal"))
-                            if (it.roti!="0"){
+                        "lunch" -> {
+                            binding.lunchSite.visibility = View.VISIBLE
+                            binding.textView18.visibility = View.GONE
+                            meal1.add(
+                                item_model(
+                                    it.image, it.title, "100 gram", it.cal + " cal"
+                                )
+                            )
+                            if (it.roti != "0") {
                                 meal1.add(
                                     item_model(
-                                        getUrl(R.drawable.roti),"Roti",
+                                        getUrl(R.drawable.roti), "Roti",
                                         it.roti + " serving",
                                         (104 * it.roti.toInt()).toString() + " cal"
-                                    ))
+                                    )
+                                )
                             }
-                            if (it.rice!="0"){
+                            if (it.rice != "0") {
                                 meal1.add(
                                     item_model(
                                         getUrl(R.drawable.rice),
@@ -337,27 +494,32 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                                     )
                                 )
                             }
-                            val url=it.url
+                            val url = it.url
                             binding.lunchSite.setOnClickListener {
                                 golink(url)
                             }
-                            binding.textView13.text= (it.roti.toInt()*104+ it.rice.toInt()*136+it.cal.toFloat()).toString()+" cal"
+                            binding.textView13.text =
+                                (it.roti.toInt() * 104 + it.rice.toInt() * 136 + it.cal.toFloat()).toString() + " cal"
                             mealLunchAdapter.updateMealList(meal1)
                         }
-                        "dinner"->{
-                            binding.dinnerSite.visibility=View.VISIBLE
-                            binding.textView19.visibility=View.GONE
-                            meal2.add(item_model(
-                                it.image,it.title,"100 gram",it.cal+" cal"))
-                            if (it.roti!="0"){
+                        "dinner" -> {
+                            binding.dinnerSite.visibility = View.VISIBLE
+                            binding.textView19.visibility = View.GONE
+                            meal2.add(
+                                item_model(
+                                    it.image, it.title, "100 gram", it.cal + " cal"
+                                )
+                            )
+                            if (it.roti != "0") {
                                 meal2.add(
                                     item_model(
-                                        getUrl(R.drawable.roti),"Roti",
+                                        getUrl(R.drawable.roti), "Roti",
                                         it.roti + " serving",
                                         (104 * it.roti.toInt()).toString() + " cal"
-                                    ))
+                                    )
+                                )
                             }
-                            if (it.rice!="0"){
+                            if (it.rice != "0") {
                                 meal2.add(
                                     item_model(
                                         getUrl(R.drawable.rice),
@@ -367,11 +529,12 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                                     )
                                 )
                             }
-                            val url=it.url
+                            val url = it.url
                             binding.dinnerSite.setOnClickListener {
                                 golink(url)
                             }
-                            binding.textView14.text= (it.roti.toInt()*104+ it.rice.toInt()*136+it.cal.toFloat()).toString()+" cal"
+                            binding.textView14.text =
+                                (it.roti.toInt() * 104 + it.rice.toInt() * 136 + it.cal.toFloat()).toString() + " cal"
                             mealDinnerAdapter.updateMealDinnerList(meal2)
                         }
                     }
@@ -393,8 +556,7 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                         binding.container1.setBackgroundResource(R.drawable.black_gradient)
                         binding.container3.setBackgroundResource(R.drawable.orange)
                         binding.container2.setBackgroundResource(R.drawable.orange)
-                    }
-                    else{
+                    } else {
                         binding.radioButton2.isChecked = false
                         binding.radioButton3.isChecked = false
                         binding.container2.setBackgroundResource(R.drawable.orange)
@@ -402,15 +564,14 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                         binding.container1.setBackgroundResource(R.drawable.orange)
                     }
                 }
-                R.id.radioButton2->{
+                R.id.radioButton2 -> {
                     if (binding.radioButton2.isChecked) {
                         binding.radioButton3.isChecked = false
                         binding.radioButton.isChecked = true
                         binding.container2.setBackgroundResource(R.drawable.black_gradient)
                         binding.container3.setBackgroundResource(R.drawable.orange)
                         binding.container1.setBackgroundResource(R.drawable.black_gradient)
-                    }
-                    else{
+                    } else {
                         binding.radioButton.isChecked = true
                         binding.radioButton3.isChecked = false
                         binding.container2.setBackgroundResource(R.drawable.orange)
@@ -418,15 +579,14 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                         binding.container1.setBackgroundResource(R.drawable.black_gradient)
                     }
                 }
-                R.id.radioButton3->{
+                R.id.radioButton3 -> {
                     if (binding.radioButton3.isChecked) {
                         binding.radioButton.isChecked = true
                         binding.radioButton2.isChecked = true
                         binding.container3.setBackgroundResource(R.drawable.black_gradient)
                         binding.container2.setBackgroundResource(R.drawable.black_gradient)
                         binding.container1.setBackgroundResource(R.drawable.black_gradient)
-                    }
-                    else{
+                    } else {
                         binding.radioButton.isChecked = true
                         binding.radioButton2.isChecked = true
                         binding.container3.setBackgroundResource(R.drawable.orange)
@@ -441,80 +601,115 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
 
     private fun golink(sourceUrl: String) {
 
-        val uri:Uri=Uri.parse(sourceUrl)
-        startActivity(Intent(Intent.ACTION_VIEW,uri))
+        val uri: Uri = Uri.parse(sourceUrl)
+        startActivity(Intent(Intent.ACTION_VIEW, uri))
     }
-    private fun call(count:Int){
-        var breakfst=1
-        var din=1
-        var lun=1
-        if(count == 3){
-            binding.progressBar.visibility=View.GONE
-            binding.breakfast.visibility=View.VISIBLE
-            binding.lunch.visibility=View.VISIBLE
-            binding.dinner.visibility=View.VISIBLE
-            if (Mealdata[0].count == 0){
-                breakfst=0
-                binding.recyclerview1.visibility=View.GONE
-                binding.breakfastSite.visibility=View.GONE
-                binding.textView17.visibility=View.VISIBLE
+
+    private fun call(count: Int) {
+        var breakfst = 1
+        var din = 1
+        var lun = 1
+        if (count == 3) {
+            binding.progressBar.visibility = View.GONE
+            binding.breakfast.visibility = View.VISIBLE
+            binding.lunch.visibility = View.VISIBLE
+            binding.dinner.visibility = View.VISIBLE
+            if (Mealdata[0].count == 0) {
+                breakfst = 0
+                binding.recyclerview1.visibility = View.GONE
+                binding.breakfastSite.visibility = View.GONE
+                binding.textView17.visibility = View.VISIBLE
             }
             if (Mealdatalunch[0].count == 0) {
-                lun=0
-                binding.recyclerview2.visibility=View.GONE
-                binding.lunchSite.visibility=View.GONE
-                binding.textView18.visibility=View.VISIBLE
+                lun = 0
+                binding.recyclerview2.visibility = View.GONE
+                binding.lunchSite.visibility = View.GONE
+                binding.textView18.visibility = View.VISIBLE
 
             }
-            if (MealdataDinner[0].count == 0){
-                din=0
-                binding.recyclerview3.visibility=View.GONE
-                binding.dinnerSite.visibility=View.GONE
-                binding.textView19.visibility=View.VISIBLE
+            if (MealdataDinner[0].count == 0) {
+                din = 0
+                binding.recyclerview3.visibility = View.GONE
+                binding.dinnerSite.visibility = View.GONE
+                binding.textView19.visibility = View.VISIBLE
 
             }
 
 
-            if(breakfst==1){
-                binding.breakfastSite.visibility=View.VISIBLE
-                binding.textView17.visibility=View.GONE
+            if (breakfst == 1) {
+                binding.breakfastSite.visibility = View.VISIBLE
+                binding.textView17.visibility = View.GONE
                 binding.breakfastSite.setOnClickListener {
                     golink(Mealdata[0].hits[0].recipe.url)
                 }
-                binding.textView12.text= (breakRoti.toInt()*104+ breakRice.toInt()*136+breakCalTot).toString()+" cal"
+                binding.textView12.text =
+                    (breakRoti.toInt() * 104 + breakRice.toInt() * 136 + breakCalTot).toString() + " cal"
                 mealBreakAdapter.updateMealList(meal)
             }
-            if(lun==1){
-                binding.lunchSite.visibility=View.VISIBLE
-                binding.textView18.visibility=View.GONE
+            if (lun == 1) {
+                binding.lunchSite.visibility = View.VISIBLE
+                binding.textView18.visibility = View.GONE
                 binding.lunchSite.setOnClickListener {
                     golink(Mealdatalunch[0].hits[0].recipe.url)
                 }
-                binding.textView13.text=(lunchRoti.toInt()*104+ lunchRice.toInt()*136+lunchCalTot).toString()+" cal"
+                binding.textView13.text =
+                    (lunchRoti.toInt() * 104 + lunchRice.toInt() * 136 + lunchCalTot).toString() + " cal"
                 mealLunchAdapter.updateMealList(meal1)
             }
-            if(din==1){
-                binding.dinnerSite.visibility=View.VISIBLE
-                binding.textView19.visibility=View.GONE
+            if (din == 1) {
+                binding.dinnerSite.visibility = View.VISIBLE
+                binding.textView19.visibility = View.GONE
                 binding.dinnerSite.setOnClickListener {
                     golink(MealdataDinner[0].hits[0].recipe.url)
                 }
-                binding.textView14.text=(dinnerRoti.toInt()*104+ dinnerRice.toInt()*136+dinnerCalTot).toString()+" cal"
+                binding.textView14.text =
+                    (dinnerRoti.toInt() * 104 + dinnerRice.toInt() * 136 + dinnerCalTot).toString() + " cal"
                 mealDinnerAdapter.updateMealDinnerList(meal2)
             }
         }
     }
-    private fun getUrl(resourceId:Int):String{
+
+    private fun stepView() {
+        val list0 = listOf("f","s","d","f","f","g","j")
+        stepView
+            ?.reverseDraw(false)
+            ?.setStepViewTexts(list0)
+            ?.setLinePaddingProportion(6f)
+            ?.setStepsViewIndicatorCompletedLineColor(R.color.green)
+            ?.setStepsViewIndicatorUnCompletedLineColor(R.color.green)
+            ?.setStepsViewIndicatorCompleteIcon(context?.let {
+                ContextCompat.getDrawable(
+                    it,
+                    R.drawable.ic_baseline_circle_24
+                )
+            })
+            ?.setStepsViewIndicatorAttentionIcon(context?.let {
+                ContextCompat.getDrawable(
+                    it,
+                    R.drawable.yoga_instruction_curved_border
+                )
+            })
+            ?.setStepsViewIndicatorDefaultIcon(context?.let {
+                ContextCompat.getDrawable(
+                    it,
+                    R.drawable.yoga_instruction_curved_border
+                )
+            })
+        stepView?.setStepsViewIndicatorComplectingPosition(2)
+    }
+
+    private fun getUrl(resourceId: Int): String {
         return Uri.parse(
             "android.resource://" + R::class.java.getPackage().getName() + "/" + resourceId
         ).toString()
     }
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true) {
+//            override fun handleOnBackPressed() {
+//
+//            }
+//        })
+//    }
 
-            }
-        })
-    }
 }
