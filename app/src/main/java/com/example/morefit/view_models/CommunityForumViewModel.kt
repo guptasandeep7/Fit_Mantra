@@ -1,7 +1,9 @@
 package com.example.morefit.view_models
 
+import android.net.Uri
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.morefit.model.communityForum.CreateForum
 import com.example.morefit.model.communityForum.Forum
 import com.example.morefit.repositories.CommunityForumRepository
 import com.example.morefit.sealedClass.Response
@@ -16,12 +18,18 @@ class CommunityForumViewModel : ViewModel() {
         getPostsLiveData = repository.getAllPosts()
     }
 
-    lateinit var createPostLiveData: MutableLiveData<Response<Forum>>
-    fun createPost(account: RequestBody,
-                   title: RequestBody,
-                   content: RequestBody,
-                   image: MultipartBody.Part) {
-        createPostLiveData = repository.createPost(account, title, content, image)
+    lateinit var uploadImageMutableLiveData : MutableLiveData<String>
+    fun uploadPic(uri: Uri, account: Int) {
+        uploadImageMutableLiveData = repository.uploadPic(uri, account)
     }
 
+    lateinit var createPostLiveData: MutableLiveData<Response<Forum>>
+    fun createPost(body: CreateForum) {
+        createPostLiveData = repository.createPost(body)
+    }
+
+    lateinit var likeLiveData: MutableLiveData<Response<Forum>>
+    fun likePost(id: Int, account: Int) {
+        likeLiveData = repository.likePost(id, account)
+    }
 }

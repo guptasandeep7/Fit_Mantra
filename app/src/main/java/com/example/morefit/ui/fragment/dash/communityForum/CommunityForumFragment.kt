@@ -10,6 +10,7 @@ import com.example.morefit.R
 import com.example.morefit.adapter.CommunityForumInterface
 import com.example.morefit.adapter.CommunityForumRecyclerAdapter
 import com.example.morefit.databinding.FragmentCommunityForumBinding
+import com.example.morefit.model.communityForum.Comment
 import com.example.morefit.sealedClass.Response
 import com.example.morefit.view_models.CommunityForumViewModel
 import com.example.morefit.view_models.GenerateMealPlanViewModel
@@ -27,11 +28,16 @@ class CommunityForumFragment : Fragment(R.layout.fragment_community_forum),
         binding = FragmentCommunityForumBinding.bind(view).apply {
             progressBar.visibility = View.VISIBLE
             viewModel.getAllPosts()
+            val comments = listOf(
+                Comment("Sandeep Gupta", "Need to work hard more!"),
+                Comment("Aakash Verma", "Nice!"),
+                Comment("Deekha Sharma", "Greetings to all :)")
+            )
             viewModel.getPostsLiveData.observe(viewLifecycleOwner) {
                 progressBar.visibility = View.INVISIBLE
                 if (it is Response.Success) {
                     forumRecyclerView.adapter =
-                        CommunityForumRecyclerAdapter(this@CommunityForumFragment, it.data!!)
+                        CommunityForumRecyclerAdapter(this@CommunityForumFragment, it.data!!, comments)
                 }
                 else Toast.makeText(context, it.errorMessage, Toast.LENGTH_SHORT).show()
             }
@@ -42,7 +48,12 @@ class CommunityForumFragment : Fragment(R.layout.fragment_community_forum),
         }
     }
 
-    override fun likeBtnClickListener() {
-
+    override fun likeBtnClickListener(id: Int, account: Int) {
+        viewModel.likePost(id, account)
+//        viewModel.likeLiveData.observe(viewLifecycleOwner) {
+//            if (it is Response.Error) {
+//                Toast.makeText()
+//            }
+//        }
     }
 }

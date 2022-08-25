@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-parcelize'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -45,6 +46,8 @@ dependencies {
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.9.1'
+    implementation 'com.google.firebase:firebase-storage:20.0.1'
+    implementation 'com.google.firebase:firebase-common-ktx:20.1.1'
     def nav_version = '2.5.1'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
     implementation 'androidx.core:core-ktx:1.8.0'
@@ -104,4 +107,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     androidTestImplementation "androidx.test.ext:junit:$rootProject.androidxJunitVersion"
+
+    implementation platform('com.google.firebase:firebase-bom:30.3.2')
 }

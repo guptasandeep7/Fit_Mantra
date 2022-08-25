@@ -35,7 +35,7 @@
         app:layout_constraintTop_toTopOf="@id/icBack" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/heading1"
+        android:id="@+id/subHeading1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_semibold"
@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/icBack" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/heading2"
+        android:id="@+id/subHeading2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="-10dp"
@@ -54,8 +54,8 @@
         android:text="Diet Plan"
         android:textColor="#C0C0C0"
         android:textSize="40sp"
-        app:layout_constraintStart_toStartOf="@+id/heading1"
-        app:layout_constraintTop_toBottomOf="@+id/heading1" />
+        app:layout_constraintStart_toStartOf="@+id/subHeading1"
+        app:layout_constraintTop_toBottomOf="@+id/subHeading1" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView2"
@@ -67,7 +67,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/heading2">
+        app:layout_constraintTop_toBottomOf="@+id/subHeading2">
 
         <androidx.gridlayout.widget.GridLayout
             android:id="@+id/gridLayout"

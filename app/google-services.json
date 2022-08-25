@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "772419535759",
+    "project_id": "fitmantra-db98d",
+    "storage_bucket": "fitmantra-db98d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:772419535759:android:9cfa3f801f0749167c41fa",
+        "android_client_info": {
+          "package_name": "com.example.morefit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "772419535759-0ir2559232a795nkd2s5bris546n3ov4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCX1bqRFdBhY_Fa7FmhVyHZvPHiCTl3p50"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "772419535759-0ir2559232a795nkd2s5bris546n3ov4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

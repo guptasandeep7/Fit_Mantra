@@ -2,30 +2,27 @@ package com.example.morefit.ui.fragment.dash.communityForum
 
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.net.toFile
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
 import com.example.morefit.databinding.FragmentCreatePostBinding
 import com.example.morefit.model.communityForum.CreateForum
 import com.example.morefit.sealedClass.Response
-import com.example.morefit.utils.FileUtils
+import com.example.morefit.utils.Datastore
 import com.example.morefit.utils.hideBottomNavigationView
 import com.example.morefit.utils.showBottomNavigationView
 import com.example.morefit.view_models.CommunityForumViewModel
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.MultipartBody
-import okhttp3.RequestBody.Companion.asRequestBody
-import okhttp3.RequestBody.Companion.toRequestBody
-import java.io.File
+import kotlinx.coroutines.launch
+
 
 class CreatePostFragment : Fragment(R.layout.fragment_create_post) {
     private lateinit var binding: FragmentCreatePostBinding
+    lateinit var datastore: Datastore
     private val viewModel by lazy {
         ViewModelProvider(this)[CommunityForumViewModel::class.java]
     }
@@ -33,6 +30,7 @@ class CreatePostFragment : Fragment(R.layout.fragment_create_post) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        datastore = Datastore(requireContext())
         binding = FragmentCreatePostBinding.bind(view).apply {
             val launcher = registerForActivityResult(ActivityResultContracts.GetContent()) {
                 it?.let { uri ->
@@ -59,8 +57,23 @@ class CreatePostFragment : Fragment(R.layout.fragment_create_post) {
                 }
 
                 progressBar.visibility = View.VISIBLE
+                imgUri?.let { uri ->
+                    lifecycleScope.launch {
+                        viewModel.uploadPic(uri, datastore.getUserDetails(Datastore.ID)!!.toInt())
+                    }
 
-                sendDp("1", title.text.toString(), content.text.toString(), imgUri!!)
+                    viewModel.uploadImageMutableLiveData.observe(viewLifecycleOwner) {
+                        if (it.substring(0, 8) == "Uploaded") {
+                            viewModel.createPost(
+                                CreateForum(
+                                    1, content.text.toString(), title.text.toString(),
+                                    it.substring(9)
+                                )
+                            )
+                        }
+                        else Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+                    }
+                }
 
                 viewModel.createPostLiveData.observe(viewLifecycleOwner) {
                     if (it is Response.Success) {
@@ -88,15 +101,15 @@ class CreatePostFragment : Fragment(R.layout.fragment_create_post) {
         activity?.showBottomNavigationView()
     }
 
-    private fun sendDp(account: String, title : String, content: String, uri: Uri) {
-        val file = FileUtils.getFile(context, uri)
-        Log.e("FILE_URI", file.path)
-        val requestFile = file.asRequestBody("multipart/form-data".toMediaTypeOrNull())
-        val imageFile = MultipartBody.Part.createFormData("image", file.name, requestFile)
-        val accountMultiPart = account.toRequestBody(MultipartBody.FORM)
-        val titleMultiPart = title.toRequestBody(MultipartBody.FORM)
-        val contentMultiPart = content.toRequestBody(MultipartBody.FORM)
-
-        viewModel.createPost(accountMultiPart, titleMultiPart, contentMultiPart, imageFile)
-    }
+//    private fun sendDp(account: String, title : String, content: String, uri: Uri) {
+//        val file: File = File(uri.path)
+//        Log.e("FILE_URI", file.path)
+//        val requestFile = file.asRequestBody("multipart/form-data".toMediaTypeOrNull())
+//        val imageFile = MultipartBody.Part.createFormData("image", file.name, requestFile)
+//        val accountMultiPart = account.toRequestBody(MultipartBody.FORM)
+//        val titleMultiPart = title.toRequestBody(MultipartBody.FORM)
+//        val contentMultiPart = content.toRequestBody(MultipartBody.FORM)
+//
+//        viewModel.createPost(accountMultiPart, titleMultiPart, contentMultiPart, imageFile)
+//    }
 }

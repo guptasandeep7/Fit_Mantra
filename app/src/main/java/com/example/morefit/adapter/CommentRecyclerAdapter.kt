@@ -4,8 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.morefit.databinding.ItemCommunityForumCommentBinding
+import com.example.morefit.model.communityForum.Comment
 
-class CommentRecyclerAdapter: RecyclerView.Adapter<CommentRecyclerAdapter.ViewHolder>() {
+class CommentRecyclerAdapter(
+    private val data: List<Comment>
+): RecyclerView.Adapter<CommentRecyclerAdapter.ViewHolder>() {
 
     inner class ViewHolder(val binding: ItemCommunityForumCommentBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -21,9 +24,10 @@ class CommentRecyclerAdapter: RecyclerView.Adapter<CommentRecyclerAdapter.ViewHo
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.apply {
-
+            commenterName.text = data[position].commenterName
+            commentMsg.text = data[position].commentMsg
         }
     }
 
-    override fun getItemCount(): Int = 4
+    override fun getItemCount(): Int = data.size
 }

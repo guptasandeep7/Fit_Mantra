@@ -23,7 +23,7 @@
             app:srcCompat="@drawable/ic_back_black" />
 
         <TextView
-            android:id="@+id/heading1"
+            android:id="@+id/subHeading1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
@@ -37,7 +37,7 @@
             app:layout_constraintTop_toTopOf="@+id/icBack" />
 
         <TextView
-            android:id="@+id/heading2"
+            android:id="@+id/subHeading2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="-4dp"
@@ -45,8 +45,8 @@
             android:text="Workouts"
             android:textColor="@color/black"
             android:textSize="32sp"
-            app:layout_constraintStart_toStartOf="@+id/heading1"
-            app:layout_constraintTop_toBottomOf="@+id/heading1" />
+            app:layout_constraintStart_toStartOf="@+id/subHeading1"
+            app:layout_constraintTop_toBottomOf="@+id/subHeading1" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
