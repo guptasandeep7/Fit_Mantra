@@ -38,11 +38,11 @@ interface ApiInterface {
     @FormUrlEncoded
     @POST("/api/register/")
     fun uploadUserDetails(
-        @Field("Phone no") phoneno:String,
+        @Field("Phone no") phoneno:Long,
         @Field("Name")name :String,
-        @Field("Age")age:String,
+        @Field("Age")age:Int,
         @Field("Gender")gender:String,
-        @Field("Height")height:String,
-        @Field("Weight")weight:String
-    ):Call<ResponseBody>
+        @Field("Height")height:Int,
+        @Field("Weight")weight:Int
+    ):Call<com.example.morefit.model.Response>
 }

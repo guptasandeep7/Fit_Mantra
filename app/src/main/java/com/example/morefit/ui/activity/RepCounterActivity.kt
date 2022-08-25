@@ -3,12 +3,20 @@ package com.example.morefit.ui.activity
 import android.Manifest
 import android.app.AlertDialog
 import android.app.Dialog
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Process
+import android.provider.Settings
+import android.speech.RecognitionListener
+import android.speech.RecognizerIntent
+import android.speech.SpeechRecognizer
+import android.speech.tts.TextToSpeech
 import android.view.*
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
@@ -18,13 +26,14 @@ import androidx.appcompat.widget.SwitchCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
-import com.example.morefit.view_models.ContentViewModel
-import com.example.morefit.view_models.WordViewModelFactory
-import com.example.morefit.database.ContentApplication
 import com.example.morefit.R
+import com.example.morefit.database.ContentApplication
 import com.example.morefit.model.database.Content
+import com.example.morefit.ui.fragment.dash.analysis.AnalysisActivity
 import com.example.morefit.ui.fragment.dash.gym.ExerciseFragment
 import com.example.morefit.utils.Datastore
+import com.example.morefit.view_models.ContentViewModel
+import com.example.morefit.view_models.WordViewModelFactory
 import com.google.android.material.card.MaterialCardView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -34,10 +43,13 @@ import org.tensorflow.lite.examples.poseestimation.data.Device
 import org.tensorflow.lite.examples.poseestimation.ml.*
 import java.util.*
 
+
 class RepCounterActivity : AppCompatActivity() {
     companion object {
         private const val FRAGMENT_DIALOG = "dialog"
         var correct_label = ""
+        var repcounter=0
+        var timer=0L
     }
 
     private val contentViewModel: ContentViewModel by viewModels() {
@@ -58,7 +70,8 @@ class RepCounterActivity : AppCompatActivity() {
     private var modelPos = 1
     var first = 0;
     var time: Long = 0
-
+    var booleanSquats=false
+    var onetime=false
     /** Default device is CPU */
     private var device = Device.CPU
 
@@ -69,7 +82,7 @@ class RepCounterActivity : AppCompatActivity() {
     private var running = false
 
     private var wasRunning = false
-
+    var Squattime=0.toLong()
 
     var counter = 0
     lateinit var completeRep: ImageButton
@@ -89,6 +102,7 @@ class RepCounterActivity : AppCompatActivity() {
     private lateinit var resetTimer: ImageButton
     private lateinit var repcountText: TextView
     private lateinit var datastore: Datastore
+    lateinit var textToSpeech:TextToSpeech
     private var cameraSource: CameraSource? = null
     private var isClassifyPose = false
     private val requestPermissionLauncher =
@@ -174,7 +188,17 @@ class RepCounterActivity : AppCompatActivity() {
         completeRep = findViewById(R.id.completerep)
         var title = findViewById<TextView>(R.id.Title1)
         title.text = ExerciseFragment.name
+        checkAudioPermission()
         initSpinner()
+        // create an object textToSpeech and adding features into it
+        // create an object textToSpeech and adding features into it
+        textToSpeech = TextToSpeech(applicationContext) { i ->
+            // if No error is found then only it will run
+            if (i != TextToSpeech.ERROR) {
+                // To Choose language of speech
+                textToSpeech.setLanguage(Locale.UK)
+            }
+        }
         spnModel.setSelection(modelPos)
         swClassification.setOnCheckedChangeListener(setClassificationListener)
         if (savedInstanceState != null) {
@@ -215,31 +239,7 @@ class RepCounterActivity : AppCompatActivity() {
         }, 4000)
         runTimer()
         completeRep.setOnClickListener {
-            var content = arrayListOf<Content>(
-                Content(
-                    System.currentTimeMillis(), ExerciseFragment.name,
-                    seconds.toLong(), counter
-                )
-            )
-            contentViewModel.insert(content)
-
-            datastore = Datastore(this)
-
-            // Streak
-            GlobalScope.launch {
-                if ((System.currentTimeMillis() - datastore.getLastWorkoutDate()) > 86400000
-                    && (System.currentTimeMillis() - datastore.getLastWorkoutDate()) < 172800000
-                ) {
-                    datastore.setStreakCount(datastore.getStreakCount() + 1)
-                    datastore.setLastWorkoutDate(System.currentTimeMillis())
-                } else if ((System.currentTimeMillis() - datastore.getLastWorkoutDate()) > 172800000) {
-                    datastore.setStreakCount(1)
-                    datastore.setLastWorkoutDate(System.currentTimeMillis())
-                } else if ((System.currentTimeMillis() - datastore.getLastWorkoutDate()) < 86400000) {
-                    datastore.setLastWorkoutDate(System.currentTimeMillis())
-                }
-            }
-
+            complete()
         }
         startTimer.setOnClickListener {
 
@@ -264,6 +264,39 @@ class RepCounterActivity : AppCompatActivity() {
             requestPermission()
         }
         cameraSource?.setClassifier(PoseClassifier.create(this))
+    }
+
+    private fun complete() {
+//        Toast.makeText(this, "completed", Toast.LENGTH_SHORT).show()
+
+        var content = arrayListOf<Content>(
+            Content(
+                System.currentTimeMillis(), ExerciseFragment.name,
+                seconds.toLong(), counter
+            )
+        )
+        repcounter=counter
+        timer= seconds.toLong()
+        contentViewModel.insert(content)
+
+        datastore = Datastore(this)
+
+        // Streak
+        GlobalScope.launch {
+            if ((System.currentTimeMillis() - datastore.getLastWorkoutDate()) > 86400000
+                && (System.currentTimeMillis() - datastore.getLastWorkoutDate()) < 172800000
+            ) {
+                datastore.setStreakCount(datastore.getStreakCount() + 1)
+                datastore.setLastWorkoutDate(System.currentTimeMillis())
+            } else if ((System.currentTimeMillis() - datastore.getLastWorkoutDate()) > 172800000) {
+                datastore.setStreakCount(1)
+                datastore.setLastWorkoutDate(System.currentTimeMillis())
+            } else if ((System.currentTimeMillis() - datastore.getLastWorkoutDate()) < 86400000) {
+                datastore.setLastWorkoutDate(System.currentTimeMillis())
+            }
+        }
+        startActivity(Intent(this,AnalysisActivity::class.java))
+        finish()
     }
 
     private fun runTimer() {
@@ -325,7 +358,7 @@ class RepCounterActivity : AppCompatActivity() {
         if (wasRunning) {
             running = true;
         }
-
+        startSpeechToText()
     }
 
     override fun onPause() {
@@ -364,11 +397,15 @@ class RepCounterActivity : AppCompatActivity() {
                                     getString(R.string.tfe_pe_tv_score, personScore ?: 0f)
                                 poseLabels?.sortedByDescending { it.second }?.let {
                                     for (i in it) {
-                                runOnUiThread{
-                                    repcountText.text=it.toString()
-                                }
                                         if (correct_label == i.first) {
+                                            runOnUiThread{
+                                                repcountText.text=it.toString()
+                                            }
+
                                             if (i.second >= 0.80) {
+                                                textToSpeech.stop()
+                                                booleanSquats=false
+                                                onetime=false
                                                 if (first == 0) {
                                                     time = System.currentTimeMillis()
                                                 }
@@ -378,19 +415,34 @@ class RepCounterActivity : AppCompatActivity() {
                                                     cardview.strokeColor =
                                                         Color.parseColor("#00FF00")
                                                 }
-                                            } else {
+                                            }
+                                            else {
                                                 first = 0
                                                 if (((System.currentTimeMillis() - time) > 1000) && (time != 0L)) {
                                                     counter++
                                                 }
                                                 time = 0
                                                 runOnUiThread {
-                                                    repcountText.text = counter.toString()
+//                                                    repcountText.text = counter.toString()
                                                     cardview.strokeColor =
                                                         Color.parseColor("#FF0000")
                                                 }
                                             }
                                         }
+                                        if("squatwrong"==i.first){
+                                            if(i.second>0.3 && booleanSquats==false) {
+                                                 Squattime = System.currentTimeMillis()
+                                                booleanSquats = true
+                                            }
+                                                if((System.currentTimeMillis()-Squattime)>1000 && booleanSquats && !onetime)
+                                                {
+                                                    textToSpeech.speak("go down",TextToSpeech.QUEUE_FLUSH,null);
+//                                                    booleanSquats=false
+                                                    onetime=true
+                                                }
+
+                                        }
+
                                     }
                                     tvClassificationValue1.text = getString(
                                         R.string.tfe_pe_tv_classification_value,
@@ -422,7 +474,71 @@ class RepCounterActivity : AppCompatActivity() {
 
 
     }
+    private fun startSpeechToText() {
+        val speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this)
+        val speechRecognizerIntent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+        speechRecognizerIntent.putExtra(
+            RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+            RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
+        )
+        speechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault())
 
+        speechRecognizer.setRecognitionListener(object : RecognitionListener {
+            override fun onReadyForSpeech(bundle: Bundle?) {}
+            override fun onBeginningOfSpeech() {}
+            override fun onRmsChanged(v: Float) {}
+            override fun onBufferReceived(bytes: ByteArray?) {}
+            override fun onEndOfSpeech() {
+                speechRecognizer.startListening(speechRecognizerIntent)
+            }
+            override fun onError(i: Int) {
+                speechRecognizer.startListening(speechRecognizerIntent)
+            }
+
+            override fun onResults(bundle: Bundle) {
+                val result = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
+                if (result != null) {
+
+                    speechResult(result[0])
+                }
+                speechRecognizer.startListening(speechRecognizerIntent)
+
+            }
+            override fun onPartialResults(bundle: Bundle) {
+                speechRecognizer.startListening(speechRecognizerIntent)
+            }
+            override fun onEvent(i: Int, bundle: Bundle?) {}
+        })
+        // starts listening ...
+        speechRecognizer.startListening(speechRecognizerIntent)
+    }
+
+    private fun speechResult(result: String) {
+        Toast.makeText(this, result, Toast.LENGTH_SHORT).show()
+        when {
+            result.contains("start") -> {
+                //start exercise
+            }
+            result.contains("exit") || result.contains("complete") -> {
+                complete()
+            }
+            result.contains("pause") -> {
+                //pause exercise
+            }
+        }
+    }
+
+
+    fun checkAudioPermission() {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {  // M = 23
+            if(ContextCompat.checkSelfPermission(this, "android.permission.RECORD_AUDIO") != PackageManager.PERMISSION_GRANTED) {
+                // this will open settings which asks for permission
+                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:com.example.morefit"))
+                startActivity(intent)
+                Toast.makeText(this, "Allow Microphone Permission", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
     private fun convertPoseLabels(pair: Pair<String, Float>?): String {
         if (pair == null) return "empty"
         return "${pair.first} (${String.format("%.2f", pair.second)})"
