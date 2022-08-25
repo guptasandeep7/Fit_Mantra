@@ -1,4 +1,4 @@
-package com.example.energybar
+package com.example.morefit.view_models
 
 import androidx.lifecycle.*
 import com.example.morefit.model.database.Content

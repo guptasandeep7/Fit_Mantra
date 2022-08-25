@@ -3,12 +3,11 @@ package com.example.morefit.ui.fragment.dash.profile
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.transition.Fade
 import com.example.morefit.R
 import com.example.morefit.databinding.FragmentProfileBinding
 import com.example.morefit.utils.Datastore
-import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.google.android.material.transition.platform.MaterialSharedAxis
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -32,9 +31,22 @@ class ProfileFragment : Fragment(R.layout.fragment_profile){
 			historyBtn.setOnClickListener {
 				findNavController().navigate(R.id.action_profileFragment_to_pastWorkoutsFragment)
 			}
+			lifecycleScope.launch {
+				firstName.text = datastore.getUserDetails(Datastore.NAME_KEY).toString()
+				lastName.text = datastore.getUserDetails(Datastore.LAST_NAME_KEY).toString()
+			}
 			icBack.setOnClickListener { activity?.onBackPressed() }
 			GlobalScope.launch {
 				streak.append("${datastore.getStreakCount()} Days")
+			}
+
+			calculateBtn.setOnClickListener {
+//                val calculateBottomSheetFragment = CalculateBottomSheetFragment()
+//                calculateBottomSheetFragment.show(
+//                    requireActivity().supportFragmentManager,
+//                    "BOTTOM_DIALOG"
+//                )
+				findNavController().navigate(R.id.action_profileFragment_to_calculateBottomSheetFragment)
 			}
 		}
 	}

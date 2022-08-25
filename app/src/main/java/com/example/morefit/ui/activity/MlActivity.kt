@@ -3,12 +3,20 @@ package com.example.morefit.ui.activity
 import android.Manifest
 import android.app.AlertDialog
 import android.app.Dialog
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Process
 import android.provider.Settings
+import android.speech.RecognitionListener
+import android.speech.RecognizerIntent
+import android.speech.SpeechRecognizer
+import android.view.*
 import android.view.SurfaceView
 import android.view.View
 import android.view.WindowManager
@@ -19,12 +27,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.lifecycle.lifecycleScope
-import com.example.energybar.ContentViewModel
-import com.example.energybar.WordViewModelFactory
-import com.example.energybar.database.ContentApplication
+import com.example.morefit.view_models.ContentViewModel
+import com.example.morefit.view_models.WordViewModelFactory
+import com.example.morefit.database.ContentApplication
 import com.example.morefit.R
 import com.example.morefit.model.database.Content
 import com.example.morefit.ui.fragment.dash.gym.ExerciseFragment
@@ -37,7 +43,6 @@ import org.tensorflow.lite.examples.poseestimation.camera.CameraSource
 import org.tensorflow.lite.examples.poseestimation.data.Device
 import org.tensorflow.lite.examples.poseestimation.ml.*
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class MlActivity : AppCompatActivity() {
@@ -170,9 +175,37 @@ class MlActivity : AppCompatActivity() {
         swClassification = findViewById(R.id.swPoseClassification)
         vClassificationOption = findViewById(R.id.vClassificationOption)
         var title=findViewById<TextView>(R.id.Title1)
+
         title.text=ExerciseFragment.name
+        checkAudioPermission()
         initSpinner()
+        val dialodView =
+            LayoutInflater.from(this).inflate(R.layout.fragment_lets_go, null)
+        val mBuilder = AlertDialog.Builder(this)
+            .setView(dialodView)
+        val alertDialog:AlertDialog=mBuilder.create()
+        alertDialog.getWindow()?.requestFeature(Window.FEATURE_NO_TITLE)
+        alertDialog.show()
+        alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+            Handler().postDelayed({
+                dialodView.findViewById<TextView>(R.id.textloader).text="2"
+            },1000)
+        Handler().postDelayed({
+            dialodView.findViewById<TextView>(R.id.textloader).text="1"
+        },2000)
+        Handler().postDelayed({
+            dialodView.findViewById<TextView>(R.id.textloader).text="Lets'Go"
+        },3000)
+
+
+        Handler().postDelayed({
+            alertDialog.cancel()
+        },4000)
+
         spnModel.setSelection(modelPos)
+
+
         swClassification.setOnCheckedChangeListener(setClassificationListener)
         if (savedInstanceState != null) {
 
@@ -188,30 +221,7 @@ class MlActivity : AppCompatActivity() {
         }
         runTimer()
         completeml.setOnClickListener {
-            var content= arrayListOf<Content>(Content(System.currentTimeMillis(),ExerciseFragment.name,
-                seconds.toLong(),0
-            ))
-            contentViewModel.insert(content)
-
-            datastore = Datastore(this)
-
-            // Streak
-            GlobalScope.launch {
-                if ((System.currentTimeMillis() - datastore.getLastWorkoutDate()) > 86400000
-                    && (System.currentTimeMillis() - datastore.getLastWorkoutDate()) < 172800000
-                ) {
-                    datastore.setStreakCount(datastore.getStreakCount() + 1)
-                    datastore.setLastWorkoutDate(System.currentTimeMillis())
-                }
-                else if ((System.currentTimeMillis() - datastore.getLastWorkoutDate()) > 172800000) {
-                    datastore.setStreakCount(1)
-                    datastore.setLastWorkoutDate(System.currentTimeMillis())
-                }
-                else if((System.currentTimeMillis() - datastore.getLastWorkoutDate()) < 86400000){
-                    datastore.setLastWorkoutDate(System.currentTimeMillis())
-                }
-            }
-
+            complete()
         }
 
         if (!isCameraPermissionGranted()) {
@@ -279,6 +289,7 @@ class MlActivity : AppCompatActivity() {
         if (wasRunning) {
             running = true;
         }
+        startSpeechToText()
 
     }
 
@@ -437,6 +448,98 @@ class MlActivity : AppCompatActivity() {
                 else -> TrackerType.OFF
             }
         )
+    }
+
+    private fun startSpeechToText() {
+        val speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this)
+        val speechRecognizerIntent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+        speechRecognizerIntent.putExtra(
+            RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+            RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
+        )
+        speechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault())
+
+        speechRecognizer.setRecognitionListener(object : RecognitionListener {
+            override fun onReadyForSpeech(bundle: Bundle?) {}
+            override fun onBeginningOfSpeech() {}
+            override fun onRmsChanged(v: Float) {}
+            override fun onBufferReceived(bytes: ByteArray?) {}
+            override fun onEndOfSpeech() {
+                speechRecognizer.startListening(speechRecognizerIntent)
+            }
+            override fun onError(i: Int) {
+                speechRecognizer.startListening(speechRecognizerIntent)
+            }
+
+            override fun onResults(bundle: Bundle) {
+                val result = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
+                if (result != null) {
+
+                    speechResult(result[0])
+                }
+                speechRecognizer.startListening(speechRecognizerIntent)
+
+            }
+            override fun onPartialResults(bundle: Bundle) {
+                speechRecognizer.startListening(speechRecognizerIntent)
+            }
+            override fun onEvent(i: Int, bundle: Bundle?) {}
+        })
+        // starts listening ...
+        speechRecognizer.startListening(speechRecognizerIntent)
+    }
+
+    private fun speechResult(result: String) {
+        Toast.makeText(this, result, Toast.LENGTH_SHORT).show()
+        when {
+            result.contains("start") -> {
+                //start exercise
+            }
+            result.contains("exit") || result.contains("complete") -> {
+                complete()
+            }
+            result.contains("pause") -> {
+                //pause exercise
+            }
+        }
+    }
+
+    private fun complete() {
+        var content= arrayListOf<Content>(Content(System.currentTimeMillis(),ExerciseFragment.name,
+            seconds.toLong(),0
+        ))
+        contentViewModel.insert(content)
+        Toast.makeText(this, "completed", Toast.LENGTH_SHORT).show()
+        datastore = Datastore(this)
+
+        // Streak
+        GlobalScope.launch {
+            if ((System.currentTimeMillis() - datastore.getLastWorkoutDate()) > 86400000
+                && (System.currentTimeMillis() - datastore.getLastWorkoutDate()) < 172800000
+            ) {
+                datastore.setStreakCount(datastore.getStreakCount() + 1)
+                datastore.setLastWorkoutDate(System.currentTimeMillis())
+            }
+            else if ((System.currentTimeMillis() - datastore.getLastWorkoutDate()) > 172800000) {
+                datastore.setStreakCount(1)
+                datastore.setLastWorkoutDate(System.currentTimeMillis())
+            }
+            else if((System.currentTimeMillis() - datastore.getLastWorkoutDate()) < 86400000){
+                datastore.setLastWorkoutDate(System.currentTimeMillis())
+            }
+        }
+    }
+
+
+    fun checkAudioPermission() {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {  // M = 23
+            if(ContextCompat.checkSelfPermission(this, "android.permission.RECORD_AUDIO") != PackageManager.PERMISSION_GRANTED) {
+                // this will open settings which asks for permission
+                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:com.example.morefit"))
+                startActivity(intent)
+                Toast.makeText(this, "Allow Microphone Permission", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun createPoseEstimator() {

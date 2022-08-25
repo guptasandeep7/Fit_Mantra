@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">More Fit</string>
+    <string name="app_name">Fit Mantra</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="more_fit">More Fit</string>
     <string name="exercise">Exercise</string>
@@ -39,6 +39,7 @@ The app also includes BMI Calculator, Macro Calculator and Calorie Intake Calcul
     <string name="gym">Gym</string>
     <string name="yoga">Yoga</string>
     <string name="diet">Diet</string>
+    <string name="forum">Forum</string>
     <string name="gluten_free"><b>Gluten Free</b>\nMeans avoiding wheat, barley, rye, and other gluten-containing grains and foods made from them </string>
     <string name="back_btn">Back btn</string>
     <string name="streak_n6_days">Streak 🔥\n</string>

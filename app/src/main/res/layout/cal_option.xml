@@ -2,44 +2,53 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="16dp">
+    android:layout_height="wrap_content">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/calorie_meter_btn"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-        app:cornerRadius="5dp"
-        android:text="@string/calorie_meter"
-        android:textAllCaps="false"
+    <ImageView
+        android:id="@+id/horizontalBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_horizontal_pill"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/macro_cal_btn"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:id="@+id/calorie_meter_btn"
+        style="@style/CalculateBottomSheetButtons"
         android:layout_width="0dp"
-        android:layout_height="56dp"
-        app:cornerRadius="5dp"
-        android:text="@string/macro_calculator"
-        android:clickable="true"
-        android:textAllCaps="false"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingVertical="12dp"
+        android:text="@string/calorie_meter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calorie_meter_btn"
-        android:focusable="true" />
+        app:layout_constraintTop_toBottomOf="@id/bmi_cal_btn" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/macro_cal_btn"
+        style="@style/CalculateBottomSheetButtons"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:paddingVertical="12dp"
+        android:text="@string/macro_calculator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calorie_meter_btn" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/bmi_cal_btn"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        style="@style/CalculateBottomSheetButtons"
         android:layout_width="0dp"
-        android:layout_height="56dp"
-        app:cornerRadius="5dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:paddingVertical="12dp"
         android:text="@string/bmi_calculator"
-        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/macro_cal_btn" />
+        app:layout_constraintTop_toBottomOf="@id/horizontalBar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

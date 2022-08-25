@@ -51,23 +51,18 @@
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/font/poppins_semibold.xml" value="0.2625" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/activity_analysis.xml" value="0.264" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/activity_ml.xml" value="0.23802083333333332" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/activity_profile.xml" value="0.2359375" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/activity_rep_counter.xml" value="0.25" />
-        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/activity_user_details.xml" value="0.264" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/bottom_sheet_layout.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/cal_option.xml" value="0.4438860971524288" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/dialog_bmi.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/dialog_calorie.xml" value="0.4" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/dialog_macro.xml" value="0.4" />
-        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/dialog_set_calories.xml" value="0.25" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/exercise_item.xml" value="0.4" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_about.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_back.xml" value="0.264" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_bmi.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_calorie.xml" value="0.4" />
-        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_diet.xml" value="0.25" />
-        <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_diet_plan.xml" value="0.25" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_exercise.xml" value="0.176" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_front.xml" value="0.4" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/fragment_gym.xml" value="0.23229166666666667" />
