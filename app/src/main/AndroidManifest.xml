@@ -10,9 +10,9 @@
     <application
         android:name="com.example.energybar.database.ContentApplication"
         android:allowBackup="true"
-        android:icon="@drawable/splash_background"
-        android:label="@string/app_name"
-        android:roundIcon="@drawable/splash_background"
+        android:icon="@drawable/ic_frame_3"
+        android:label="FitMantra"
+        android:roundIcon="@drawable/ic_frame_3"
         android:supportsRtl="true"
         android:theme="@style/Theme.MoreFit"
         android:usesCleartextTraffic="true">

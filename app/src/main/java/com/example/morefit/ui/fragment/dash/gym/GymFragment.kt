@@ -40,6 +40,7 @@ class GymFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentGymBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
