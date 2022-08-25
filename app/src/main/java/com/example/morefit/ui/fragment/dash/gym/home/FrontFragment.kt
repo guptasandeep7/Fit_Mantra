@@ -33,8 +33,6 @@ class FrontFragment : Fragment(), View.OnClickListener {
         binding.abs.setOnClickListener(this)
         binding.rightThigh.setOnClickListener(this)
         binding.leftThigh.setOnClickListener(this)
-        binding.leftLeg.setOnClickListener(this)
-        binding.rightLeg.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
@@ -44,52 +42,44 @@ class FrontFragment : Fragment(), View.OnClickListener {
             mLastClickTime = SystemClock.elapsedRealtime()
             muscleName = when (view?.id) {
                 R.id.chest -> {
-                    view.setBackgroundResource(R.drawable.chest_red)
+                    binding.imageView.setBackgroundResource(R.drawable.chest)
                     "Chest"
                 }
                 R.id.right_shoulder -> {
-                    view.setBackgroundResource(R.drawable.right_shoulder)
+                    binding.imageView.setBackgroundResource(R.drawable.right_shoulder)
                     "Shoulders"
                 }
                 R.id.left_shoulder -> {
-                    view.setBackgroundResource(R.drawable.left_shoulder)
+                    binding.imageView.setBackgroundResource(R.drawable.left_shoulder)
                     "Shoulders"
                 }
                 R.id.right_biceps -> {
-                    view.setBackgroundResource(R.drawable.right_biceps)
+                    binding.imageView.setBackgroundResource(R.drawable.right_bicep)
                     "Biceps"
                 }
                 R.id.right_arm -> {
-                    view.setBackgroundResource(R.drawable.right_arm)
+                    binding.imageView.setBackgroundResource(R.drawable.forearm_right)
                     "Forearms"
                 }
                 R.id.left_biceps -> {
-                    view.setBackgroundResource(R.drawable.left_biceps)
+                    binding.imageView.setBackgroundResource(R.drawable.left_bicep)
                     "Biceps"
                 }
                 R.id.left_arm -> {
-                    view.setBackgroundResource(R.drawable.left_arm)
+                    binding.imageView.setBackgroundResource(R.drawable.forearm_left)
                     "Forearms"
                 }
                 R.id.abs -> {
-                    view.setBackgroundResource(R.drawable.abs)
+                    binding.imageView.setBackgroundResource(R.drawable.abs)
                     "Abdominals"
                 }
                 R.id.right_thigh -> {
-                    view.setBackgroundResource(R.drawable.right_thigh)
+                    binding.imageView.setBackgroundResource(R.drawable.right_quad)
                     "Hamstrings"
                 }
                 R.id.left_thigh -> {
-                    view.setBackgroundResource(R.drawable.left_thigh)
+                    binding.imageView.setBackgroundResource(R.drawable.left_quad)
                     "Hamstrings"
-                }
-                R.id.left_leg -> {
-                    view.setBackgroundResource(R.drawable.left_leg)
-                    "Calves"
-                }
-                R.id.right_leg -> {
-                    view.setBackgroundResource(R.drawable.right_leg)
-                    "Calves"
                 }
                 else -> {
                     "Chest"
