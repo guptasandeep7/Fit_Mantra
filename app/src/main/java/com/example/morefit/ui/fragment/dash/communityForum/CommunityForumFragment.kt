@@ -45,6 +45,8 @@ class CommunityForumFragment : Fragment(R.layout.fragment_community_forum),
             addPostBtn.setOnClickListener {
                 findNavController().navigate(R.id.action_communityForumFragment_to_createPostFragment)
             }
+
+            icBack.setOnClickListener { findNavController().navigateUp() }
         }
     }
 

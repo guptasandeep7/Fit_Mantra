@@ -3,10 +3,13 @@ package com.example.morefit.network
 import android.accounts.Account
 import com.example.morefit.model.Data
 import com.example.morefit.model.WeekMeal
+import com.google.android.gms.common.internal.HideFirstParty
+import okhttp3.ResponseBody
 import com.example.morefit.model.communityForum.CreateForum
 import com.example.morefit.model.communityForum.Forum
 import com.example.morefit.model.communityForum.LikedBy
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.*
 
 interface ApiInterface {
@@ -31,6 +34,16 @@ interface ApiInterface {
         @Query("calories") calories: String
     ): Call<WeekMeal>
 
+    @FormUrlEncoded
+    @POST("/api/register/")
+    fun uploadUserDetails(
+        @Field("Phone no") phoneno:String,
+        @Field("Name")name :String,
+        @Field("Age")age:String,
+        @Field("Gender")gender:String,
+        @Field("Height")height:String,
+        @Field("Weight")weight:String
+    ):Call<ResponseBody>
     @GET("post/")
     fun getAllPosts(): Call<List<Forum>>
 

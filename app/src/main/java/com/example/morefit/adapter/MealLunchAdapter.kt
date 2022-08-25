@@ -1,7 +1,9 @@
 package com.example.morefit.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
@@ -21,16 +23,6 @@ class MealLunchAdapter : RecyclerView.Adapter<MealLunchAdapter.ViewHolder>() {
         notifyDataSetChanged()
     }
 
-    private var mlistner: onItemClickListener? = null
-
-    interface onItemClickListener {
-        fun onItemClick(position: Int)
-    }
-
-    fun setOnItemClickListener(listener: onItemClickListener) {
-        mlistner = listener
-    }
-
     class ViewHolder(val binding: MealItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(MealData: item_model) {
@@ -38,29 +30,14 @@ class MealLunchAdapter : RecyclerView.Adapter<MealLunchAdapter.ViewHolder>() {
             binding.imageView3.load(MealData.image)
             binding.breakfastQuantity.text=MealData.serving
             binding.breakfastCal.text=MealData.cal
-//            binding.text.text = ""
-//            address.text_tutorials.forEachIndexed { index, textTutorial ->
-//                binding.text.append("${index + 1}) ${textTutorial.text}\n\n")
-//            }
         }
     }
 
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-//        val binding: MealItemBinding = inflate(
-//            LayoutInflater.from(parent.context),
-//            R.layout.meal_item, parent, false
-//        )
-//        return ViewHolder(binding, mlistner!!)
-//    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(
         (MealItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)))
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(mealList[position])
-
-//        holder.binding.imageView2.setOnClickListener{
-//            mlistner?.onItemClick(position)
-//        }
     }
 
     override fun getItemCount(): Int {

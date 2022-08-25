@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <uses-feature android:name="android.hardware.camera.any" />
 
@@ -16,9 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MoreFit"
         android:usesCleartextTraffic="true">
-        <activity
-            android:name=".ui.activity.UserDetails"
-            android:exported="false" />
+
+        <receiver android:name = ".broadcastReceiver.MyBroadcastReceiver" />
+
         <activity
             android:name=".ui.fragment.dash.analysis.AnalysisActivity"
             android:exported="false" />
@@ -31,20 +32,26 @@
         <activity
             android:name=".ui.activity.MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+
+        </activity>
         <activity
             android:name=".ui.activity.SplashScreen"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
+
+        </activity>
+        <activity android:name=".ui.activity.ProfileActivity" />
+        <activity android:name=".ui.activity.AuthActivity"
+            android:exported="true"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.ProfileActivity" />
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

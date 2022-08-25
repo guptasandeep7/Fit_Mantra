@@ -7,22 +7,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
 import com.example.morefit.adapter.PageAdapter
 import com.example.morefit.databinding.FragmentGymBinding
 import com.example.morefit.ui.activity.ProfileActivity
+import com.example.morefit.utils.Datastore
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.transition.platform.Hold
 import com.google.android.material.transition.platform.MaterialFadeThrough
+import kotlinx.coroutines.launch
 import com.google.android.material.transition.platform.MaterialSharedAxis
 
 class GymFragment : Fragment(), View.OnClickListener {
 
     private var _binding: FragmentGymBinding? = null
     private val binding get() = _binding!!
+    lateinit var datastore:Datastore
 
     companion object {
         lateinit var muscleName: String
@@ -30,9 +34,12 @@ class GymFragment : Fragment(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true)
-        exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true)
-        reenterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false)
+        exitTransition = Hold()
+        datastore= Datastore(requireContext())
+        enterTransition = MaterialFadeThrough()
+        reenterTransition = MaterialFadeThrough()
+        returnTransition = MaterialFadeThrough()
+
     }
 
     override fun onCreateView(
@@ -40,7 +47,9 @@ class GymFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentGymBinding.inflate(inflater, container, false)
-
+        lifecycleScope.launch {
+           binding.username.text = datastore.getUserDetails(Datastore.NAME_KEY).toString() + " " + datastore.getUserDetails(Datastore.LAST_NAME_KEY).toString()
+        }
         return binding.root
     }
 

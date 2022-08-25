@@ -40,7 +40,8 @@
     <fragment
         android:id="@+id/dietPlan"
         android:name="com.example.morefit.ui.fragment.dash.diet.DietPlan"
-        android:label="DietPlan" />
+        android:label="DietPlan"
+        tools:layout="@layout/fragment_diet_plan"/>
     <fragment
         android:id="@+id/yogaPoseDetailsFragment"
         android:name="com.example.morefit.ui.fragment.dash.yoga.YogaPoseDetailsFragment"

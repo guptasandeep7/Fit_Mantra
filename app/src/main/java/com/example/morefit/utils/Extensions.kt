@@ -32,3 +32,5 @@ fun Long.formattedTimeDuration(): String {
 
     return "$min min(s) $sec sec(s)"
 }
+
+val NOTIFICATION_CHANNEL_ID = "10001"
