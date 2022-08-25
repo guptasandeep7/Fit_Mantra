@@ -2,13 +2,13 @@ package com.example.morefit.repositories
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.example.morefit.model.communityForum.CreateForum
 import com.example.morefit.model.communityForum.Forum
 import com.example.morefit.network.ServiceBuilder
 import com.example.morefit.sealedClass.Response
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
-import retrofit2.http.Body
 
 class CommunityForumRepository {
 
@@ -23,7 +23,6 @@ class CommunityForumRepository {
             ) {
                 if (response.isSuccessful)
                     getPostsLiveData.postValue(Response.Success(response.body()))
-
                 else getPostsLiveData.postValue(Response.Error(response.message()))
                 Log.e("API_CALL", response.body().toString())
             }
@@ -37,8 +36,13 @@ class CommunityForumRepository {
     }
 
     private val createPostLiveData = MutableLiveData<Response<Forum>>()
-    fun createPost(body: CreateForum): MutableLiveData<Response<Forum>> {
-        val call = ServiceBuilder.forumBuildService().createPost(body)
+    fun createPost(
+        account: RequestBody,
+        title: RequestBody,
+        content: RequestBody,
+        image: MultipartBody.Part
+    ): MutableLiveData<Response<Forum>> {
+        val call = ServiceBuilder.forumBuildService().createPost(account, title, content, image)
         call.enqueue(object : Callback<Forum> {
 
             override fun onResponse(
@@ -47,7 +51,6 @@ class CommunityForumRepository {
             ) {
                 if (response.isSuccessful)
                     createPostLiveData.postValue(Response.Success(response.body()))
-
                 else createPostLiveData.postValue(Response.Error(response.message()))
 
                 Log.e("API_CALL", response.body().toString())

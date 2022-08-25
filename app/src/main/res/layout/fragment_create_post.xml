@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="-10dp"
         android:fontFamily="@font/montserrat_semibold"
-        android:text="Community Forum"
+        android:text="Create Post"
         android:textColor="@color/black"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"

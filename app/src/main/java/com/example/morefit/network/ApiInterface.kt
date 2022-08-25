@@ -1,9 +1,11 @@
 package com.example.morefit.network
 
+import android.accounts.Account
 import com.example.morefit.model.Data
 import com.example.morefit.model.WeekMeal
-import com.example.morefit.model.communityForum.CreateForum
 import com.example.morefit.model.communityForum.Forum
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -32,6 +34,12 @@ interface ApiInterface {
     @GET("post/")
     fun getAllPosts(): Call<List<Forum>>
 
+    @Multipart
     @POST("post/")
-    fun createPost(@Body body: CreateForum): Call<Forum>
+    fun createPost(
+        @Part("account") account: RequestBody,
+        @Part("title") title: RequestBody,
+        @Part("content") content: RequestBody,
+        @Part image: MultipartBody.Part,
+    ): Call<Forum>
 }
