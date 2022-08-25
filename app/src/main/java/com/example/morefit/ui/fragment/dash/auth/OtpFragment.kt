@@ -35,7 +35,7 @@ class OtpFragment : Fragment() {
     private var mAuth: FirebaseAuth? = null
     lateinit var edtOTP: TextInputEditText
     lateinit var verifyOTPBtn: Button
-    private var verificationId: String? = null
+    private var verificationId: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -113,8 +113,7 @@ class OtpFragment : Fragment() {
 
     private fun verifyCode(code: String) {
 
-        val credential = PhoneAuthProvider.getCredential(verificationId!!, code)
-
+        val credential = PhoneAuthProvider.getCredential(verificationId, code)
         signInWithCredential(credential)
     }
 
@@ -123,9 +122,9 @@ class OtpFragment : Fragment() {
         mAuth!!.signInWithCredential(credential)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(requireContext(), "Succ", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(requireContext(),MainActivity::class.java))
-//                    findNavController().navigate(R.id.action_otpFragment_to_nameFragment)
+//                    Toast.makeText(requireContext(), "Succ", Toast.LENGTH_SHORT).show()
+//                    startActivity(Intent(requireContext(),MainActivity::class.java))
+                    findNavController().navigate(R.id.action_otpFragment_to_userDetails)
                 } else {
                     Toast.makeText(
                         requireContext(),

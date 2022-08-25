@@ -4,100 +4,236 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.UserDetails">
-    <androidx.constraintlayout.widget.ConstraintLayout
+    tools:context=".ui.fragment.dash.auth.UserDetails">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout5"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/age_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:maxLength="2" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:fontFamily="@font/avenir"
-            android:text="Name"
-            android:textSize="18sp"
+            android:text="@string/app_name"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textColor="@color/black"
+            android:textSize="24sp"/>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            app:boxCornerRadiusBottomEnd="30dp"
-            app:boxCornerRadiusBottomStart="30dp"
-            app:boxCornerRadiusTopEnd="30dp"
-            app:boxCornerRadiusTopStart="30dp"
-            app:helperTextTextColor="#FD0320"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView14">
+    </androidx.appcompat.widget.Toolbar>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/nameText"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Enter your name"
-                android:textColorHint="#4D000000" />
-        </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/avenir"
+        android:text="Welcome"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar3" />
 
-        <TextView
-            android:id="@+id/textView17"
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:boxCornerRadiusBottomEnd="30dp"
+        app:boxCornerRadiusBottomStart="30dp"
+        app:boxCornerRadiusTopEnd="30dp"
+        app:boxCornerRadiusTopStart="30dp"
+        app:helperTextTextColor="#FD0320"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView20">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/first_name_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="First Name"
+            android:textColorHint="#4D000000" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:boxCornerRadiusBottomEnd="30dp"
+        app:boxCornerRadiusBottomStart="30dp"
+        app:boxCornerRadiusTopEnd="30dp"
+        app:boxCornerRadiusTopStart="30dp"
+        app:helperTextTextColor="#FD0320"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/last_name_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Last Name"
+            android:textColorHint="#4D000000" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/avenir"
+        android:text="Select your gender"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:checkedButton="@+id/male"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView17">
+
+        <RadioButton
+            android:id="@+id/male"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:text="Select your gender"
-            android:fontFamily="@font/avenir"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+            android:layout_height="match_parent"
+            android:buttonTint="@color/orange"
+            android:text="@string/male" />
 
-        <RadioGroup
-            android:id="@+id/radioGroup"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:checkedButton="@+id/male"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView17">
-
-            <RadioButton
-                android:id="@+id/male"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:buttonTint="@color/orange"
-                android:text="@string/male" />
-
-            <RadioButton
-                android:id="@+id/female"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="36dp"
-                android:buttonTint="@color/orange"
-                android:text="@string/female" />
-        </RadioGroup>
-
-        <Button
-            android:id="@+id/nextbutton"
+        <RadioButton
+            android:id="@+id/female"
             android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="36dp"
+            android:buttonTint="@color/orange"
+            android:text="@string/female" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/avenir"
+        android:text="Age"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/avenir"
+        android:text="Height"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/avenir"
+        android:text="weight"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout3"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
+
+        <EditText
+            android:id="@+id/height_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="in cm"
+            android:inputType="number"
+            android:maxLength="3" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout4"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+
+        <EditText
+            android:id="@+id/weight_text"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:text="Next"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:hint="In kg"
+            android:inputType="number"
+            android:maxLength="3" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/nextbutton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="24dp"
+        android:text="Next"
+        android:textColor="@color/white"
+        app:circularflow_radiusInDP="30"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />>
 </androidx.constraintlayout.widget.ConstraintLayout>

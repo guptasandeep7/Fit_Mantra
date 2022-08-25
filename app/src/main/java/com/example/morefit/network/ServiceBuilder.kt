@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object ServiceBuilder {
     fun buildService(): ApiInterface {
         return Retrofit.Builder()
-            .baseUrl("https://morefit.herokuapp.com")
+            .baseUrl("https://fitmantra.azurewebsites.net/")
             .addConverterFactory(GsonConverterFactory.create())
             .build().create(ApiInterface::class.java)
     }

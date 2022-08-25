@@ -3,6 +3,7 @@ package com.example.morefit.ui.fragment.dash.gym
 import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
+import android.speech.RecognizerIntent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +27,8 @@ class GymFragment : Fragment(), View.OnClickListener {
     private var _binding: FragmentGymBinding? = null
     private val binding get() = _binding!!
     lateinit var datastore:Datastore
+    private val SPEECH_REQUEST_CODE = 0
+
     companion object {
         lateinit var muscleName: String
     }
@@ -37,6 +40,9 @@ class GymFragment : Fragment(), View.OnClickListener {
         enterTransition = MaterialFadeThrough()
         reenterTransition = MaterialFadeThrough()
         returnTransition = MaterialFadeThrough()
+
+        displaySpeechRecognizer()
+
     }
 
     override fun onCreateView(
@@ -138,6 +144,13 @@ class GymFragment : Fragment(), View.OnClickListener {
         }
     }
 
+    private fun displaySpeechRecognizer() {
+        val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
+            putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+        }
+        // This starts the activity and populates the intent with the speech text.
+        startActivityForResult(intent, SPEECH_REQUEST_CODE)
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
