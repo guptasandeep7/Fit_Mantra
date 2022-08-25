@@ -48,6 +48,7 @@ class ExerciseFragment : Fragment(), View.OnClickListener {
         binding.kettlebells.setOnClickListener(this)
 
         binding.heading2.text = muscleName
+        binding.headingSmall.text = "Gym $muscleName"
 
         loadData()
         exerciseAdapter.setOnItemClickListener(object : ExerciseAdapter.onItemClickListener {
