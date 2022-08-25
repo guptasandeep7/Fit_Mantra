@@ -170,12 +170,7 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
         }
         caloryBtn.setOnClickListener {
 
-            calorie = calory.text.toString()
-            if (calorie == "") {
-                calLay.helperText = "Minimum calories should be 1000"
-            } else if (calorie.toInt() < 1000) {
-                calLay.helperText = "Minimum calories should be 1000"
-            } else if (ingredientBreak.text.toString() == "") {
+              if (ingredientBreak.text.toString() == "") {
                 ingredientLayoutBreak.helperText = "Enter some ingredient for breakfast"
             } else if (ingredientLunch.text.toString() == "") {
                 ingredientLayoutLunch.helperText = "Enter some ingredient for lunch"

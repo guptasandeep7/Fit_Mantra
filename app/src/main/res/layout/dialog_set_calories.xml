@@ -17,35 +17,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/calory_layout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="22dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="60dp"
-        app:boxCornerRadiusBottomEnd="30dp"
-        app:boxCornerRadiusBottomStart="30dp"
-        app:boxCornerRadiusTopEnd="30dp"
-        app:boxCornerRadiusTopStart="30dp"
-        app:helperTextTextColor="?attr/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalBar">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/calory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:hint="Enter Calories(min.cal. 1000)"
-            android:inputType="numberDecimal"
-            android:paddingStart="30dp"
-            android:paddingEnd="30dp"
-            android:textColorHint="#4D000000" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ingredient_layout_break"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
@@ -60,7 +31,7 @@
         app:helperTextTextColor="?attr/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calory_layout">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/ingredient_break"
@@ -194,7 +165,7 @@
         android:text="Chapatis"
         app:layout_constraintEnd_toEndOf="@+id/plus"
         app:layout_constraintStart_toStartOf="@+id/minus"
-        app:layout_constraintTop_toBottomOf="@+id/calory_layout" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView11"
@@ -274,7 +245,7 @@
         android:text="Rice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/plus"
-        app:layout_constraintTop_toBottomOf="@+id/calory_layout" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
         android:id="@+id/radioBtn1"
