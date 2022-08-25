@@ -46,63 +46,63 @@ class BackFragment : Fragment(),View.OnClickListener {
         } else {
             muscleName = when (view?.id) {
                 R.id.back_top -> {
-                    view.setBackgroundResource(R.drawable.back_top)
+                    binding.imageView.setBackgroundResource(R.drawable.traps_mid_back)
                     "Traps"
                 }
                 R.id.back_right_biceps -> {
-                    view.setBackgroundResource(R.drawable.back_right_biceps)
+                    binding.imageView.setBackgroundResource(R.drawable.tricep_right)
                     "Triceps"
                 }
                 R.id.back_left_biceps -> {
-                    view.setBackgroundResource(R.drawable.back_left_biceps)
+                    binding.imageView.setBackgroundResource(R.drawable.tricep_left)
                     "Triceps"
                 }
                 R.id.back_left_shoulder -> {
-                    view.setBackgroundResource(R.drawable.back_left_shoulder)
+                    binding.imageView.setBackgroundResource(R.drawable.left_shoulder_back)
                     "Shoulders"
                 }
                 R.id.back_right_shoulder -> {
-                    view.setBackgroundResource(R.drawable.back_right_shoulder)
+                    binding.imageView.setBackgroundResource(R.drawable.right_shoulder_back)
                     "Shoulders"
                 }
                 R.id.back_right_arm -> {
-                    view.setBackgroundResource(R.drawable.back_right_arm)
+                    binding.imageView.setBackgroundResource(R.drawable.forearm_right_back)
                     "Forearms"
                 }
                 R.id.back_left_arm -> {
-                    view.setBackgroundResource(R.drawable.back_left_arm)
+                    binding.imageView.setBackgroundResource(R.drawable.forearm_left_back)
                     "Forearms"
                 }
                 R.id.back_right_lats -> {
-                    view.setBackgroundResource(R.drawable.back_right_lats)
+                    binding.imageView.setBackgroundResource(R.drawable.right_lat)
                     "Lats"
                 }
                 R.id.back_left_lats -> {
-                    view.setBackgroundResource(R.drawable.back_left_lats)
+                    binding.imageView.setBackgroundResource(R.drawable.left_lat)
                     "Lats"
                 }
                 R.id.back_right_thigh -> {
-                    view.setBackgroundResource(R.drawable.back_right_thigh)
+                    binding.imageView.setBackgroundResource(R.drawable.right_glute)
                     "Hamstrings"
                 }
                 R.id.back_left_thigh -> {
-                    view.setBackgroundResource(R.drawable.back_left_thigh)
+                    binding.imageView.setBackgroundResource(R.drawable.left_glute)
                     "Hamstrings"
                 }
                 R.id.back_right_leg -> {
-                    view.setBackgroundResource(R.drawable.back_right_leg)
-                    "Hamstrings"
+                    binding.imageView.setBackgroundResource(R.drawable.right_calve_back)
+                    "Calves"
                 }
                 R.id.back_left_leg -> {
-                    view.setBackgroundResource(R.drawable.back_left_leg)
-                    "Hamstrings"
+                    binding.imageView.setBackgroundResource(R.drawable.left_calve_back)
+                    "Calves"
                 }
                 R.id.back_lower_back -> {
-                    view.setBackgroundResource(R.drawable.back_lower_back)
+                    binding.imageView.setBackgroundResource(R.drawable.lower_back)
                     "Lowerback"
                 }
                 R.id.back_glutes -> {
-                    view.setBackgroundResource(R.drawable.back_glutes)
+                    binding.imageView.setBackgroundResource(R.drawable.hips)
                     "Glutes"
                 }
                 else -> {"Traps"}
