@@ -5,13 +5,12 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.content.pm.PackageManager
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Process
 import android.provider.Settings
-import android.view.SurfaceView
-import android.view.View
-import android.view.WindowManager
+import android.view.*
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
@@ -59,7 +58,7 @@ class MlActivity : AppCompatActivity() {
      **/
 
     private var modelPos = 1
-
+    var data= mutableListOf<String>("1")
     /** Default device is CPU */
     private var device = Device.CPU
 
@@ -172,7 +171,33 @@ class MlActivity : AppCompatActivity() {
         var title=findViewById<TextView>(R.id.Title1)
         title.text=ExerciseFragment.name
         initSpinner()
+        val dialodView =
+            LayoutInflater.from(this).inflate(R.layout.fragment_lets_go, null)
+        val mBuilder = AlertDialog.Builder(this)
+            .setView(dialodView)
+        val alertDialog:AlertDialog=mBuilder.create()
+        alertDialog.getWindow()?.requestFeature(Window.FEATURE_NO_TITLE)
+        alertDialog.show()
+        alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+            Handler().postDelayed({
+                dialodView.findViewById<TextView>(R.id.textloader).text="2"
+            },1000)
+        Handler().postDelayed({
+            dialodView.findViewById<TextView>(R.id.textloader).text="1"
+        },2000)
+        Handler().postDelayed({
+            dialodView.findViewById<TextView>(R.id.textloader).text="Lets'Go"
+        },3000)
+
+
+        Handler().postDelayed({
+            alertDialog.cancel()
+        },4000)
+
         spnModel.setSelection(modelPos)
+
+
         swClassification.setOnCheckedChangeListener(setClassificationListener)
         if (savedInstanceState != null) {
 

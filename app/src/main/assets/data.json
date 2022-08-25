@@ -30,6 +30,7 @@
       "counter": true,
       "file_name": "squat.tflite",
       "labels": ["squatcorrect",
+        "squatwrong",
         "standing"],
       "correct_label": "squatcorrect"
     },
@@ -1443,6 +1444,7 @@
       "counter": true,
       "file_name": "squat.tflite",
       "labels": ["squatcorrect",
+        "squatwrong",
         "standing"],
       "correct_label": "squatcorrect"
     },
@@ -2075,6 +2077,7 @@
       "counter": true,
       "file_name": "squat.tflite",
       "labels": ["squatcorrect",
+        "squatwrong",
         "standing"],
       "correct_label": "squatcorrect"
     },

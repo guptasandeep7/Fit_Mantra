@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-parcelize'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -45,6 +46,7 @@ dependencies {
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.9.1'
+    implementation 'com.google.firebase:firebase-auth:19.2.0'
     def nav_version = '2.5.1'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
     implementation 'androidx.core:core-ktx:1.8.0'
@@ -97,6 +99,12 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
     implementation "com.google.android.material:material:$rootProject.materialVersion"
 
+        // Import the BoM for the Firebase platform
+        implementation platform('com.google.firebase:firebase-bom:30.3.1')
+
+        // Declare the dependency for the Firebase Authentication library
+        // When using the BoM, you don't specify versions in Firebase library dependencies
+        implementation 'com.google.firebase:firebase-auth-ktx'
     // Testing
     testImplementation "junit:junit:$rootProject.junitVersion"
     androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"

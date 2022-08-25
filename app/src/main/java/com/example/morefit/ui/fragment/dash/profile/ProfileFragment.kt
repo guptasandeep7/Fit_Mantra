@@ -3,6 +3,7 @@ package com.example.morefit.ui.fragment.dash.profile
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.transition.Fade
 import com.example.morefit.R
@@ -31,6 +32,10 @@ class ProfileFragment : Fragment(R.layout.fragment_profile){
 			profileProgressLight.show()
 			historyBtn.setOnClickListener {
 				findNavController().navigate(R.id.action_profileFragment_to_pastWorkoutsFragment)
+			}
+			lifecycleScope.launch {
+				firstName.text = datastore.getUserDetails(Datastore.NAME_KEY).toString()
+				lastName.text = datastore.getUserDetails(Datastore.LAST_NAME_KEY).toString()
 			}
 			icBack.setOnClickListener { activity?.onBackPressed() }
 			GlobalScope.launch {

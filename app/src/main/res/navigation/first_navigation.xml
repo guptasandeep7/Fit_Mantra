@@ -3,10 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/first_navigation"
-    app:startDestination="@id/splashScreen">
+    app:startDestination="@id/landingFragment">
 
-    <activity
-        android:id="@+id/splashScreen"
-        android:name="com.example.morefit.ui.activity.SplashScreen"
-        android:label="SplashScreen" />
+    <fragment
+        android:id="@+id/phoneNumberFragment"
+        android:name="com.example.morefit.ui.fragment.dash.auth.PhoneNumberFragment"
+        android:label="PhoneNumberFragment" >
+        <action
+            android:id="@+id/action_phoneNumberFragment_to_otpFragment"
+            app:destination="@id/otpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/otpFragment"
+        android:name="com.example.morefit.ui.fragment.dash.auth.OtpFragment"
+        android:label="fragment_otp"
+        tools:layout="@layout/fragment_otp" />
+    <fragment
+        android:id="@+id/landingFragment"
+        android:name="com.example.morefit.ui.fragment.dash.auth.LandingFragment"
+        android:label="fragment_landing"
+        tools:layout="@layout/fragment_landing" >
+        <action
+            android:id="@+id/action_landingFragment_to_phoneNumberFragment"
+            app:destination="@id/phoneNumberFragment" />
+    </fragment>
 </navigation>
