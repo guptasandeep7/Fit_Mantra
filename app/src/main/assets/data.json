@@ -939,7 +939,7 @@
         }
       ],
       "counter": true,
-      "file_name": "Pullups.tflite",
+      "file_name": "",
       "labels": [],
       "correct_label": ""
     },
@@ -1226,7 +1226,7 @@
         }
       ],
       "counter": true,
-      "file_name": "Pullups.tflite",
+      "file_name": "",
       "labels": [],
       "correct_label": ""
     },

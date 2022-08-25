@@ -51,7 +51,7 @@
                 imageFromUrl="@{item.video_tutorials.get(0)}"
                 android:layout_width="0dp"
                 android:layout_height="200dp"
-                android:scaleType="fitCenter"
+                android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline2"
                 app:layout_constraintTop_toTopOf="parent" />
