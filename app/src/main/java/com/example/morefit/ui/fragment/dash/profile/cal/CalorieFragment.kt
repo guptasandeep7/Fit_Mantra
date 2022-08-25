@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
 import com.example.morefit.databinding.FragmentCalorieBinding
+import com.google.android.material.transition.platform.MaterialSharedAxis
 
 class CalorieFragment : Fragment() {
 
@@ -19,6 +20,13 @@ class CalorieFragment : Fragment() {
     private val binding get() = _binding!!
     lateinit var categories:List<String>
     private var selectedTarget:Int = 0
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.X, true)
+        returnTransition = MaterialSharedAxis(MaterialSharedAxis.X, false)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

@@ -141,8 +141,8 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@null"
             android:layout_gravity="center"
+            android:contentDescription="@null"
             android:paddingHorizontal="8dp"
             app:srcCompat="@drawable/ic_forward" />
     </com.google.android.material.card.MaterialCardView>
@@ -186,8 +186,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:paddingHorizontal="8dp"
             android:contentDescription="@null"
+            android:paddingHorizontal="8dp"
             app:srcCompat="@drawable/ic_forward" />
     </com.google.android.material.card.MaterialCardView>
 
@@ -229,9 +229,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:contentDescription="@null"
             android:paddingHorizontal="8dp"
-            app:srcCompat="@drawable/ic_forward"
-            android:contentDescription="@null" />
+            app:srcCompat="@drawable/ic_forward" />
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.button.MaterialButton
@@ -245,6 +245,7 @@
         android:stateListAnimator="@null"
         android:text="@string/sign_out"
         android:textColor="@color/black"
+        android:visibility="gone"
         app:backgroundTint="#F5F5F5"
         app:cornerRadius="12dp"
         app:elevation="0dp"

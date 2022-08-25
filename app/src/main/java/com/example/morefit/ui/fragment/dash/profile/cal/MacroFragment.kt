@@ -10,12 +10,19 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
 import com.example.morefit.databinding.FragmentMacroBinding
+import com.google.android.material.transition.platform.MaterialSharedAxis
 
 class MacroFragment : Fragment(), View.OnClickListener {
 
     private var _binding: FragmentMacroBinding? = null
     private val binding get() = _binding!!
     private var choice = 0
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.X, true)
+        returnTransition = MaterialSharedAxis(MaterialSharedAxis.X, false)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -25,7 +32,7 @@ class MacroFragment : Fragment(), View.OnClickListener {
         binding.third.setOnClickListener(this)
         binding.fourth.setOnClickListener(this)
 
-        binding.backBtn.setOnClickListener{
+        binding.backBtn.setOnClickListener {
             findNavController().navigateUp()
         }
     }
@@ -72,26 +79,26 @@ class MacroFragment : Fragment(), View.OnClickListener {
         val fat = layout.findViewById<TextView>(R.id.fat)
         val calorie = binding.calorie.text.toString().toInt()
 
-        when(choice){
-            1 ->{
-                carb.text = ((calorie*0.60)/4).toInt().toString()+"g"
-                protein.text = ((calorie*0.25)/4).toInt().toString()+"g"
-                fat.text = ((calorie*0.15)/4).toInt().toString()+"g"
+        when (choice) {
+            1 -> {
+                carb.text = ((calorie * 0.60) / 4).toInt().toString() + "g"
+                protein.text = ((calorie * 0.25) / 4).toInt().toString() + "g"
+                fat.text = ((calorie * 0.15) / 4).toInt().toString() + "g"
             }
-            2 ->{
-                carb.text = ((calorie*0.50)/4).toInt().toString()+"g"
-                protein.text = ((calorie*0.30)/4).toInt().toString()+"g"
-                fat.text = ((calorie*0.20)/4).toInt().toString()+"g"
+            2 -> {
+                carb.text = ((calorie * 0.50) / 4).toInt().toString() + "g"
+                protein.text = ((calorie * 0.30) / 4).toInt().toString() + "g"
+                fat.text = ((calorie * 0.20) / 4).toInt().toString() + "g"
             }
-            3 ->{
-                carb.text = ((calorie*0.40)/4).toInt().toString()+"g"
-                protein.text = ((calorie*0.30)/4).toInt().toString()+"g"
-                fat.text = ((calorie*0.30)/4).toInt().toString()+"g"
+            3 -> {
+                carb.text = ((calorie * 0.40) / 4).toInt().toString() + "g"
+                protein.text = ((calorie * 0.30) / 4).toInt().toString() + "g"
+                fat.text = ((calorie * 0.30) / 4).toInt().toString() + "g"
             }
-            4 ->{
-                carb.text = ((calorie*0.25)/4).toInt().toString()+"g"
-                protein.text = ((calorie*0.45)/4).toInt().toString()+"g"
-                fat.text = ((calorie*0.30)/4).toInt().toString()+"g"
+            4 -> {
+                carb.text = ((calorie * 0.25) / 4).toInt().toString() + "g"
+                protein.text = ((calorie * 0.45) / 4).toInt().toString() + "g"
+                fat.text = ((calorie * 0.30) / 4).toInt().toString() + "g"
             }
         }
 

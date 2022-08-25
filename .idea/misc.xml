@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/curved_botttom_sheet.xml" value="0.238" />
+        <entry key="../../Android/Sdk/platforms/android-32/data/res/layout/simple_spinner_dropdown_item.xml" value="0.3255208333333333" />
         <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/diet.xml" value="0.2425" />
         <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/gradient.xml" value="0.2425" />
         <entry key="..\:/Android/More_Fit/app/src/main/res/drawable/gym.xml" value="0.2425" />
@@ -77,6 +78,22 @@
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/layout/setting_option.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/menu/bottom_nav_menu.xml" value="0.23125" />
         <entry key="..\:/Users/Sandeep/AndroidStudioProjects/MoreFit/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.23229166666666667" />
+        <entry key="app/src/main/res/layout/bottom_sheet_layout.xml" value="0.2672082086361693" />
+        <entry key="app/src/main/res/layout/cal_option.xml" value="0.3255208333333333" />
+        <entry key="app/src/main/res/layout/dialog_set_calories.xml" value="0.26293647454774927" />
+        <entry key="app/src/main/res/layout/fragment_bmi.xml" value="0.3255208333333333" />
+        <entry key="app/src/main/res/layout/fragment_calorie.xml" value="0.3255208333333333" />
+        <entry key="app/src/main/res/layout/fragment_diet.xml" value="0.264" />
+        <entry key="app/src/main/res/layout/fragment_diet_plan.xml" value="0.2672082086361693" />
+        <entry key="app/src/main/res/layout/fragment_exercise.xml" value="0.2672082086361693" />
+        <entry key="app/src/main/res/layout/fragment_gym.xml" value="0.2672082086361693" />
+        <entry key="app/src/main/res/layout/fragment_past_workouts.xml" value="0.536" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.3255208333333333" />
+        <entry key="app/src/main/res/layout/fragment_yoga.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/fragment_yoga_instruction.xml" value="0.2672082086361693" />
+        <entry key="app/src/main/res/layout/fragment_yoga_pose_details.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_past_workout.xml" value="0.513136288998358" />
+        <entry key="app/src/main/res/layout/setting_option.xml" value="0.3255208333333333" />
       </map>
     </option>
   </component>

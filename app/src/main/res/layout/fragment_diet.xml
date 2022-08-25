@@ -1,39 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/home"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/fragment_diet_scene">
 
-    <TextView
-        android:id="@+id/heading1"
+    <ImageButton
+        android:id="@+id/icBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/montserrat_regular"
-        android:text="Choose your"
-        android:textColor="@color/black"
-        android:textSize="32sp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/white"
+        android:contentDescription="Back Btn"
+        android:paddingVertical="20dp"
+        android:paddingEnd="20dp"
+        android:src="@drawable/ic_back_black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/headingSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginStart="-14dp"
+        android:layout_marginTop="-6dp"
+        android:alpha="0"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Choose your diet plan"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@id/icBack"
+        app:layout_constraintStart_toEndOf="@id/icBack"
+        app:layout_constraintTop_toTopOf="@id/icBack" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/heading1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Choose your"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:layout_constraintStart_toStartOf="@+id/icBack"
+        app:layout_constraintTop_toBottomOf="@+id/icBack" />
+
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/heading2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-4dp"
+        android:layout_marginTop="-10dp"
         android:fontFamily="@font/montserrat_semibold"
         android:text="Diet Plan"
-        android:textColor="@color/black"
-        android:textSize="32sp"
+        android:textColor="#C0C0C0"
+        android:textSize="40sp"
         app:layout_constraintStart_toStartOf="@+id/heading1"
         app:layout_constraintTop_toBottomOf="@+id/heading1" />
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -390,5 +418,5 @@
             </androidx.cardview.widget.CardView>
 
         </androidx.gridlayout.widget.GridLayout>
-    </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.motion.widget.MotionLayout>
