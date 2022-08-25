@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
 import com.example.morefit.database.ContentRoomDatabase
 import com.example.morefit.databinding.FragmentDietBinding
+import com.example.morefit.utils.Datastore
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
@@ -21,10 +23,12 @@ import com.google.android.material.transition.platform.MaterialFadeThrough
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
+import kotlin.math.pow
 import kotlin.properties.Delegates
 
 class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
     private lateinit var binding: FragmentDietBinding
+    lateinit var datastore: Datastore
     private val bottomSheetDialog by lazy { BottomSheetDialog(requireContext()) }
     private val mealDb by lazy {
         ContentRoomDatabase.getDatabase(
@@ -35,7 +39,14 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
     }
 
         var count by Delegates.notNull<Int>()
-
+    lateinit var height:String
+    lateinit var weight:String
+    lateinit var age:String
+    lateinit var cal:String
+    lateinit var bmi:String
+    var calory=0.0
+    var bool=0
+    var click=0
     companion object {
         lateinit var qBreak: String
         lateinit var qLunch: String
@@ -57,6 +68,7 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
         enterTransition = MaterialFadeThrough()
         reenterTransition = MaterialFadeThrough()
         returnTransition = MaterialFadeThrough()
+
 
     }
 
@@ -81,8 +93,7 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentDietBinding.bind(view)
-        calorie = ""
-
+        datastore = Datastore(requireContext())
         binding.GlutenFree.setOnClickListener(this)
         binding.ketogenic.setOnClickListener(this)
         binding.Vegan.setOnClickListener(this)
@@ -99,17 +110,33 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
         binding.NoOilAdded.setOnClickListener(this)
         binding.LowFatAbs.setOnClickListener(this)
         binding.ShellFishFree.setOnClickListener(this)
-
-
+        lifecycleScope.launch {
+            height= datastore.getUserDetails("height").toString()
+            weight= datastore.getUserDetails("weight").toString()
+            age= datastore.getUserDetails("age").toString()
+            cal=datastore.getUserDetails("cal").toString()
+            if (cal=="null")
+                calory=((10 * weight.toDouble()) + (6.25 * height.toDouble()) - (5 * age.toDouble()) + 5)*1.2
+            else
+                calory=((10 * weight.toDouble()) + (6.25 * height.toDouble()) - (5 * age.toDouble()) + 5)*cal.toDouble()
+            bmi=(weight.toDouble() / (height.toDouble()).pow(2.0)).toString()
+        }
+        if (bmi.toDouble()<18.5){
+            bool=1
+        }
+        if (bmi.toDouble()>18.5 && bmi.toDouble()<24.9 ){
+            bool=0
+        }
+            if (bmi.toDouble()>25 && bmi.toDouble()<29.9 ){
+                bool=2
+            }
     }
 
     private fun showBottomSheet() {
         val items =
             layoutInflater.inflate(R.layout.dialog_set_calories, null)
         bottomSheetDialog.setContentView(items)
-        bottomSheetDialog.show()
-        val calory = items.findViewById<TextInputEditText>(R.id.calory)
-        val calLay = items.findViewById<TextInputLayout>(R.id.calory_layout)
+
         val caloryBtn = items.findViewById<MaterialButton>(R.id.enter_btn)
         val ingredientBreak = items.findViewById<TextInputEditText>(R.id.ingredient_break)
         val ingredientLayoutBreak =
@@ -120,6 +147,10 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
         val ingredientDinner = items.findViewById<TextInputEditText>(R.id.ingredient_dinner)
         val ingredientLayoutDinner =
             items.findViewById<TextInputLayout>(R.id.ingredient_layout_dinner)
+        val increase=items.findViewById<MaterialButton>(R.id.increaseCal)
+        val maintain=items.findViewById<MaterialButton>(R.id.maintainCal)
+        val decrease=items.findViewById<MaterialButton>(R.id.DecCal)
+
         val plus1 = items.findViewById<Button>(R.id.plus)
         val plus2 = items.findViewById<Button>(R.id.plus2)
         val plus3 = items.findViewById<Button>(R.id.plus3)
@@ -135,6 +166,24 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
         var num1 = 0
         var num2 = 0
         var num3 = 0
+        if (bool==1){
+            increase.elevation=20f
+            increase.setBackgroundColor(getResources().getColor(R.color.orange))
+            increase.alpha=0.9f
+            increase.strokeWidth=0
+            increase.setTextColor(getResources().getColor(R.color.white))
+        }
+        else if (bool==0){
+            maintain.elevation=20f
+            maintain.setBackgroundColor(getResources().getColor(R.color.lightOrange))
+            maintain.strokeWidth=0
+        }
+        else if (bool==2){
+            decrease.elevation=20f
+            decrease.setBackgroundColor(getResources().getColor(R.color.lightOrange))
+            decrease.strokeWidth=0
+        }
+        bottomSheetDialog.show()
         plus1.setOnClickListener {
             ++num1
             counter1.text = num1.toString()
@@ -171,6 +220,16 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
             }
             counter3.text = num3.toString()
         }
+
+        increase.setOnClickListener {
+            click=1
+        }
+        maintain.setOnClickListener {
+            click=2
+        }
+        decrease.setOnClickListener {
+            click=3
+        }
         caloryBtn.setOnClickListener {
 
               if (ingredientBreak.text.toString() == "") {
@@ -199,7 +258,16 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
                 qBreak = ingredientBreak.text.toString()
                 qLunch = ingredientLunch.text.toString()
                 qDinner = ingredientDinner.text.toString()
-                calorie = (calory.text.toString().toInt() - cal).toString()
+                  if(click==1){
+                      calorie = (calory - cal+400).toString()
+                  }
+                  else if(click==2){
+                      calorie = (calory - cal).toString()
+                  }
+                  else if(click==3){
+                      calorie = (calory - cal-300).toString()
+                  }
+
                 bottomSheetDialog.dismiss()
                 findNavController().navigate(R.id.action_dietFragment_to_dietPlan)
             }

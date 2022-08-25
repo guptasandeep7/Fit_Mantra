@@ -41,6 +41,7 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import com.example.morefit.database.ContentRoomDatabase
 import kotlin.math.roundToInt
+import kotlin.random.Random
 
 
 class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
@@ -60,9 +61,15 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
             CoroutineScope(SupervisorJob())
         )
     }
-    var breakCalTot = 0.0
-    var lunchCalTot = 0.0
-    var dinnerCalTot = 0.0
+    var breakWgTot = 0.0
+    var lunchWgTot = 0.0
+    var dinnerWgTot = 0.0
+    var index1=0
+    var index2=0
+    var index3=0
+    var calorieBreak:String="0.0"
+    var calorieLunch: String = "0.0"
+    var calorieDinner: String ="0.0"
     private val generateMealPlanViewModel by lazy { ViewModelProvider(this)[GenerateMealPlanViewModel::class.java] }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -156,12 +163,9 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
             val cout: Int = mealDb.mealDao().getCount()
 
             if (cout == 0) {
-                val calorieBreak: String =
-                    (calorie.toInt() * 0.25).toString() + "-" + (calorie.toInt() * 0.3).toString()
-                val calorieLunch: String =
-                    (calorie.toInt() * 0.35).toString() + "-" + (calorie.toInt() * 0.4).toString()
-                val calorieDinner: String =
-                    (calorie.toInt() * 0.25).toString() + "-" + (calorie.toInt() * 0.3).toString()
+                calorieBreak = ((calorie.toDouble() * 0.3).roundToInt() * 100.0 / 100.0).toString()
+                calorieLunch = ((calorie.toDouble() * 0.4).roundToInt() * 100.0 / 100.0).toString()
+                calorieDinner =((calorie.toDouble() * 0.3).roundToInt() * 100.0 / 100.0).toString()
                 var count = 0
                 generateMealPlanViewModel.submitResult(
                     "public",
@@ -177,27 +181,34 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                     if (it is Response.Success) {
                         Mealdata.add(it.data!!)
                         if (it.data.count != 0) {
+                            if(it.data.count>20){
+                                index1= Random(System.nanoTime()).nextInt(20-1 - 0 + 1) + 0
+                            }
+                            else
+                            index1= Random(System.nanoTime()).nextInt(it.data.count-1 - 0 + 1) + 0
                             lifecycleScope.launch {
+
+                                Toast.makeText(context, index1.toString(), Toast.LENGTH_SHORT).show()
                                 mealDb.mealDao().addMealData(
                                     meal(
                                         "breakfast",
-                                        it.data.hits[0].recipe.image,
-                                        it.data.hits[0].recipe.label,
-                                        (((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0).toString(),
-                                        breakRoti,
+                                        it.data.hits[index1].recipe.image,
+                                        it.data.hits[index1].recipe.label,
+                                        (((it.data.hits[index1].recipe.totalWeight / it.data.hits[index1].recipe.calories) * calorieBreak.toDouble()).roundToInt() * 100.0 / 100.0).toString()
+                                        ,calorieBreak,breakRoti,
                                         breakRice,
-                                        it.data.hits[0].recipe.url
+                                        it.data.hits[index1].recipe.url,
                                     )
                                 )
                             }
-                            breakCalTot =
-                                ((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0
+                            breakWgTot =
+                                ((it.data.hits[index1].recipe.totalWeight / it.data.hits[index1].recipe.calories) * calorieBreak.toDouble()).roundToInt() * 100.0 / 100.0
                             meal.add(
                                 item_model(
-                                    it.data.hits[0].recipe.image,
-                                    it.data.hits[0].recipe.label,
-                                    "100 gram",
-                                    breakCalTot.toString() + " cal"
+                                    it.data.hits[index1].recipe.image,
+                                    it.data.hits[index1].recipe.label,
+                                    breakWgTot.toString()+" gram",
+                                    calorieBreak + " cal"
                                 )
                             )
                             if (breakRoti != "0") {
@@ -242,27 +253,33 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                     if (it is Response.Success) {
                         Mealdatalunch.add(it.data!!)
                         if (it.data.count != 0) {
+                            if(it.data.count>20){
+                                index2= Random(System.nanoTime()).nextInt(20-1 - 0 + 1) + 0
+                            }
+                            else
+                                index2= Random(System.nanoTime()).nextInt(it.data.count-1 - 0 + 1) + 0
                             lifecycleScope.launch {
                                 mealDb.mealDao().addMealData(
                                     meal(
                                         "lunch",
-                                        it.data.hits[0].recipe.image,
-                                        it.data.hits[0].recipe.label,
-                                        (((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0).toString(),
+                                        it.data.hits[index2].recipe.image,
+                                        it.data.hits[index2].recipe.label,
+                                        (((it.data.hits[index2].recipe.totalWeight / it.data.hits[index2].recipe.calories) * calorieLunch.toDouble()).roundToInt() * 100.0 / 100.0).toString()
+                                        ,calorieLunch ,
                                         lunchRoti,
                                         lunchRice,
-                                        it.data.hits[0].recipe.url
+                                        it.data.hits[index2].recipe.url
                                     )
                                 )
                             }
-                            lunchCalTot =
-                                ((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0
+                            lunchWgTot =
+                                ((it.data.hits[index2].recipe.totalWeight / it.data.hits[index2].recipe.calories) * calorieLunch.toDouble()).roundToInt() * 100.0 / 100.0
                             meal1.add(
                                 item_model(
-                                    it.data.hits[0].recipe.image,
-                                    it.data.hits[0].recipe.label,
-                                    "100 gram",
-                                    lunchCalTot.toString() + " cal"
+                                    it.data.hits[index2].recipe.image,
+                                    it.data.hits[index2].recipe.label,
+                                    lunchWgTot.toString()+" gram",
+                                    calorieLunch + " cal"
                                 )
                             )
                             if (lunchRoti != "0") {
@@ -307,27 +324,33 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                     if (it is Response.Success) {
                         MealdataDinner.add(it.data!!)
                         if (it.data.count != 0) {
+                            if(it.data.count>20){
+                                index3= Random(System.nanoTime()).nextInt(20-1 - 0 + 1) + 0
+                            }
+                            else
+                                index3= Random(System.nanoTime()).nextInt(it.data.count-1 - 0 + 1) + 0
                             lifecycleScope.launch {
                                 mealDb.mealDao().addMealData(
                                     meal(
                                         "dinner",
-                                        it.data.hits[0].recipe.image,
-                                        it.data.hits[0].recipe.label,
-                                        (((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0).toString(),
+                                        it.data.hits[index3].recipe.image,
+                                        it.data.hits[index3].recipe.label,
+                                        (((it.data.hits[index3].recipe.totalWeight / it.data.hits[index3].recipe.calories) * calorieDinner.toDouble()).roundToInt() * 100.0 / 100.0).toString()
+                                        ,calorieDinner,
                                         dinnerRoti,
                                         dinnerRice,
-                                        it.data.hits[0].recipe.url
+                                        it.data.hits[index3].recipe.url
                                     )
                                 )
                             }
-                            dinnerCalTot =
-                                ((it.data.hits[0].recipe.calories / it.data.hits[0].recipe.totalWeight) * 100).roundToInt() * 100.0 / 100.0
+                            dinnerWgTot=
+                            ((it.data.hits[index3].recipe.totalWeight / it.data.hits[index3].recipe.calories) * calorieDinner.toDouble()).roundToInt() * 100.0 / 100.0
                             meal2.add(
                                 item_model(
-                                    it.data.hits[0].recipe.image,
-                                    it.data.hits[0].recipe.label,
-                                    "100 gram",
-                                    dinnerCalTot.toString() + " cal"
+                                    it.data.hits[index3].recipe.image,
+                                    it.data.hits[index3].recipe.label,
+                                    dinnerWgTot.toString()+" gram",
+                                    calorieDinner + " cal"
                                 )
                             )
                             if (dinnerRoti != "0") {
@@ -376,7 +399,7 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                             binding.textView17.visibility = View.GONE
                             meal.add(
                                 item_model(
-                                    it.image, it.title, "100 gram", it.cal + " cal"
+                                    it.image, it.title, it.serving+" gram", it.cal + " cal"
                                 )
                             )
                             if (it.roti != "0") {
@@ -411,7 +434,7 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                             binding.textView18.visibility = View.GONE
                             meal1.add(
                                 item_model(
-                                    it.image, it.title, "100 gram", it.cal + " cal"
+                                    it.image, it.title,it.serving+" gram" , it.cal + " cal"
                                 )
                             )
                             if (it.roti != "0") {
@@ -446,7 +469,7 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                             binding.textView19.visibility = View.GONE
                             meal2.add(
                                 item_model(
-                                    it.image, it.title, "100 gram", it.cal + " cal"
+                                    it.image, it.title, it.serving+" gram", it.cal + " cal"
                                 )
                             )
                             if (it.roti != "0") {
@@ -587,7 +610,7 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                     golink(Mealdata[0].hits[0].recipe.url)
                 }
                 binding.textView12.text =
-                    (breakRoti.toInt() * 104 + breakRice.toInt() * 136 + breakCalTot).toString() + " cal"
+                    (breakRoti.toInt() * 104 + breakRice.toInt() * 136 + calorieBreak.toDouble()).toString() + " cal"
                 mealBreakAdapter.updateMealList(meal)
             }
             if (lun == 1) {
@@ -597,7 +620,7 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                     golink(Mealdatalunch[0].hits[0].recipe.url)
                 }
                 binding.textView13.text =
-                    (lunchRoti.toInt() * 104 + lunchRice.toInt() * 136 + lunchCalTot).toString() + " cal"
+                    (lunchRoti.toInt() * 104 + lunchRice.toInt() * 136 + calorieLunch.toDouble()).toString() + " cal"
                 mealLunchAdapter.updateMealList(meal1)
             }
             if (din == 1) {
@@ -607,7 +630,7 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                     golink(MealdataDinner[0].hits[0].recipe.url)
                 }
                 binding.textView14.text =
-                    (dinnerRoti.toInt() * 104 + dinnerRice.toInt() * 136 + dinnerCalTot).toString() + " cal"
+                    (dinnerRoti.toInt() * 104 + dinnerRice.toInt() * 136 + calorieDinner.toDouble()).toString() + " cal"
                 mealDinnerAdapter.updateMealDinnerList(meal2)
             }
         }

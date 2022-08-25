@@ -2,12 +2,10 @@ package com.example.morefit.network
 
 import com.example.morefit.model.Data
 import com.example.morefit.model.WeekMeal
-import com.google.android.gms.common.internal.HideFirstParty
-import okhttp3.ResponseBody
 import com.example.morefit.model.communityForum.CreateForum
 import com.example.morefit.model.communityForum.Forum
+import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.Response
 import retrofit2.http.*
 
 interface ApiInterface {
@@ -26,6 +24,7 @@ interface ApiInterface {
 
     @POST("post/")
     fun createPost(@Body body: CreateForum): Call<Forum>
+    @GET("/api/recipes/v2")
     fun generateMealPlan(@Query("type") type:String,
                          @Query("q") q:String,
                          @Query("app_id") app_id: String,
