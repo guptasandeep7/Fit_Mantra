@@ -1,7 +1,6 @@
 package com.example.morefit.database
 
 import android.app.Application
-import com.example.energybar.database.ContentRoomDatabase
 import com.example.morefit.repositories.ContentRepo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob

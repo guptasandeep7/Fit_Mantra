@@ -111,6 +111,5 @@ dependencies {
     androidTestImplementation ("androidx.test.espresso:espresso-core:$rootProject.espressoVersion", {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation 'com.github.baoyachi:StepView:1.9'
     androidTestImplementation "androidx.test.ext:junit:$rootProject.androidxJunitVersion"
 }

@@ -48,9 +48,9 @@ class UserDetails : Fragment() {
         }
         binding.nextbutton.setOnClickListener {
             if(!(binding.firstNameText.text.isNullOrEmpty())) {
-
                 lifecycleScope.launch {
                     datastore.saveUserDetails(Datastore.NAME_KEY, binding.firstNameText.text.toString())
+                    datastore.saveUserDetails(Datastore.LAST_NAME_KEY,binding.lastNameText.text.toString())
                     datastore.changeLoginState(true)
                 }
                var call= ServiceBuilder.buildService().uploadUserDetails(

@@ -10,10 +10,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.example.energybar.database.ContentRoomDatabase
 import com.example.morefit.R
+import com.example.morefit.database.ContentRoomDatabase
 import com.example.morefit.databinding.FragmentDietBinding
-import com.example.morefit.ui.activity.SplashScreen.Companion.count
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
@@ -35,6 +34,7 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
         )
     }
 
+        var count by Delegates.notNull<Int>()
 
     companion object {
         lateinit var qBreak: String
@@ -67,10 +67,13 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
     ): View? {
         val view = super.onCreateView(inflater, container, savedInstanceState)
 
+
+        lifecycleScope.launch {
+            count = mealDb.mealDao().getCount()
             if (count > 0) {
                 findNavController().navigate(R.id.action_dietFragment_to_dietPlan)
             }
-
+        }
         return view
 
     }

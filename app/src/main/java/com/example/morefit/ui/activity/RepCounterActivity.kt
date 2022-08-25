@@ -364,9 +364,9 @@ class RepCounterActivity : AppCompatActivity() {
                                     getString(R.string.tfe_pe_tv_score, personScore ?: 0f)
                                 poseLabels?.sortedByDescending { it.second }?.let {
                                     for (i in it) {
-//                                runOnUiThread{
-//                                    repcountText.text=it.toString()
-//                                }
+                                runOnUiThread{
+                                    repcountText.text=it.toString()
+                                }
                                         if (correct_label == i.first) {
                                             if (i.second >= 0.80) {
                                                 if (first == 0) {
