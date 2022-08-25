@@ -12,11 +12,13 @@ val Context.datastore: DataStore<Preferences> by preferencesDataStore(DATASTORE_
 class Datastore(val context: Context) {
 
     companion object {
+        const val NAME_KEY = "NAME_KEY"
         val HASH_KEY = stringPreferencesKey("hash_key")
         val USERNAME_KEY = stringPreferencesKey("username_key")
         val DIET_PLAN_KEY = stringPreferencesKey("diet_key")
         val CALORIES_KEY = stringPreferencesKey("calories_key")
         val TIME_FRAME_KEY = stringPreferencesKey("time_frame_key")
+        const val LOGIN_KEY = "LOGIN_KEY"
         val API_KEY = stringPreferencesKey("api_key")
         val STREAK_COUNT = intPreferencesKey("streak_count")
         val LAST_WORKOUT_DATE = longPreferencesKey("last_workout_date")
@@ -56,6 +58,16 @@ class Datastore(val context: Context) {
             it[STREAK_COUNT] = count
         }
     }
+    suspend fun changeLoginState(value: Boolean) {
+        val key1 = booleanPreferencesKey(LOGIN_KEY)
+       context.datastore.edit {
+            it[key1] = value
+        }
+    }
 
 
+    suspend fun isLogin(): Boolean {
+        val key1 = booleanPreferencesKey(LOGIN_KEY)
+        return context.datastore.data.first()[key1] ?: false
+    }
 }

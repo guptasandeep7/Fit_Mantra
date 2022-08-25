@@ -4,17 +4,21 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
+
     <uses-feature android:name="android.hardware.camera.any" />
 
     <application
         android:name=".database.ContentApplication"
         android:allowBackup="true"
-        android:usesCleartextTraffic="true"
-        android:icon="@drawable/splash_background"
-        android:label="@string/app_name"
-        android:roundIcon="@drawable/splash_background"
+        android:icon="@drawable/ic_frame_3"
+        android:label="FitMantra"
+        android:roundIcon="@drawable/ic_frame_3"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MoreFit">
+        android:theme="@style/Theme.MoreFit"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ui.activity.UserDetails"
+            android:exported="false" />
         <activity
             android:name=".ui.fragment.dash.analysis.AnalysisActivity"
             android:exported="false" />

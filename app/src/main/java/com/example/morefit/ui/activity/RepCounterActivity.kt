@@ -358,7 +358,7 @@ class RepCounterActivity : AppCompatActivity() {
                                             }
                                         } else {
                                             first = 0
-                                            if (((System.currentTimeMillis() - time) > 1500) && (time != 0L)) {
+                                            if (((System.currentTimeMillis() - time) > 1000) && (time != 0L)) {
                                                 counter++
                                             }
                                             time = 0
