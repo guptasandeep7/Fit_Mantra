@@ -54,7 +54,6 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
     lateinit var meal: MutableList<item_model>
     lateinit var meal1: MutableList<item_model>
     lateinit var meal2: MutableList<item_model>
-    private var stepView:VerticalStepView?=null
     private val mealBreakAdapter = MealBreakAdapter()
     private val mealLunchAdapter = MealLunchAdapter()
     private val mealDinnerAdapter = MealDinnerAdapter()
@@ -91,6 +90,11 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
         binding.breakfast.visibility = View.GONE
         binding.lunch.visibility = View.GONE
         binding.dinner.visibility = View.GONE
+        binding.waterTraker.visibility=View.GONE
+        binding.waterTraker2.visibility=View.GONE
+        binding.waterTraker3.visibility=View.GONE
+        binding.waterTraker4.visibility=View.GONE
+
         binding.breakfastSite.visibility = View.GONE
         binding.textView17.visibility = View.VISIBLE
         binding.lunchSite.visibility = View.GONE
@@ -107,94 +111,27 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                 if (water1 == 1.0) {
                     binding.textView29.setTextColor(getResources().getColor(R.color.green))
                 }
-//                if (water1 >= 3.0) {
-//                    binding.goal1.text = "Water intake limit is over"
-//                    binding.textView21.text = "4" + " L"
-//                    binding.imageView8.isClickable = false
-//                }
-//            }
-//            else{
-//                binding.goal1.visibility = View.VISIBLE
-//                binding.goal2.visibility = View.VISIBLE
-//                binding.goal3.visibility = View.VISIBLE
-//                binding.goal4.visibility = View.VISIBLE
-//                binding.goal1.text = "Water intake limit is over"
-//                binding.goal2.text="Water intake limit is over"
-//                binding.goal3.text = "Water intake limit is over"
-//                binding.goal4.text="Water intake limit is over"
-//            }
         }
         binding.imageView9.setOnClickListener {
-//            if(water1+water2+water3+water4 <=4.0) {
             water2=water2+0.25
             binding.textView24.text=(water2).toString()+" L"
             if (water2==1.0){
                 binding.textView30.setTextColor(getResources().getColor(R.color.green))
             }
-//            if (water2>=4.0){
-//                binding.goal2.text="Water intake limit is over"
-//                binding.textView24.text="4"+" L"
-//                binding.imageView9.isClickable=false
-//            }
-//            }
-//            else{
-//                binding.goal1.visibility = View.VISIBLE
-//                binding.goal2.visibility = View.VISIBLE
-//                binding.goal3.visibility = View.VISIBLE
-//                binding.goal4.visibility = View.VISIBLE
-//                binding.goal1.text = "Water intake limit is over"
-//                binding.goal2.text="Water intake limit is over"
-//                binding.goal3.text = "Water intake limit is over"
-//                binding.goal4.text="Water intake limit is over"
-//            }
         }
         binding.imageView10.setOnClickListener {
-//            if(water1+water2+water3+water4 <=4.0) {
                 water3 = water3 + 0.25
                 binding.textView26.text = (water3).toString() + " L"
                 if (water3 == 1.0) {
                     binding.textView31.setTextColor(getResources().getColor(R.color.green))
                 }
-//                if (water3 >= 4.0) {
-//                    binding.goal3.text = "Water intake limit is over"
-//                    binding.textView26.text = "4" + " L"
-//                    binding.imageView10.isClickable = false
-//                }
-//            }
-//            else{
-//                binding.goal1.visibility = View.VISIBLE
-//                binding.goal2.visibility = View.VISIBLE
-//                binding.goal3.visibility = View.VISIBLE
-//                binding.goal4.visibility = View.VISIBLE
-//                binding.goal1.text = "Water intake limit is over"
-//                binding.goal2.text="Water intake limit is over"
-//                binding.goal3.text = "Water intake limit is over"
-//                binding.goal4.text="Water intake limit is over"
-//            }
         }
         binding.imageView11.setOnClickListener {
-//            if(water1+water2+water3+water4 <=4.0) {
                 water4 = water4 + 0.25
                 binding.textView28.text = (water4).toString() + " L"
                 if (water4 == 1.0) {
                     binding.textView32.setTextColor(getResources().getColor(R.color.green))
                 }
-//                if (water4 >= 4.0) {
-//                    binding.goal4.text = "Water intake limit is over"
-//                    binding.textView28.text = "4" + " L"
-//                    binding.imageView11.isClickable = false
-//                }
-//            }
-//            else{
-//                binding.goal1.visibility = View.VISIBLE
-//                binding.goal2.visibility = View.VISIBLE
-//                binding.goal3.visibility = View.VISIBLE
-//                binding.goal4.visibility = View.VISIBLE
-//                binding.goal1.text = "Water intake limit is over"
-//                binding.goal2.text="Water intake limit is over"
-//                binding.goal3.text = "Water intake limit is over"
-//                binding.goal4.text="Water intake limit is over"
-//            }
         }
         binding.regenerate.setOnClickListener {
             val customView = layoutInflater.inflate(R.layout.dialog_meal, null)
@@ -430,6 +367,11 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                 binding.breakfast.visibility = View.VISIBLE
                 binding.lunch.visibility = View.VISIBLE
                 binding.dinner.visibility = View.VISIBLE
+                binding.waterTraker.visibility=View.VISIBLE
+                binding.waterTraker2.visibility=View.VISIBLE
+                binding.waterTraker3.visibility=View.VISIBLE
+                binding.waterTraker4.visibility=View.VISIBLE
+
                 mealData.forEach {
                     when (it.id) {
                         "breakfast" -> {
@@ -614,6 +556,11 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
             binding.breakfast.visibility = View.VISIBLE
             binding.lunch.visibility = View.VISIBLE
             binding.dinner.visibility = View.VISIBLE
+            binding.waterTraker.visibility=View.VISIBLE
+            binding.waterTraker2.visibility=View.VISIBLE
+            binding.waterTraker3.visibility=View.VISIBLE
+            binding.waterTraker4.visibility=View.VISIBLE
+
             if (Mealdata[0].count == 0) {
                 breakfst = 0
                 binding.recyclerview1.visibility = View.GONE
@@ -669,47 +616,10 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
         }
     }
 
-    private fun stepView() {
-        val list0 = listOf("f","s","d","f","f","g","j")
-        stepView
-            ?.reverseDraw(false)
-            ?.setStepViewTexts(list0)
-            ?.setLinePaddingProportion(6f)
-            ?.setStepsViewIndicatorCompletedLineColor(R.color.green)
-            ?.setStepsViewIndicatorUnCompletedLineColor(R.color.green)
-            ?.setStepsViewIndicatorCompleteIcon(context?.let {
-                ContextCompat.getDrawable(
-                    it,
-                    R.drawable.ic_baseline_circle_24
-                )
-            })
-            ?.setStepsViewIndicatorAttentionIcon(context?.let {
-                ContextCompat.getDrawable(
-                    it,
-                    R.drawable.yoga_instruction_curved_border
-                )
-            })
-            ?.setStepsViewIndicatorDefaultIcon(context?.let {
-                ContextCompat.getDrawable(
-                    it,
-                    R.drawable.yoga_instruction_curved_border
-                )
-            })
-        stepView?.setStepsViewIndicatorComplectingPosition(2)
-    }
-
     private fun getUrl(resourceId: Int): String {
         return Uri.parse(
             "android.resource://" + R::class.java.getPackage().getName() + "/" + resourceId
         ).toString()
     }
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true) {
-//            override fun handleOnBackPressed() {
-//
-//            }
-//        })
-//    }
 
 }
