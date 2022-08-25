@@ -172,16 +172,23 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
             increase.alpha=0.9f
             increase.strokeWidth=0
             increase.setTextColor(getResources().getColor(R.color.white))
+            increase.text="Gain Weight(Recommended)"
         }
         else if (bool==0){
             maintain.elevation=20f
-            maintain.setBackgroundColor(getResources().getColor(R.color.lightOrange))
+            maintain.setBackgroundColor(getResources().getColor(R.color.orange))
+            maintain.alpha=0.9f
             maintain.strokeWidth=0
+            maintain.setTextColor(getResources().getColor(R.color.white))
+            maintain.text="Maintain Weight(Recommended)"
         }
         else if (bool==2){
             decrease.elevation=20f
-            decrease.setBackgroundColor(getResources().getColor(R.color.lightOrange))
+            decrease.setBackgroundColor(getResources().getColor(R.color.orange))
+            decrease.alpha=0.9f
             decrease.strokeWidth=0
+            decrease.setTextColor(getResources().getColor(R.color.white))
+            decrease.text="Reduce Weight(Recommended)"
         }
         bottomSheetDialog.show()
         plus1.setOnClickListener {
