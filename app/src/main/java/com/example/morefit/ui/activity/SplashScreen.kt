@@ -17,15 +17,16 @@ class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         datastore = Datastore(this@SplashScreen)
-        lifecycleScope.launch {
-            if(datastore.isLogin()) {
-                startActivity(Intent(this@SplashScreen, MainActivity::class.java))
-                finish()
-            } else {
-                startActivity(Intent(this@SplashScreen, UserDetails::class.java))
-                finish()
-            }
+//        lifecycleScope.launch {
+//            if(datastore.isLogin()) {
+//                startActivity(Intent(this@SplashScreen, MainActivity::class.java))
+//                finish()
+//            } else {
+////                startActivity(Intent(this@SplashScreen, UserDetails::class.java))
+////                finish()
+//            }
+            startActivity(Intent(this@SplashScreen, AuthActivity::class.java))
+            finish()
         }
 
     }
-}
