@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="@string/gym"
-        android:icon="@drawable/gym"
+
+    <item
         android:id="@+id/gymFragment"
-        />
-    <item android:title="@string/yoga"
-        android:icon="@drawable/yoga"
+        android:icon="@drawable/gym"
+        android:title="@string/gym" />
+    <item
         android:id="@+id/yogaFragment"
-        />
-    <item android:title="@string/diet"
-        android:icon="@drawable/diet"
+        android:icon="@drawable/yoga"
+        android:title="@string/yoga" />
+    <item
         android:id="@+id/dietFragment"
-        />
+        android:icon="@drawable/diet"
+        android:title="@string/diet" />
+
+    <item
+        android:id="@+id/communityForumFragment"
+        android:icon="@drawable/ic_community_forum"
+        android:title="@string/forum" />
 </menu>

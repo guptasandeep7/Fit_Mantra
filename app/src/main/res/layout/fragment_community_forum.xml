@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/fragment_community_forum_scene">
+
+    <ImageButton
+        android:id="@+id/icBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/white"
+        android:contentDescription="Back Btn"
+        android:paddingVertical="20dp"
+        android:paddingEnd="20dp"
+        android:src="@drawable/ic_back_black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/headingSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginStart="-14dp"
+        android:layout_marginTop="-6dp"
+        android:alpha="0"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Your community forum"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@id/icBack"
+        app:layout_constraintStart_toEndOf="@id/icBack"
+        app:layout_constraintTop_toTopOf="@id/icBack" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/heading1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-10dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Community Forum"
+        android:textColor="@color/black"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/icBack"
+        app:layout_constraintTop_toBottomOf="@+id/icBack" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/forumRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:layoutAnimation="@anim/layout_animation"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heading1" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addPostBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_add"
+        app:backgroundTint="@color/orange"
+        android:tint="@color/white"
+        app:borderWidth="0dp"
+        app:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp"/>
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:indeterminate="true"
+        app:indicatorColor="@color/orange"
+        app:indicatorSize="64dp"
+        android:visibility="invisible"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

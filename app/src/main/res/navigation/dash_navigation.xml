@@ -49,4 +49,16 @@
             android:name="yogaPose"
             app:argType="com.example.morefit.model.Pose" />
     </fragment>
+    <fragment
+        android:id="@+id/communityForumFragment"
+        android:name="com.example.morefit.ui.fragment.dash.communityForum.CommunityForumFragment"
+        android:label="CommunityForumFragment" >
+        <action
+            android:id="@+id/action_communityForumFragment_to_createPostFragment"
+            app:destination="@id/createPostFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createPostFragment"
+        android:name="com.example.morefit.ui.fragment.dash.communityForum.CreatePostFragment"
+        android:label="CreatePostFragment" />
 </navigation>
