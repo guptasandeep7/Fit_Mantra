@@ -1,11 +1,11 @@
-package com.example.energybar.database
+package com.example.morefit.database
+
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.example.morefit.database.ContentDAO
 import com.example.morefit.model.database.Content
 import com.example.morefit.model.database.meal
 import kotlinx.coroutines.CoroutineScope

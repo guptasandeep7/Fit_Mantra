@@ -7,15 +7,11 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.ListView
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.baoyachi.stepview.VerticalStepView
-import com.example.energybar.database.ContentRoomDatabase
 import com.example.morefit.R
 import com.example.morefit.adapter.MealBreakAdapter
 import com.example.morefit.adapter.MealDinnerAdapter
@@ -43,6 +39,7 @@ import com.google.android.material.textview.MaterialTextView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
+import com.example.morefit.database.ContentRoomDatabase
 import kotlin.math.roundToInt
 
 
@@ -90,10 +87,10 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
         binding.breakfast.visibility = View.GONE
         binding.lunch.visibility = View.GONE
         binding.dinner.visibility = View.GONE
-        binding.waterTraker.visibility=View.GONE
-        binding.waterTraker2.visibility=View.GONE
-        binding.waterTraker3.visibility=View.GONE
-        binding.waterTraker4.visibility=View.GONE
+        binding.waterTraker.visibility = View.GONE
+        binding.waterTraker2.visibility = View.GONE
+        binding.waterTraker3.visibility = View.GONE
+        binding.waterTraker4.visibility = View.GONE
 
         binding.breakfastSite.visibility = View.GONE
         binding.textView17.visibility = View.VISIBLE
@@ -101,37 +98,37 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
         binding.textView18.visibility = View.VISIBLE
         binding.dinnerSite.visibility = View.GONE
         binding.textView19.visibility = View.VISIBLE
-        var water1=0.0
-        var water2=0.0
-        var water3=0.0
-        var water4=0.0
+        var water1 = 0.0
+        var water2 = 0.0
+        var water3 = 0.0
+        var water4 = 0.0
         binding.imageView8.setOnClickListener {
-                water1 = water1 + 0.25
-                binding.textView21.text = (water1).toString() + " L"
-                if (water1 == 1.0) {
-                    binding.textView29.setTextColor(getResources().getColor(R.color.green))
-                }
+            water1 = water1 + 0.25
+            binding.textView21.text = (water1).toString() + " L"
+            if (water1 == 1.0) {
+                binding.textView29.setTextColor(getResources().getColor(R.color.green))
+            }
         }
         binding.imageView9.setOnClickListener {
-            water2=water2+0.25
-            binding.textView24.text=(water2).toString()+" L"
-            if (water2==1.0){
+            water2 = water2 + 0.25
+            binding.textView24.text = (water2).toString() + " L"
+            if (water2 == 1.0) {
                 binding.textView30.setTextColor(getResources().getColor(R.color.green))
             }
         }
         binding.imageView10.setOnClickListener {
-                water3 = water3 + 0.25
-                binding.textView26.text = (water3).toString() + " L"
-                if (water3 == 1.0) {
-                    binding.textView31.setTextColor(getResources().getColor(R.color.green))
-                }
+            water3 = water3 + 0.25
+            binding.textView26.text = (water3).toString() + " L"
+            if (water3 == 1.0) {
+                binding.textView31.setTextColor(getResources().getColor(R.color.green))
+            }
         }
         binding.imageView11.setOnClickListener {
-                water4 = water4 + 0.25
-                binding.textView28.text = (water4).toString() + " L"
-                if (water4 == 1.0) {
-                    binding.textView32.setTextColor(getResources().getColor(R.color.green))
-                }
+            water4 = water4 + 0.25
+            binding.textView28.text = (water4).toString() + " L"
+            if (water4 == 1.0) {
+                binding.textView32.setTextColor(getResources().getColor(R.color.green))
+            }
         }
         binding.regenerate.setOnClickListener {
             val customView = layoutInflater.inflate(R.layout.dialog_meal, null)
@@ -367,10 +364,10 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                 binding.breakfast.visibility = View.VISIBLE
                 binding.lunch.visibility = View.VISIBLE
                 binding.dinner.visibility = View.VISIBLE
-                binding.waterTraker.visibility=View.VISIBLE
-                binding.waterTraker2.visibility=View.VISIBLE
-                binding.waterTraker3.visibility=View.VISIBLE
-                binding.waterTraker4.visibility=View.VISIBLE
+                binding.waterTraker.visibility = View.VISIBLE
+                binding.waterTraker2.visibility = View.VISIBLE
+                binding.waterTraker3.visibility = View.VISIBLE
+                binding.waterTraker4.visibility = View.VISIBLE
 
                 mealData.forEach {
                     when (it.id) {
@@ -556,10 +553,10 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
             binding.breakfast.visibility = View.VISIBLE
             binding.lunch.visibility = View.VISIBLE
             binding.dinner.visibility = View.VISIBLE
-            binding.waterTraker.visibility=View.VISIBLE
-            binding.waterTraker2.visibility=View.VISIBLE
-            binding.waterTraker3.visibility=View.VISIBLE
-            binding.waterTraker4.visibility=View.VISIBLE
+            binding.waterTraker.visibility = View.VISIBLE
+            binding.waterTraker2.visibility = View.VISIBLE
+            binding.waterTraker3.visibility = View.VISIBLE
+            binding.waterTraker4.visibility = View.VISIBLE
 
             if (Mealdata[0].count == 0) {
                 breakfst = 0
