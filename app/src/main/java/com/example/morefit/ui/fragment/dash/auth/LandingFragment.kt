@@ -1,5 +1,6 @@
 package com.example.morefit.ui.fragment.dash.auth
 
+import android.content.Intent
 import android.icu.text.SimpleDateFormat
 import android.os.Build
 import android.os.Bundle
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
+import com.example.morefit.ui.activity.MainActivity
 import com.example.morefit.utils.Datastore
 import com.google.android.material.button.MaterialButton
 import kotlinx.coroutines.launch
@@ -37,12 +39,11 @@ class LandingFragment : Fragment() {
 
         startButton.setOnClickListener {
             lifecycleScope.launch {
-//                if (datastore.isLogin()) {
-//                    findNavController().navigate(R.id.action_landingFragment_to_firstFragment)
-//                } else {
-//                    findNavController().navigate(R.id.action_landingFragment_to_phoneNumberFragment)
-//                }
-                findNavController().navigate(R.id.action_landingFragment_to_phoneNumberFragment)
+                if (datastore.isLogin()) {
+                    startActivity(Intent(requireContext(), MainActivity::class.java))
+                } else {
+                    findNavController().navigate(R.id.action_landingFragment_to_phoneNumberFragment)
+                }
             }
         }
 

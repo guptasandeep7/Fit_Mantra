@@ -35,15 +35,4 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setupWithNavController(navController)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == 0 && resultCode == Activity.RESULT_OK) {
-            val spokenText: String =
-                data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).let { results ->
-                    results?.get(0) ?: "null"
-                }
-            Toast.makeText(this, spokenText, Toast.LENGTH_SHORT).show()
-        }
-        super.onActivityResult(requestCode, resultCode, data)
-
-    }
 }

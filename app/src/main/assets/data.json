@@ -426,9 +426,11 @@
         }
       ],
       "counter": false,
-      "file_name": "",
-      "labels": [],
-      "correct_label": ""
+      "file_name": "pushup.tflite",
+      "labels": ["pushupholdcorrect",
+        "stationary",
+        "wrongpushuphold"],
+      "correct_label": "pushupholdcorrect"
     },
     {
       "category": "Stretches",
@@ -562,9 +564,11 @@
         }
       ],
       "counter": false,
-      "file_name": "",
-      "labels": [],
-      "correct_label": ""
+      "file_name": "pushup.tflite",
+      "labels": ["pushupholdcorrect",
+        "stationary",
+        "wrongpushuphold"],
+      "correct_label": "pushupholdcorrect"
     },
     {
       "category": "Stretches",
@@ -698,9 +702,11 @@
         }
       ],
       "counter": false,
-      "file_name": "",
-      "labels": [],
-      "correct_label": ""
+      "file_name": "pushup.tflite",
+      "labels": ["pushupholdcorrect",
+        "stationary",
+        "wrongpushuphold"],
+      "correct_label": "pushupholdcorrect"
     },
     {
       "category": "Stretches",
