@@ -10,12 +10,14 @@ import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
 import com.example.morefit.adapter.ExerciseAdapter
 import com.example.morefit.databinding.FragmentExerciseBinding
-import com.example.morefit.ui.fragment.dash.gym.GymFragment.Companion.muscleName
 import com.example.morefit.model.AllData
 import com.example.morefit.model.Data
-import com.example.morefit.model.Pose
 import com.example.morefit.ui.activity.MlActivity
 import com.example.morefit.ui.activity.RepCounterActivity
+import com.example.morefit.ui.fragment.dash.gym.GymFragment.Companion.muscleName
+import com.example.morefit.utils.hideBottomNavigationView
+import com.example.morefit.utils.showBottomNavigationView
+import com.google.android.material.transition.platform.MaterialSharedAxis
 import com.google.gson.Gson
 import org.tensorflow.lite.examples.poseestimation.ml.PoseClassifier
 
@@ -26,10 +28,16 @@ class ExerciseFragment : Fragment(), View.OnClickListener {
     private val exerciseAdapter = ExerciseAdapter()
     private lateinit var data: List<Data>
 
-    companion object
-    {
-        var name =""
+    companion object {
+        var name = ""
     }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true)
+        returnTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.icBack.setOnClickListener(this)
@@ -40,6 +48,7 @@ class ExerciseFragment : Fragment(), View.OnClickListener {
         binding.kettlebells.setOnClickListener(this)
 
         binding.heading2.text = muscleName
+        binding.headingSmall.text = "Gym $muscleName"
 
         loadData()
         exerciseAdapter.setOnItemClickListener(object : ExerciseAdapter.onItemClickListener {
@@ -49,19 +58,16 @@ class ExerciseFragment : Fragment(), View.OnClickListener {
 
             override fun onActivityCLick(position: Int) {
                 //File Name here
-                name=data[position].title
-                PoseClassifier.MODEL_FILENAME=data[position].file_name
-                PoseClassifier.labels=data[position].labels
-                if(data[position].counter)
-                {
-                    RepCounterActivity.correct_label=data[position].correct_label
-                    val intent = Intent(activity,RepCounterActivity::class.java)
+                name = data[position].title
+                PoseClassifier.MODEL_FILENAME = data[position].file_name
+                PoseClassifier.labels = data[position].labels
+                if (data[position].counter) {
+                    RepCounterActivity.correct_label = data[position].correct_label
+                    val intent = Intent(activity, RepCounterActivity::class.java)
                     startActivity(intent)
-                }
-               else
-                {
-                   MlActivity.correct_label=data[position].correct_label
-                    val intent = Intent(activity,MlActivity::class.java)
+                } else {
+                    MlActivity.correct_label = data[position].correct_label
+                    val intent = Intent(activity, MlActivity::class.java)
                     startActivity(intent)
                 }
             }
@@ -118,4 +124,13 @@ class ExerciseFragment : Fragment(), View.OnClickListener {
         _binding = null
     }
 
+    override fun onStart() {
+        super.onStart()
+        activity?.hideBottomNavigationView()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        activity?.showBottomNavigationView()
+    }
 }

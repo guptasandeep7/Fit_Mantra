@@ -5,10 +5,12 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.content.pm.PackageManager
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Process
 import android.provider.Settings
+import android.view.*
 import android.view.SurfaceView
 import android.view.View
 import android.view.WindowManager
@@ -19,12 +21,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.lifecycle.lifecycleScope
-import com.example.energybar.ContentViewModel
-import com.example.energybar.WordViewModelFactory
-import com.example.energybar.database.ContentApplication
+import com.example.morefit.view_models.ContentViewModel
+import com.example.morefit.view_models.WordViewModelFactory
+import com.example.morefit.database.ContentApplication
 import com.example.morefit.R
 import com.example.morefit.model.database.Content
 import com.example.morefit.ui.fragment.dash.gym.ExerciseFragment
@@ -37,7 +37,6 @@ import org.tensorflow.lite.examples.poseestimation.camera.CameraSource
 import org.tensorflow.lite.examples.poseestimation.data.Device
 import org.tensorflow.lite.examples.poseestimation.ml.*
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class MlActivity : AppCompatActivity() {
@@ -172,7 +171,33 @@ class MlActivity : AppCompatActivity() {
         var title=findViewById<TextView>(R.id.Title1)
         title.text=ExerciseFragment.name
         initSpinner()
+        val dialodView =
+            LayoutInflater.from(this).inflate(R.layout.fragment_lets_go, null)
+        val mBuilder = AlertDialog.Builder(this)
+            .setView(dialodView)
+        val alertDialog:AlertDialog=mBuilder.create()
+        alertDialog.getWindow()?.requestFeature(Window.FEATURE_NO_TITLE)
+        alertDialog.show()
+        alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+            Handler().postDelayed({
+                dialodView.findViewById<TextView>(R.id.textloader).text="2"
+            },1000)
+        Handler().postDelayed({
+            dialodView.findViewById<TextView>(R.id.textloader).text="1"
+        },2000)
+        Handler().postDelayed({
+            dialodView.findViewById<TextView>(R.id.textloader).text="Lets'Go"
+        },3000)
+
+
+        Handler().postDelayed({
+            alertDialog.cancel()
+        },4000)
+
         spnModel.setSelection(modelPos)
+
+
         swClassification.setOnCheckedChangeListener(setClassificationListener)
         if (savedInstanceState != null) {
 

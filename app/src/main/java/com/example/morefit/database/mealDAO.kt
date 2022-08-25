@@ -1,4 +1,4 @@
-package com.example.energybar.database
+package com.example.morefit.database
 
 import androidx.room.Dao
 import androidx.room.Insert

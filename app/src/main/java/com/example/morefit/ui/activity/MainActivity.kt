@@ -8,9 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.example.energybar.ContentViewModel
-import com.example.energybar.WordViewModelFactory
-import com.example.energybar.database.ContentApplication
 import com.example.morefit.R
 import com.example.morefit.databinding.ActivityMainBinding
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback

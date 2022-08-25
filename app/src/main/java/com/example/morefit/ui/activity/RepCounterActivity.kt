@@ -5,12 +5,11 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.content.pm.PackageManager
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Process
-import android.view.SurfaceView
-import android.view.View
-import android.view.WindowManager
+import android.view.*
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
@@ -19,9 +18,9 @@ import androidx.appcompat.widget.SwitchCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
-import com.example.energybar.ContentViewModel
-import com.example.energybar.WordViewModelFactory
-import com.example.energybar.database.ContentApplication
+import com.example.morefit.view_models.ContentViewModel
+import com.example.morefit.view_models.WordViewModelFactory
+import com.example.morefit.database.ContentApplication
 import com.example.morefit.R
 import com.example.morefit.model.database.Content
 import com.example.morefit.ui.fragment.dash.gym.ExerciseFragment
@@ -190,6 +189,30 @@ class RepCounterActivity : AppCompatActivity() {
             wasRunning = savedInstanceState
                 .getBoolean("wasRunning")
         }
+
+        val dialodView =
+            LayoutInflater.from(this).inflate(R.layout.fragment_lets_go, null)
+        val mBuilder = AlertDialog.Builder(this)
+            .setView(dialodView)
+        val alertDialog: AlertDialog = mBuilder.create()
+        alertDialog.getWindow()?.requestFeature(Window.FEATURE_NO_TITLE)
+        alertDialog.show()
+        alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        Handler().postDelayed({
+            dialodView.findViewById<TextView>(R.id.textloader).text = "2"
+        }, 1000)
+        Handler().postDelayed({
+            dialodView.findViewById<TextView>(R.id.textloader).text = "1"
+        }, 2000)
+        Handler().postDelayed({
+            dialodView.findViewById<TextView>(R.id.textloader).text = "Lets'Go"
+        }, 3000)
+
+        Handler().postDelayed({
+            alertDialog.cancel()
+            counter=0
+        }, 4000)
         runTimer()
         completeRep.setOnClickListener {
             var content = arrayListOf<Content>(
@@ -209,12 +232,10 @@ class RepCounterActivity : AppCompatActivity() {
                 ) {
                     datastore.setStreakCount(datastore.getStreakCount() + 1)
                     datastore.setLastWorkoutDate(System.currentTimeMillis())
-                }
-                else if ((System.currentTimeMillis() - datastore.getLastWorkoutDate()) > 172800000) {
+                } else if ((System.currentTimeMillis() - datastore.getLastWorkoutDate()) > 172800000) {
                     datastore.setStreakCount(1)
                     datastore.setLastWorkoutDate(System.currentTimeMillis())
-                }
-                else if((System.currentTimeMillis() - datastore.getLastWorkoutDate()) < 86400000){
+                } else if ((System.currentTimeMillis() - datastore.getLastWorkoutDate()) < 86400000) {
                     datastore.setLastWorkoutDate(System.currentTimeMillis())
                 }
             }
@@ -327,74 +348,79 @@ class RepCounterActivity : AppCompatActivity() {
     // open camera
     private fun openCamera() {
         if (isCameraPermissionGranted()) {
-            if (cameraSource == null) {
-                cameraSource =
-                    CameraSource(surfaceView, object : CameraSource.CameraSourceListener {
-                        override fun onFPSListener(fps: Int) {
-                            tvFPS.text = getString(R.string.tfe_pe_tv_fps, fps)
-                        }
+                if (cameraSource == null) {
+                    cameraSource =
+                        CameraSource(surfaceView, object : CameraSource.CameraSourceListener {
+                            override fun onFPSListener(fps: Int) {
+                                tvFPS.text = getString(R.string.tfe_pe_tv_fps, fps)
+                            }
 
+                            override fun onDetectedInfo(
+                                personScore: Float?,
+                                poseLabels: List<Pair<String, Float>>?
+                            ) {
 
-                        override fun onDetectedInfo(
-                            personScore: Float?,
-                            poseLabels: List<Pair<String, Float>>?
-                        ) {
-
-                            tvScore.text = getString(R.string.tfe_pe_tv_score, personScore ?: 0f)
-                            poseLabels?.sortedByDescending { it.second }?.let {
-                                for (i in it) {
-//                                runOnUiThread{
-//                                    repcountText.text=it.toString()
-//                                }
-                                    if (correct_label == i.first) {
-                                        if (i.second >= 0.80) {
-                                            if (first == 0) {
-                                                time = System.currentTimeMillis()
-                                            }
-                                            first++;
-                                            runOnUiThread {
+                                tvScore.text =
+                                    getString(R.string.tfe_pe_tv_score, personScore ?: 0f)
+                                poseLabels?.sortedByDescending { it.second }?.let {
+                                    for (i in it) {
+                                runOnUiThread{
+                                    repcountText.text=it.toString()
+                                }
+                                        if (correct_label == i.first) {
+                                            if (i.second >= 0.80) {
+                                                if (first == 0) {
+                                                    time = System.currentTimeMillis()
+                                                }
+                                                first++;
+                                                runOnUiThread {
 //                                                Toast.makeText(this@RepCounterActivity, it.toString(), Toast.LENGTH_SHORT).show()
-                                                cardview.strokeColor = Color.parseColor("#00FF00")
-                                            }
-                                        } else {
-                                            first = 0
-                                            if (((System.currentTimeMillis() - time) > 1500) && (time != 0L)) {
-                                                counter++
-                                            }
-                                            time = 0
-                                            runOnUiThread {
-                                                repcountText.text = counter.toString()
-                                                cardview.strokeColor = Color.parseColor("#FF0000")
+                                                    cardview.strokeColor =
+                                                        Color.parseColor("#00FF00")
+                                                }
+                                            } else {
+                                                first = 0
+                                                if (((System.currentTimeMillis() - time) > 1000) && (time != 0L)) {
+                                                    counter++
+                                                }
+                                                time = 0
+                                                runOnUiThread {
+                                                    repcountText.text = counter.toString()
+                                                    cardview.strokeColor =
+                                                        Color.parseColor("#FF0000")
+                                                }
                                             }
                                         }
                                     }
+                                    tvClassificationValue1.text = getString(
+                                        R.string.tfe_pe_tv_classification_value,
+                                        convertPoseLabels(if (it.isNotEmpty()) it[0] else null)
+                                    )
+
+                                    tvClassificationValue2.text = getString(
+                                        R.string.tfe_pe_tv_classification_value,
+                                        convertPoseLabels(if (it.size >= 2) it[1] else null)
+                                    )
+                                    tvClassificationValue3.text = getString(
+                                        R.string.tfe_pe_tv_classification_value,
+                                        convertPoseLabels(if (it.size >= 3) it[2] else null)
+                                    )
                                 }
-                                tvClassificationValue1.text = getString(
-                                    R.string.tfe_pe_tv_classification_value,
-                                    convertPoseLabels(if (it.isNotEmpty()) it[0] else null)
-                                )
-
-                                tvClassificationValue2.text = getString(
-                                    R.string.tfe_pe_tv_classification_value,
-                                    convertPoseLabels(if (it.size >= 2) it[1] else null)
-                                )
-                                tvClassificationValue3.text = getString(
-                                    R.string.tfe_pe_tv_classification_value,
-                                    convertPoseLabels(if (it.size >= 3) it[2] else null)
-                                )
                             }
-                        }
 
-                    }).apply {
-                        prepareCamera()
+                        }).apply {
+                            prepareCamera()
+                        }
+                    isPoseClassifier()
+                    lifecycleScope.launch(Dispatchers.Main) {
+                        cameraSource?.initCamera()
                     }
-                isPoseClassifier()
-                lifecycleScope.launch(Dispatchers.Main) {
-                    cameraSource?.initCamera()
                 }
-            }
-            createPoseEstimator()
+                createPoseEstimator()
         }
+
+
+
     }
 
     private fun convertPoseLabels(pair: Pair<String, Float>?): String {

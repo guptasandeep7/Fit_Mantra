@@ -1,4 +1,5 @@
-package com.example.energybar.database
+package com.example.morefit.database
+
 
 import android.content.Context
 import androidx.room.Database
