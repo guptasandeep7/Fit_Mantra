@@ -40,6 +40,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import com.example.morefit.database.ContentRoomDatabase
+import com.example.morefit.model.Data
+import com.example.morefit.utils.Datastore
 import kotlin.math.roundToInt
 import kotlin.random.Random
 
@@ -52,6 +54,7 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
     lateinit var meal: MutableList<item_model>
     lateinit var meal1: MutableList<item_model>
     lateinit var meal2: MutableList<item_model>
+    lateinit var datastore: Datastore
     private val mealBreakAdapter = MealBreakAdapter()
     private val mealLunchAdapter = MealLunchAdapter()
     private val mealDinnerAdapter = MealDinnerAdapter()
@@ -70,6 +73,10 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
     var calorieBreak:String="0.0"
     var calorieLunch: String = "0.0"
     var calorieDinner: String ="0.0"
+    var water1 = 0.0
+    var water2 = 0.0
+    var water3 = 0.0
+    var water4 = 0.0
     private val generateMealPlanViewModel by lazy { ViewModelProvider(this)[GenerateMealPlanViewModel::class.java] }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -83,6 +90,7 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
         Mealdata = mutableListOf()
         Mealdatalunch = mutableListOf()
         MealdataDinner = mutableListOf()
+        datastore = Datastore(requireContext())
         meal = mutableListOf()
         meal1 = mutableListOf()
         meal2 = mutableListOf()
@@ -105,13 +113,20 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
         binding.textView18.visibility = View.VISIBLE
         binding.dinnerSite.visibility = View.GONE
         binding.textView19.visibility = View.VISIBLE
-        var water1 = 0.0
-        var water2 = 0.0
-        var water3 = 0.0
-        var water4 = 0.0
+
+
+        lifecycleScope.launch {
+            water1= datastore.getUserDetails("water1")?.toDouble() ?: 0.0
+            water2= datastore.getUserDetails("water2")?.toDouble() ?: 0.0
+            water3= datastore.getUserDetails("water3")?.toDouble() ?: 0.0
+            water4= datastore.getUserDetails("water4")?.toDouble() ?: 0.0
+        }
         binding.imageView8.setOnClickListener {
             water1 = water1 + 0.25
             binding.textView21.text = (water1).toString() + " L"
+            lifecycleScope.launch {
+                datastore.saveUserDetails("water1",water1.toString())
+            }
             if (water1 == 1.0) {
                 binding.textView29.setTextColor(getResources().getColor(R.color.green))
             }
@@ -119,6 +134,9 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
         binding.imageView9.setOnClickListener {
             water2 = water2 + 0.25
             binding.textView24.text = (water2).toString() + " L"
+            lifecycleScope.launch {
+                datastore.saveUserDetails("water2",water2.toString())
+            }
             if (water2 == 1.0) {
                 binding.textView30.setTextColor(getResources().getColor(R.color.green))
             }
@@ -126,6 +144,9 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
         binding.imageView10.setOnClickListener {
             water3 = water3 + 0.25
             binding.textView26.text = (water3).toString() + " L"
+            lifecycleScope.launch {
+                datastore.saveUserDetails("water3",water3.toString())
+            }
             if (water3 == 1.0) {
                 binding.textView31.setTextColor(getResources().getColor(R.color.green))
             }
@@ -133,6 +154,9 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
         binding.imageView11.setOnClickListener {
             water4 = water4 + 0.25
             binding.textView28.text = (water4).toString() + " L"
+            lifecycleScope.launch {
+                datastore.saveUserDetails("water4",water4.toString())
+            }
             if (water4 == 1.0) {
                 binding.textView32.setTextColor(getResources().getColor(R.color.green))
             }
@@ -151,6 +175,11 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
             regenerateMeal.setOnClickListener {
                 lifecycleScope.launch {
                     mealDb.mealDao().deleteMealData()
+                    datastore.saveUserDetails("water1","0")
+                    datastore.saveUserDetails("water2","0")
+                    datastore.saveUserDetails("water3","0")
+                    datastore.saveUserDetails("water4","0")
+
                 }
                 findNavController().navigateUp()
                 dialog.dismiss()
@@ -391,6 +420,10 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                 binding.waterTraker2.visibility = View.VISIBLE
                 binding.waterTraker3.visibility = View.VISIBLE
                 binding.waterTraker4.visibility = View.VISIBLE
+                binding.textView21.text=water1.toString()+" L"
+                binding.textView24.text=water2.toString()+" L"
+                binding.textView26.text=water3.toString()+" L"
+                binding.textView28.text=water4.toString()+" L"
 
                 mealData.forEach {
                     when (it.id) {
@@ -580,7 +613,10 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
             binding.waterTraker2.visibility = View.VISIBLE
             binding.waterTraker3.visibility = View.VISIBLE
             binding.waterTraker4.visibility = View.VISIBLE
-
+            water1=0.0
+            water2=0.0
+            water3=0.0
+            water4=0.0
             if (Mealdata[0].count == 0) {
                 breakfst = 0
                 binding.recyclerview1.visibility = View.GONE

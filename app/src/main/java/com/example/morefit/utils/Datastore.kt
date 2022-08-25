@@ -27,6 +27,11 @@ class Datastore(val context: Context) {
         val API_KEY = stringPreferencesKey("api_key")
         val STREAK_COUNT = intPreferencesKey("streak_count")
         val LAST_WORKOUT_DATE = longPreferencesKey("last_workout_date")
+        val WATER_INTAKE1= stringPreferencesKey("water1")
+        val WATER_INTAKE2= stringPreferencesKey("water2")
+        val WATER_INTAKE3= stringPreferencesKey("water3")
+        val WATER_INTAKE4= stringPreferencesKey("water4")
+
     }
 
     suspend fun apiKey() =
