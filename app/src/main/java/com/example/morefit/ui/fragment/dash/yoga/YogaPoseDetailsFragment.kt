@@ -1,5 +1,6 @@
 package com.example.morefit.ui.fragment.dash.yoga
 
+import android.content.Intent
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.view.View
@@ -12,11 +13,13 @@ import coil.load
 import coil.size.Scale
 import com.example.morefit.R
 import com.example.morefit.databinding.FragmentYogaPoseDetailsBinding
+import com.example.morefit.ui.activity.MlActivity
 import com.example.morefit.utils.hideBottomNavigationView
 import com.example.morefit.utils.showBottomNavigationView
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.transition.platform.MaterialSharedAxis
 import java.util.*
+import org.tensorflow.lite.examples.poseestimation.ml.PoseClassifier
 
 class YogaPoseDetailsFragment : Fragment(R.layout.fragment_yoga_pose_details) {
 	private lateinit var binding: FragmentYogaPoseDetailsBinding
@@ -69,6 +72,23 @@ class YogaPoseDetailsFragment : Fragment(R.layout.fragment_yoga_pose_details) {
 			TabLayoutMediator(tabLayout, viewPager2) { tab, _ ->
 				tab.text = null
 			}.attach()
+
+			PerformAsana.setOnClickListener {
+				PoseClassifier.MODEL_FILENAME=yogaPose.file_name
+				MlActivity.correct_label=yogaPose.correct_label
+				PoseClassifier.labels=yogaPose.labels
+//				val filename="labels.txt"
+//				val file: FileOutputStream = FileOutputStream(filename)
+//				var string=""
+//				for(i in yogaPose.labels)
+//				{
+//					string+=i
+//					string+="\n"
+//				}
+//				file.write(string.toByteArray())
+				val intent = Intent(activity, MlActivity::class.java)
+				startActivity(intent)
+			}
 		}
 	}
 }

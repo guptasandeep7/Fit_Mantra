@@ -402,9 +402,9 @@ class RepCounterActivity : AppCompatActivity() {
                                 poseLabels?.sortedByDescending { it.second }?.let {
                                     for (i in it) {
                                         if (correct_label == i.first) {
-                                            runOnUiThread{
-                                                repcountText.text=it.toString()
-                                            }
+//                                            runOnUiThread{
+//                                                repcountText.text=it.toString()
+//                                            }
 
                                             if (i.second >= 0.80) {
                                                 textToSpeech.stop()

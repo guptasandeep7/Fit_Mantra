@@ -527,6 +527,8 @@ class MlActivity : AppCompatActivity() {
             else if((System.currentTimeMillis() - datastore.getLastWorkoutDate()) < 86400000){
                 datastore.setLastWorkoutDate(System.currentTimeMillis())
             }
+            startActivity(Intent(application,MainActivity::class.java))
+            finish()
         }
     }
 

@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_gymFragment_to_exerciseFragment2"
             app:destination="@id/exerciseFragment2" />
+        <action
+            android:id="@+id/action_gymFragment_to_yogaFragment"
+            app:destination="@id/yogaFragment" />
     </fragment>
     <fragment
         android:id="@+id/yogaFragment"
