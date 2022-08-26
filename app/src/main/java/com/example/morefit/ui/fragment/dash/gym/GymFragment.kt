@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
 import com.example.morefit.adapter.PageAdapter
 import com.example.morefit.databinding.FragmentGymBinding
+import com.example.morefit.ui.activity.MainActivity
 import com.example.morefit.ui.activity.ProfileActivity
 import com.example.morefit.utils.Datastore
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -31,6 +32,7 @@ class GymFragment : Fragment(), View.OnClickListener {
         lateinit var muscleName: String
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        exitTransition = Hold()
@@ -38,6 +40,12 @@ class GymFragment : Fragment(), View.OnClickListener {
         enterTransition = MaterialFadeThrough()
         reenterTransition = MaterialFadeThrough()
         returnTransition = MaterialFadeThrough()
+        /*var activity = requireActivity()
+        (activity as MainActivity).viewModel.query.observe(viewLifecycleOwner, {
+            muscleName = it
+        })
+
+         */
 
     }
 
