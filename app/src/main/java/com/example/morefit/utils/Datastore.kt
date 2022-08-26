@@ -20,10 +20,19 @@ class Datastore(val context: Context) {
         val DIET_PLAN_KEY = stringPreferencesKey("diet_key")
         val CALORIES_KEY = stringPreferencesKey("calories_key")
         val TIME_FRAME_KEY = stringPreferencesKey("time_frame_key")
+        val HEIGHT = stringPreferencesKey("height")
+        val WEIGHT = stringPreferencesKey("weight")
+        val AGE = stringPreferencesKey("age")
+        val CAL = stringPreferencesKey("cal")
         const val LOGIN_KEY = "LOGIN_KEY"
         val API_KEY = stringPreferencesKey("api_key")
         val STREAK_COUNT = intPreferencesKey("streak_count")
         val LAST_WORKOUT_DATE = longPreferencesKey("last_workout_date")
+        val WATER_INTAKE1= stringPreferencesKey("water1")
+        val WATER_INTAKE2= stringPreferencesKey("water2")
+        val WATER_INTAKE3= stringPreferencesKey("water3")
+        val WATER_INTAKE4= stringPreferencesKey("water4")
+
     }
 
     suspend fun apiKey() =
