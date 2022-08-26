@@ -15,6 +15,6 @@ class MyBroadcastReceiver: BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent?) {
         Log.e("NOTIFICATION", "BROADCAST_RECEIVER")
         val service = NotificationService(context)
-        service.showNotification()
+        service.showNotification(false)
     }
 }

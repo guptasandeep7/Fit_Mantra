@@ -17,6 +17,7 @@ import com.example.morefit.utils.Datastore
 import com.example.morefit.utils.hideBottomNavigationView
 import com.example.morefit.utils.showBottomNavigationView
 import com.example.morefit.view_models.CommunityForumViewModel
+import com.google.android.material.transition.MaterialFadeThrough
 import kotlinx.coroutines.launch
 
 
@@ -27,6 +28,12 @@ class CreatePostFragment : Fragment(R.layout.fragment_create_post) {
         ViewModelProvider(this)[CommunityForumViewModel::class.java]
     }
     private var imgUri: Uri? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enterTransition = MaterialFadeThrough()
+        returnTransition = MaterialFadeThrough()
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

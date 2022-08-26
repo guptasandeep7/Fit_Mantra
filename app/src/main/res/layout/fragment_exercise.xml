@@ -37,8 +37,8 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/heading1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="83dp"
+        android:layout_height="44dp"
         android:fontFamily="@font/montserrat_semibold"
         android:text="Gym"
         android:textColor="@color/black"

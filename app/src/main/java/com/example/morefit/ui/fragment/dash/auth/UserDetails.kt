@@ -46,6 +46,7 @@ class UserDetails : Fragment() {
                 gender="Female"
             }
         }
+
         binding.nextbutton.setOnClickListener {
             if(!(binding.firstNameText.text.isNullOrEmpty())) {
                 lifecycleScope.launch {

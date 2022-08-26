@@ -20,7 +20,7 @@ class NotificationService(
     private val notificationManager =
         context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
-    fun showNotification() {
+    fun showNotification(isDrinkNotification: Boolean = true) {
         val activityIntent = Intent(context, MainActivity::class.java)
         val activityPendingIntent = PendingIntent.getActivity(
             context,
@@ -28,10 +28,16 @@ class NotificationService(
             activityIntent,
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) PendingIntent.FLAG_IMMUTABLE else 0
         )
+
+        val msg = if (isDrinkNotification) "This is a reminder for you to drink water!"
+        else "Time to take a break and eat your lunch"
+
+        val title = if (isDrinkNotification) "Hydration Reminder" else "Food Reminder"
+
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_frame_3)
-            .setContentTitle("Hydration Reminder")
-            .setContentText("This is a reminder for you to drink water!")
+            .setContentTitle(title)
+            .setContentText(msg)
             .setContentIntent(activityPendingIntent)
             .build()
 
