@@ -4,6 +4,7 @@ import com.example.morefit.model.Data
 import com.example.morefit.model.WeekMeal
 import com.example.morefit.model.communityForum.CreateForum
 import com.example.morefit.model.communityForum.Forum
+import com.example.morefit.model.communityForum.LikedBy
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
@@ -43,4 +44,10 @@ interface ApiInterface {
         @Field("Height")height:Int,
         @Field("Weight")weight:Int
     ):Call<com.example.morefit.model.Response>
+
+    @PATCH("post-like/{id}/")
+    fun likePost(
+        @Path("id") id: Int,
+        @Body likedBy: LikedBy
+    ): Call<Forum>
 }
