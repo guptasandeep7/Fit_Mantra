@@ -1,6 +1,7 @@
 package com.example.morefit.ui.fragment.dash.gym
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -54,6 +55,10 @@ class ExerciseFragment : Fragment(), View.OnClickListener {
         exerciseAdapter.setOnItemClickListener(object : ExerciseAdapter.onItemClickListener {
             override fun onItemClick(position: Int) {
 
+                val url = exerciseAdapter.addressList[position].video_tutorials[0]
+                val i = Intent(Intent.ACTION_VIEW)
+                i.data = Uri.parse(url)
+                startActivity(i)
             }
 
             override fun onActivityCLick(position: Int) {
@@ -67,6 +72,7 @@ class ExerciseFragment : Fragment(), View.OnClickListener {
                     startActivity(intent)
                 } else {
                     MlActivity.correct_label = data[position].correct_label
+                    MlActivity.name=data[position].title
                     val intent = Intent(activity, MlActivity::class.java)
                     startActivity(intent)
                 }

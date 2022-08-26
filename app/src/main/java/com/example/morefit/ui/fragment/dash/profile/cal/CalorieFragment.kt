@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
 import com.example.morefit.databinding.FragmentCalorieBinding
-import com.google.android.material.transition.platform.MaterialSharedAxis
+import com.google.android.material.transition.MaterialSharedAxis
 
 class CalorieFragment : Fragment() {
 
