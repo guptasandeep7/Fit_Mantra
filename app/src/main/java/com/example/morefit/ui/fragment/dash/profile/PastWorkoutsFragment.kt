@@ -13,7 +13,7 @@ import com.example.morefit.database.ContentApplication
 import com.example.morefit.databinding.FragmentPastWorkoutsBinding
 import com.example.morefit.view_models.ContentViewModel
 import com.example.morefit.view_models.WordViewModelFactory
-import com.google.android.material.transition.platform.MaterialSharedAxis
+import com.google.android.material.transition.MaterialSharedAxis
 
 class PastWorkoutsFragment : Fragment(R.layout.fragment_past_workouts), PastWorkoutsInterface {
     private lateinit var binding: FragmentPastWorkoutsBinding

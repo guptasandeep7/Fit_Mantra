@@ -17,7 +17,7 @@ import com.example.morefit.ui.activity.MlActivity
 import com.example.morefit.utils.hideBottomNavigationView
 import com.example.morefit.utils.showBottomNavigationView
 import com.google.android.material.tabs.TabLayoutMediator
-import com.google.android.material.transition.platform.MaterialSharedAxis
+import com.google.android.material.transition.MaterialSharedAxis
 import java.util.*
 import org.tensorflow.lite.examples.poseestimation.ml.PoseClassifier
 

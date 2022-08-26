@@ -6,11 +6,15 @@ import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
 import com.example.morefit.adapter.MealBreakAdapter
@@ -42,6 +46,7 @@ import kotlinx.coroutines.launch
 import com.example.morefit.database.ContentRoomDatabase
 import com.example.morefit.model.Data
 import com.example.morefit.utils.Datastore
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlin.math.roundToInt
 import kotlin.random.Random
 
@@ -78,6 +83,14 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
     var water3 = 0.0
     var water4 = 0.0
     private val generateMealPlanViewModel by lazy { ViewModelProvider(this)[GenerateMealPlanViewModel::class.java] }
+
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        val bottomNavigationView = activity?.findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+//        bottomNavigationView?.menu?.clear()
+//        bottomNavigationView?.inflateMenu(R.menu.bottom_nav_menu2)
+//    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentDietPlanBinding.bind(view)

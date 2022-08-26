@@ -19,7 +19,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import com.google.android.material.transition.platform.MaterialFadeThrough
+import com.google.android.material.transition.MaterialFadeThrough
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
@@ -69,25 +69,6 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
         reenterTransition = MaterialFadeThrough()
         returnTransition = MaterialFadeThrough()
 
-
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = super.onCreateView(inflater, container, savedInstanceState)
-
-
-        lifecycleScope.launch {
-            count = mealDb.mealDao().getCount()
-            if (count > 0) {
-                findNavController().navigate(R.id.action_dietFragment_to_dietPlan)
-            }
-        }
-        return view
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -130,6 +111,13 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
             if (bmi.toDouble()>25 && bmi.toDouble()<29.9 ){
                 bool=2
             }
+
+        lifecycleScope.launch {
+            count = mealDb.mealDao().getCount()
+            if (count > 0) {
+                findNavController().navigate(R.id.action_dietFragment_to_dietPlan)
+            }
+        }
     }
 
     private fun showBottomSheet() {
@@ -173,6 +161,7 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
             increase.strokeWidth=0
             increase.setTextColor(getResources().getColor(R.color.white))
             increase.text="Gain Weight(Recommended)"
+            click=1
         }
         else if (bool==0){
             maintain.elevation=20f
@@ -180,7 +169,8 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
             maintain.alpha=0.9f
             maintain.strokeWidth=0
             maintain.setTextColor(getResources().getColor(R.color.white))
-            maintain.text="Maintain Weight(Recommended)"
+            maintain.text="Maintain Weight"
+            click=2
         }
         else if (bool==2){
             decrease.elevation=20f
@@ -188,8 +178,22 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
             decrease.alpha=0.9f
             decrease.strokeWidth=0
             decrease.setTextColor(getResources().getColor(R.color.white))
-            decrease.text="Reduce Weight(Recommended)"
+            decrease.text="Reduce Weight"
+            click=3
         }
+
+        increase.setOnClickListener {
+            highlightBtn(increase, decrease, maintain)
+        }
+
+        decrease.setOnClickListener {
+            highlightBtn(decrease, increase, maintain)
+        }
+
+        maintain.setOnClickListener {
+            highlightBtn(maintain, decrease, increase)
+        }
+
         bottomSheetDialog.show()
         plus1.setOnClickListener {
             ++num1
@@ -280,6 +284,26 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
             }
 
         }
+    }
+
+    private fun highlightBtn(first: MaterialButton?, second: MaterialButton?, third: MaterialButton?) {
+        first?.elevation=20f
+        first?.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.orange))
+//        first.alpha=0.9f
+        first?.elevation = 8f
+        first?.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+
+        second?.elevation=20f
+        second?.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
+//        first.alpha=0.9f
+        second?.elevation = 0f
+        second?.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+
+        third?.elevation=20f
+        third?.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
+//        first.alpha=0.9f
+        third?.elevation = 0f
+        third?.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
     }
 
     override fun onClick(v: View?) {

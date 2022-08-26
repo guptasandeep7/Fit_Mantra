@@ -475,7 +475,7 @@ class MlActivity : AppCompatActivity() {
                 val result = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
                 if (result != null) {
 
-                    speechResult(result[0])
+                    speechResult(result[0].lowercase())
                 }
                 speechRecognizer.startListening(speechRecognizerIntent)
 
@@ -490,7 +490,7 @@ class MlActivity : AppCompatActivity() {
     }
 
     private fun speechResult(result: String) {
-        Toast.makeText(this, result, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "ML $result", Toast.LENGTH_SHORT).show()
         when {
             result.contains("start") -> {
                 //start exercise

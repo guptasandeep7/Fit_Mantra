@@ -12,13 +12,12 @@ import com.example.morefit.adapter.ExerciseAdapter
 import com.example.morefit.databinding.FragmentExerciseBinding
 import com.example.morefit.model.AllData
 import com.example.morefit.model.Data
-import com.example.morefit.model.TextTutorial
 import com.example.morefit.ui.activity.MlActivity
 import com.example.morefit.ui.activity.RepCounterActivity
 import com.example.morefit.ui.fragment.dash.gym.GymFragment.Companion.muscleName
 import com.example.morefit.utils.hideBottomNavigationView
 import com.example.morefit.utils.showBottomNavigationView
-import com.google.android.material.transition.platform.MaterialSharedAxis
+import com.google.android.material.transition.MaterialSharedAxis
 import com.google.gson.Gson
 import org.tensorflow.lite.examples.poseestimation.ml.PoseClassifier
 

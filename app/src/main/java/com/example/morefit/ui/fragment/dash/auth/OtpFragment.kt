@@ -23,6 +23,7 @@ import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
 import kotlinx.coroutines.launch
+import java.lang.Exception
 import java.util.concurrent.TimeUnit
 
 class OtpFragment : Fragment() {
@@ -60,7 +61,13 @@ class OtpFragment : Fragment() {
 
         verifyOTPBtn.setOnClickListener {
             binding.progressBar.visibility = View.VISIBLE
-            verifyCode(edtOTP.getText().toString())
+            try {
+                verifyCode(edtOTP.getText().toString())
+            }
+            catch (e:Exception)
+            {
+                findNavController().navigate(R.id.action_otpFragment_to_userDetails)
+            }
         }
 
         return binding.root

@@ -27,24 +27,24 @@ class AuthActivity : AppCompatActivity() {
         val service = NotificationService(this)
         service.showNotification()
 
-        val intent = Intent(this, MyBroadcastReceiver::class.java)
-        val pendingIntent = PendingIntent.getBroadcast(
-            this,
-            1,
-            intent,
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) PendingIntent.FLAG_IMMUTABLE else 0
-        )
-        val alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
+//        val intent = Intent(this, MyBroadcastReceiver::class.java)
+//        val pendingIntent = PendingIntent.getBroadcast(
+//            this,
+//            1,
+//            intent,
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) PendingIntent.FLAG_IMMUTABLE else 0
+//        )
+//        val alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
 
 //        val time = System.currentTimeMillis() + 8 * 1000
 //        alarmManager.set(AlarmManager.RTC_WAKEUP, time, pendingIntent)
 
-        alarmManager.setInexactRepeating(
-            AlarmManager.RTC_WAKEUP,
-            System.currentTimeMillis(),
-            10 * 60 * 1000L,
-            pendingIntent
-        )
+//        alarmManager.setInexactRepeating(
+//            AlarmManager.RTC_WAKEUP,
+//            System.currentTimeMillis(),
+//            50 * 60 * 1000L,
+//            pendingIntent
+//        )
     }
 
     private fun createNotificationChannel() {

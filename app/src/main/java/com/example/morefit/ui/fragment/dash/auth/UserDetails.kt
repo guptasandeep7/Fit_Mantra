@@ -84,6 +84,8 @@ class UserDetails : Fragment() {
                     datastore.saveUserDetails(Datastore.HEIGHT.toString(),binding.heightText.text.toString())
                     datastore.saveUserDetails(Datastore.WEIGHT.toString(),binding.weightText.text.toString())
                     datastore.saveUserDetails(Datastore.LAST_NAME_KEY,binding.lastNameText.text.toString())
+                    datastore.changeLoginState(true)
+                    startActivity(Intent(requireContext(), MainActivity::class.java))
 
                 }
                 var age=binding.ageText.text.toString()

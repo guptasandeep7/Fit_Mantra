@@ -10,8 +10,8 @@ import com.example.morefit.adapter.YogaPoseRecyclerAdapter
 import com.example.morefit.databinding.FragmentYogaBinding
 import com.example.morefit.model.Pose
 import com.example.morefit.model.YogaPoses
-import com.google.android.material.transition.platform.MaterialFadeThrough
-import com.google.android.material.transition.platform.MaterialSharedAxis
+import com.google.android.material.transition.MaterialFadeThrough
+import com.google.android.material.transition.MaterialSharedAxis
 import com.google.gson.Gson
 
 class YogaFragment : Fragment(R.layout.fragment_yoga), YogaPoseInterface {

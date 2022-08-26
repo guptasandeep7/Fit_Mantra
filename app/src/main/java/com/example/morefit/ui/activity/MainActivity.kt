@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.morefit.R
@@ -44,6 +45,17 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment
         navController = navHostFragment.navController
         binding.bottomNavigationView.setupWithNavController(navController)
+
+//        if(navController.currentDestination?.id == R.id.dietPlan){
+//            binding.bottomNavigationView.selectedItemId = R.id.dietFragment
+//        }
+
+//        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+//            if (destination.id == R.id.dietPlan) {
+//                binding.bottomNavigationView.menu.clear()
+//                binding.bottomNavigationView.inflateMenu(R.menu.bottom_nav_menu2)
+//            }
+//        }
 
     }
 
@@ -109,7 +121,9 @@ class MainActivity : AppCompatActivity() {
                                 it.english_name == "Chair"
                             }
                             if (yoga != null) {
-                                YogaFragmentDirections.actionYogaFragmentToYogaPoseDetailsFragment(yoga)
+                                YogaFragmentDirections.actionYogaFragmentToYogaPoseDetailsFragment(
+                                    yoga
+                                )
                                     .also {
                                         navController.navigate(it)
                                     }
@@ -120,7 +134,9 @@ class MainActivity : AppCompatActivity() {
                                 it.english_name == "Tree"
                             }
                             if (yoga != null) {
-                                YogaFragmentDirections.actionYogaFragmentToYogaPoseDetailsFragment(yoga)
+                                YogaFragmentDirections.actionYogaFragmentToYogaPoseDetailsFragment(
+                                    yoga
+                                )
                                     .also {
                                         navController.navigate(it)
                                     }
@@ -131,7 +147,9 @@ class MainActivity : AppCompatActivity() {
                                 it.english_name == "Cobra"
                             }
                             if (yoga != null) {
-                                YogaFragmentDirections.actionYogaFragmentToYogaPoseDetailsFragment(yoga)
+                                YogaFragmentDirections.actionYogaFragmentToYogaPoseDetailsFragment(
+                                    yoga
+                                )
                                     .also {
                                         navController.navigate(it)
                                     }
@@ -142,7 +160,9 @@ class MainActivity : AppCompatActivity() {
                                 it.english_name == "Warrior"
                             }
                             if (yoga != null) {
-                                YogaFragmentDirections.actionYogaFragmentToYogaPoseDetailsFragment(yoga)
+                                YogaFragmentDirections.actionYogaFragmentToYogaPoseDetailsFragment(
+                                    yoga
+                                )
                                     .also {
                                         navController.navigate(it)
                                     }
@@ -159,10 +179,10 @@ class MainActivity : AppCompatActivity() {
                             val yogaPose = data.find {
                                 it.english_name == "Chair"
                             }
-                            if (yogaPose !=null){
-                                PoseClassifier.MODEL_FILENAME=yogaPose.file_name
-                                MlActivity.correct_label=yogaPose.correct_label
-                                PoseClassifier.labels=yogaPose.labels
+                            if (yogaPose != null) {
+                                PoseClassifier.MODEL_FILENAME = yogaPose.file_name
+                                MlActivity.correct_label = yogaPose.correct_label
+                                PoseClassifier.labels = yogaPose.labels
                                 val intent = Intent(this, MlActivity::class.java)
                                 startActivity(intent)
                             }
@@ -171,10 +191,10 @@ class MainActivity : AppCompatActivity() {
                             val yogaPose = data.find {
                                 it.english_name == "tree"
                             }
-                            if (yogaPose !=null){
-                                PoseClassifier.MODEL_FILENAME=yogaPose.file_name
-                                MlActivity.correct_label=yogaPose.correct_label
-                                PoseClassifier.labels=yogaPose.labels
+                            if (yogaPose != null) {
+                                PoseClassifier.MODEL_FILENAME = yogaPose.file_name
+                                MlActivity.correct_label = yogaPose.correct_label
+                                PoseClassifier.labels = yogaPose.labels
                                 val intent = Intent(this, MlActivity::class.java)
                                 startActivity(intent)
                             }
@@ -183,19 +203,30 @@ class MainActivity : AppCompatActivity() {
                             val yogaPose = data.find {
                                 it.english_name == "cobra"
                             }
-                            if (yogaPose !=null){
-                                PoseClassifier.MODEL_FILENAME=yogaPose.file_name
-                                MlActivity.correct_label=yogaPose.correct_label
-                                PoseClassifier.labels=yogaPose.labels
+                            if (yogaPose != null) {
+                                PoseClassifier.MODEL_FILENAME = yogaPose.file_name
+                                MlActivity.correct_label = yogaPose.correct_label
+                                PoseClassifier.labels = yogaPose.labels
                                 val intent = Intent(this, MlActivity::class.java)
                                 startActivity(intent)
                             }
                         }
                     }
                 }
+
+                result.contains("start") -> {
+                    //start exercise
+                    RepCounterActivity().startFunc()
+                }
+                result.contains("exit") || result.contains("complete rep") || result.contains("rep completed") -> {
+                    RepCounterActivity().complete()
+                }
+                result.contains("pause") -> {
+                    //pause exercise
+                    RepCounterActivity().startFunc()
+                }
             }
-        }
-        catch (e:Exception){
+        } catch (e: Exception) {
 
         }
     }

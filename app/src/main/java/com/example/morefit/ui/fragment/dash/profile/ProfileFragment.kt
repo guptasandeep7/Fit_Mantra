@@ -8,7 +8,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
 import com.example.morefit.databinding.FragmentProfileBinding
 import com.example.morefit.utils.Datastore
-import com.google.android.material.transition.platform.MaterialSharedAxis
+import com.google.android.material.transition.MaterialSharedAxis
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 

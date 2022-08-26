@@ -17,16 +17,15 @@ import com.example.morefit.utils.Datastore
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.tabs.TabLayoutMediator
-import com.google.android.material.transition.platform.Hold
-import com.google.android.material.transition.platform.MaterialFadeThrough
+import com.google.android.material.transition.MaterialFadeThrough
+//import com.google.android.material.transition.platform.MaterialFadeThrough
 import kotlinx.coroutines.launch
-import com.google.android.material.transition.platform.MaterialSharedAxis
 
 class GymFragment : Fragment(), View.OnClickListener {
 
     private var _binding: FragmentGymBinding? = null
     private val binding get() = _binding!!
-    lateinit var datastore:Datastore
+    lateinit var datastore: Datastore
 
     companion object {
         lateinit var muscleName: String
@@ -35,7 +34,7 @@ class GymFragment : Fragment(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        exitTransition = Hold()
-        datastore= Datastore(requireContext())
+        datastore = Datastore(requireContext())
         enterTransition = MaterialFadeThrough()
         reenterTransition = MaterialFadeThrough()
         returnTransition = MaterialFadeThrough()
@@ -48,7 +47,8 @@ class GymFragment : Fragment(), View.OnClickListener {
     ): View {
         _binding = FragmentGymBinding.inflate(inflater, container, false)
         lifecycleScope.launch {
-           binding.username.text = datastore.getUserDetails(Datastore.NAME_KEY).toString() + " " + datastore.getUserDetails(Datastore.LAST_NAME_KEY).toString()
+            binding.username.text = datastore.getUserDetails(Datastore.NAME_KEY)
+                .toString() + " " + datastore.getUserDetails(Datastore.LAST_NAME_KEY).toString()
         }
         return binding.root
     }

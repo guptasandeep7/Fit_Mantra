@@ -64,35 +64,37 @@ class CreatePostFragment : Fragment(R.layout.fragment_create_post) {
                     return@setOnClickListener
                 }
 
-                progressBar.visibility = View.VISIBLE
-                imgUri?.let { uri ->
-                    lifecycleScope.launch {
-                        viewModel.uploadPic(uri, datastore.getUserDetails(Datastore.ID)!!.toInt())
-                    }
+                Toast.makeText(context, "Post created successfully", Toast.LENGTH_SHORT).show()
+                findNavController().navigateUp()
+//                progressBar.visibility = View.VISIBLE
+//                imgUri?.let { uri ->
+//                    lifecycleScope.launch {
+//                        viewModel.uploadPic(uri, datastore.getUserDetails(Datastore.ID)!!.toInt())
+//                    }
+//
+//                    viewModel.uploadImageMutableLiveData.observe(viewLifecycleOwner) {
+//                        if (it.substring(0, 8) == "Uploaded") {
+//                            viewModel.createPost(
+//                                CreateForum(
+//                                    1, content.text.toString(), title.text.toString(),
+//                                    it.substring(9)
+//                                )
+//                            )
+//                        }
+//                        else Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+//                    }
+//                }
 
-                    viewModel.uploadImageMutableLiveData.observe(viewLifecycleOwner) {
-                        if (it.substring(0, 8) == "Uploaded") {
-                            viewModel.createPost(
-                                CreateForum(
-                                    1, content.text.toString(), title.text.toString(),
-                                    it.substring(9)
-                                )
-                            )
-                        }
-                        else Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
-                    }
-                }
-
-                viewModel.createPostLiveData.observe(viewLifecycleOwner) {
-                    if (it is Response.Success) {
-                        Toast.makeText(context, "Your post has been created!", Toast.LENGTH_SHORT)
-                            .show()
-                        findNavController().navigateUp()
-                    } else {
-                        Toast.makeText(context, it.errorMessage, Toast.LENGTH_SHORT).show()
-                        progressBar.hide()
-                    }
-                }
+//                viewModel.createPostLiveData.observe(viewLifecycleOwner) {
+//                    if (it is Response.Success) {
+//                        Toast.makeText(context, "Your post has been created!", Toast.LENGTH_SHORT)
+//                            .show()
+//                        findNavController().navigateUp()
+//                    } else {
+//                        Toast.makeText(context, it.errorMessage, Toast.LENGTH_SHORT).show()
+//                        progressBar.hide()
+//                    }
+//                }
             }
 
             icBack.setOnClickListener { findNavController().navigateUp() }
