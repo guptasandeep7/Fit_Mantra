@@ -8,15 +8,17 @@ import android.os.Build
 import androidx.core.app.NotificationCompat
 import com.example.morefit.R
 import com.example.morefit.ui.activity.MainActivity
+import kotlin.random.Random
 
 class NotificationService(
     private val context: Context
 ) {
-    companion object{
+    companion object {
         const val CHANNEL_ID = "CHANNEL_ID"
     }
 
-    private val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+    private val notificationManager =
+        context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
     fun showNotification() {
         val activityIntent = Intent(context, MainActivity::class.java)
@@ -27,12 +29,13 @@ class NotificationService(
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) PendingIntent.FLAG_IMMUTABLE else 0
         )
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(R.drawable.breakfast)
+            .setSmallIcon(R.drawable.ic_frame_3)
             .setContentTitle("Hydration Reminder")
             .setContentText("This is a reminder for you to drink water!")
             .setContentIntent(activityPendingIntent)
             .build()
 
-        notificationManager.notify(1, notification)
+        val randomId = Random(System.currentTimeMillis()).nextInt(1000)
+        notificationManager.notify(randomId, notification)
     }
 }
