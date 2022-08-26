@@ -11,6 +11,7 @@ import coil.load
 import com.example.morefit.R
 import com.example.morefit.databinding.ExerciseItemBinding
 import com.example.morefit.model.Data
+import com.example.morefit.model.TextTutorial
 import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.io.Resources
 
 class ExerciseAdapter : RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
@@ -27,14 +28,22 @@ class ExerciseAdapter : RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
     interface onItemClickListener {
         fun onItemClick(position: Int)
         fun onActivityCLick(position: Int)
+        fun onExerciseClickListener(tutorial: Data)
     }
 
     fun setOnItemClickListener(listener: onItemClickListener) {
         mlistner = listener
     }
 
-    class ViewHolder(val binding: ExerciseItemBinding, listener: onItemClickListener) :
+    inner class ViewHolder(val binding: ExerciseItemBinding, listener: onItemClickListener) :
         RecyclerView.ViewHolder(binding.root) {
+
+        init {
+            binding.cardView.setOnClickListener {
+                listener.onExerciseClickListener(addressList[adapterPosition])
+            }
+        }
+
         fun bind(data: Data) {
             binding.item = data
 //            binding.text.text = ""
