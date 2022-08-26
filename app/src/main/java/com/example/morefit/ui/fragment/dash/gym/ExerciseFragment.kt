@@ -12,6 +12,7 @@ import com.example.morefit.adapter.ExerciseAdapter
 import com.example.morefit.databinding.FragmentExerciseBinding
 import com.example.morefit.model.AllData
 import com.example.morefit.model.Data
+import com.example.morefit.model.TextTutorial
 import com.example.morefit.ui.activity.MlActivity
 import com.example.morefit.ui.activity.RepCounterActivity
 import com.example.morefit.ui.fragment.dash.gym.GymFragment.Companion.muscleName
@@ -70,6 +71,11 @@ class ExerciseFragment : Fragment(), View.OnClickListener {
                     val intent = Intent(activity, MlActivity::class.java)
                     startActivity(intent)
                 }
+            }
+
+            override fun onExerciseClickListener(tutorial: Data) {
+                val action = ExerciseFragmentDirections.actionExerciseFragment2ToExerciseDetailFragment(tutorial)
+                findNavController().navigate(action)
             }
         })
 //        exerciseAdapter.setOnItemClickListener(object : ExerciseAdapter.onItemClickListener {
