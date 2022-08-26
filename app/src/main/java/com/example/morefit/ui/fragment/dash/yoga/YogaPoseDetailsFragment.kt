@@ -1,6 +1,7 @@
 package com.example.morefit.ui.fragment.dash.yoga
 
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -15,10 +16,11 @@ import com.example.morefit.utils.hideBottomNavigationView
 import com.example.morefit.utils.showBottomNavigationView
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.transition.platform.MaterialSharedAxis
+import java.util.*
 
 class YogaPoseDetailsFragment : Fragment(R.layout.fragment_yoga_pose_details) {
 	private lateinit var binding: FragmentYogaPoseDetailsBinding
-	
+	lateinit var textToSpeech: TextToSpeech
 	override fun onStart() {
 		super.onStart()
 		activity?.hideBottomNavigationView()
@@ -32,14 +34,25 @@ class YogaPoseDetailsFragment : Fragment(R.layout.fragment_yoga_pose_details) {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		enterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true)
+		// create an object textToSpeech and adding features into it
+		// create an object textToSpeech and adding features into it
+		textToSpeech = TextToSpeech(requireContext()) { i ->
+			// if No error is found then only it will run
+			if (i != TextToSpeech.ERROR) {
+				// To Choose language of speech
+				textToSpeech.setLanguage(Locale.UK)
+			}
+		}
 		returnTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false)
 	}
 	
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
+
 		binding = FragmentYogaPoseDetailsBinding.bind(view).apply {
 			val yogaPose = YogaPoseDetailsFragmentArgs.fromBundle(requireArguments()).yogaPose
 			englishName.text = "${yogaPose.english_name} Pose"
+
 			sanskritName.text = "Sanskrit \"${yogaPose.sanskrit_name}\""
 			yogaDescription.text = yogaPose.yoga_description
 			poseImg.load(yogaPose.image_url) {
@@ -50,7 +63,8 @@ class YogaPoseDetailsFragment : Fragment(R.layout.fragment_yoga_pose_details) {
 				scale(Scale.FILL)
 			}
 			backBtn.setOnClickListener { findNavController().navigateUp() }
-			
+			textToSpeech.speak(yogaPose.english_name,TextToSpeech.QUEUE_FLUSH,null);
+			textToSpeech.speak(yogaPose.sanskrit_name,TextToSpeech.QUEUE_FLUSH,null)
 			viewPager2.adapter = YogaViewPagerAdapter(childFragmentManager, lifecycle, yogaPose.yoga_instruction)
 			TabLayoutMediator(tabLayout, viewPager2) { tab, _ ->
 				tab.text = null
