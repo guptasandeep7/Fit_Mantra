@@ -67,13 +67,14 @@ class UserDetails : Fragment() {
                         call: Call<com.example.morefit.model.Response?>,
                         response: Response<com.example.morefit.model.Response?>
                     ) {
+                        lifecycleScope.launch {
+//                            datastore.saveUserDetails(Datastore.ID, response.body()!!.id.toString())
+                            datastore.changeLoginState(true)
+                        }
 //                        Toast.makeText(requireContext(), response.code().toString(), Toast.LENGTH_SHORT).show()
                         if(response.isSuccessful)
                         {
-                        lifecycleScope.launch {
-                            datastore.saveUserDetails(Datastore.ID, response.body()!!.id.toString())
-                            datastore.changeLoginState(true)
-                        }
+
 
                     }
                         startActivity(Intent(requireContext(), MainActivity::class.java))

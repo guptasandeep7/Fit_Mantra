@@ -243,16 +243,7 @@ class RepCounterActivity : AppCompatActivity() {
         }
         startTimer.setOnClickListener {
 
-            if (counterStart) {
-                running = false
-                startTimer.setImageResource(R.drawable.ic_baseline_play_arrow_24)
-                counterStart = false
-            } else {
-                startTimer.setImageResource(R.drawable.ic_baseline_pause_24)
-                resetTimer.visibility = View.VISIBLE
-                running = true
-                counterStart = true
-            }
+            startFunc()
         }
         resetTimer.setOnClickListener {
             running = false
@@ -264,6 +255,19 @@ class RepCounterActivity : AppCompatActivity() {
             requestPermission()
         }
         cameraSource?.setClassifier(PoseClassifier.create(this))
+    }
+
+    private fun startFunc() {
+        if (counterStart) {
+            running = false
+            startTimer.setImageResource(R.drawable.ic_baseline_play_arrow_24)
+            counterStart = false
+        } else {
+            startTimer.setImageResource(R.drawable.ic_baseline_pause_24)
+            resetTimer.visibility = View.VISIBLE
+            running = true
+            counterStart = true
+        }
     }
 
     private fun complete() {
@@ -518,12 +522,14 @@ class RepCounterActivity : AppCompatActivity() {
         when {
             result.contains("start") -> {
                 //start exercise
+                startFunc()
             }
             result.contains("exit") || result.contains("complete") -> {
                 complete()
             }
             result.contains("pause") -> {
                 //pause exercise
+                startFunc()
             }
         }
     }
