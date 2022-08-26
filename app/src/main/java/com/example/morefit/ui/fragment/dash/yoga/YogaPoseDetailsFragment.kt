@@ -46,6 +46,7 @@ class YogaPoseDetailsFragment : Fragment(R.layout.fragment_yoga_pose_details) {
 				textToSpeech.setLanguage(Locale.UK)
 			}
 		}
+
 		returnTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false)
 	}
 	
@@ -58,6 +59,8 @@ class YogaPoseDetailsFragment : Fragment(R.layout.fragment_yoga_pose_details) {
 
 			sanskritName.text = "Sanskrit \"${yogaPose.sanskrit_name}\""
 			yogaDescription.text = yogaPose.yoga_description
+			textToSpeech.speak(yogaPose.english_name,TextToSpeech.QUEUE_FLUSH,null);
+			textToSpeech.speak(yogaPose.sanskrit_name,TextToSpeech.QUEUE_FLUSH,null)
 			poseImg.load(yogaPose.image_url) {
 				crossfade(true)
 				crossfade(300)
@@ -66,8 +69,7 @@ class YogaPoseDetailsFragment : Fragment(R.layout.fragment_yoga_pose_details) {
 				scale(Scale.FILL)
 			}
 			backBtn.setOnClickListener { findNavController().navigateUp() }
-			textToSpeech.speak(yogaPose.english_name,TextToSpeech.QUEUE_FLUSH,null);
-			textToSpeech.speak(yogaPose.sanskrit_name,TextToSpeech.QUEUE_FLUSH,null)
+
 			viewPager2.adapter = YogaViewPagerAdapter(childFragmentManager, lifecycle, yogaPose.yoga_instruction)
 			TabLayoutMediator(tabLayout, viewPager2) { tab, _ ->
 				tab.text = null

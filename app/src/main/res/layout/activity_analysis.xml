@@ -95,42 +95,12 @@
             app:cardElevation="8dp">
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/incorrectPosture"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:fontFamily="@font/avenir"
-                android:gravity="center"
-                android:text="24"
-                android:textColor="@color/black"
-                android:textSize="56sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginBottom="8dp"
-                android:fontFamily="@font/avenir"
-                android:gravity="center"
-                android:text="Incorrect Posture"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
-        </com.google.android.material.card.MaterialCardView>
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_margin="16dp"
-            app:cardBackgroundColor="#FFCDD2"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
-
-            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/incorrectPosture2"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:fontFamily="@font/avenir"
                 android:gravity="center"
-                android:text="24"
+                android:text="0"
                 android:textColor="@color/black"
                 android:textSize="56sp" />
 
@@ -142,36 +112,6 @@
                 android:fontFamily="@font/avenir"
                 android:gravity="center"
                 android:text="RepCount"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
-        </com.google.android.material.card.MaterialCardView>
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_margin="16dp"
-            app:cardBackgroundColor="#FFCDD2"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/incorrectPosture3"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:fontFamily="@font/avenir"
-                android:gravity="center"
-                android:text="24"
-                android:textColor="@color/black"
-                android:textSize="56sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginBottom="8dp"
-                android:fontFamily="@font/avenir"
-                android:gravity="center"
-                android:text="Timer"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
         </com.google.android.material.card.MaterialCardView>

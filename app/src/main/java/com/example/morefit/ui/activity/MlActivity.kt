@@ -495,7 +495,7 @@ class MlActivity : AppCompatActivity() {
             result.contains("start") -> {
                 //start exercise
             }
-            result.contains("exit") || result.contains("complete") -> {
+            result.contains("exit") || result.contains("complete") || result.contains("completed") || result.contains("stop") -> {
                 complete()
             }
             result.contains("pause") -> {
@@ -527,9 +527,9 @@ class MlActivity : AppCompatActivity() {
             else if((System.currentTimeMillis() - datastore.getLastWorkoutDate()) < 86400000){
                 datastore.setLastWorkoutDate(System.currentTimeMillis())
             }
-            startActivity(Intent(application,MainActivity::class.java))
-            finish()
         }
+        startActivity(Intent(application,MainActivity::class.java))
+        finish()
     }
 
 
