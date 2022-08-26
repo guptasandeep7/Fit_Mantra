@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="16dp"
+    android:elevation="5dp">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Human's body stats"
+        android:layout_marginHorizontal="24dp"
+        android:textSize="24sp"
+        android:fontFamily="@font/montserrat_semibold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Height"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/heading" />
+
+    <TextView
+        android:id="@+id/height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="123"
+        android:textColor="@color/orange"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textview"
+        app:layout_constraintTop_toTopOf="@id/textview" />
+
+    <TextView
+        android:id="@+id/weightHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Weight"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview" />
+
+    <TextView
+        android:id="@+id/weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="123"
+        android:textColor="@color/orange"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/weightHeading"
+        app:layout_constraintTop_toTopOf="@+id/weightHeading" />
+
+    <TextView
+        android:id="@+id/textview2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Age"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weightHeading" />
+
+    <TextView
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="123"
+        android:fontFamily="@font/montserrat_semibold"
+        android:textColor="@color/orange"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/textview2"
+        app:layout_constraintTop_toTopOf="@+id/textview2" />
+
+    <TextView
+        android:id="@+id/bmiHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Body Mass Index\n(BMI)"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview2" />
+
+    <TextView
+        android:id="@+id/bmi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="23.6"
+        android:fontFamily="@font/montserrat_semibold"
+        android:textSize="16sp"
+        android:textColor="@color/orange"
+        app:layout_constraintStart_toEndOf="@id/bmiHeading"
+        app:layout_constraintTop_toTopOf="@id/bmiHeading" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
