@@ -35,6 +35,7 @@ class CreatePostFragment : Fragment(R.layout.fragment_create_post) {
             val launcher = registerForActivityResult(ActivityResultContracts.GetContent()) {
                 it?.let { uri ->
                     imgUri = uri
+                    postImg.visibility = View.VISIBLE
                     postImg.setImageURI(uri)
                     binding.selectImgBtn.text = "Selected √"
                     binding.selectImgBtn.elevation = 0f

@@ -43,7 +43,7 @@ class AuthActivity : AppCompatActivity() {
         alarmManager.setInexactRepeating(
             AlarmManager.RTC_WAKEUP,
             System.currentTimeMillis(),
-            7200L,
+            10 * 60 * 1000L,
             pendingIntent
         )
     }
