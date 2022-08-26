@@ -17,6 +17,7 @@ import com.example.morefit.utils.Datastore
 import com.example.morefit.utils.hideBottomNavigationView
 import com.example.morefit.utils.showBottomNavigationView
 import com.example.morefit.view_models.CommunityForumViewModel
+import com.google.android.material.transition.MaterialFadeThrough
 import kotlinx.coroutines.launch
 
 
@@ -28,6 +29,12 @@ class CreatePostFragment : Fragment(R.layout.fragment_create_post) {
     }
     private var imgUri: Uri? = null
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enterTransition = MaterialFadeThrough()
+        returnTransition = MaterialFadeThrough()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         datastore = Datastore(requireContext())
@@ -35,6 +42,7 @@ class CreatePostFragment : Fragment(R.layout.fragment_create_post) {
             val launcher = registerForActivityResult(ActivityResultContracts.GetContent()) {
                 it?.let { uri ->
                     imgUri = uri
+                    postImg.visibility = View.VISIBLE
                     postImg.setImageURI(uri)
                     binding.selectImgBtn.text = "Selected √"
                     binding.selectImgBtn.elevation = 0f

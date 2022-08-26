@@ -15,12 +15,19 @@ import com.example.morefit.sealedClass.Response
 import com.example.morefit.view_models.CommunityForumViewModel
 import com.example.morefit.view_models.GenerateMealPlanViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.transition.MaterialFadeThrough
 
 class CommunityForumFragment : Fragment(R.layout.fragment_community_forum),
     CommunityForumInterface {
     private lateinit var binding: FragmentCommunityForumBinding
     private val viewModel by lazy {
         ViewModelProvider(this)[CommunityForumViewModel::class.java]
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enterTransition = MaterialFadeThrough()
+        returnTransition = MaterialFadeThrough()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -34,7 +34,7 @@ class GymFragment : Fragment(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        exitTransition = Hold()
+//        exitTransition = Hold()
         datastore= Datastore(requireContext())
         enterTransition = MaterialFadeThrough()
         reenterTransition = MaterialFadeThrough()

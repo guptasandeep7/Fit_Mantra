@@ -10,6 +10,7 @@ data class meal(
     var id:String,
     var image: String,
     var title: String,
+    var serving:String,
     var cal: String,
     var roti:String,
     var rice:String,

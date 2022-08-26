@@ -47,6 +47,11 @@
         app:layout_constraintStart_toStartOf="@+id/icBack"
         app:layout_constraintTop_toBottomOf="@+id/icBack" />
 
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/subHeading1"
         android:layout_width="wrap_content"
@@ -166,5 +171,7 @@
         app:layout_constraintStart_toStartOf="@+id/createPostBtn"
         app:layout_constraintTop_toTopOf="@+id/createPostBtn"
         app:trackCornerRadius="16dp" />
+
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

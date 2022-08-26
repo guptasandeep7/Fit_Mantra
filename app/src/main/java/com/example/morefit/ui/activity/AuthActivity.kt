@@ -8,7 +8,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.os.SystemClock
 import androidx.appcompat.app.AppCompatActivity
 import com.example.morefit.R
 import com.example.morefit.broadcastReceiver.MyBroadcastReceiver
@@ -25,7 +24,7 @@ class AuthActivity : AppCompatActivity() {
         setContentView(R.layout.activity_auth)
 
         createNotificationChannel()
-        val service = NotificationService(applicationContext)
+        val service = NotificationService(this)
         service.showNotification()
 
         val intent = Intent(this, MyBroadcastReceiver::class.java)
@@ -43,7 +42,7 @@ class AuthActivity : AppCompatActivity() {
         alarmManager.setInexactRepeating(
             AlarmManager.RTC_WAKEUP,
             System.currentTimeMillis(),
-            7200L,
+            10 * 60 * 1000L,
             pendingIntent
         )
     }

@@ -7,14 +7,14 @@
         motion:constraintSetStart="@id/start"
         motion:duration="800">
         <KeyFrameSet></KeyFrameSet>
-        <OnSwipe motion:touchAnchorId="@+id/forumRecyclerView" />
+        <OnSwipe motion:touchAnchorId="@+id/nestedScrollView" />
     </Transition>
 
     <ConstraintSet android:id="@+id/start"></ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
         <Constraint
-            android:id="@+id/subHeading1"
+            android:id="@+id/heading1"
             android:layout_width="wrap_content"
             android:layout_height="1dp"
             android:layout_marginStart="0dp"

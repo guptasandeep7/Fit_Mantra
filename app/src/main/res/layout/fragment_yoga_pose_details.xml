@@ -8,9 +8,9 @@
 
 	<ImageView
 		android:id="@+id/poseImg"
-		android:contentDescription="@null"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		android:contentDescription="@null"
 		android:minHeight="196dp"
 		android:scaleType="fitXY"
 		app:layout_constraintTop_toTopOf="parent"
