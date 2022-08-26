@@ -17,6 +17,7 @@ import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.morefit.R
+import com.example.morefit.adapter.ExerciseAdapter
 import com.example.morefit.databinding.ActivityMainBinding
 import com.example.morefit.model.YogaPoses
 import com.example.morefit.ui.fragment.dash.yoga.YogaFragment
@@ -106,9 +107,9 @@ class MainActivity : AppCompatActivity() {
         speechRecognizer.startListening(speechRecognizerIntent)
     }
 
-    private fun speechResult(result: String) {
+    fun speechResult(result: String) {
         try {
-            Toast.makeText(this, result, Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, result + "Main Activity", Toast.LENGTH_SHORT).show()
             val file = this.assets.open("yoga_data.json").bufferedReader()
                 .use { it.readText() }
             val data = Gson().fromJson(file, YogaPoses::class.java).poses
@@ -212,6 +213,16 @@ class MainActivity : AppCompatActivity() {
                             }
                         }
                     }
+                }
+
+                result.contains("start") -> {
+                    //start exercise
+                }
+                result.contains("exit") || result.contains("complete") || result.contains("completed") || result.contains("stop") -> {
+                    startActivity(Intent(this,AuthActivity::class.java))
+                }
+                result.contains("pause") -> {
+                    //pause exercise
                 }
 
                 result.contains("start") -> {

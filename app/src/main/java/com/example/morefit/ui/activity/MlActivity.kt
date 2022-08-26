@@ -44,11 +44,11 @@ import org.tensorflow.lite.examples.poseestimation.data.Device
 import org.tensorflow.lite.examples.poseestimation.ml.*
 import java.util.*
 
-
-class MlActivity : AppCompatActivity() {
+ class MlActivity : AppCompatActivity() {
     companion object {
         private const val FRAGMENT_DIALOG = "dialog"
         var correct_label=""
+        var name=""
     }
     private val contentViewModel: ContentViewModel by viewModels() {
         WordViewModelFactory((application as ContentApplication).repository)
@@ -175,9 +175,7 @@ class MlActivity : AppCompatActivity() {
         swClassification = findViewById(R.id.swPoseClassification)
         vClassificationOption = findViewById(R.id.vClassificationOption)
         var title=findViewById<TextView>(R.id.Title1)
-
-        title.text=ExerciseFragment.name
-        checkAudioPermission()
+        title.text=name
         initSpinner()
         val dialodView =
             LayoutInflater.from(this).inflate(R.layout.fragment_lets_go, null)
@@ -289,8 +287,6 @@ class MlActivity : AppCompatActivity() {
         if (wasRunning) {
             running = true;
         }
-        startSpeechToText()
-
     }
 
     override fun onPause() {
@@ -450,61 +446,7 @@ class MlActivity : AppCompatActivity() {
         )
     }
 
-    private fun startSpeechToText() {
-        val speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this)
-        val speechRecognizerIntent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
-        speechRecognizerIntent.putExtra(
-            RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-            RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
-        )
-        speechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault())
-
-        speechRecognizer.setRecognitionListener(object : RecognitionListener {
-            override fun onReadyForSpeech(bundle: Bundle?) {}
-            override fun onBeginningOfSpeech() {}
-            override fun onRmsChanged(v: Float) {}
-            override fun onBufferReceived(bytes: ByteArray?) {}
-            override fun onEndOfSpeech() {
-                speechRecognizer.startListening(speechRecognizerIntent)
-            }
-            override fun onError(i: Int) {
-                speechRecognizer.startListening(speechRecognizerIntent)
-            }
-
-            override fun onResults(bundle: Bundle) {
-                val result = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
-                if (result != null) {
-
-                    speechResult(result[0].lowercase())
-                }
-                speechRecognizer.startListening(speechRecognizerIntent)
-
-            }
-            override fun onPartialResults(bundle: Bundle) {
-                speechRecognizer.startListening(speechRecognizerIntent)
-            }
-            override fun onEvent(i: Int, bundle: Bundle?) {}
-        })
-        // starts listening ...
-        speechRecognizer.startListening(speechRecognizerIntent)
-    }
-
-    private fun speechResult(result: String) {
-        Toast.makeText(this, "ML $result", Toast.LENGTH_SHORT).show()
-        when {
-            result.contains("start") -> {
-                //start exercise
-            }
-            result.contains("exit") || result.contains("complete") || result.contains("completed") || result.contains("stop") -> {
-                complete()
-            }
-            result.contains("pause") -> {
-                //pause exercise
-            }
-        }
-    }
-
-    private fun complete() {
+    fun complete() {
         var content= arrayListOf<Content>(Content(System.currentTimeMillis(),ExerciseFragment.name,
             seconds.toLong(),0
         ))
@@ -533,16 +475,6 @@ class MlActivity : AppCompatActivity() {
     }
 
 
-    fun checkAudioPermission() {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {  // M = 23
-            if(ContextCompat.checkSelfPermission(this, "android.permission.RECORD_AUDIO") != PackageManager.PERMISSION_GRANTED) {
-                // this will open settings which asks for permission
-                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:com.example.morefit"))
-                startActivity(intent)
-                Toast.makeText(this, "Allow Microphone Permission", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
 
     private fun createPoseEstimator() {
         // For MoveNet MultiPose, hide score and disable pose classifier as the model returns
@@ -713,4 +645,5 @@ class MlActivity : AppCompatActivity() {
             }
         }
     }
+
 }

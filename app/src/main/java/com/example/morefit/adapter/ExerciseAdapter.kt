@@ -64,12 +64,13 @@ class ExerciseAdapter : RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(addressList[position])
         holder.binding.button.setOnClickListener {
-             mlistner?.onActivityCLick(position)
+            mlistner?.onActivityCLick(position)
         }
-        if(addressList[position].file_name.isNullOrEmpty())
-        { holder.binding.button.visibility= View.GONE}
+        if (addressList[position].file_name.isNullOrEmpty()) {
+            holder.binding.button.visibility = View.GONE
+        }
 
-        holder.binding.imageView2.setOnClickListener{
+        holder.binding.imageView2.setOnClickListener {
             mlistner?.onItemClick(position)
         }
     }
