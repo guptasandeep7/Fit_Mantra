@@ -42,7 +42,7 @@ class GymFragment : Fragment(), View.OnClickListener {
         returnTransition = MaterialFadeThrough()
         /*var activity = requireActivity()
         (activity as MainActivity).viewModel.query.observe(viewLifecycleOwner, {
-            muscleName = it
+            logic
         })
 
          */
