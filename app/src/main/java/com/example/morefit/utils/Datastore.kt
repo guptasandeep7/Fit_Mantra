@@ -41,11 +41,11 @@ class Datastore(val context: Context) {
         return context.datastore.data.first()[key1]
     }
 
-    suspend fun getLastWorkoutDate(): Long {
-        return context.datastore.data.first()[LAST_WORKOUT_DATE] ?: 0
+    suspend fun getLastWorkoutDate(): Long{
+        return context.datastore.data.first()[LAST_WORKOUT_DATE]?:0
     }
 
-    suspend fun setLastWorkoutDate(date: Long) {
+    suspend fun setLastWorkoutDate(date:Long){
         context.datastore.edit {
             it[LAST_WORKOUT_DATE] = date
         }
@@ -55,15 +55,14 @@ class Datastore(val context: Context) {
         return context.datastore.data.first()[STREAK_COUNT] ?: 0
     }
 
-    suspend fun setStreakCount(count: Int) {
+    suspend fun setStreakCount(count:Int) {
         context.datastore.edit {
             it[STREAK_COUNT] = count
         }
     }
-
     suspend fun changeLoginState(value: Boolean) {
         val key1 = booleanPreferencesKey(LOGIN_KEY)
-        context.datastore.edit {
+       context.datastore.edit {
             it[key1] = value
         }
     }

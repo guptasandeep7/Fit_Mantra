@@ -51,25 +51,36 @@ class UserDetails : Fragment() {
                 lifecycleScope.launch {
                     datastore.saveUserDetails(Datastore.NAME_KEY, binding.firstNameText.text.toString())
                     datastore.saveUserDetails(Datastore.LAST_NAME_KEY,binding.lastNameText.text.toString())
-                    datastore.changeLoginState(true)
+
                 }
+                var age=binding.ageText.text.toString()
                var call= ServiceBuilder.buildService().uploadUserDetails(
-                    PhoneNumberFragment.phoneNumber,
+                    PhoneNumberFragment.phoneNumber.toLong(),
                     binding.firstNameText.text.toString()+ " " + binding.lastNameText.text.toString(),
-                    binding.ageText.text.toString(),
+                    age.toInt(),
                     gender,
-                    binding.heightText.text.toString(),
-                  binding.weightText.text.toString()
+                    binding.heightText.text.toString().toInt(),
+                  binding.weightText.text.toString().toInt()
                 )
-                call.enqueue(object : Callback<ResponseBody?> {
+                call.enqueue(object : Callback<com.example.morefit.model.Response?> {
                     override fun onResponse(
-                        call: Call<ResponseBody?>,
-                        response: Response<ResponseBody?>
+                        call: Call<com.example.morefit.model.Response?>,
+                        response: Response<com.example.morefit.model.Response?>
                     ) {
+                        lifecycleScope.launch {
+//                            datastore.saveUserDetails(Datastore.ID, response.body()!!.id.toString())
+                            datastore.changeLoginState(true)
+                        }
+//                        Toast.makeText(requireContext(), response.code().toString(), Toast.LENGTH_SHORT).show()
+                        if(response.isSuccessful)
+                        {
+
+
+                    }
                         startActivity(Intent(requireContext(), MainActivity::class.java))
                     }
 
-                    override fun onFailure(call: Call<ResponseBody?>, t: Throwable) {
+                    override fun onFailure(call: Call<com.example.morefit.model.Response?>, t: Throwable) {
                         Toast.makeText(requireContext(), t.message.toString(), Toast.LENGTH_SHORT).show()
                     }
                 })
