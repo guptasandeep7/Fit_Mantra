@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.example.morefit.R
@@ -26,6 +28,10 @@ class UserDetails : Fragment() {
     private lateinit var binding: FragmentUserDetailsBinding
     lateinit var datastore: Datastore
     var gender:String="Male"
+    lateinit var categories:List<String>
+    private var selectedTarget:Int = 0
+    var resultcateogry:Float= 0F;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         datastore= Datastore(requireContext())
@@ -37,6 +43,21 @@ class UserDetails : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding=FragmentUserDetailsBinding.inflate(inflater, container, false)
+        categories = resources.getStringArray(R.array.category_array).toMutableList()
+        val adapter = ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_spinner_dropdown_item,
+            categories
+        )
+        binding.category.adapter = adapter
+
+        binding.category.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+                selectedTarget = position
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {}
+        }
         binding.radioGroup.setOnCheckedChangeListener { group, checkedId ->
             if(checkedId==R.id.male){
                 gender="Male"
@@ -48,8 +69,19 @@ class UserDetails : Fragment() {
         }
         binding.nextbutton.setOnClickListener {
             if(!(binding.firstNameText.text.isNullOrEmpty())) {
+                when(selectedTarget){
+                    0 ->resultcateogry= 1.2F
+                    1 ->resultcateogry= 1.375F
+                    2 -> resultcateogry= 1.55F
+                    3 -> resultcateogry= 1.725F
+                    4 ->resultcateogry= 1.9F
+                }
                 lifecycleScope.launch {
+                    datastore.saveUserDetails(Datastore.CAL.toString(),resultcateogry.toString())
                     datastore.saveUserDetails(Datastore.NAME_KEY, binding.firstNameText.text.toString())
+                    datastore.saveUserDetails(Datastore.AGE.toString(),binding.ageText.text.toString())
+                    datastore.saveUserDetails(Datastore.HEIGHT.toString(),binding.heightText.text.toString())
+                    datastore.saveUserDetails(Datastore.WEIGHT.toString(),binding.weightText.text.toString())
                     datastore.saveUserDetails(Datastore.LAST_NAME_KEY,binding.lastNameText.text.toString())
 
                 }

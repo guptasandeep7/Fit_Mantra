@@ -15,35 +15,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/calory_layout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="22dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="60dp"
-        app:boxCornerRadiusBottomEnd="30dp"
-        app:boxCornerRadiusBottomStart="30dp"
-        app:boxCornerRadiusTopEnd="30dp"
-        app:boxCornerRadiusTopStart="30dp"
-        app:helperTextTextColor="?attr/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalBar">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/calory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:hint="Enter Calories(min.cal. 1000)"
-            android:inputType="numberDecimal"
-            android:paddingStart="30dp"
-            android:paddingEnd="30dp"
-            android:textColorHint="#4D000000" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ingredient_layout_break"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
@@ -58,7 +29,7 @@
         app:helperTextTextColor="?attr/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calory_layout">
+        app:layout_constraintTop_toBottomOf="@id/DecCal">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/ingredient_break"
@@ -194,7 +165,7 @@
         android:fontFamily="@font/poppins"
         app:layout_constraintEnd_toEndOf="@+id/plus"
         app:layout_constraintStart_toStartOf="@+id/minus"
-        app:layout_constraintTop_toBottomOf="@+id/calory_layout" />
+        app:layout_constraintTop_toBottomOf="@id/DecCal" />
 
     <TextView
         android:id="@+id/textView11"
@@ -278,7 +249,7 @@
         android:fontFamily="@font/poppins"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/plus"
-        app:layout_constraintTop_toBottomOf="@+id/calory_layout" />
+        app:layout_constraintTop_toBottomOf="@+id/DecCal" />
 
     <CheckBox
         android:id="@+id/radioBtn1"
@@ -312,5 +283,63 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/plus3"
         app:layout_constraintTop_toTopOf="@+id/plus3" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/increaseCal"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="36dp"
+        android:text="Gain Weight"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:strokeColor="?attr/colorPrimary"
+        app:strokeWidth="1dp"
+        app:cornerRadius="30dp"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalBar" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/maintainCal"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="36dp"
+        android:text="Maintain Weight"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:strokeColor="?attr/colorPrimary"
+        app:strokeWidth="1dp"
+        app:cornerRadius="30dp"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/increaseCal" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/DecCal"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="36dp"
+        android:text="Reduce Weight"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:strokeColor="?attr/colorPrimary"
+        app:strokeWidth="1dp"
+        app:cornerRadius="30dp"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/maintainCal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

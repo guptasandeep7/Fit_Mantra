@@ -16,4 +16,6 @@
     <color name="greyTxtColor">#B1B2BA</color>
     <color name="colorTransparent">#00000000</color>
     <color name="green">#6CBB3C</color>
+    <color name="lightOrange">#ff9e22</color>
+
 </resources>
