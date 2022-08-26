@@ -10,6 +10,7 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <uses-feature android:name="android.hardware.camera.any" />
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
@@ -23,6 +24,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MoreFit"
         android:usesCleartextTraffic="true">
+
+        <receiver android:name = ".broadcastReceiver.MyBroadcastReceiver" />
+
         <activity
             android:name=".ui.fragment.dash.analysis.AnalysisActivity"
             android:exported="false" />

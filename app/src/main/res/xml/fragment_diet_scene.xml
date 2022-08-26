@@ -14,7 +14,7 @@
 
     <ConstraintSet android:id="@+id/end">
         <Constraint
-            android:id="@+id/heading1"
+            android:id="@+id/subHeading1"
             android:layout_width="wrap_content"
             android:layout_height="1dp"
             android:layout_marginStart="0dp"
@@ -23,13 +23,13 @@
             motion:layout_constraintStart_toStartOf="@+id/headingSmall"
             motion:layout_constraintTop_toBottomOf="@+id/icBack" />
         <Constraint
-            android:id="@+id/heading2"
+            android:id="@+id/subHeading2"
             android:layout_width="wrap_content"
             android:layout_height="1dp"
             android:layout_marginTop="-10dp"
             android:alpha="0"
-            motion:layout_constraintStart_toStartOf="@+id/heading1"
-            motion:layout_constraintTop_toBottomOf="@+id/heading1" />
+            motion:layout_constraintStart_toStartOf="@+id/subHeading1"
+            motion:layout_constraintTop_toBottomOf="@+id/subHeading1" />
         <Constraint
             android:id="@+id/horizontalScrollView"
             android:layout_width="match_parent"
@@ -37,7 +37,7 @@
             android:layout_marginTop="8dp"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toBottomOf="@+id/heading2" />
+            motion:layout_constraintTop_toBottomOf="@+id/subHeading2" />
         <Constraint
             android:id="@+id/headingSmall"
             android:layout_width="wrap_content"

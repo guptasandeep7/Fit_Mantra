@@ -12,7 +12,7 @@ val Context.datastore: DataStore<Preferences> by preferencesDataStore(DATASTORE_
 class Datastore(val context: Context) {
 
     companion object {
-        const val ID="IDKEY"
+        const val ID = "IDKEY"
         const val NAME_KEY = "NAME_KEY"
         const val LAST_NAME_KEY="LAST_NAME"
         val HASH_KEY = stringPreferencesKey("hash_key")

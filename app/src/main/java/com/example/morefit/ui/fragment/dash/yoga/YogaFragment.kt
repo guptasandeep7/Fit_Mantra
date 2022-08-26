@@ -32,6 +32,8 @@ class YogaFragment : Fragment(R.layout.fragment_yoga), YogaPoseInterface {
                 .use { it.readText() }
             val data = Gson().fromJson(file, YogaPoses::class.java)
             yogaRecyclerView.adapter = YogaPoseRecyclerAdapter(this@YogaFragment, data.poses)
+
+            icBack.setOnClickListener { findNavController().navigateUp() }
         }
     }
 

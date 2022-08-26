@@ -7,5 +7,6 @@ data class Forum(
     val image: String,
     val is_liked: Boolean,
     val liked_by: List<Int>,
-    val title: String
+    val title: String,
+    val name: String
 )

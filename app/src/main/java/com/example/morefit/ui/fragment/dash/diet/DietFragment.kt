@@ -100,7 +100,7 @@ class DietFragment : Fragment(R.layout.fragment_diet), View.OnClickListener {
         binding.LowFatAbs.setOnClickListener(this)
         binding.ShellFishFree.setOnClickListener(this)
 
-
+        binding.icBack.setOnClickListener { findNavController().navigateUp() }
     }
 
     private fun showBottomSheet() {
