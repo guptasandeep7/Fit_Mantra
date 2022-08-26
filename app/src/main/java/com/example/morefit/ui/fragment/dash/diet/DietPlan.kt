@@ -84,12 +84,6 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
     var water4 = 0.0
     private val generateMealPlanViewModel by lazy { ViewModelProvider(this)[GenerateMealPlanViewModel::class.java] }
 
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        val bottomNavigationView = activity?.findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-//        bottomNavigationView?.menu?.clear()
-//        bottomNavigationView?.inflateMenu(R.menu.bottom_nav_menu2)
-//    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -97,9 +91,6 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
         binding.radioButton.setOnClickListener(this)
         binding.radioButton2.setOnClickListener(this)
         binding.radioButton3.setOnClickListener(this)
-        binding.breakfastSite.setOnClickListener(this)
-        binding.lunchSite.setOnClickListener(this)
-        binding.dinnerSite.setOnClickListener(this)
         Mealdata = mutableListOf()
         Mealdatalunch = mutableListOf()
         MealdataDinner = mutableListOf()
@@ -120,11 +111,8 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
         binding.waterTraker3.visibility = View.GONE
         binding.waterTraker4.visibility = View.GONE
 
-        binding.breakfastSite.visibility = View.GONE
         binding.textView17.visibility = View.VISIBLE
-        binding.lunchSite.visibility = View.GONE
         binding.textView18.visibility = View.VISIBLE
-        binding.dinnerSite.visibility = View.GONE
         binding.textView19.visibility = View.VISIBLE
 
 
@@ -441,7 +429,6 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                 mealData.forEach {
                     when (it.id) {
                         "breakfast" -> {
-                            binding.breakfastSite.visibility = View.VISIBLE
                             binding.textView17.visibility = View.GONE
                             meal.add(
                                 item_model(
@@ -468,7 +455,7 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                                 )
                             }
                             val url = it.url
-                            binding.breakfastSite.setOnClickListener {
+                            binding.breakfast.setOnClickListener {
                                 golink(url)
                             }
                             binding.textView12.text =
@@ -476,7 +463,6 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                             mealBreakAdapter.updateMealList(meal)
                         }
                         "lunch" -> {
-                            binding.lunchSite.visibility = View.VISIBLE
                             binding.textView18.visibility = View.GONE
                             meal1.add(
                                 item_model(
@@ -503,7 +489,7 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                                 )
                             }
                             val url = it.url
-                            binding.lunchSite.setOnClickListener {
+                            binding.lunch.setOnClickListener {
                                 golink(url)
                             }
                             binding.textView13.text =
@@ -511,7 +497,6 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                             mealLunchAdapter.updateMealList(meal1)
                         }
                         "dinner" -> {
-                            binding.dinnerSite.visibility = View.VISIBLE
                             binding.textView19.visibility = View.GONE
                             meal2.add(
                                 item_model(
@@ -538,7 +523,7 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                                 )
                             }
                             val url = it.url
-                            binding.dinnerSite.setOnClickListener {
+                            binding.dinner.setOnClickListener {
                                 golink(url)
                             }
                             binding.textView14.text =
@@ -633,29 +618,25 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
             if (Mealdata[0].count == 0) {
                 breakfst = 0
                 binding.recyclerview1.visibility = View.GONE
-                binding.breakfastSite.visibility = View.GONE
                 binding.textView17.visibility = View.VISIBLE
             }
             if (Mealdatalunch[0].count == 0) {
                 lun = 0
                 binding.recyclerview2.visibility = View.GONE
-                binding.lunchSite.visibility = View.GONE
                 binding.textView18.visibility = View.VISIBLE
 
             }
             if (MealdataDinner[0].count == 0) {
                 din = 0
                 binding.recyclerview3.visibility = View.GONE
-                binding.dinnerSite.visibility = View.GONE
                 binding.textView19.visibility = View.VISIBLE
 
             }
 
 
             if (breakfst == 1) {
-                binding.breakfastSite.visibility = View.VISIBLE
                 binding.textView17.visibility = View.GONE
-                binding.breakfastSite.setOnClickListener {
+                binding.breakfast.setOnClickListener {
                     golink(Mealdata[0].hits[0].recipe.url)
                 }
                 binding.textView12.text =
@@ -663,9 +644,8 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                 mealBreakAdapter.updateMealList(meal)
             }
             if (lun == 1) {
-                binding.lunchSite.visibility = View.VISIBLE
                 binding.textView18.visibility = View.GONE
-                binding.lunchSite.setOnClickListener {
+                binding.lunch.setOnClickListener {
                     golink(Mealdatalunch[0].hits[0].recipe.url)
                 }
                 binding.textView13.text =
@@ -673,9 +653,8 @@ class DietPlan : Fragment(R.layout.fragment_diet_plan), View.OnClickListener {
                 mealLunchAdapter.updateMealList(meal1)
             }
             if (din == 1) {
-                binding.dinnerSite.visibility = View.VISIBLE
                 binding.textView19.visibility = View.GONE
-                binding.dinnerSite.setOnClickListener {
+                binding.dinner.setOnClickListener {
                     golink(MealdataDinner[0].hits[0].recipe.url)
                 }
                 binding.textView14.text =

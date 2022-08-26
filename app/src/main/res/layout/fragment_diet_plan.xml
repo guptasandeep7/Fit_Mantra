@@ -188,15 +188,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-            <ImageView
-                android:id="@+id/breakfastSite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView6"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView6"
-                app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
 
             <TextView
                 android:id="@+id/textView12"
@@ -206,7 +197,7 @@
                 android:textColor="@color/black"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView6"
-                app:layout_constraintEnd_toStartOf="@+id/breakfastSite"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView6" />
 
             <TextView
@@ -322,7 +313,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/container2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@drawable/orange">
 
             <CheckBox
@@ -368,21 +359,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="16dp"
-                android:nestedScrollingEnabled="false"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:nestedScrollingEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
-            <ImageView
-                android:id="@+id/lunchSite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/lun"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/lun"
-                app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
 
             <TextView
                 android:id="@+id/textView13"
@@ -392,7 +374,7 @@
                 android:textColor="@color/black"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintBottom_toBottomOf="@+id/lun"
-                app:layout_constraintEnd_toStartOf="@+id/lunchSite"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/lun" />
 
             <TextView
@@ -559,16 +541,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
-            <ImageView
-                android:id="@+id/dinnerSite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView15"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView15"
-                app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
-
             <TextView
                 android:id="@+id/textView14"
                 android:layout_width="wrap_content"
@@ -577,7 +549,7 @@
                 android:textColor="@color/black"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView15"
-                app:layout_constraintEnd_toStartOf="@+id/dinnerSite"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView15" />
 
             <TextView

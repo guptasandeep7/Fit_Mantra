@@ -42,7 +42,7 @@
 			android:text="Butterfly Pose"
 			android:textColor="@color/txtColor"
 			android:textSize="24sp"
-			android:layout_marginEnd="-6dp"
+			android:layout_marginEnd="4dp"
 			app:layout_constraintEnd_toStartOf="@+id/poseImg"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toTopOf="parent" />
@@ -54,7 +54,7 @@
 			android:fontFamily="@font/montserrat_regular"
 			android:text="Sanskrit “Baddha Konasana”"
 			android:textColor="@color/greyTxtColor"
-			android:layout_marginEnd="-6dp"
+			android:layout_marginEnd="4dp"
 			android:textSize="12sp"
 			app:layout_constraintEnd_toStartOf="@+id/poseImg"
 			app:layout_constraintStart_toStartOf="@+id/pose"
