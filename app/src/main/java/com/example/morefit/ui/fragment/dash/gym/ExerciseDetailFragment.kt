@@ -33,7 +33,7 @@ class ExerciseDetailFragment: Fragment(R.layout.fragment_yoga_pose_details) {
             TabLayoutMediator(tabLayout, viewPager2) { tab, _ ->
                 tab.text = null
             }.attach()
-
+            backBtn.setOnClickListener { findNavController().navigateUp() }
             PerformAsana.visibility = View.GONE
         }
     }
