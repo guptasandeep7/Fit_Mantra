@@ -21,7 +21,10 @@ class Datastore(val context: Context) {
         val CALORIES_KEY = stringPreferencesKey("calories_key")
         val TIME_FRAME_KEY = stringPreferencesKey("time_frame_key")
         val HEIGHT = stringPreferencesKey("height")
+        val LEVEL = stringPreferencesKey("level")
+        val WEIGHT_LOSE = stringPreferencesKey("weight_lose")
         val WEIGHT = stringPreferencesKey("weight")
+        val GENDER = stringPreferencesKey("gender")
         val AGE = stringPreferencesKey("age")
         val CAL = stringPreferencesKey("cal")
         const val LOGIN_KEY = "LOGIN_KEY"
@@ -38,6 +41,11 @@ class Datastore(val context: Context) {
     suspend fun apiKey() =
         context.datastore.data.first()[API_KEY] ?: "6111f3a8729647caabdb02652bb81c29"
 
+    suspend fun saveUserDetails(key: Preferences.Key<String>, value: String) {
+        context.datastore.edit {
+            it[key] = value
+        }
+    }
     suspend fun saveUserDetails(key: String, value: String) {
         val key1 = stringPreferencesKey(key)
         context.datastore.edit {

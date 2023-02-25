@@ -64,14 +64,14 @@ class ExerciseFragment : Fragment(), View.OnClickListener {
             override fun onActivityCLick(position: Int) {
                 //File Name here
                 name = data[position].title
-                PoseClassifier.MODEL_FILENAME = data[position].file_name
-                PoseClassifier.labels = data[position].labels
+                PoseClassifier.MODEL_FILENAME = data[position].file_name.toString()
+                PoseClassifier.labels = data[position].labels!!
                 if (data[position].counter) {
-                    RepCounterActivity.correct_label = data[position].correct_label
+                    RepCounterActivity.correct_label = data[position].correct_label.toString()
                     val intent = Intent(activity, RepCounterActivity::class.java)
                     startActivity(intent)
                 } else {
-                    MlActivity.correct_label = data[position].correct_label
+                    MlActivity.correct_label = data[position].correct_label.toString()
                     MlActivity.name=data[position].title
                     val intent = Intent(activity, MlActivity::class.java)
                     startActivity(intent)

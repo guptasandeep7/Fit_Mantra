@@ -6,15 +6,11 @@ import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.NavController
-import androidx.navigation.NavDestination
 import androidx.navigation.fragment.findNavController
 import com.example.morefit.R
 import com.example.morefit.adapter.MealBreakAdapter
@@ -44,9 +40,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import com.example.morefit.database.ContentRoomDatabase
-import com.example.morefit.model.Data
 import com.example.morefit.utils.Datastore
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlin.math.roundToInt
 import kotlin.random.Random
 

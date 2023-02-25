@@ -27,14 +27,13 @@
                 android:id="@+id/title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="@{item.title}"
                 android:textColor="@color/txtColor"
                 android:textSize="22sp"
-                android:layout_marginEnd="-6dp"
-                app:layout_constraintEnd_toStartOf="@+id/imageView2"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,23 +41,25 @@
                 android:id="@+id/difficulty"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
                 android:fontFamily="@font/montserrat_regular"
                 android:text="@{item.difficulty}"
                 android:textColor="@color/greyTxtColor"
-                android:layout_marginEnd="-6dp"
                 android:textSize="12sp"
-                app:layout_constraintEnd_toStartOf="@+id/imageView2"
-                app:layout_constraintStart_toStartOf="@+id/title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/title" />
 
             <ImageView
                 android:id="@+id/imageView2"
                 imageFromUrl="@{item.video_tutorials.get(0)}"
-                android:layout_width="184dp"
+                android:layout_width="0dp"
                 android:layout_height="192dp"
+                android:layout_marginTop="8dp"
                 android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/difficulty" />
 
 <!--            <TextView-->
 <!--                android:id="@+id/text"-->
@@ -76,6 +77,7 @@
                 android:id="@+id/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:backgroundTint="@color/white"
                 android:fontFamily="@font/montserrat_semibold"
                 android:letterSpacing="0"
@@ -86,17 +88,18 @@
                 android:textColor="@color/txtColor"
                 app:cornerRadius="32dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/difficulty"
-                app:layout_constraintTop_toBottomOf="@+id/difficulty"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2"
                 app:strokeColor="@color/txtColor"
                 app:strokeWidth="1dp" />
 
-<!--            <androidx.constraintlayout.widget.Guideline-->
-<!--                android:id="@+id/guideline2"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="vertical"-->
-<!--                app:layout_constraintGuide_percent="0.5" />-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

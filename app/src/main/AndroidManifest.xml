@@ -13,19 +13,20 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <uses-feature android:name="android.hardware.camera.any" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
         android:name=".database.ContentApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_frame_3"
-        android:label="FitMantra"
+        android:label="MoreFit"
         android:roundIcon="@drawable/ic_frame_3"
         android:supportsRtl="true"
         android:theme="@style/Theme.MoreFit"
         android:usesCleartextTraffic="true">
 
-        <receiver android:name = ".broadcastReceiver.MyBroadcastReceiver" />
+        <receiver android:name=".broadcastReceiver.MyBroadcastReceiver" />
 
         <activity
             android:name=".ui.fragment.dash.analysis.AnalysisActivity"
@@ -39,26 +40,23 @@
         <activity
             android:name=".ui.activity.MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.activity.SplashScreen"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme">
-
-        </activity>
+            android:theme="@style/SplashTheme"/>
         <activity android:name=".ui.activity.ProfileActivity" />
-        <activity android:name=".ui.activity.AuthActivity"
-            android:exported="true"
-            >
+        <activity
+            android:name=".ui.activity.AuthActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

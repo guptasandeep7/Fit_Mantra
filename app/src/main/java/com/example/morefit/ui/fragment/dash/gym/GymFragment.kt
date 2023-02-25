@@ -47,8 +47,7 @@ class GymFragment : Fragment(), View.OnClickListener {
     ): View {
         _binding = FragmentGymBinding.inflate(inflater, container, false)
         lifecycleScope.launch {
-            binding.username.text = datastore.getUserDetails(Datastore.NAME_KEY)
-                .toString() + " " + datastore.getUserDetails(Datastore.LAST_NAME_KEY).toString()
+            binding.username.text = datastore.getUserDetails(Datastore.NAME_KEY).toString()
         }
         return binding.root
     }

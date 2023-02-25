@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        checkAudioPermission()
+//        checkAudioPermission()
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        startSpeechToText()
+//        startSpeechToText()
     }
 
 
@@ -265,11 +265,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-        speechRecognizer.cancel()
+//        speechRecognizer.cancel()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        speechRecognizer.destroy()
+//        speechRecognizer.destroy()
     }
 }

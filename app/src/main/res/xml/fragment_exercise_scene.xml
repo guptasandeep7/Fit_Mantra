@@ -10,7 +10,16 @@
         <OnSwipe motion:touchAnchorId="@+id/horizontalScrollView" />
     </Transition>
 
-    <ConstraintSet android:id="@+id/start"></ConstraintSet>
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:layout_height="1dp"
+            android:layout_marginTop="-6dp"
+            motion:layout_editor_absoluteX="46dp"
+            motion:layout_constraintTop_toTopOf="@id/icBack"
+            motion:layout_constraintBottom_toBottomOf="@id/icBack"
+            android:layout_width="wrap_content"
+            android:id="@+id/headingSmall" />
+    </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
         <Constraint

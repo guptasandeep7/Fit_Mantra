@@ -11,17 +11,14 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.example.morefit.R
-import com.example.morefit.databinding.ActivityUserDetailsBinding
 import com.example.morefit.databinding.FragmentUserDetailsBinding
 import com.example.morefit.network.ServiceBuilder
 import com.example.morefit.ui.activity.MainActivity
 import com.example.morefit.utils.Datastore
 import kotlinx.coroutines.launch
-import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
 
 class UserDetails : Fragment() {
 

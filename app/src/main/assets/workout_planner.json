@@ -1,0 +1,1400 @@
+[
+  {
+    "maitain":[
+      {
+        "beginner":[
+          {
+            "category":"Bodyweight",
+            "muscle":"Glutes",
+            "title":"Squats",
+            "difficulty":"Difficulty: Beginner",
+            "gender":"Male",
+            "video_tutorials":[
+              "https://youtu.be/sHB6Vjxrgfk",
+              "https://youtu.be/ywaurZVNJOw"
+            ],
+            "text_tutorials":[
+              {
+                "text":"Stand with your feet shoulder width apart."
+              },
+              {
+                "text":"flex your knees and hips and sit back into the squat while lowering your body"
+              },
+              {
+                "text":"Continue down to full depth"
+              },
+              {
+                "text":"Return to starting position."
+              }
+            ]
+          },
+          {
+            "category":"Bodyweight",
+            "muscle":"Chest",
+            "title":"Incline push-up",
+            "difficulty":"Difficulty: Beginner",
+            "gender":"Female",
+            "video_tutorials":[
+              "https://youtu.be/DnyeEAJO8tk",
+              "https://youtu.be/qdiT3P-cjag"
+            ],
+            "text_tutorials":[
+              {
+                "text":"Stand facing bench or sturdy elevated platform."
+              },
+              {
+                "text":"Place hands on edge of bench or platform, slightly wider than shoulder width."
+              },
+              {
+                "text":"Slowly lower your body until your chest almost touches the bench."
+              },
+              {
+                "text":"Push body up until arms are extended."
+              }
+            ]
+          },
+          {
+            "category":"Bodyweight",
+            "muscle":"Abdominals",
+            "title":"Forearm Plank",
+            "difficulty":"Difficulty: Beginner",
+            "gender":"Male",
+            "video_tutorials":[
+              "https://youtu.be/DkN15y1slTA",
+              "https://youtu.be/DkN15y1slTA"
+            ],
+            "text_tutorials":[
+              {
+                "text":"Place forearms on the ground with your elbows bent at a 90° angle aligned beneath your shoulders, with your arms parallel at shoulder-width."
+              },
+              {
+                "text":"Your feet should be together, with only your toes touching the floor."
+              },
+              {
+                "text":"Lift your belly off the floor and form a straight line from your heels to the crown of your head and hold."
+              }
+            ]
+          },
+          {
+            "category":"Dumbbells",
+            "muscle":"Biceps",
+            "title":"Dumbbell Curl",
+            "difficulty":"Difficulty: Beginner",
+            "gender":"Male",
+            "video_tutorials":[
+              "https://youtu.be/jWX_vZXwtZw%7C",
+              "https://www.youtube.com/watch?v=myW3r9AYWwI%7C"
+            ],
+            "text_tutorials":[
+              {
+                "text":"Stand up straight with a dumbbell in each hand at arm's length."
+              },
+              {
+                "text":"Raise one dumbbell and twist your forearm until it is vertical and your palm faces the shoulder."
+              },
+              {
+                "text":"Lower to original position and repeat with opposite arm"
+              }
+            ]
+          },
+          {
+            "category":"Bodyweight",
+            "muscle":"Glutes",
+            "title":"Glute Bridge",
+            "difficulty":"Difficulty: Beginner",
+            "gender":"Male",
+            "video_tutorials":[
+              "https://youtu.be/QpcZ35uB_08",
+              "https://youtu.be/sCVwn67rHZU"
+            ],
+            "text_tutorials":[
+              {
+                "text":"Lie down with your knees bent and your feet flat on the floor."
+              },
+              {
+                "text":"Push your hips up so that your butt is elevated and your back straight."
+              },
+              {
+                "text":"Tense your glutes and raise your hips towards the ceiling."
+              },
+              {
+                "text":"Once you are at the highest point you can manage, hold the position for a few seconds, and then slowly return to the starting position"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "intermediate":[
+          {
+            "category":"Bodyweight",
+            "muscle":"Chest",
+            "title":"Dips",
+            "difficulty":"Difficulty: Intermediate",
+            "gender":"Female",
+            "video_tutorials":[
+              "https://youtu.be/cdhe_bGTJt4",
+              "https://youtu.be/ALtnUzUHnRo"
+            ],
+            "text_tutorials":[
+              {
+                "text":"Hold your body with arms locked above the equipment"
+              },
+              {
+                "text":"Lower your body slowly while leaning forward, flare out your elbows"
+              },
+              {
+                "text":"Raise your body above the bars until your arms are locked."
+              }
+            ]
+          },
+          {
+            "category":"Bodyweight",
+            "muscle":"Chest",
+            "title":"Push Up",
+            "difficulty":"Difficulty: Beginner",
+            "gender":"Female",
+            "video_tutorials":[
+              "https://youtu.be/11R2Pqi1IEs",
+              "https://youtu.be/Ej2JgP08Tv0"
+            ],
+            "text_tutorials":[
+              {
+                "text":"Place your hands firmly on the ground, directly under shoulders."
+              },
+              {
+                "text":"Flatten your back so your entire body is straight and slowly lower your body"
+              },
+              {
+                "text":"Draw shoulder blades back and down, keeping elbows tucked close to your body"
+              },
+              {
+                "text":"Exhale as you push back to the starting position."
+              }
+            ]
+          },
+          {
+            "category":"Bodyweight",
+            "muscle":"Traps",
+            "title":"Elevated Pike Press",
+            "difficulty":"Difficulty: Intermediate",
+            "gender":"Male",
+            "video_tutorials":[
+              "https://youtu.be/xxWbfDg9oS0",
+              "https://youtu.be/0_STj-ThhUw"
+            ],
+            "text_tutorials":[
+              {
+                "text":"Use a bench or an object to elevate your feet."
+              },
+              {
+                "text":"Lower your head towards the floor by bending your elbows"
+              },
+              {
+                "text":"Push through your hands and return to the starting pike position."
+              },
+              {
+                "text":"Repeat"
+              }
+            ]
+          },
+          {
+            "category":"Dumbbells",
+            "muscle":"Biceps",
+            "title":"Dumbbell Curl",
+            "difficulty":"Difficulty: Beginner",
+            "gender":"Male",
+            "video_tutorials":[
+              "https://www.youtube.com/watch?v=jWX_vZXwtZw%7C",
+              "https://www.youtube.com/watch?v=myW3r9AYWwI%7C"
+            ],
+            "text_tutorials":[
+              {
+                "text":"Stand up straight with a dumbbell in each hand at arm's length."
+              },
+              {
+                "text":"Raise one dumbbell and twist your forearm until it is vertical and your palm faces the shoulder."
+              },
+              {
+                "text":"Lower to original position and repeat with opposite arm"
+              }
+            ]
+          },
+          {
+            "category":"Bodyweight",
+            "muscle":"Glutes",
+            "title":"Forward Lunges",
+            "difficulty":"Difficulty: Beginner",
+            "gender":"Male",
+            "video_tutorials":[
+              "https://youtu.be/hRyH9tVwMjU",
+              "https://youtu.be/Dlp5ML8zAEY"
+            ],
+            "text_tutorials":[
+              {
+                "text":"Step forward with one leg."
+              },
+              {
+                "text":"Lower your body until your rear knee nearly touches the ground."
+              },
+              {
+                "text":"Ensure you remain upright, and your front knee stay above the front foot."
+              },
+              {
+                "text":"Push off the floor with your front foot until you return to the starting position. Switch legs."
+              }
+            ]
+          },
+          {
+            "category":"Barbell",
+            "muscle":"Chest",
+            "title":"Barbell Bench Press",
+            "difficulty":"Difficulty: Intermediate",
+            "gender":"Male",
+            "video_tutorials":[
+              "https://www.youtube.com/watch?v=NLDhyIZodR8%7C",
+              "https://www.youtube.com/watch?v=52DBC-5SoC0%7C"
+            ],
+            "text_tutorials":[
+              {
+                "text":"Lay flat on the bench with your feet on the ground. With straight arms unrack the bar."
+              },
+              {
+                "text":"Lower the bar to your mid chest"
+              },
+              {
+                "text":"Raise the bar until you've locked your elbows."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "advanced":[
+          {
+            "category":"Barbell",
+            "muscle":"Abdominals",
+            "title":"Barbell Roll-Outs",
+            "difficulty":"Difficulty: Intermediate",
+            "gender":"Male",
+            "video_tutorials":[
+              "https://youtu.be/5zaNYdVMHZY",
+              "https://youtu.be/oAkHoqmkWIk"
+            ],
+            "text_tutorials":[
+              {
+                "text":"Hold the Barbell with both hands and kneel on the floor with your feet up"
+              },
+              {
+                "text":"Slowly roll the Barbell straight forward, stretching your body into a straight position."
+              },
+              {
+                "text":"After a pause at the stretched position, start pulling yourself back to the starting position. This should be a slow and controlled movement."
+              }
+            ]
+          },
+          {
+            "category":"Bodyweight",
+            "muscle":"Chest",
+            "title":"Dips",
+            "difficulty":"Difficulty: Intermediate",
+            "gender":"Female",
+            "video_tutorials":[
+              "https://youtu.be/cdhe_bGTJt4",
+              "https://youtu.be/ALtnUzUHnRo"
+            ],
+            "text_tutorials":[
+              {
+                "text":"Hold your body with arms locked above the equipment"
+              },
+              {
+                "text":"Lower your body slowly while leaning forward, flare out your elbows"
+              },
+              {
+                "text":"Raise your body above the bars until your arms are locked."
+              }
+            ]
+          },
+          {
+            "category":"Bodyweight",
+            "muscle":"Chest",
+            "title":"Push Up",
+            "difficulty":"Difficulty: Beginner",
+            "gender":"Female",
+            "video_tutorials":[
+              "https://youtu.be/11R2Pqi1IEs",
+              "https://youtu.be/Ej2JgP08Tv0"
+            ],
+            "text_tutorials":[
+              {
+                "text":"Place your hands firmly on the ground, directly under shoulders."
+              },
+              {
+                "text":"Flatten your back so your entire body is straight and slowly lower your body"
+              },
+              {
+                "text":"Draw shoulder blades back and down, keeping elbows tucked close to your body"
+              },
+              {
+                "text":"Exhale as you push back to the starting position."
+              }
+            ]
+          },
+          {
+            "category":"Barbell",
+            "muscle":"Chest",
+            "title":"Barbell Bench Press",
+            "difficulty":"Difficulty: Intermediate",
+            "gender":"Male",
+            "video_tutorials":[
+              "https://www.youtube.com/watch?v=NLDhyIZodR8%7C",
+              "https://www.youtube.com/watch?v=52DBC-5SoC0%7C"
+            ],
+            "text_tutorials":[
+              {
+                "text":"Lay flat on the bench with your feet on the ground. With straight arms unrack the bar."
+              },
+              {
+                "text":"Lower the bar to your mid chest"
+              },
+              {
+                "text":"Raise the bar until you've locked your elbows."
+              }
+            ]
+          },
+          {
+            "category":"Barbell",
+            "muscle":"Glutes",
+            "title":"Squat",
+            "difficulty":"Difficulty: Advanced",
+            "gender":"Male",
+            "video_tutorials":[
+              "https://youtu.be/X9AaFTU5t5c",
+              "https://youtu.be/3nV2DCNQn8M"
+            ],
+            "text_tutorials":[
+              {
+                "text":"Stand with your feet shoulder-width apart. Maintain the natural arch in your back, squeezing your shoulder blades and raising your chest."
+              },
+              {
+                "text":"Grip the bar across your shoulders and support it on your upper back. Unwrack the bar by straightening your legs, and take a step back."
+              },
+              {
+                "text":"Bend your knees as you lower the weight without altering the form of your back until your hips are below your knees."
+              },
+              {
+                "text":"Raise the bar back to starting position, lift with your legs and exhale at the top."
+              }
+            ]
+          },
+          {
+            "category":"Barbell",
+            "muscle":"Shoulders",
+            "title":"Barbell Overhead Press",
+            "difficulty":"Difficulty: Advanced",
+            "gender":"Male",
+            "video_tutorials":[
+              "https://youtu.be/KUFo-REdBtE",
+              "https://youtu.be/9T6RXC29WDY"
+            ],
+            "text_tutorials":[
+              {
+                "text":"Start the barbell across your upper chest below your chin."
+              },
+              {
+                "text":"Raise the barbell upwards and pause at the contracted position above your head."
+              },
+              {
+                "text":"Lower the weights back to starting position."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lose":[
+      {
+        "fast":[
+          {
+            "beginner":[
+              {
+                "category":"Bodyweight",
+                "muscle":"Full Body",
+                "title":"Power Walking",
+                "difficulty":"Difficulty: Beginner",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://www.youtube.com/watch?v=55flVWE0wkA"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Walk fast, properly lift and touch your heels on the ground"
+                  }
+                ]
+              },
+              {
+                "category":"Bodyweight",
+                "muscle":"Abdominals",
+                "title":"Laying Leg Raises",
+                "difficulty":"Difficulty: Beginner",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://www.youtube.com/watch?v=Ti3Lpnz9E18%7C",
+                  "https://www.youtube.com/watch?v=NNRLdKvkhJU%7C"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Lay on your back with your arms palms down on either side."
+                  },
+                  {
+                    "text":"Keep your legs together and as straight as possible."
+                  },
+                  {
+                    "text":"Slowly raise your legs to a 90° angle, pause at this position, or as high as you can reach your legs, and then slowly lower your legs back down."
+                  },
+                  {
+                    "text":"Duration of these movements should be slow so that you do not utilize momentum, enabling you to get the most out of the exercise."
+                  }
+                ]
+              },
+              {
+                "category":"Bodyweight",
+                "muscle":"Glutes",
+                "title":"Squats",
+                "difficulty":"Difficulty: Beginner",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://youtu.be/sHB6Vjxrgfk",
+                  "https://youtu.be/ywaurZVNJOw"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Stand with your feet shoulder width apart."
+                  },
+                  {
+                    "text":"flex your knees and hips and sit back into the squat while lowering your body"
+                  },
+                  {
+                    "text":"Continue down to full depth"
+                  },
+                  {
+                    "text":"Return to starting position."
+                  }
+                ]
+              },
+              {
+                "category":"Bodyweight",
+                "muscle":"Chest",
+                "title":"Incline push-up",
+                "difficulty":"Difficulty: Beginner",
+                "gender":"Female",
+                "video_tutorials":[
+                  "https://youtu.be/DnyeEAJO8tk",
+                  "https://youtu.be/qdiT3P-cjag"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Stand facing bench or sturdy elevated platform."
+                  },
+                  {
+                    "text":"Place hands on edge of bench or platform, slightly wider than shoulder width."
+                  },
+                  {
+                    "text":"Slowly lower your body until your chest almost touches the bench."
+                  },
+                  {
+                    "text":"Push body up until arms are extended."
+                  }
+                ]
+              },
+              {
+                "category":"Bodyweight",
+                "muscle":"Abdominals",
+                "title":"Forearm Plank",
+                "difficulty":"Difficulty: Beginner",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://youtu.be/DkN15y1slTA",
+                  "https://youtu.be/DkN15y1slTA"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Place forearms on the ground with your elbows bent at a 90° angle aligned beneath your shoulders, with your arms parallel at shoulder-width."
+                  },
+                  {
+                    "text":"Your feet should be together, with only your toes touching the floor."
+                  },
+                  {
+                    "text":"Lift your belly off the floor and form a straight line from your heels to the crown of your head and hold."
+                  }
+                ]
+              },
+              {
+                "category":"Dumbbells",
+                "muscle":"Biceps",
+                "title":"Dumbbell Curl",
+                "difficulty":"Difficulty: Beginner",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://www.youtube.com/watch?v=jWX_vZXwtZw%7C",
+                  "https://www.youtube.com/watch?v=myW3r9AYWwI%7C"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Stand up straight with a dumbbell in each hand at arm's length."
+                  },
+                  {
+                    "text":"Raise one dumbbell and twist your forearm until it is vertical and your palm faces the shoulder."
+                  },
+                  {
+                    "text":"Lower to original position and repeat with opposite arm"
+                  }
+                ]
+              },
+              {
+                "category":"Bodyweight",
+                "muscle":"Glutes",
+                "title":"Glute Bridge",
+                "difficulty":"Difficulty: Beginner",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://youtu.be/QpcZ35uB_08",
+                  "https://youtu.be/sCVwn67rHZU"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Lie down with your knees bent and your feet flat on the floor."
+                  },
+                  {
+                    "text":"Push your hips up so that your butt is elevated and your back straight."
+                  },
+                  {
+                    "text":"Tense your glutes and raise your hips towards the ceiling."
+                  },
+                  {
+                    "text":"Once you are at the highest point you can manage, hold the position for a few seconds, and then slowly return to the starting position"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "intermediate":[
+              {
+                "category":"Bodyweight",
+                "muscle":"Abdominals",
+                "title":"Hanging Knee Raises",
+                "difficulty":"Difficulty: Beginner",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://youtu.be/FVFhZa94C6c",
+                  "https://youtu.be/FlJVzEoh24g"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Grab the bar and hang, your body still and your legs straight."
+                  },
+                  {
+                    "text":"Slowly draw your knees up to your chest"
+                  },
+                  {
+                    "text":"Once you have raised your knees as high as possible, lower your legs and repeat. Duration of these movements should be slow so that you do not utilize momentum, enabling you to get the most out of the exercise."
+                  },
+                  {
+                    "text":"Duration of these movements should be slow so that you do not utilize momentum, enabling you to get the most out of the exercise."
+                  }
+                ]
+              },
+              {
+                "category":"Bodyweight",
+                "muscle":"Chest",
+                "title":"Dips",
+                "difficulty":"Difficulty: Intermediate",
+                "gender":"Female",
+                "video_tutorials":[
+                  "https://youtu.be/cdhe_bGTJt4",
+                  "https://youtu.be/ALtnUzUHnRo"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Hold your body with arms locked above the equipment"
+                  },
+                  {
+                    "text":"Lower your body slowly while leaning forward, flare out your elbows"
+                  },
+                  {
+                    "text":"Raise your body above the bars until your arms are locked."
+                  }
+                ]
+              },
+              {
+                "category":"Bodyweight",
+                "muscle":"Chest",
+                "title":"Push Up",
+                "difficulty":"Difficulty: Beginner",
+                "gender":"Female",
+                "video_tutorials":[
+                  "https://youtu.be/11R2Pqi1IEs",
+                  "https://youtu.be/Ej2JgP08Tv0"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Place your hands firmly on the ground, directly under shoulders."
+                  },
+                  {
+                    "text":"Flatten your back so your entire body is straight and slowly lower your body"
+                  },
+                  {
+                    "text":"Draw shoulder blades back and down, keeping elbows tucked close to your body"
+                  },
+                  {
+                    "text":"Exhale as you push back to the starting position."
+                  }
+                ]
+              },
+              {
+                "category":"Bodyweight",
+                "muscle":"Traps",
+                "title":"Elevated Pike Press",
+                "difficulty":"Difficulty: Intermediate",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://youtu.be/xxWbfDg9oS0",
+                  "https://youtu.be/0_STj-ThhUw"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Use a bench or an object to elevate your feet."
+                  },
+                  {
+                    "text":"Lower your head towards the floor by bending your elbows"
+                  },
+                  {
+                    "text":"Push through your hands and return to the starting pike position."
+                  },
+                  {
+                    "text":"Repeat"
+                  }
+                ]
+              },
+              {
+                "category":"Dumbbells",
+                "muscle":"Biceps",
+                "title":"Dumbbell Curl",
+                "difficulty":"Difficulty: Beginner",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://www.youtube.com/watch?v=jWX_vZXwtZw%7C",
+                  "https://www.youtube.com/watch?v=myW3r9AYWwI%7C"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Stand up straight with a dumbbell in each hand at arm's length."
+                  },
+                  {
+                    "text":"Raise one dumbbell and twist your forearm until it is vertical and your palm faces the shoulder."
+                  },
+                  {
+                    "text":"Lower to original position and repeat with opposite arm"
+                  }
+                ]
+              },
+              {
+                "category":"Bodyweight",
+                "muscle":"Glutes",
+                "title":"Forward Lunges",
+                "difficulty":"Difficulty: Beginner",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://youtu.be/hRyH9tVwMjU",
+                  "https://youtu.be/Dlp5ML8zAEY"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Step forward with one leg."
+                  },
+                  {
+                    "text":"Lower your body until your rear knee nearly touches the ground."
+                  },
+                  {
+                    "text":"Ensure you remain upright, and your front knee stay above the front foot."
+                  },
+                  {
+                    "text":"Push off the floor with your front foot until you return to the starting position. Switch legs."
+                  }
+                ]
+              },
+              {
+                "category":"Barbell",
+                "muscle":"Chest",
+                "title":"Barbell Bench Press",
+                "difficulty":"Difficulty: Intermediate",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://www.youtube.com/watch?v=NLDhyIZodR8%7C",
+                  "https://www.youtube.com/watch?v=52DBC-5SoC0%7C"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Lay flat on the bench with your feet on the ground. With straight arms unrack the bar."
+                  },
+                  {
+                    "text":"Lower the bar to your mid chest"
+                  },
+                  {
+                    "text":"Raise the bar until you've locked your elbows."
+                  }
+                ]
+              },
+              {
+                "category":"Bodyweight",
+                "muscle":"Biceps",
+                "title":"Chin-Ups",
+                "difficulty":"Difficulty: Intermediate",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://youtu.be/i42_vtNS80Y",
+                  "https://youtu.be/v7BuGTumRUg"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Grab the bar shoulder width apart with a supinated grip (palms facing you)"
+                  },
+                  {
+                    "text":"With your body hanging and arms fully extended, pull yourself up until your chin is past the bar."
+                  },
+                  {
+                    "text":"Slowly return to starting position. Repeat."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "advanced":[
+              {
+                "category":"Bodyweight",
+                "muscle":"Full Body",
+                "title":"Running",
+                "difficulty":"Difficulty: Intermediate",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://www.youtube.com/watch?v=gsUL3a1CxUQ"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Proper Running form takes time and don't strike heels to avoid injury."
+                  }
+                ]
+              },
+              {
+                "category":"Bodyweight",
+                "muscle":"Abdominals",
+                "title":"Hanging Knee Raises",
+                "difficulty":"Difficulty: Beginner",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://youtu.be/FVFhZa94C6c",
+                  "https://youtu.be/FlJVzEoh24g"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Grab the bar and hang, your body still and your legs straight."
+                  },
+                  {
+                    "text":"Slowly draw your knees up to your chest"
+                  },
+                  {
+                    "text":"Once you have raised your knees as high as possible, lower your legs and repeat. Duration of these movements should be slow so that you do not utilize momentum, enabling you to get the most out of the exercise."
+                  },
+                  {
+                    "text":"Duration of these movements should be slow so that you do not utilize momentum, enabling you to get the most out of the exercise."
+                  }
+                ]
+              },
+              {
+                "category":"Barbell",
+                "muscle":"Glutes",
+                "title":"Barbell Hip Thrust",
+                "difficulty":"Difficulty: Advanced",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://www.youtube.com/watch?v=CRnFSLDHSB4%7C",
+                  "https://www.youtube.com/watch?v=qBHwwdVl_E4%7C"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Sit on the ground with a bench behind you. Have the barbell over your legs just above your hips."
+                  },
+                  {
+                    "text":"Lean back against the bench so that your shoulders are resting upon it, stretch your arms out to either side using the bench as support."
+                  },
+                  {
+                    "text":"Raise the weight by driving through your feet and extending your hips upwards. Support the weight with your shoulders and feet."
+                  },
+                  {
+                    "text":"Slowly extend as far as you can, and then slowly return to the starting position."
+                  }
+                ]
+              },
+              {
+                "category":"Barbell",
+                "muscle":"Abdominals",
+                "title":"Barbell Roll-Outs",
+                "difficulty":"Difficulty: Intermediate",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://youtu.be/5zaNYdVMHZY",
+                  "https://youtu.be/oAkHoqmkWIk"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Hold the Barbell with both hands and kneel on the floor with your feet up"
+                  },
+                  {
+                    "text":"Slowly roll the Barbell straight forward, stretching your body into a straight position."
+                  },
+                  {
+                    "text":"After a pause at the stretched position, start pulling yourself back to the starting position. This should be a slow and controlled movement."
+                  }
+                ]
+              },
+              {
+                "category":"Bodyweight",
+                "muscle":"Chest",
+                "title":"Dips",
+                "difficulty":"Difficulty: Intermediate",
+                "gender":"Female",
+                "video_tutorials":[
+                  "https://youtu.be/cdhe_bGTJt4",
+                  "https://youtu.be/ALtnUzUHnRo"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Hold your body with arms locked above the equipment"
+                  },
+                  {
+                    "text":"Lower your body slowly while leaning forward, flare out your elbows"
+                  },
+                  {
+                    "text":"Raise your body above the bars until your arms are locked."
+                  }
+                ]
+              },
+              {
+                "category":"Bodyweight",
+                "muscle":"Chest",
+                "title":"Push Up",
+                "difficulty":"Difficulty: Beginner",
+                "gender":"Female",
+                "video_tutorials":[
+                  "https://youtu.be/11R2Pqi1IEs",
+                  "https://youtu.be/Ej2JgP08Tv0"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Place your hands firmly on the ground, directly under shoulders."
+                  },
+                  {
+                    "text":"Flatten your back so your entire body is straight and slowly lower your body"
+                  },
+                  {
+                    "text":"Draw shoulder blades back and down, keeping elbows tucked close to your body"
+                  },
+                  {
+                    "text":"Exhale as you push back to the starting position."
+                  }
+                ]
+              },
+              {
+                "category":"Barbell",
+                "muscle":"Chest",
+                "title":"Barbell Bench Press",
+                "difficulty":"Difficulty: Intermediate",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://www.youtube.com/watch?v=NLDhyIZodR8%7C",
+                  "https://www.youtube.com/watch?v=52DBC-5SoC0%7C"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Lay flat on the bench with your feet on the ground. With straight arms unrack the bar."
+                  },
+                  {
+                    "text":"Lower the bar to your mid chest"
+                  },
+                  {
+                    "text":"Raise the bar until you've locked your elbows."
+                  }
+                ]
+              },
+              {
+                "category":"Barbell",
+                "muscle":"Glutes",
+                "title":"Squat",
+                "difficulty":"Difficulty: Advanced",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://youtu.be/X9AaFTU5t5c",
+                  "https://youtu.be/3nV2DCNQn8M"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Stand with your feet shoulder-width apart. Maintain the natural arch in your back, squeezing your shoulder blades and raising your chest."
+                  },
+                  {
+                    "text":"Grip the bar across your shoulders and support it on your upper back. Unwrack the bar by straightening your legs, and take a step back."
+                  },
+                  {
+                    "text":"Bend your knees as you lower the weight without altering the form of your back until your hips are below your knees."
+                  },
+                  {
+                    "text":"Raise the bar back to starting position, lift with your legs and exhale at the top."
+                  }
+                ]
+              },
+              {
+                "category":"Barbell",
+                "muscle":"Shoulders",
+                "title":"Barbell Overhead Press",
+                "difficulty":"Difficulty: Advanced",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://youtu.be/KUFo-REdBtE",
+                  "https://youtu.be/9T6RXC29WDY"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Start the barbell across your upper chest below your chin."
+                  },
+                  {
+                    "text":"Raise the barbell upwards and pause at the contracted position above your head."
+                  },
+                  {
+                    "text":"Lower the weights back to starting position."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "slow":[
+          {
+            "beginner":[
+              {
+                "category":"Bodyweight",
+                "muscle":"Glutes",
+                "title":"Squats",
+                "difficulty":"Difficulty: Beginner",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://youtu.be/sHB6Vjxrgfk",
+                  "https://youtu.be/ywaurZVNJOw"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Stand with your feet shoulder width apart."
+                  },
+                  {
+                    "text":"flex your knees and hips and sit back into the squat while lowering your body"
+                  },
+                  {
+                    "text":"Continue down to full depth"
+                  },
+                  {
+                    "text":"Return to starting position."
+                  }
+                ]
+              },
+              {
+                "category":"Bodyweight",
+                "muscle":"Chest",
+                "title":"Incline push-up",
+                "difficulty":"Difficulty: Beginner",
+                "gender":"Female",
+                "video_tutorials":[
+                  "https://youtu.be/DnyeEAJO8tk",
+                  "https://youtu.be/qdiT3P-cjag"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Stand facing bench or sturdy elevated platform."
+                  },
+                  {
+                    "text":"Place hands on edge of bench or platform, slightly wider than shoulder width."
+                  },
+                  {
+                    "text":"Slowly lower your body until your chest almost touches the bench."
+                  },
+                  {
+                    "text":"Push body up until arms are extended."
+                  }
+                ]
+              },
+              {
+                "category":"Bodyweight",
+                "muscle":"Abdominals",
+                "title":"Forearm Plank",
+                "difficulty":"Difficulty: Beginner",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://youtu.be/DkN15y1slTA",
+                  "https://youtu.be/DkN15y1slTA"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Place forearms on the ground with your elbows bent at a 90° angle aligned beneath your shoulders, with your arms parallel at shoulder-width."
+                  },
+                  {
+                    "text":"Your feet should be together, with only your toes touching the floor."
+                  },
+                  {
+                    "text":"Lift your belly off the floor and form a straight line from your heels to the crown of your head and hold."
+                  }
+                ]
+              },
+              {
+                "category":"Dumbbells",
+                "muscle":"Biceps",
+                "title":"Dumbbell Curl",
+                "difficulty":"Difficulty: Beginner",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://www.youtube.com/watch?v=jWX_vZXwtZw%7C",
+                  "https://www.youtube.com/watch?v=myW3r9AYWwI%7C"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Stand up straight with a dumbbell in each hand at arm's length."
+                  },
+                  {
+                    "text":"Raise one dumbbell and twist your forearm until it is vertical and your palm faces the shoulder."
+                  },
+                  {
+                    "text":"Lower to original position and repeat with opposite arm"
+                  }
+                ]
+              },
+              {
+                "category":"Bodyweight",
+                "muscle":"Glutes",
+                "title":"Glute Bridge",
+                "difficulty":"Difficulty: Beginner",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://youtu.be/QpcZ35uB_08",
+                  "https://youtu.be/sCVwn67rHZU"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Lie down with your knees bent and your feet flat on the floor."
+                  },
+                  {
+                    "text":"Push your hips up so that your butt is elevated and your back straight."
+                  },
+                  {
+                    "text":"Tense your glutes and raise your hips towards the ceiling."
+                  },
+                  {
+                    "text":"Once you are at the highest point you can manage, hold the position for a few seconds, and then slowly return to the starting position"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "intermediate":[
+              {
+                "category":"Barbell",
+                "muscle":"Chest",
+                "title":"Barbell Bench Press",
+                "difficulty":"Difficulty: Intermediate",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://www.youtube.com/watch?v=NLDhyIZodR8%7C",
+                  "https://www.youtube.com/watch?v=52DBC-5SoC0%7C"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Lay flat on the bench with your feet on the ground. With straight arms unrack the bar."
+                  },
+                  {
+                    "text":"Lower the bar to your mid chest"
+                  },
+                  {
+                    "text":"Raise the bar until you've locked your elbows."
+                  }
+                ]
+              },
+              {
+                "category":"Bodyweight",
+                "muscle":"Chest",
+                "title":"Push Up",
+                "difficulty":"Difficulty: Beginner",
+                "gender":"Female",
+                "video_tutorials":[
+                  "https://youtu.be/11R2Pqi1IEs",
+                  "https://youtu.be/Ej2JgP08Tv0"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Place your hands firmly on the ground, directly under shoulders."
+                  },
+                  {
+                    "text":"Flatten your back so your entire body is straight and slowly lower your body"
+                  },
+                  {
+                    "text":"Draw shoulder blades back and down, keeping elbows tucked close to your body"
+                  },
+                  {
+                    "text":"Exhale as you push back to the starting position."
+                  }
+                ]
+              },
+              {
+                "category":"Bodyweight",
+                "muscle":"Chest",
+                "title":"Dips",
+                "difficulty":"Difficulty: Intermediate",
+                "gender":"Female",
+                "video_tutorials":[
+                  "https://youtu.be/cdhe_bGTJt4",
+                  "https://youtu.be/ALtnUzUHnRo"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Hold your body with arms locked above the equipment"
+                  },
+                  {
+                    "text":"Lower your body slowly while leaning forward, flare out your elbows"
+                  },
+                  {
+                    "text":"Raise your body above the bars until your arms are locked."
+                  }
+                ]
+              },
+              {
+                "category":"Bodyweight",
+                "muscle":"Traps",
+                "title":"Elevated Pike Press",
+                "difficulty":"Difficulty: Intermediate",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://youtu.be/xxWbfDg9oS0",
+                  "https://youtu.be/0_STj-ThhUw"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Use a bench or an object to elevate your feet."
+                  },
+                  {
+                    "text":"Lower your head towards the floor by bending your elbows"
+                  },
+                  {
+                    "text":"Push through your hands and return to the starting pike position."
+                  },
+                  {
+                    "text":"Repeat"
+                  }
+                ]
+              },
+              {
+                "category":"Dumbbells",
+                "muscle":"Biceps",
+                "title":"Dumbbell Curl",
+                "difficulty":"Difficulty: Beginner",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://www.youtube.com/watch?v=jWX_vZXwtZw%7C",
+                  "https://www.youtube.com/watch?v=myW3r9AYWwI%7C"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Stand up straight with a dumbbell in each hand at arm's length."
+                  },
+                  {
+                    "text":"Raise one dumbbell and twist your forearm until it is vertical and your palm faces the shoulder."
+                  },
+                  {
+                    "text":"Lower to original position and repeat with opposite arm"
+                  }
+                ]
+              },
+              {
+                "category":"Bodyweight",
+                "muscle":"Glutes",
+                "title":"Forward Lunges",
+                "difficulty":"Difficulty: Beginner",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://youtu.be/hRyH9tVwMjU",
+                  "https://youtu.be/Dlp5ML8zAEY"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Step forward with one leg."
+                  },
+                  {
+                    "text":"Lower your body until your rear knee nearly touches the ground."
+                  },
+                  {
+                    "text":"Ensure you remain upright, and your front knee stay above the front foot."
+                  },
+                  {
+                    "text":"Push off the floor with your front foot until you return to the starting position. Switch legs."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "advanced":[
+              {
+                "category":"Barbell",
+                "muscle":"Abdominals",
+                "title":"Barbell Roll-Outs",
+                "difficulty":"Difficulty: Intermediate",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://youtu.be/5zaNYdVMHZY",
+                  "https://youtu.be/oAkHoqmkWIk"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Hold the Barbell with both hands and kneel on the floor with your feet up"
+                  },
+                  {
+                    "text":"Slowly roll the Barbell straight forward, stretching your body into a straight position."
+                  },
+                  {
+                    "text":"After a pause at the stretched position, start pulling yourself back to the starting position. This should be a slow and controlled movement."
+                  }
+                ]
+              },
+              {
+                "category":"Bodyweight",
+                "muscle":"Chest",
+                "title":"Dips",
+                "difficulty":"Difficulty: Intermediate",
+                "gender":"Female",
+                "video_tutorials":[
+                  "https://youtu.be/cdhe_bGTJt4",
+                  "https://youtu.be/ALtnUzUHnRo"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Hold your body with arms locked above the equipment"
+                  },
+                  {
+                    "text":"Lower your body slowly while leaning forward, flare out your elbows"
+                  },
+                  {
+                    "text":"Raise your body above the bars until your arms are locked."
+                  }
+                ]
+              },
+              {
+                "category":"Bodyweight",
+                "muscle":"Chest",
+                "title":"Push Up",
+                "difficulty":"Difficulty: Beginner",
+                "gender":"Female",
+                "video_tutorials":[
+                  "https://youtu.be/11R2Pqi1IEs",
+                  "https://youtu.be/Ej2JgP08Tv0"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Place your hands firmly on the ground, directly under shoulders."
+                  },
+                  {
+                    "text":"Flatten your back so your entire body is straight and slowly lower your body"
+                  },
+                  {
+                    "text":"Draw shoulder blades back and down, keeping elbows tucked close to your body"
+                  },
+                  {
+                    "text":"Exhale as you push back to the starting position."
+                  }
+                ]
+              },
+              {
+                "category":"Barbell",
+                "muscle":"Chest",
+                "title":"Barbell Bench Press",
+                "difficulty":"Difficulty: Intermediate",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://www.youtube.com/watch?v=NLDhyIZodR8%7C",
+                  "https://www.youtube.com/watch?v=52DBC-5SoC0%7C"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Lay flat on the bench with your feet on the ground. With straight arms unrack the bar."
+                  },
+                  {
+                    "text":"Lower the bar to your mid chest"
+                  },
+                  {
+                    "text":"Raise the bar until you've locked your elbows."
+                  }
+                ]
+              },
+              {
+                "category":"Barbell",
+                "muscle":"Glutes",
+                "title":"Squat",
+                "difficulty":"Difficulty: Advanced",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://youtu.be/X9AaFTU5t5c",
+                  "https://youtu.be/3nV2DCNQn8M"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Stand with your feet shoulder-width apart. Maintain the natural arch in your back, squeezing your shoulder blades and raising your chest."
+                  },
+                  {
+                    "text":"Grip the bar across your shoulders and support it on your upper back. Unwrack the bar by straightening your legs, and take a step back."
+                  },
+                  {
+                    "text":"Bend your knees as you lower the weight without altering the form of your back until your hips are below your knees."
+                  },
+                  {
+                    "text":"Raise the bar back to starting position, lift with your legs and exhale at the top."
+                  }
+                ]
+              },
+              {
+                "category":"Barbell",
+                "muscle":"Shoulders",
+                "title":"Barbell Overhead Press",
+                "difficulty":"Difficulty: Advanced",
+                "gender":"Male",
+                "video_tutorials":[
+                  "https://youtu.be/KUFo-REdBtE",
+                  "https://youtu.be/9T6RXC29WDY"
+                ],
+                "text_tutorials":[
+                  {
+                    "text":"Start the barbell across your upper chest below your chin."
+                  },
+                  {
+                    "text":"Raise the barbell upwards and pause at the contracted position above your head."
+                  },
+                  {
+                    "text":"Lower the weights back to starting position."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

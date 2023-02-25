@@ -42,7 +42,7 @@ class LandingFragment : Fragment() {
                 if (datastore.isLogin()) {
                     startActivity(Intent(requireContext(), MainActivity::class.java))
                 } else {
-                    findNavController().navigate(R.id.action_landingFragment_to_phoneNumberFragment)
+                    findNavController().navigate(R.id.action_landingFragment_to_nameFragment)
                 }
             }
         }

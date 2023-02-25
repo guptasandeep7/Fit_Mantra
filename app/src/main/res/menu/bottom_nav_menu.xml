@@ -13,9 +13,15 @@
         android:id="@+id/dietFragment"
         android:icon="@drawable/diet"
         android:title="@string/diet" />
-
     <item
-        android:id="@+id/communityForumFragment"
-        android:icon="@drawable/ic_community_forum"
-        android:title="@string/forum" />
+        android:id="@+id/workoutPlannerFragment"
+        android:icon="@drawable/workout_planner"
+        android:title="@string/workout_planner" />
+
+<!--    <item-->
+<!--        android:id="@+id/communityForumFragment"-->
+<!--        android:icon="@drawable/ic_community_forum"-->
+<!--        android:title="@string/forum" />-->
+
+
 </menu>
