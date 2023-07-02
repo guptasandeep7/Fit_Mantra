@@ -1,6 +1,6 @@
 # The YouTube Video to showcase the app
 
-[![Watch the video](https://i.imgur.com/DMedKWB.jpg)](https://youtu.be/h7gDO-5mnqs)
+[![image](https://github.com/guptasandeep7/Fit_Mantra/assets/76438283/235856d2-1727-4859-8872-cb15731ed77f)](https://youtu.be/h7gDO-5mnqs)
 
 # Fit Mantra 
 ##  [Click to download apk](https://drive.google.com/file/d/17qeSnthchuQEO8JrHIESSdI8ZDNEFg4-/view?usp=sharing)
@@ -10,6 +10,7 @@
 The goal of the project is to improve fitness activities and encourage users to maintain their workout routines. This could be achieved through various means such as providing personalized workout plans, tracking progress, setting achievable goals, and offering rewards or incentives for reaching milestones. The aim is to make fitness more engaging and enjoyable for users, so they are more likely to stick with their routine and achieve their fitness goals.
 
 ## Features
+
 
 ### Human 2D Clickable Diagram for selecting exercises and yoga:
 
