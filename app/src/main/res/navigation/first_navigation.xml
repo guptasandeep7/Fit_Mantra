@@ -97,5 +97,13 @@
         android:id="@+id/levelFragment"
         android:name="com.example.morefit.ui.fragment.details.LevelFragment"
         android:label="fragment_level"
-        tools:layout="@layout/fragment_level" />
+        tools:layout="@layout/fragment_level" >
+        <action
+            android:id="@+id/action_levelFragment_to_fitnessGuidelineFragment"
+            app:destination="@id/fitnessGuidelineFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fitnessGuidelineFragment"
+        android:name="com.example.morefit.ui.fragment.details.FitnessGuidelineFragment"
+        android:label="FitnessGuidelineFragment" />
 </navigation>

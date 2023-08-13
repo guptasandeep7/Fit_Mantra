@@ -12,26 +12,30 @@ import android.speech.SpeechRecognizer
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
-import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.morefit.R
-import com.example.morefit.adapter.ExerciseAdapter
 import com.example.morefit.databinding.ActivityMainBinding
 import com.example.morefit.model.YogaPoses
-import com.example.morefit.ui.fragment.dash.yoga.YogaFragment
+import com.example.morefit.ui.fragment.ChatbotBottomSheet
 import com.example.morefit.ui.fragment.dash.yoga.YogaFragmentDirections
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 import com.google.gson.Gson
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.tensorflow.lite.examples.poseestimation.ml.PoseClassifier
-import java.util.*
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
     lateinit var speechRecognizer: SpeechRecognizer
     lateinit var speechRecognizerIntent: Intent
+
+    private var isFabActive = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setExitSharedElementCallback(MaterialContainerTransformSharedElementCallback())
@@ -58,6 +62,44 @@ class MainActivity : AppCompatActivity() {
 //            }
 //        }
 
+        binding.fab.setOnClickListener {
+            isFabActive = !isFabActive
+            onFabClick(isFabActive)
+        }
+
+        binding.videoChat.setOnClickListener {
+            startActivity(Intent(this, VideoCallActivity::class.java))
+            lifecycleScope.launch {
+                delay(100)
+                isFabActive = false
+                onFabClick(false)
+            }
+        }
+
+        binding.bot.setOnClickListener {
+            isFabActive = false
+            onFabClick(false)
+            val modalBottomSheet = ChatbotBottomSheet()
+            modalBottomSheet.show(supportFragmentManager, ChatbotBottomSheet.TAG)
+        }
+    }
+
+    private fun onFabClick(fabActive: Boolean) {
+        if (fabActive) {
+            binding.viewLayer.isVisible = true
+            binding.bot.show()
+            binding.videoChat.show()
+            binding.videoChatTv.isVisible = true
+            binding.botTv.isVisible = true
+            binding.icTrainer.isVisible = true
+        } else {
+            binding.viewLayer.isVisible = false
+            binding.bot.hide()
+            binding.videoChat.hide()
+            binding.videoChatTv.isVisible = false
+            binding.botTv.isVisible = false
+            binding.icTrainer.isVisible = false
+        }
     }
 
     override fun onResume() {
@@ -130,6 +172,7 @@ class MainActivity : AppCompatActivity() {
                                     }
                             }
                         }
+
                         result.contains("tree") || result.contains("vrksasana") -> {
                             val yoga = data.find {
                                 it.english_name == "Tree"
@@ -143,6 +186,7 @@ class MainActivity : AppCompatActivity() {
                                     }
                             }
                         }
+
                         result.contains("cobra") || result.contains("bhujangasana") -> {
                             val yoga = data.find {
                                 it.english_name == "Cobra"
@@ -156,6 +200,7 @@ class MainActivity : AppCompatActivity() {
                                     }
                             }
                         }
+
                         result.contains("warrior") || result.contains("virabhadrasana") -> {
                             val yoga = data.find {
                                 it.english_name == "Warrior"
@@ -169,10 +214,12 @@ class MainActivity : AppCompatActivity() {
                                     }
                             }
                         }
+
                         result.contains("yoga") -> {
                             navController.navigate(R.id.action_gymFragment_to_yogaFragment)
                         }
                     }
+
                 result.contains("back") -> navController.navigateUp()
                 result.contains("perform") || result.contains("do") -> {
                     when {
@@ -188,6 +235,7 @@ class MainActivity : AppCompatActivity() {
                                 startActivity(intent)
                             }
                         }
+
                         result.contains("tree") || result.contains("vrksasana") -> {
                             val yogaPose = data.find {
                                 it.english_name == "tree"
@@ -200,6 +248,7 @@ class MainActivity : AppCompatActivity() {
                                 startActivity(intent)
                             }
                         }
+
                         result.contains("cobra") || result.contains("bhujangasana") -> {
                             val yogaPose = data.find {
                                 it.english_name == "cobra"
@@ -218,9 +267,13 @@ class MainActivity : AppCompatActivity() {
                 result.contains("start") -> {
                     //start exercise
                 }
-                result.contains("exit") || result.contains("complete") || result.contains("completed") || result.contains("stop") -> {
-                    startActivity(Intent(this,AuthActivity::class.java))
+
+                result.contains("exit") || result.contains("complete") || result.contains("completed") || result.contains(
+                    "stop"
+                ) -> {
+                    startActivity(Intent(this, AuthActivity::class.java))
                 }
+
                 result.contains("pause") -> {
                     //pause exercise
                 }
@@ -229,9 +282,11 @@ class MainActivity : AppCompatActivity() {
                     //start exercise
                     RepCounterActivity().startFunc()
                 }
+
                 result.contains("exit") || result.contains("complete rep") || result.contains("rep completed") -> {
                     RepCounterActivity().complete()
                 }
+
                 result.contains("pause") -> {
                     //pause exercise
                     RepCounterActivity().startFunc()

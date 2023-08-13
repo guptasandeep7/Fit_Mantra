@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?><!--<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:layout_marginHorizontal="16dp"-->
+<!--    android:layout_marginBottom="8dp"-->
+<!--    android:background="@drawable/chat_left_bg"-->
+<!--    app:cardElevation="4dp">-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="32dp"
+    android:layout_marginBottom="12dp"
+    android:background="@drawable/chat_left_bg"
+    android:elevation="4dp"
+    android:paddingBottom="8dp">
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="4dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="6dp"
+        android:text="Hey there! I'm your personal chatbot"
+        android:textColor="@color/black"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/dot_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/dot1"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_dot" />
+
+        <ImageView
+            android:id="@+id/dot2"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/dot1"
+            app:layout_constraintStart_toEndOf="@id/dot1"
+            app:layout_constraintTop_toTopOf="@id/dot1"
+            app:srcCompat="@drawable/ic_dot" />
+
+        <ImageView
+            android:id="@+id/dot3"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/dot1"
+            app:layout_constraintStart_toEndOf="@id/dot2"
+            app:layout_constraintTop_toTopOf="@id/dot1"
+            app:srcCompat="@drawable/ic_dot" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout><!--</com.google.android.material.card.MaterialCardView>-->

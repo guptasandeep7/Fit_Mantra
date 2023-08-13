@@ -63,7 +63,7 @@ class WorkoutPlannerFragment : Fragment(){
 
         val exerciseRecyclerView = view.findViewById<RecyclerView>(R.id.exercise_recyclerView)
 
-        text = requireContext().assets.open("workout_planner.json").bufferedReader().use { it.readText() }
+        text = requireContext().assets.open("pregnant_workout_planner.json").bufferedReader().use { it.readText() }
         val allData = Gson().fromJson(text, PlannerData::class.java)
 
         lifecycleScope.launch {

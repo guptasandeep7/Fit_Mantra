@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blackish_grey">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toTopOf="@id/cardView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:id="@+id/remote_video_view_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/blackish_grey" />
+
+        <View
+            android:id="@+id/top_gradient"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/gradient_black"
+            android:rotation="180" />
+
+        <ImageView
+            android:id="@+id/ic_account"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_account" />
+
+        <TextView
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="46dp"
+            android:background="@drawable/timer_background"
+            android:fontFamily="@font/montserrat_semibold"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="14dp"
+            android:text="30:00 Left"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="46dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="6dp"
+            android:background="@color/blackish_grey"
+            android:fontFamily="@font/montserrat_semibold"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="6dp"
+            android:text="Fitness Expert"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+        <FrameLayout
+            android:id="@+id/local_video_view_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/light_blackish_grey" />
+
+        <View
+            android:id="@+id/bottom_gradient"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/gradient_black"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/LeaveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:backgroundTint="@color/custom_red"
+        app:fabCustomSize="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/camera_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:maxImageSize="20dp"
+        app:srcCompat="@drawable/ic_call_end"
+        app:tint="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/camera_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        app:backgroundTint="@color/light_blackish_grey"
+        app:fabCustomSize="48dp"
+        app:layout_constraintBottom_toBottomOf="@id/LeaveButton"
+        app:layout_constraintEnd_toStartOf="@+id/mute_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/LeaveButton"
+        app:maxImageSize="20dp"
+        app:srcCompat="@drawable/ic_camera_off"
+        app:tint="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/mute_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/light_blackish_grey"
+        app:fabCustomSize="48dp"
+        app:layout_constraintBottom_toBottomOf="@id/LeaveButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/camera_btn"
+        app:maxImageSize="20dp"
+        app:srcCompat="@drawable/mute"
+        app:tint="@color/white" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,67 @@
+{
+  "poses": [
+    {
+      "english_name": "Easy Sitting Pose",
+      "sanskrit_name": "Sukhasana",
+      "image_url": "https://www.ekhartyoga.com/media/images/articles/content/Tree-pose-Vrksasana-Ekhart-Yoga.jpg",
+      "yoga_description": "Sukhasana, or the Easy Sitting Pose, is a foundational yoga posture that provides a comfortable and grounding seated position. This pose is often used in yoga and meditation practices as it encourages a calm and centered state of being.",
+      "yoga_instruction": [
+        "Start by sitting on the floor or a cushion.",
+        "Cross your legs comfortably, placing one ankle in front of the other.",
+        "Rest your hands on your knees or in your lap with palms facing up or down.",
+        "Keep your spine straight and elongated, but without strain.",
+        "Relax your shoulders away from your ears.",
+        "Close your eyes and take slow, deep breaths, focusing on your breath and finding a sense of ease and relaxation in the pose."
+      ],
+      "file_name": "classifier.tflite",
+      "labels": [
+        "spine",
+        "chin",
+        "gaze",
+        "breath",
+        "alignment"
+      ],
+      "correct_label": "easy sitting pose"
+    },
+    {
+      "english_name": "Tree",
+      "sanskrit_name": "Vrksasana",
+      "image_url": "https://www.ekhartyoga.com/media/images/articles/content/Tree-pose-Vrksasana-Ekhart-Yoga.jpg",
+      "yoga_description": "This standing posture can help improve your balance, as well as your postural and body awareness. In addition to its physical benefits, this pose can assist in calming and relaxing the mindâ€”relieving anxious thoughts and feelings.",
+      "yoga_instruction": [
+        "Stand in Tadasana. Spread your toes, press your feet into the mat and firm your leg muscles. Raise your front hip points toward your lower ribs to gently lift in your lower belly.",
+        "Inhale deeply, lifting your chest, and exhale as you draw your shoulder blades down your back. Look straight ahead at a steady gazing spot.",
+        "Place your hands on your hips and raise your right foot high onto your left thigh or shin. Avoid making contact with the knee.",
+        "Press your right foot and left leg into each other.",
+        "Check that your pelvis is level and squared to the front.",
+        "When you feel steady, place your hands into Anjali Mudra at the heart or stretch your arms overhead like branches reaching into the sun.",
+        "Hold for several breaths, then step back into Mountain Pose and repeat on the other side."
+      ],
+      "file_name": "classifier.tflite",
+      "labels": [
+        "chair",
+        "cobra",
+        "dog",
+        "tree",
+        "warrior"
+      ],
+      "correct_label": "tree"
+    },
+    {
+      "english_name": "Child's",
+      "sanskrit_name": "Balasana",
+      "image_url": "https://www.ekhartyoga.com/media/images/articles/content/Childs-pose-Balasana-Ekhart-Yoga.jpg",
+      "yoga_description": "Child's pose gently stretches your spine, thighs, hips, and ankles. It can increase blood circulation to your head.",
+      "yoga_instruction": [
+        "Sit on your heels, knees spread mat distance apart and bring your head towards the floor",
+        "Your arms can be either stretched out to the front, by your side or hands underneath your forehead",
+        "Breathe into your lower back",
+        "Stay for anywhere between 30 seconds and several minutes in this resting pose",
+        "To come out, exhale and roll up vertebra by vertebra, or come back to sitting with a straight spine."
+      ],
+      "file_name": "",
+      "labels": [],
+      "correct_label": ""
+    }
+  ]
+}

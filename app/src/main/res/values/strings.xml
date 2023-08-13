@@ -87,4 +87,13 @@ The app also includes BMI Calculator, Macro Calculator and Calorie Intake Calcul
         <item>Keypoint</item>
     </string-array>
 
+    <string-array name="guidelinesList">
+        <item>Leg Injury</item>
+        <item>Hand Injury</item>
+        <item>Shoulder Injury</item>
+        <item>Neck Injury</item>
+        <item>Pregnant Women</item>
+    </string-array>
+
+
 </resources>

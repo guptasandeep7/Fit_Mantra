@@ -114,4 +114,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     androidTestImplementation "androidx.test.ext:junit:$rootProject.androidxJunitVersion"
+
+    implementation ("io.agora.rtc:full-sdk:4.0.1")
 }

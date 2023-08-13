@@ -7,7 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="orange">#F58426</color>
+    <color name="orange">#F09400</color>
     <color name="orange_tint">#40F6CDAE</color>
     <color name="purple_tint">#30BB86FC</color>
     <color name="light_blue_tint">#30ADD8E6</color>
@@ -17,5 +17,9 @@
     <color name="colorTransparent">#00000000</color>
     <color name="green">#6CBB3C</color>
     <color name="lightOrange">#ff9e22</color>
-
+    <color name="primary">@color/orange</color>
+    <color name="blackish_grey">#242526</color>
+    <color name="light_blackish_grey">#484A4D</color>
+    <color name="custom_red">#e13031</color>
+    <color name="platinum_gray">#E5E4E2</color>
 </resources>

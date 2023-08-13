@@ -1,0 +1,287 @@
+[
+  {
+    "maitain":[
+      {
+        "beginner":[
+          {
+            "category":"Bodyweight",
+            "muscle":"Glutes",
+            "title":"Squats",
+            "difficulty":"Difficulty: Beginner",
+            "gender":"Male",
+            "video_tutorials":[
+              "https://youtu.be/sHB6Vjxrgfk",
+              "https://youtu.be/ywaurZVNJOw"
+            ],
+            "text_tutorials":[
+              {
+                "text":"Stand with your feet shoulder width apart."
+              },
+              {
+                "text":"flex your knees and hips and sit back into the squat while lowering your body"
+              },
+              {
+                "text":"Continue down to full depth"
+              },
+              {
+                "text":"Return to starting position."
+              }
+            ]
+          },
+          {
+            "category":"Bodyweight",
+            "muscle":"Chest",
+            "title":"Wall push-ups",
+            "difficulty":"Difficulty: Beginner",
+            "gender":"Female",
+            "video_tutorials":[
+              "https://youtu.be/DnyeEAJO8tk",
+              "https://youtu.be/qdiT3P-cjag"
+            ],
+            "text_tutorials":[
+              {
+                "text":"Stand facing bench or sturdy elevated platform."
+              },
+              {
+                "text":"Place hands on edge of bench or platform, slightly wider than shoulder width."
+              },
+              {
+                "text":"Slowly lower your body until your chest almost touches the bench."
+              },
+              {
+                "text":"Push body up until arms are extended."
+              }
+            ]
+          },
+          {
+            "category":"Bodyweight",
+            "muscle":"Abdominals",
+            "title":"Forearm Plank",
+            "difficulty":"Difficulty: Beginner",
+            "gender":"Male",
+            "video_tutorials":[
+              "https://youtu.be/DkN15y1slTA",
+              "https://youtu.be/DkN15y1slTA"
+            ],
+            "text_tutorials":[
+              {
+                "text":"Place forearms on the ground with your elbows bent at a 90° angle aligned beneath your shoulders, with your arms parallel at shoulder-width."
+              },
+              {
+                "text":"Your feet should be together, with only your toes touching the floor."
+              },
+              {
+                "text":"Lift your belly off the floor and form a straight line from your heels to the crown of your head and hold."
+              }
+            ]
+          },
+          {
+            "category":"Dumbbells",
+            "muscle":"Biceps",
+            "title":"Dumbbell Curl",
+            "difficulty":"Difficulty: Beginner",
+            "gender":"Male",
+            "video_tutorials":[
+              "https://youtu.be/jWX_vZXwtZw%7C",
+              "https://www.youtube.com/watch?v=myW3r9AYWwI%7C"
+            ],
+            "text_tutorials":[
+              {
+                "text":"Stand up straight with a dumbbell in each hand at arm's length."
+              },
+              {
+                "text":"Raise one dumbbell and twist your forearm until it is vertical and your palm faces the shoulder."
+              },
+              {
+                "text":"Lower to original position and repeat with opposite arm"
+              }
+            ]
+          },
+          {
+            "category":"Bodyweight",
+            "muscle":"Glutes",
+            "title":"Glute Bridge",
+            "difficulty":"Difficulty: Beginner",
+            "gender":"Male",
+            "video_tutorials":[
+              "https://youtu.be/QpcZ35uB_08",
+              "https://youtu.be/sCVwn67rHZU"
+            ],
+            "text_tutorials":[
+              {
+                "text":"Lie down with your knees bent and your feet flat on the floor."
+              },
+              {
+                "text":"Push your hips up so that your butt is elevated and your back straight."
+              },
+              {
+                "text":"Tense your glutes and raise your hips towards the ceiling."
+              },
+              {
+                "text":"Once you are at the highest point you can manage, hold the position for a few seconds, and then slowly return to the starting position"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "lose": [
+      {
+        "slow": [
+          {
+            "beginner": [
+              {
+                "category": "Bodyweight",
+                "muscle": "Glutes",
+                "title": "Squats",
+                "difficulty": "Difficulty: Beginner",
+                "gender": "Female",
+                "text_tutorials": [
+                  {
+                    "text": "Stand with your feet shoulder width apart."
+                  },
+                  {
+                    "text": "Gently flex your knees and hips while sitting back into the squat"
+                  },
+                  {
+                    "text": "Continue descending until you reach a comfortable depth"
+                  },
+                  {
+                    "text": "Inhale as you lower into the squat and exhale as you push back up"
+                  },
+                  {
+                    "text": "Return to starting position"
+                  }
+                ],
+                "video_tutorials": [
+                  "https://youtu.be/9ZxAUjLJLT4"
+                ]
+              },
+              {
+                "category": "Bodyweight",
+                "muscle": "Glutes",
+                "title": "Squats",
+                "difficulty": "Difficulty: Beginner",
+                "gender": "Male",
+                "video_tutorials": [
+                  "https://youtu.be/sHB6Vjxrgfk",
+                  "https://youtu.be/ywaurZVNJOw"
+                ],
+                "text_tutorials": [
+                  {
+                    "text": "Stand with your feet shoulder width apart."
+                  },
+                  {
+                    "text": "flex your knees and hips and sit back into the squat while lowering your body"
+                  },
+                  {
+                    "text": "Continue down to full depth"
+                  },
+                  {
+                    "text": "Return to starting position."
+                  }
+                ]
+              },
+              {
+                "category": "Bodyweight",
+                "muscle": "Chest",
+                "title": "Incline push-up",
+                "difficulty": "Difficulty: Beginner",
+                "gender": "Female",
+                "video_tutorials": [
+                  "https://youtu.be/DnyeEAJO8tk",
+                  "https://youtu.be/qdiT3P-cjag"
+                ],
+                "text_tutorials": [
+                  {
+                    "text": "Stand facing bench or sturdy elevated platform."
+                  },
+                  {
+                    "text": "Place hands on edge of bench or platform, slightly wider than shoulder width."
+                  },
+                  {
+                    "text": "Slowly lower your body until your chest almost touches the bench."
+                  },
+                  {
+                    "text": "Push body up until arms are extended."
+                  }
+                ]
+              },
+              {
+                "category": "Bodyweight",
+                "muscle": "Abdominals",
+                "title": "Forearm Plank",
+                "difficulty": "Difficulty: Beginner",
+                "gender": "Male",
+                "video_tutorials": [
+                  "https://youtu.be/DkN15y1slTA",
+                  "https://youtu.be/DkN15y1slTA"
+                ],
+                "text_tutorials": [
+                  {
+                    "text": "Place forearms on the ground with your elbows bent at a 90° angle aligned beneath your shoulders, with your arms parallel at shoulder-width."
+                  },
+                  {
+                    "text": "Your feet should be together, with only your toes touching the floor."
+                  },
+                  {
+                    "text": "Lift your belly off the floor and form a straight line from your heels to the crown of your head and hold."
+                  }
+                ]
+              },
+              {
+                "category": "Dumbbells",
+                "muscle": "Biceps",
+                "title": "Dumbbell Curl",
+                "difficulty": "Difficulty: Beginner",
+                "gender": "Male",
+                "video_tutorials": [
+                  "https://www.youtube.com/watch?v=jWX_vZXwtZw%7C",
+                  "https://www.youtube.com/watch?v=myW3r9AYWwI%7C"
+                ],
+                "text_tutorials": [
+                  {
+                    "text": "Stand up straight with a dumbbell in each hand at arm's length."
+                  },
+                  {
+                    "text": "Raise one dumbbell and twist your forearm until it is vertical and your palm faces the shoulder."
+                  },
+                  {
+                    "text": "Lower to original position and repeat with opposite arm"
+                  }
+                ]
+              },
+              {
+                "category": "Bodyweight",
+                "muscle": "Glutes",
+                "title": "Glute Bridge",
+                "difficulty": "Difficulty: Beginner",
+                "gender": "Male",
+                "video_tutorials": [
+                  "https://youtu.be/QpcZ35uB_08",
+                  "https://youtu.be/sCVwn67rHZU"
+                ],
+                "text_tutorials": [
+                  {
+                    "text": "Lie down with your knees bent and your feet flat on the floor."
+                  },
+                  {
+                    "text": "Push your hips up so that your butt is elevated and your back straight."
+                  },
+                  {
+                    "text": "Tense your glutes and raise your hips towards the ceiling."
+                  },
+                  {
+                    "text": "Once you are at the highest point you can manage, hold the position for a few seconds, and then slowly return to the starting position"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

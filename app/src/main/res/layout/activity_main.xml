@@ -30,5 +30,103 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu" />
 
+    <View
+        android:id="@+id/view_layer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.25"
+        android:background="@color/black"
+        android:translationZ="6dp"
+        android:visibility="invisible" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:translationZ="8dp"
+        app:fabCustomSize="64dp"
+        app:srcCompat="@drawable/ic_chat"
+        app:tint="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/bot_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:background="@color/blackish_grey"
+        android:fontFamily="@font/montserrat_semibold"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="6dp"
+        android:text="AI Chatbot"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:translationZ="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/bot"
+        app:layout_constraintEnd_toStartOf="@+id/bot"
+        app:layout_constraintTop_toTopOf="@id/bot" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/bot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:translationZ="24dp"
+        android:visibility="invisible"
+        app:fabCustomSize="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/fab"
+        app:layout_constraintEnd_toEndOf="@+id/fab"
+        app:layout_constraintStart_toStartOf="@+id/fab"
+        app:srcCompat="@drawable/ic_chatbot"
+        app:tint="@color/white" />
+
+    <TextView
+        android:id="@+id/video_chat_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:background="@color/blackish_grey"
+        android:fontFamily="@font/montserrat_semibold"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="6dp"
+        android:text="Video Chat"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:translationZ="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/video_chat"
+        app:layout_constraintEnd_toStartOf="@+id/video_chat"
+        app:layout_constraintTop_toTopOf="@id/video_chat" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/video_chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginBottom="16dp"
+        android:visibility="invisible"
+        app:fabCustomSize="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/bot"
+        app:layout_constraintEnd_toEndOf="@+id/bot"
+        app:layout_constraintStart_toStartOf="@+id/bot"
+        app:tint="@color/white" />
+
+    <ImageView
+        android:id="@+id/ic_trainer"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:translationZ="50dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/video_chat"
+        app:layout_constraintEnd_toEndOf="@id/video_chat"
+        app:layout_constraintStart_toStartOf="@id/video_chat"
+        app:layout_constraintTop_toTopOf="@id/video_chat"
+        app:srcCompat="@drawable/ic_trainer"
+        app:tint="@color/white" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

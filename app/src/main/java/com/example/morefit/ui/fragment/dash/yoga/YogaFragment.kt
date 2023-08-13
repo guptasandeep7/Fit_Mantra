@@ -28,7 +28,7 @@ class YogaFragment : Fragment(R.layout.fragment_yoga), YogaPoseInterface {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentYogaBinding.bind(view).apply {
-            val file = requireContext().assets.open("yoga_data.json").bufferedReader()
+            val file = requireContext().assets.open("pregnant_yoga_data.json").bufferedReader()
                 .use { it.readText() }
             val data = Gson().fromJson(file, YogaPoses::class.java)
             yogaRecyclerView.adapter = YogaPoseRecyclerAdapter(this@YogaFragment, data.poses)

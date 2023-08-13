@@ -38,8 +38,6 @@ class LevelFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_level, container, false)
 
-
-
         val beginner = view.findViewById<MaterialButton>(R.id.first)
         val inter = view.findViewById<MaterialButton>(R.id.second)
         val advance = view.findViewById<MaterialButton>(R.id.third)
@@ -47,25 +45,25 @@ class LevelFragment : Fragment() {
 
         beginner.setOnClickListener {
             lifecycleScope.launch {
-                datastore.saveUserDetails(LEVEL, "beginner");
+                datastore.saveUserDetails(LEVEL, "beginner")
                 datastore.changeLoginState(true)
-                startActivity(Intent(requireContext(), MainActivity::class.java))
+                findNavController().navigate(R.id.action_levelFragment_to_fitnessGuidelineFragment)
             }
         }
 
         inter.setOnClickListener {
             lifecycleScope.launch {
-                datastore.saveUserDetails(LEVEL, "intermediate");
+                datastore.saveUserDetails(LEVEL, "intermediate")
                 datastore.changeLoginState(true)
-                startActivity(Intent(requireContext(), MainActivity::class.java))
+                findNavController().navigate(R.id.action_levelFragment_to_fitnessGuidelineFragment)
             }
         }
 
         advance.setOnClickListener {
             lifecycleScope.launch {
-                datastore.saveUserDetails(LEVEL, "advanced");
+                datastore.saveUserDetails(LEVEL, "advanced")
                 datastore.changeLoginState(true)
-                startActivity(Intent(requireContext(), MainActivity::class.java))
+                findNavController().navigate(R.id.action_levelFragment_to_fitnessGuidelineFragment)
             }
         }
 
@@ -73,8 +71,6 @@ class LevelFragment : Fragment() {
         backButton.setOnClickListener {
             findNavController().navigateUp()
         }
-
-
 
         return view
     }
